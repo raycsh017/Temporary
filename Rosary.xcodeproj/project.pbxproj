@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
+		D12DCBBE1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift */; };
+		D155C8D41E1C463C00236BF0 /* RosaryMystery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */; };
+		D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryData.json */; };
+		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
+		D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */; };
+		D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */; };
+		D1CFD6171E15BFFE00E5FE23 /* Rosary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */; };
+		D1CFD6191E15BFFE00E5FE23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */; };
+		D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */; };
+		D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */; };
+		D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */; };
+		D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
+		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D12DCBBD1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMystery.swift; sourceTree = "<group>"; };
+		D155C8D71E1D7CF400236BF0 /* rosaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryData.json; sourceTree = "<group>"; };
+		D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D1CFD6131E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1CFD6161E15BFFE00E5FE23 /* Rosary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rosary.xcdatamodel; sourceTree = "<group>"; };
+		D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1CFD61B1E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D1CFD61D1E15BFFE00E5FE23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerSectionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1CFD6081E15BFFE00E5FE23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3759CB2CCD767AD8A97C5F6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0800121747F9A1461B901D4 /* Pods_Rosary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7994B907ED07F2E5D2766014 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */,
+				D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D1CFD6021E15BFFE00E5FE23 = {
+			isa = PBXGroup;
+			children = (
+				D1CFD60D1E15BFFE00E5FE23 /* Rosary */,
+				D1CFD60C1E15BFFE00E5FE23 /* Products */,
+				7994B907ED07F2E5D2766014 /* Pods */,
+				3759CB2CCD767AD8A97C5F6F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D1CFD60C1E15BFFE00E5FE23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1CFD60D1E15BFFE00E5FE23 /* Rosary */ = {
+			isa = PBXGroup;
+			children = (
+				D155C8D71E1D7CF400236BF0 /* rosaryData.json */,
+				D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */,
+				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
+				D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */,
+				D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */,
+				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
+				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
+				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
+				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
+				D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */,
+				D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */,
+				D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */,
+				D12DCBBD1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift */,
+			);
+			path = Rosary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1CFD60A1E15BFFE00E5FE23 /* Rosary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "Rosary" */;
+			buildPhases = (
+				67D11C7A12664ED2E3C4ACD8 /* [CP] Check Pods Manifest.lock */,
+				D1CFD6071E15BFFE00E5FE23 /* Sources */,
+				D1CFD6081E15BFFE00E5FE23 /* Frameworks */,
+				D1CFD6091E15BFFE00E5FE23 /* Resources */,
+				3D02B13B357C4C4CA1339950 /* [CP] Embed Pods Frameworks */,
+				09A2222765017188E58C5FF5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rosary;
+			productName = Rosary;
+			productReference = D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1CFD6031E15BFFE00E5FE23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = sang;
+				TargetAttributes = {
+					D1CFD60A1E15BFFE00E5FE23 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 4W227SQZ26;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D1CFD6061E15BFFE00E5FE23 /* Build configuration list for PBXProject "Rosary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1CFD6021E15BFFE00E5FE23;
+			productRefGroup = D1CFD60C1E15BFFE00E5FE23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1CFD60A1E15BFFE00E5FE23 /* Rosary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1CFD6091E15BFFE00E5FE23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */,
+				D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */,
+				D1CFD6191E15BFFE00E5FE23 /* Assets.xcassets in Resources */,
+				D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09A2222765017188E58C5FF5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rosary/Pods-Rosary-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D02B13B357C4C4CA1339950 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rosary/Pods-Rosary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67D11C7A12664ED2E3C4ACD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1CFD6071E15BFFE00E5FE23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D155C8D41E1C463C00236BF0 /* RosaryMystery.swift in Sources */,
+				D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */,
+				D12DCBBE1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift in Sources */,
+				D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */,
+				D1CFD6171E15BFFE00E5FE23 /* Rosary.xcdatamodeld in Sources */,
+				D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */,
+				D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */,
+				D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1CFD6131E15BFFE00E5FE23 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1CFD61B1E15BFFE00E5FE23 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1CFD61E1E15BFFE00E5FE23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1CFD61F1E15BFFE00E5FE23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1CFD6211E15BFFE00E5FE23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4W227SQZ26;
+				INFOPLIST_FILE = Rosary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sang.Rosary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D1CFD6221E15BFFE00E5FE23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4W227SQZ26;
+				INFOPLIST_FILE = Rosary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sang.Rosary;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1CFD6061E15BFFE00E5FE23 /* Build configuration list for PBXProject "Rosary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1CFD61E1E15BFFE00E5FE23 /* Debug */,
+				D1CFD61F1E15BFFE00E5FE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "Rosary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1CFD6211E15BFFE00E5FE23 /* Debug */,
+				D1CFD6221E15BFFE00E5FE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D1CFD6161E15BFFE00E5FE23 /* Rosary.xcdatamodel */,
+			);
+			currentVersion = D1CFD6161E15BFFE00E5FE23 /* Rosary.xcdatamodel */;
+			path = Rosary.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D1CFD6031E15BFFE00E5FE23 /* Project object */;
+}
