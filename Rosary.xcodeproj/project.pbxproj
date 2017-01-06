@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
 		D12DCBBE1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift */; };
-		D155C8D41E1C463C00236BF0 /* RosaryMystery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */; };
+		D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryData.json */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
 		D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */; };
@@ -26,7 +26,7 @@
 		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
 		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12DCBBD1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingPrayerTableViewCell.swift; sourceTree = "<group>"; };
-		D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMystery.swift; sourceTree = "<group>"; };
+		D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayers.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryData.json; sourceTree = "<group>"; };
 		D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				D155C8D71E1D7CF400236BF0 /* rosaryData.json */,
 				D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */,
 				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
-				D155C8D31E1C463C00236BF0 /* RosaryMystery.swift */,
+				D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */,
 				D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */,
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D155C8D41E1C463C00236BF0 /* RosaryMystery.swift in Sources */,
+				D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */,
 				D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */,
 				D12DCBBE1E1EE71500909CB0 /* StartingPrayerTableViewCell.swift in Sources */,
 				D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */,

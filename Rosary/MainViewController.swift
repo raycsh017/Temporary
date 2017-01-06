@@ -71,7 +71,9 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	var rosaryMysteries: [RosaryMystery] = []
+	var rosaryStarting: RosaryStartingPrayer?
+	var rosaryMain: RosaryMainPrayer?
+	var rosaryEnding: RosaryEndingPrayer?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -91,16 +93,35 @@ class MainViewController: UIViewController {
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
-		print(json["startingPrayer"])
-//		// Parse JSON and initialize var:rosaryMysteries
-//		for (_, mystery) in json{
-//			var tmpMystery = RosaryMystery()
-//			for(_, mysterySection) in mystery{
-//				let tmpMysterySection = RosaryMysterySection(title: mysterySection["title"].string!, subText: mysterySection["subText"].string!, mainText: mysterySection["mainText"].string!, endingText: mysterySection["endingText"].string!)
-//				tmpMystery.sections.append(tmpMysterySection)
-//			}
-//			self.rosaryMysteries.append(tmpMystery)
-//		}
+		
+		// Parse JSON and initialize var:rosaryMysteries
+		// Starting part of Rosary prayer
+		let startingPrayerSection = json["startingPrayer"]
+		if let petition = startingPrayerSection["petition"].string, let grace = startingPrayerSection["grace"].string{
+			self.rosaryStarting = RosaryStartingPrayer(petition: petition, grace: grace)
+		}
+//		print(self.rosaryStarting)
+		
+		// Main part of Rosary prayer
+		let mainPrayerSection = json["mainPrayer"]
+		self.rosaryMain = RosaryMainPrayer(mysteries: [:])
+		for (mysteryKey, mystery) in mainPrayerSection{
+			self.rosaryMain?.mysteries[mysteryKey] = []
+			for(_, mysterySection) in mystery{
+				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
+					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
+					self.rosaryMain?.mysteries[mysteryKey]?.append(rosaryMysterySection)
+				}
+			}
+		}
+//		print(self.rosaryMain?.mysteries)
+		
+		// Ending part of Rosary prayer
+		let endingPrayerSection = json["endingPrayer"]
+		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].string, let praise2 = endingPrayerSection["praise2"].string{
+			self.rosaryEnding = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1, praise2: praise2)
+		}
+//		print(self.rosaryEnding)
 	}
 	func touchedViews(sender: UIView){
 		
