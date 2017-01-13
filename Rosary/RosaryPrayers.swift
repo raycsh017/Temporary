@@ -24,7 +24,7 @@ struct RosaryEndingPrayer{
 	let spirit: String
 	let petition: String
 	let grace: String
-	let praise1: String
+	let praise1: [String]
 	let praise2: String
 }
 struct RosaryMainPrayer{

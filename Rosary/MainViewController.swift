@@ -133,8 +133,9 @@ class MainViewController: UIViewController {
 		
 		// Ending part of Rosary prayer
 		let endingPrayerSection = json["endingPrayer"]
-		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].string, let praise2 = endingPrayerSection["praise2"].string{
-			self.rosaryEnding = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1, praise2: praise2)
+		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].array, let praise2 = endingPrayerSection["praise2"].string{
+			let praise1Processed = praise1.map({$0.stringValue})
+			self.rosaryEnding = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
 		}
 	}
 	
@@ -146,7 +147,7 @@ class MainViewController: UIViewController {
 	}
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		// Transfer the Rosary data over to the PrayersViewController
-		let destinationVC = segue.destination as? PrayersViewController
+		let destinationVC = segue.destination as? RosaryPrayerViewController
 		
 		destinationVC?.startingPrayer = self.rosaryStarting
 		destinationVC?.endingPrayer = self.rosaryEnding

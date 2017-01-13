@@ -1,5 +1,5 @@
 //
-//  PrayersViewController.swift
+//  RosaryPrayerViewController.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 1/11/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	@IBOutlet weak var prayersTableView: UITableView!
 	
@@ -78,7 +78,7 @@ class PrayersViewController: UIViewController, UITableViewDataSource, UITableVie
 			return cell!
 		case 2:
 			let cell = tableView.dequeueReusableCell(withIdentifier: self.endingPrayerCellIdentifier, for: indexPath) as? EndingPrayerTableViewCell
-			cell?.initialize(spiritPrayer: self.endingPrayer.spirit, petitionPrayer: self.endingPrayer.petition, gracePrayer: self.endingPrayer.grace, praisalPrayer: self.endingPrayer.praise1)
+			cell?.initialize(spiritPrayer: self.endingPrayer.spirit, petitionPrayer: self.endingPrayer.petition, gracePrayer: self.endingPrayer.grace, praise1Prayer: self.endingPrayer.praise1, praise2Prayer: self.endingPrayer.praise2)
 			return cell!
 		default:
 			return UITableViewCell()
