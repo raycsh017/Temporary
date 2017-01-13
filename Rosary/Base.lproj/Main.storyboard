@@ -188,16 +188,17 @@
                         <outlet property="otherPrayersView" destination="PEG-31-Z7D" id="hat-yq-8vO"/>
                         <outlet property="sorrowfulImageView" destination="lcB-Bm-sOp" id="Pqa-5x-1AZ"/>
                         <outlet property="sorrowfulView" destination="DMt-bz-ZL1" id="BBt-LF-hXD"/>
+                        <segue destination="trb-zX-mtA" kind="show" identifier="displayPrayersSegue" id="ZvK-4o-NDm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Prayers View Controller-->
         <scene sceneID="NuH-fw-2S6">
             <objects>
-                <viewController id="trb-zX-mtA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrayersViewController" id="trb-zX-mtA" customClass="PrayersViewController" customModule="Rosary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4ed-Ya-Hmv"/>
                         <viewControllerLayoutGuide type="bottom" id="8bQ-yy-55d"/>
@@ -207,14 +208,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-mr-OJG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="startingPrayerCell" rowHeight="193" id="lN0-7A-Fsz">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="193"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="startingPrayerCell" rowHeight="200" id="lN0-7A-Fsz" customClass="StartingPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN0-7A-Fsz" id="jf0-sz-Ded">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="192.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성부와 성자와 성령의 이름으로, 아멘." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-Vg-rWC">
@@ -268,6 +269,7 @@
                                                 <constraint firstItem="7cQ-6R-Bw4" firstAttribute="top" secondItem="WoX-Xs-hlu" secondAttribute="bottom" constant="8" id="GKd-X3-rDN"/>
                                                 <constraint firstItem="SIn-Ex-wtl" firstAttribute="centerX" secondItem="jf0-sz-Ded" secondAttribute="centerX" id="HBq-Wl-9mg"/>
                                                 <constraint firstItem="WoX-Xs-hlu" firstAttribute="leading" secondItem="jf0-sz-Ded" secondAttribute="leadingMargin" constant="16" id="KA0-4n-PvZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7cQ-6R-Bw4" secondAttribute="bottom" constant="8" id="Olx-uc-sud"/>
                                                 <constraint firstItem="3iK-Ug-JzF" firstAttribute="top" secondItem="SIn-Ex-wtl" secondAttribute="bottom" constant="16" id="Rpa-Qx-7W8"/>
                                                 <constraint firstItem="WoX-Xs-hlu" firstAttribute="centerX" secondItem="jf0-sz-Ded" secondAttribute="centerX" id="SKj-wh-iNv"/>
                                                 <constraint firstItem="KfW-5I-uii" firstAttribute="centerX" secondItem="jf0-sz-Ded" secondAttribute="centerX" id="Sw6-Kf-KqU"/>
@@ -282,9 +284,13 @@
                                                 <constraint firstItem="SIn-Ex-wtl" firstAttribute="leading" secondItem="jf0-sz-Ded" secondAttribute="leadingMargin" constant="16" id="pGD-Ye-WbT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gracePrayerLabel" destination="WoX-Xs-hlu" id="foF-m3-zbF"/>
+                                            <outlet property="petitionPrayerLabel" destination="SIn-Ex-wtl" id="gxS-J2-PO2"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainPrayerCell" rowHeight="133" id="AGR-Sz-BGV">
-                                        <rect key="frame" x="0.0" y="221" width="375" height="133"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainPrayerCell" rowHeight="133" id="AGR-Sz-BGV" customClass="MainPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="375" height="133"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGR-Sz-BGV" id="bFx-17-mBf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
@@ -324,6 +330,7 @@
                                             <constraints>
                                                 <constraint firstItem="d5m-ki-2l4" firstAttribute="leading" secondItem="bFx-17-mBf" secondAttribute="leadingMargin" constant="16" id="7eS-jB-WOW"/>
                                                 <constraint firstItem="d5m-ki-2l4" firstAttribute="centerX" secondItem="bFx-17-mBf" secondAttribute="centerX" id="GCd-ed-Wtz"/>
+                                                <constraint firstAttribute="bottom" secondItem="ezc-pq-yVj" secondAttribute="bottom" constant="8" id="GLq-kR-6ky"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="d5m-ki-2l4" secondAttribute="trailing" constant="16" id="KdG-3A-yNd"/>
                                                 <constraint firstItem="Bqc-aj-xwB" firstAttribute="centerX" secondItem="bFx-17-mBf" secondAttribute="centerX" id="Kfs-6A-wUH"/>
                                                 <constraint firstItem="Ntd-eB-mQ9" firstAttribute="centerX" secondItem="bFx-17-mBf" secondAttribute="centerX" id="Ppn-hx-Orb"/>
@@ -338,12 +345,18 @@
                                                 <constraint firstItem="ezc-pq-yVj" firstAttribute="leading" secondItem="bFx-17-mBf" secondAttribute="leadingMargin" constant="16" id="pbx-pK-Q0d"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="endingTextLabel" destination="ezc-pq-yVj" id="hj0-tT-hhv"/>
+                                            <outlet property="mainTextLabel" destination="d5m-ki-2l4" id="jUY-Hn-1X5"/>
+                                            <outlet property="subTextLabel" destination="WaP-Xn-NWL" id="bKm-Cn-c61"/>
+                                            <outlet property="titleLabel" destination="Ntd-eB-mQ9" id="EuY-VY-ZKS"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="endingPrayerCell" rowHeight="259" id="MGn-aY-cUa">
-                                        <rect key="frame" x="0.0" y="354" width="375" height="259"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="endingPrayerCell" rowHeight="267" id="MGn-aY-cUa" customClass="EndingPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="361" width="375" height="267"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGn-aY-cUa" id="vhx-Ru-O5z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="258.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신령성체의 기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-6q-Q1h">
@@ -419,6 +432,7 @@
                                                 <constraint firstItem="WYW-o1-g3H" firstAttribute="leading" secondItem="vhx-Ru-O5z" secondAttribute="leadingMargin" constant="16" id="J3t-LX-Xzh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="MOv-MN-xtA" secondAttribute="trailing" constant="16" id="JIq-Yb-Wre"/>
                                                 <constraint firstItem="j1K-Ez-XSW" firstAttribute="centerX" secondItem="vhx-Ru-O5z" secondAttribute="centerX" id="OM1-q0-EkV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="728-MF-DB3" secondAttribute="bottom" constant="8" id="QUO-Fa-zUJ"/>
                                                 <constraint firstItem="efK-WF-195" firstAttribute="centerX" secondItem="vhx-Ru-O5z" secondAttribute="centerX" id="TCc-U5-gfY"/>
                                                 <constraint firstItem="728-MF-DB3" firstAttribute="top" secondItem="z4q-5q-L4t" secondAttribute="bottom" constant="8" id="XDY-pE-Mff"/>
                                                 <constraint firstItem="phf-3j-Nkh" firstAttribute="centerX" secondItem="vhx-Ru-O5z" secondAttribute="centerX" id="YqO-qD-GSZ"/>
@@ -435,18 +449,31 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="wp6-JQ-Ivt" secondAttribute="trailing" constant="16" id="vNe-s1-Cxq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gracePrayerLabel" destination="MOv-MN-xtA" id="kLI-yZ-Vd4"/>
+                                            <outlet property="petitionPrayerLabel" destination="WYW-o1-g3H" id="HPG-KO-Ud4"/>
+                                            <outlet property="praisalPrayerLabel" destination="z4q-5q-L4t" id="TR1-K9-AIF"/>
+                                            <outlet property="spiritPrayerLabel" destination="wp6-JQ-Ivt" id="4xy-ap-ObJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="trb-zX-mtA" id="GP9-49-aZj"/>
+                                    <outlet property="delegate" destination="trb-zX-mtA" id="7m7-qS-I7W"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h3V-mr-OJG" firstAttribute="top" secondItem="4ed-Ya-Hmv" secondAttribute="bottom" id="6M2-c5-mfx"/>
-                            <constraint firstItem="8bQ-yy-55d" firstAttribute="top" secondItem="h3V-mr-OJG" secondAttribute="bottom" id="Khf-yG-Ujd"/>
+                            <constraint firstItem="8bQ-yy-55d" firstAttribute="top" secondItem="h3V-mr-OJG" secondAttribute="bottom" id="JAW-F5-jhj"/>
                             <constraint firstItem="h3V-mr-OJG" firstAttribute="leading" secondItem="Tza-N5-Upe" secondAttribute="leading" id="RrU-ga-TsQ"/>
+                            <constraint firstItem="h3V-mr-OJG" firstAttribute="top" secondItem="4ed-Ya-Hmv" secondAttribute="bottom" id="XyX-NR-Q6K"/>
                             <constraint firstAttribute="trailing" secondItem="h3V-mr-OJG" secondAttribute="trailing" id="ipt-Ry-Nda"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="prayersTableView" destination="h3V-mr-OJG" id="eh2-Zw-rvY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wee-uX-8er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

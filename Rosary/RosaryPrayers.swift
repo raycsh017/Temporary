@@ -1,5 +1,5 @@
 //
-//  RosaryStartingPrayer.swift
+//  RosaryPrayers.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 1/6/17.
@@ -7,6 +7,14 @@
 //
 
 import Foundation
+
+enum Rosary{
+	case joyful
+	case light
+	case sorrowful
+	case glorious
+}
+
 
 struct RosaryStartingPrayer{
 	let petition: String

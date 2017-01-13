@@ -9,16 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-struct MainTitle{
-	let title: String
-	let color: UIColor
-	let icon: UIImage
-}
-
 class MainViewController: UIViewController {
-	
-	
-	
 	@IBOutlet weak var joyfulView: UIView!{
 		didSet{
 			self.joyfulView.tag = 0
@@ -99,6 +90,9 @@ class MainViewController: UIViewController {
 	var rosaryMain: RosaryMainPrayer?
 	var rosaryEnding: RosaryEndingPrayer?
 	
+	// For identifying which view was touched
+	var selectedViewTag: Int = 0
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -110,12 +104,12 @@ class MainViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
+	// Load initial rosary data from a local JSON file (rosaryData.json)
 	func loadInitialRosaryData(){
-		// Get static data from a local JSON file (rosaryData.json)
+		// Get the JSON data from rosaryData.json
 		let path = Bundle.main.path(forResource: "rosaryData", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
-		
 		
 		// Parse JSON and initialize var:rosaryStarting, rosaryMain, rosaryEnding
 		// Starting part of Rosary prayer
@@ -123,7 +117,6 @@ class MainViewController: UIViewController {
 		if let petition = startingPrayerSection["petition"].string, let grace = startingPrayerSection["grace"].string{
 			self.rosaryStarting = RosaryStartingPrayer(petition: petition, grace: grace)
 		}
-//		print(self.rosaryStarting)
 		
 		// Main part of Rosary prayer
 		let mainPrayerSection = json["mainPrayer"]
@@ -137,17 +130,41 @@ class MainViewController: UIViewController {
 				}
 			}
 		}
-//		print(self.rosaryMain?.mysteries)
 		
 		// Ending part of Rosary prayer
 		let endingPrayerSection = json["endingPrayer"]
 		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].string, let praise2 = endingPrayerSection["praise2"].string{
 			self.rosaryEnding = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1, praise2: praise2)
 		}
-//		print(self.rosaryEnding)
-	}
-	func touchedViews(_ sender: UITapGestureRecognizer){
-		print(sender.view?.tag)
 	}
 	
+	func touchedViews(_ sender: UITapGestureRecognizer){
+		if let selectedView = sender.view{
+			self.selectedViewTag = selectedView.tag
+			self.performSegue(withIdentifier: "displayPrayersSegue", sender: self)
+		}
+	}
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		// Transfer the Rosary data over to the PrayersViewController
+		let destinationVC = segue.destination as? PrayersViewController
+		
+		destinationVC?.startingPrayer = self.rosaryStarting
+		destinationVC?.endingPrayer = self.rosaryEnding
+		
+		switch self.selectedViewTag{
+		case 0:
+			destinationVC?.mystery = "환희의 신비"
+			destinationVC?.mysterySections = self.rosaryMain?.mysteries["joyful"]
+		case 1:
+			destinationVC?.mystery = "빛의 신비"
+			destinationVC?.mysterySections = self.rosaryMain?.mysteries["light"]
+		case 2:
+			destinationVC?.mystery = "고통의 신비"
+			destinationVC?.mysterySections = self.rosaryMain?.mysteries["sorrowful"]
+		case 3:
+			destinationVC?.mystery = "영광의 신비"
+			destinationVC?.mysterySections = self.rosaryMain?.mysteries["glorious"]
+		default: break
+		}
+	}
 }
