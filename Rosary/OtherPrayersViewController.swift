@@ -22,7 +22,7 @@ class OtherPrayersViewController: UIViewController, UITableViewDataSource, UITab
 
         // Do any additional setup after loading the view.
 		self.automaticallyAdjustsScrollViewInsets = false
-		print(otherPrayers)
+		self.navigationItem.title = "주요기도문"
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,16 +32,15 @@ class OtherPrayersViewController: UIViewController, UITableViewDataSource, UITab
 
 	// UITableView DataSource/Delegate functions
 	func numberOfSections(in tableView: UITableView) -> Int {
-//		return 1
-		return 0
+		return 1
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return otherPrayers.count
-		return 0
+		return otherPrayers.count
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: self.otherPrayersCellIdentifier, for: indexPath) as? OtherPrayersTableViewCell
-		
+		let currentPrayer = self.otherPrayers[indexPath.row]
+		cell?.initialize(title: currentPrayer.title, attributedText: currentPrayer.text)
 		return cell!
 	}
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

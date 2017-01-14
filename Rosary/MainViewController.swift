@@ -150,6 +150,7 @@ class MainViewController: UIViewController {
 		// Parse JSON data from otherPrayersData.json
 		for (_, prayer) in json{
 			// Append every string in each prayer array into a string
+			let prayerTitle = prayer["title"].stringValue
 			let prayerText = NSMutableAttributedString()
 			let prayerTextLines = prayer["text"].arrayValue
 			for i in 0 ..< prayerTextLines.count{
@@ -166,6 +167,7 @@ class MainViewController: UIViewController {
 				let ordinaryString = NSAttributedString(string: prayerTextLines[i].stringValue)
 				prayerText.append(ordinaryString)
 			}
+			self.otherPrayers.append(Prayer(title: prayerTitle, text: prayerText))
 		}
 	}
 	
@@ -208,7 +210,6 @@ class MainViewController: UIViewController {
 		}
 		else{
 			let destinationVC = segue.destination as? OtherPrayersViewController
-			
 			destinationVC?.otherPrayers = self.otherPrayers
 		}
 	}

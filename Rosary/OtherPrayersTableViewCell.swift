@@ -24,7 +24,8 @@ class OtherPrayersTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-	func initialize(title: String, text: String){
-		
+	func initialize(title: String, attributedText: NSMutableAttributedString){
+		self.prayerTitleLabel.text = title
+		self.prayerTextLabel.attributedText = attributedText
 	}
 }

@@ -84,9 +84,9 @@ class EndingPrayerTableViewCell: UITableViewCell {
 		for i in 0..<(praise1Prayer.count){
 			switch i % 2{
 			case 0:
-				praise1Combined += "\u{25e6} "
+				praise1Combined += "\u{2218} "
 			case 1:
-				praise1Combined += "\u{2022} "
+				praise1Combined += "\u{2219} "
 			default:
 				break
 			}
@@ -94,6 +94,6 @@ class EndingPrayerTableViewCell: UITableViewCell {
 		}
 		self.praise1PrayerLabel.text = praise1Combined
 		
-		self.praise2PrayerLabel.text = "\u{271d}" + praise2Prayer
+		self.praise2PrayerLabel.text = "\u{253c}" + praise2Prayer
 	}
 }
