@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
-		D12DCBBE1E1EE71500909CB0 /* PrayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* PrayersTableViewCell.swift */; };
+		D12DCBBE1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */; };
 		D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryData.json */; };
 		D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */; };
@@ -22,12 +22,15 @@
 		D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */; };
 		D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */; };
 		D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */; };
+		D1FDDF2D1E28A429003B4189 /* otherPrayersData.json in Resources */ = {isa = PBXBuildFile; fileRef = D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */; };
+		D1FDDF2F1E28A469003B4189 /* OtherPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */; };
+		D1FDDF311E29E336003B4189 /* OtherPrayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
 		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D12DCBBD1E1EE71500909CB0 /* PrayersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersTableViewCell.swift; sourceTree = "<group>"; };
+		D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayersTableViewCells.swift; sourceTree = "<group>"; };
 		D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayers.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryData.json; sourceTree = "<group>"; };
 		D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +46,9 @@
 		D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerSectionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayersViewController.swift; sourceTree = "<group>"; };
+		D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = otherPrayersData.json; sourceTree = "<group>"; };
+		D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayers.swift; sourceTree = "<group>"; };
+		D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayersTableViewCell.swift; sourceTree = "<group>"; };
 		D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,13 +102,16 @@
 		D1CFD60D1E15BFFE00E5FE23 /* Rosary */ = {
 			isa = PBXGroup;
 			children = (
+				D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */,
 				D155C8D71E1D7CF400236BF0 /* rosaryData.json */,
 				D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */,
 				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
-				D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */,
 				D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */,
-				D12DCBBD1E1EE71500909CB0 /* PrayersTableViewCell.swift */,
+				D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */,
+				D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */,
 				D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */,
+				D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */,
+				D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */,
 				D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */,
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
@@ -178,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FDDF2D1E28A429003B4189 /* otherPrayersData.json in Resources */,
 				D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */,
 				D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */,
 				D1CFD6191E15BFFE00E5FE23 /* Assets.xcassets in Resources */,
@@ -240,14 +250,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1FDDF2F1E28A469003B4189 /* OtherPrayers.swift in Sources */,
 				D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */,
 				D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */,
 				D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */,
-				D12DCBBE1E1EE71500909CB0 /* PrayersTableViewCell.swift in Sources */,
+				D12DCBBE1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift in Sources */,
 				D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */,
 				D1CFD6171E15BFFE00E5FE23 /* Rosary.xcdatamodeld in Sources */,
 				D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */,
 				D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */,
+				D1FDDF311E29E336003B4189 /* OtherPrayersTableViewCell.swift in Sources */,
 				D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */,
 				D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */,
 			);

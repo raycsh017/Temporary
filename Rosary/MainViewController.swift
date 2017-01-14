@@ -86,9 +86,11 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	var rosaryStarting: RosaryStartingPrayer?
-	var rosaryMain: RosaryMainPrayer?
-	var rosaryEnding: RosaryEndingPrayer?
+	var rosaryStartingPrayer: RosaryStartingPrayer?
+	var rosaryMainPrayer: RosaryMainPrayer?
+	var rosaryEndingPrayer: RosaryEndingPrayer?
+	
+	var otherPrayers: [Prayer] = []
 	
 	// For identifying which view was touched
 	var selectedViewTag: Int = 0
@@ -97,6 +99,7 @@ class MainViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.loadInitialRosaryData()
+		self.loadOtherPrayersData()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -111,22 +114,22 @@ class MainViewController: UIViewController {
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
-		// Parse JSON and initialize var:rosaryStarting, rosaryMain, rosaryEnding
+		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMainPrayer, rosaryEndingPrayer
 		// Starting part of Rosary prayer
 		let startingPrayerSection = json["startingPrayer"]
 		if let petition = startingPrayerSection["petition"].string, let grace = startingPrayerSection["grace"].string{
-			self.rosaryStarting = RosaryStartingPrayer(petition: petition, grace: grace)
+			self.rosaryStartingPrayer = RosaryStartingPrayer(petition: petition, grace: grace)
 		}
 		
 		// Main part of Rosary prayer
 		let mainPrayerSection = json["mainPrayer"]
-		self.rosaryMain = RosaryMainPrayer(mysteries: [:])
+		self.rosaryMainPrayer = RosaryMainPrayer(mysteries: [:])
 		for (mysteryKey, mystery) in mainPrayerSection{
-			self.rosaryMain?.mysteries[mysteryKey] = []
+			self.rosaryMainPrayer?.mysteries[mysteryKey] = []
 			for(_, mysterySection) in mystery{
 				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
 					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
-					self.rosaryMain?.mysteries[mysteryKey]?.append(rosaryMysterySection)
+					self.rosaryMainPrayer?.mysteries[mysteryKey]?.append(rosaryMysterySection)
 				}
 			}
 		}
@@ -135,37 +138,78 @@ class MainViewController: UIViewController {
 		let endingPrayerSection = json["endingPrayer"]
 		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].array, let praise2 = endingPrayerSection["praise2"].string{
 			let praise1Processed = praise1.map({$0.stringValue})
-			self.rosaryEnding = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
+			self.rosaryEndingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
+		}
+	}
+	// Load other prayers data from a local JSON file (otherPrayersData.json)
+	func loadOtherPrayersData(){
+		let path = Bundle.main.path(forResource: "otherPrayersData", ofType: "json")!
+		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
+		let json = JSON(data: data)
+		
+		// Parse JSON data from otherPrayersData.json
+		for (_, prayer) in json{
+			// Append every string in each prayer array into a string
+			let prayerText = NSMutableAttributedString()
+			let prayerTextLines = prayer["text"].arrayValue
+			for i in 0 ..< prayerTextLines.count{
+				// Check a part of the prayer needs to be underlined
+				// Underline it if necessary
+				if let underlineAt = prayer["underlineAt"].int{
+					if i == underlineAt{
+						let originalString = prayerTextLines[underlineAt].stringValue
+						let underlinedString = NSAttributedString(string: originalString, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+						prayerText.append(underlinedString)
+						continue
+					}
+				}
+				let ordinaryString = NSAttributedString(string: prayerTextLines[i].stringValue)
+				prayerText.append(ordinaryString)
+			}
 		}
 	}
 	
 	func touchedViews(_ sender: UITapGestureRecognizer){
 		if let selectedView = sender.view{
 			self.selectedViewTag = selectedView.tag
-			self.performSegue(withIdentifier: "displayPrayersSegue", sender: self)
+			switch self.selectedViewTag{
+			case 0..<4:
+				self.performSegue(withIdentifier: "displayRosaryPrayerSegue", sender: self)
+			case 4:
+				self.performSegue(withIdentifier: "displayOtherPrayersSegue", sender: self)
+			default:
+				break
+			}
 		}
 	}
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		// Transfer the Rosary data over to the PrayersViewController
-		let destinationVC = segue.destination as? RosaryPrayerViewController
-		
-		destinationVC?.startingPrayer = self.rosaryStarting
-		destinationVC?.endingPrayer = self.rosaryEnding
-		
-		switch self.selectedViewTag{
-		case 0:
-			destinationVC?.mystery = "환희의 신비"
-			destinationVC?.mysterySections = self.rosaryMain?.mysteries["joyful"]
-		case 1:
-			destinationVC?.mystery = "빛의 신비"
-			destinationVC?.mysterySections = self.rosaryMain?.mysteries["light"]
-		case 2:
-			destinationVC?.mystery = "고통의 신비"
-			destinationVC?.mysterySections = self.rosaryMain?.mysteries["sorrowful"]
-		case 3:
-			destinationVC?.mystery = "영광의 신비"
-			destinationVC?.mysterySections = self.rosaryMain?.mysteries["glorious"]
-		default: break
+		if segue.identifier == "displayRosaryPrayerSegue"{
+			// Transfer the Rosary data over to the PrayersViewController
+			let destinationVC = segue.destination as? RosaryPrayerViewController
+			
+			destinationVC?.startingPrayer = self.rosaryStartingPrayer
+			destinationVC?.endingPrayer = self.rosaryEndingPrayer
+			
+			switch self.selectedViewTag{
+			case 0:
+				destinationVC?.mystery = "환희의 신비"
+				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["joyful"]
+			case 1:
+				destinationVC?.mystery = "빛의 신비"
+				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["light"]
+			case 2:
+				destinationVC?.mystery = "고통의 신비"
+				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["sorrowful"]
+			case 3:
+				destinationVC?.mystery = "영광의 신비"
+				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["glorious"]
+			default: break
+			}
+		}
+		else{
+			let destinationVC = segue.destination as? OtherPrayersViewController
+			
+			destinationVC?.otherPrayers = self.otherPrayers
 		}
 	}
 }

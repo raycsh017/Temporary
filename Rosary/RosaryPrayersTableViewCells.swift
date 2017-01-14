@@ -1,5 +1,5 @@
 //
-//  PrayersTableViewCell.swift
+//  PrayersTableViewCells.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 1/5/17.

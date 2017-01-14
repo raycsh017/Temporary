@@ -10,7 +10,7 @@ import UIKit
 
 class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-	@IBOutlet weak var prayersTableView: UITableView!
+	@IBOutlet weak var rosaryPrayerTableView: UITableView!
 	
 	let startingPrayerCellIdentifier = "startingPrayerCell"
 	let mainPrayerCellIdentifier = "mainPrayerCell"
