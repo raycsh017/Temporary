@@ -10,16 +10,20 @@ import UIKit
 
 class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-	@IBOutlet weak var rosaryPrayerTableView: UITableView!
+	@IBOutlet weak var rosaryPrayerTableView: UITableView!{
+		didSet{
+			self.rosaryPrayerTableView.allowsSelection = false
+		}
+	}
 	
 	let startingPrayerCellIdentifier = "startingPrayerCell"
 	let mainPrayerCellIdentifier = "mainPrayerCell"
 	let endingPrayerCellIdentifier = "endingPrayerCell"
 	
 	var startingPrayer: RosaryStartingPrayer!
-	var mystery: String!
-	var mysterySections: [RosaryMysterySection]!
 	var endingPrayer: RosaryEndingPrayer!
+	var mystery: RosaryMystery!
+	var selectedColor: UIColor!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,7 @@ class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITab
 		
 		// Remove empty space between the tableview and the navigation bar
 		self.automaticallyAdjustsScrollViewInsets = false
+		self.navigationItem.title = self.mystery.title
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +49,7 @@ class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITab
 		case 0:
 			return 1
 		case 1:
-			return self.mysterySections.count
+			return self.mystery.sections.count
 		case 2:
 			return 1
 		default:
@@ -73,7 +78,7 @@ class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITab
 			return cell!
 		case 1:
 			let cell = tableView.dequeueReusableCell(withIdentifier: self.mainPrayerCellIdentifier, for: indexPath) as? MainPrayerTableViewCell
-			let mysterySection = self.mysterySections[indexPath.row]
+			let mysterySection = self.mystery.sections[indexPath.row]
 			cell?.initialize(title: mysterySection.title, subText: mysterySection.subText, mainText: mysterySection.mainText, endingText: mysterySection.endingText)
 			return cell!
 		case 2:

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Rosary{
 	case joyful
@@ -27,8 +28,10 @@ struct RosaryEndingPrayer{
 	let praise1: [String]
 	let praise2: String
 }
-struct RosaryMainPrayer{
-	var mysteries: [String: [RosaryMysterySection]]
+struct RosaryMystery{
+	let title: String
+//	let color: UIColor
+	var sections: [RosaryMysterySection]
 }
 struct RosaryMysterySection{
 	let title: String

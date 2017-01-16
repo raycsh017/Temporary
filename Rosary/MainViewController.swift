@@ -13,8 +13,8 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var joyfulView: UIView!{
 		didSet{
 			self.joyfulView.tag = 0
+			self.joyfulView.layer.borderColor = self.colorSchemes[0].cgColor
 			self.joyfulView.layer.borderWidth = 2
-			self.joyfulView.layer.borderColor = UIColor.withRGB(red: 252, green: 177, blue: 122).cgColor
 			
 			self.joyfulView.isUserInteractionEnabled = true
 			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
@@ -29,8 +29,8 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var lightView: UIView!{
 		didSet{
 			self.lightView.tag = 1
+			self.lightView.layer.borderColor = self.colorSchemes[1].cgColor
 			self.lightView.layer.borderWidth = 2
-			self.lightView.layer.borderColor = UIColor.withRGB(red: 239, green: 132, blue: 100).cgColor
 			
 			self.lightView.isUserInteractionEnabled = true
 			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
@@ -45,8 +45,8 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var sorrowfulView: UIView!{
 		didSet{
 			self.sorrowfulView.tag = 2
+			self.sorrowfulView.layer.borderColor = self.colorSchemes[2].cgColor
 			self.sorrowfulView.layer.borderWidth = 2
-			self.sorrowfulView.layer.borderColor = UIColor.withRGB(red: 214, green: 73, blue: 90).cgColor
 			
 			self.sorrowfulView.isUserInteractionEnabled = true
 			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
@@ -61,8 +61,8 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var gloriousView: UIView!{
 		didSet{
 			self.gloriousView.tag = 3
+			self.gloriousView.layer.borderColor = self.colorSchemes[3].cgColor
 			self.gloriousView.layer.borderWidth = 2
-			self.gloriousView.layer.borderColor = UIColor.withRGB(red: 72, green: 73, blue: 137).cgColor
 			
 			self.gloriousView.isUserInteractionEnabled = true
 			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
@@ -87,13 +87,21 @@ class MainViewController: UIViewController {
 	}
 	
 	var rosaryStartingPrayer: RosaryStartingPrayer?
-	var rosaryMainPrayer: RosaryMainPrayer?
 	var rosaryEndingPrayer: RosaryEndingPrayer?
+	var rosaryMysteries: [String: RosaryMystery] = [:]
 	
 	var otherPrayers: [Prayer] = []
 	
+	var colorSchemes: [UIColor] = [
+		UIColor.withRGB(red: 252, green: 177, blue: 122),
+		UIColor.withRGB(red: 239, green: 132, blue: 100),
+		UIColor.withRGB(red: 214, green: 73, blue: 90),
+		UIColor.withRGB(red: 72, green: 73, blue: 137)
+	]
+	
 	// For identifying which view was touched
 	var selectedViewTag: Int = 0
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -107,6 +115,11 @@ class MainViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationItem.title = "54일"
+	}
+	
 	// Load initial rosary data from a local JSON file (rosaryData.json)
 	func loadInitialRosaryData(){
 		// Get the JSON data from rosaryData.json
@@ -114,7 +127,7 @@ class MainViewController: UIViewController {
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
-		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMainPrayer, rosaryEndingPrayer
+		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMysteries, rosaryEndingPrayer
 		// Starting part of Rosary prayer
 		let startingPrayerSection = json["startingPrayer"]
 		if let petition = startingPrayerSection["petition"].string, let grace = startingPrayerSection["grace"].string{
@@ -122,14 +135,13 @@ class MainViewController: UIViewController {
 		}
 		
 		// Main part of Rosary prayer
-		let mainPrayerSection = json["mainPrayer"]
-		self.rosaryMainPrayer = RosaryMainPrayer(mysteries: [:])
-		for (mysteryKey, mystery) in mainPrayerSection{
-			self.rosaryMainPrayer?.mysteries[mysteryKey] = []
+		let mysteriesSection = json["mysteries"]
+		for (mysteryKey, mystery) in mysteriesSection{
+			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [])
 			for(_, mysterySection) in mystery{
 				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
 					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
-					self.rosaryMainPrayer?.mysteries[mysteryKey]?.append(rosaryMysterySection)
+					self.rosaryMysteries[mysteryKey]?.sections.append(rosaryMysterySection)
 				}
 			}
 		}
@@ -174,6 +186,7 @@ class MainViewController: UIViewController {
 	func touchedViews(_ sender: UITapGestureRecognizer){
 		if let selectedView = sender.view{
 			self.selectedViewTag = selectedView.tag
+			
 			switch self.selectedViewTag{
 			case 0..<4:
 				self.performSegue(withIdentifier: "displayRosaryPrayerSegue", sender: self)
@@ -191,20 +204,17 @@ class MainViewController: UIViewController {
 			
 			destinationVC?.startingPrayer = self.rosaryStartingPrayer
 			destinationVC?.endingPrayer = self.rosaryEndingPrayer
+			destinationVC?.selectedColor = self.colorSchemes[self.selectedViewTag]
 			
 			switch self.selectedViewTag{
 			case 0:
-				destinationVC?.mystery = "환희의 신비"
-				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["joyful"]
+				destinationVC?.mystery = self.rosaryMysteries["환희의 신비"]
 			case 1:
-				destinationVC?.mystery = "빛의 신비"
-				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["light"]
+				destinationVC?.mystery = self.rosaryMysteries["빛의 신비"]
 			case 2:
-				destinationVC?.mystery = "고통의 신비"
-				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["sorrowful"]
+				destinationVC?.mystery = self.rosaryMysteries["고통의 신비"]
 			case 3:
-				destinationVC?.mystery = "영광의 신비"
-				destinationVC?.mysterySections = self.rosaryMainPrayer?.mysteries["glorious"]
+				destinationVC?.mystery = self.rosaryMysteries["영광의 신비"]
 			default: break
 			}
 		}

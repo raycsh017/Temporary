@@ -11,7 +11,11 @@ import SwiftyJSON
 
 class OtherPrayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-	@IBOutlet weak var otherPrayersTableView: UITableView!
+	@IBOutlet weak var otherPrayersTableView: UITableView!{
+		didSet{
+			self.otherPrayersTableView.allowsSelection = false
+		}
+	}
 	
 	let otherPrayersCellIdentifier = "otherPrayersCell"
 	
