@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	var rosaryStartingPrayer: RosaryStartingPrayer?
+	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
 	var rosaryEndingPrayer: RosaryEndingPrayer?
 	var rosaryMysteries: [String: RosaryMystery] = [:]
 	
@@ -129,9 +129,11 @@ class MainViewController: UIViewController {
 		
 		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMysteries, rosaryEndingPrayer
 		// Starting part of Rosary prayer
-		let startingPrayerSection = json["startingPrayer"]
-		if let petition = startingPrayerSection["petition"].string, let grace = startingPrayerSection["grace"].string{
-			self.rosaryStartingPrayer = RosaryStartingPrayer(petition: petition, grace: grace)
+		let startingPrayerSection = json["startingPrayers"]
+		for(mysteryKey, startingPrayer) in startingPrayerSection{
+			if let petition = startingPrayer["petition"].string, let grace = startingPrayer["grace"].string{
+				self.rosaryStartingPrayers[mysteryKey] = RosaryStartingPrayer(petition: petition, grace: grace)
+			}
 		}
 		
 		// Main part of Rosary prayer
@@ -202,18 +204,21 @@ class MainViewController: UIViewController {
 			// Transfer the Rosary data over to the PrayersViewController
 			let destinationVC = segue.destination as? RosaryPrayerViewController
 			
-			destinationVC?.startingPrayer = self.rosaryStartingPrayer
 			destinationVC?.endingPrayer = self.rosaryEndingPrayer
 			destinationVC?.selectedColor = self.colorSchemes[self.selectedViewTag]
 			
 			switch self.selectedViewTag{
 			case 0:
+				destinationVC?.startingPrayer = self.rosaryStartingPrayers["환희의 신비"]
 				destinationVC?.mystery = self.rosaryMysteries["환희의 신비"]
 			case 1:
+				destinationVC?.startingPrayer = self.rosaryStartingPrayers["빛의 신비"]
 				destinationVC?.mystery = self.rosaryMysteries["빛의 신비"]
 			case 2:
+				destinationVC?.startingPrayer = self.rosaryStartingPrayers["고통의 신비"]
 				destinationVC?.mystery = self.rosaryMysteries["고통의 신비"]
 			case 3:
+				destinationVC?.startingPrayer = self.rosaryStartingPrayers["영광의 신비"]
 				destinationVC?.mystery = self.rosaryMysteries["영광의 신비"]
 			default: break
 			}
