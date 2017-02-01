@@ -9,95 +9,56 @@
 import UIKit
 import SwiftyJSON
 
-class MainViewController: UIViewController {
-	@IBOutlet weak var joyfulView: UIView!{
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	
+	// Static variables for drawing out views
+	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
+	
+	let cellSpacing: CGFloat = 20
+	let numCellsInRow: CGFloat = 2
+	
+	@IBOutlet weak var rosaryMenuCollectionView: UICollectionView!{
 		didSet{
-			self.joyfulView.tag = 0
-			self.joyfulView.layer.borderColor = self.colorSchemes[0].cgColor
-			self.joyfulView.layer.borderWidth = 2
+			let flowLayout = UICollectionViewFlowLayout()
+			flowLayout.minimumLineSpacing = self.cellSpacing
+			flowLayout.minimumInteritemSpacing = self.cellSpacing
 			
-			self.joyfulView.isUserInteractionEnabled = true
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
-			self.joyfulView.addGestureRecognizer(tapRecognizer)
+			self.rosaryMenuCollectionView.setCollectionViewLayout(flowLayout, animated: false)
+			self.rosaryMenuCollectionView.backgroundColor = self.LIGHT_GRAY
+			self.rosaryMenuCollectionView.clipsToBounds = false
 		}
 	}
-	@IBOutlet weak var joyfulImageView: UIImageView!{
-		didSet{
-			self.joyfulImageView.image = UIImage(named: "Star")
-		}
-	}
-	@IBOutlet weak var lightView: UIView!{
-		didSet{
-			self.lightView.tag = 1
-			self.lightView.layer.borderColor = self.colorSchemes[1].cgColor
-			self.lightView.layer.borderWidth = 2
-			
-			self.lightView.isUserInteractionEnabled = true
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
-			self.lightView.addGestureRecognizer(tapRecognizer)
-		}
-	}
-	@IBOutlet weak var lightImageView: UIImageView!{
-		didSet{
-			self.lightImageView.image = UIImage(named: "Fish")
-		}
-	}
-	@IBOutlet weak var sorrowfulView: UIView!{
-		didSet{
-			self.sorrowfulView.tag = 2
-			self.sorrowfulView.layer.borderColor = self.colorSchemes[2].cgColor
-			self.sorrowfulView.layer.borderWidth = 2
-			
-			self.sorrowfulView.isUserInteractionEnabled = true
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
-			self.sorrowfulView.addGestureRecognizer(tapRecognizer)
-		}
-	}
-	@IBOutlet weak var sorrowfulImageView: UIImageView!{
-		didSet{
-			self.sorrowfulImageView.image = UIImage(named: "Crown")
-		}
-	}
-	@IBOutlet weak var gloriousView: UIView!{
-		didSet{
-			self.gloriousView.tag = 3
-			self.gloriousView.layer.borderColor = self.colorSchemes[3].cgColor
-			self.gloriousView.layer.borderWidth = 2
-			
-			self.gloriousView.isUserInteractionEnabled = true
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
-			self.gloriousView.addGestureRecognizer(tapRecognizer)
-		}
-	}
-	@IBOutlet weak var gloriousImageView: UIImageView!{
-		didSet{
-			self.gloriousImageView.image = UIImage(named: "Cross")
-		}
-	}
+	
 	@IBOutlet weak var otherPrayersView: UIView!{
 		didSet{
 			self.otherPrayersView.tag = 4
-			self.otherPrayersView.layer.borderWidth = 2
-			self.otherPrayersView.layer.borderColor = UIColor.black.cgColor
+			
+			self.otherPrayersView.clipsToBounds = false
+			self.otherPrayersView.addShadow()
 			
 			self.otherPrayersView.isUserInteractionEnabled = true
-			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedViews(_:)))
+			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedOtherPrayers(_:)))
 			self.otherPrayersView.addGestureRecognizer(tapRecognizer)
 		}
 	}
 	
+	// Static data
+	let rosaryMenus: [RosaryMenu] = [
+		RosaryMenu(title: "환희의 신비", icon: UIImage(named: "ic_star")!, id: 0),
+		RosaryMenu(title: "빛의 신비", icon: UIImage(named: "ic_fish")!, id: 1),
+		RosaryMenu(title: "고통의 신비", icon: UIImage(named: "ic_crown_thorns")!, id: 2),
+		RosaryMenu(title: "영광의 신비", icon: UIImage(named: "ic_cross")!, id: 3)
+	]
+	
+	let rosarySegueIdentifier = "displayRosaryPrayerSegue"
+	let otherPrayersSegueIdentifier = "displayOtherPrayersSegue"
+	
+	// Dymanic data
 	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
 	var rosaryEndingPrayer: RosaryEndingPrayer?
 	var rosaryMysteries: [String: RosaryMystery] = [:]
 	
 	var otherPrayers: [Prayer] = []
-	
-	var colorSchemes: [UIColor] = [
-		UIColor.withRGB(red: 252, green: 177, blue: 122),
-		UIColor.withRGB(red: 239, green: 132, blue: 100),
-		UIColor.withRGB(red: 214, green: 73, blue: 90),
-		UIColor.withRGB(red: 72, green: 73, blue: 137)
-	]
 	
 	// For identifying which view was touched
 	var selectedViewTag: Int = 0
@@ -106,6 +67,7 @@ class MainViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		self.setup()
 		self.loadInitialRosaryData()
 		self.loadOtherPrayersData()
 	}
@@ -115,11 +77,11 @@ class MainViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		self.navigationItem.title = "54일"
+	func setup(){
+		self.view.backgroundColor = self.LIGHT_GRAY
+		self.rosaryMenuCollectionView.dataSource = self
+		self.rosaryMenuCollectionView.delegate = self
 	}
-	
 	// Load initial rosary data from a local JSON file (rosaryData.json)
 	func loadInitialRosaryData(){
 		// Get the JSON data from rosaryData.json
@@ -185,27 +147,46 @@ class MainViewController: UIViewController {
 		}
 	}
 	
-	func touchedViews(_ sender: UITapGestureRecognizer){
-		if let selectedView = sender.view{
-			self.selectedViewTag = selectedView.tag
-			
-			switch self.selectedViewTag{
-			case 0..<4:
-				self.performSegue(withIdentifier: "displayRosaryPrayerSegue", sender: self)
-			case 4:
-				self.performSegue(withIdentifier: "displayOtherPrayersSegue", sender: self)
-			default:
-				break
-			}
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return 1
+	}
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return self.rosaryMenus.count
+	}
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		let cvWidth = collectionView.bounds.width
+		let cellWidth = (cvWidth - self.cellSpacing)/self.numCellsInRow
+		
+		return CGSize(width: cellWidth, height: cellWidth)
+	}
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RosaryMenuCollectionViewCell.cellID, for: indexPath) as? RosaryMenuCollectionViewCell
+		let menu = self.rosaryMenus[indexPath.row]
+		
+		cell?.initialize(title: menu.title, icon: menu.icon)
+		cell?.addShadow()
+		
+		return cell!
+	}
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		self.selectedViewTag = indexPath.row
+		self.performSegue(withIdentifier: self.rosarySegueIdentifier, sender: self)
+	}
+	
+	func touchedOtherPrayers(_ sender: UITapGestureRecognizer){
+		if let tag = sender.view?.tag{
+			self.selectedViewTag = tag
+			self.performSegue(withIdentifier: self.otherPrayersSegueIdentifier, sender: self)
 		}
 	}
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "displayRosaryPrayerSegue"{
+		if segue.identifier == self.rosarySegueIdentifier{
 			// Transfer the Rosary data over to the PrayersViewController
 			let destinationVC = segue.destination as? RosaryPrayerViewController
 			
 			destinationVC?.endingPrayer = self.rosaryEndingPrayer
-			destinationVC?.selectedColor = self.colorSchemes[self.selectedViewTag]
 			
 			switch self.selectedViewTag{
 			case 0:

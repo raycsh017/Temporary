@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
-		D12DCBBE1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */; };
-		D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */; };
+		D12DCBBE1E1EE71500909CB0 /* RosaryPrayerTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* RosaryPrayerTableViewCells.swift */; };
+		D12DCBC01E201F8F00909CB0 /* RosaryDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryDataStructures.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryData.json */; };
 		D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */; };
+		D17EEA731E3D4501005645C4 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */; };
+		D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */; };
+		D17EEA9B1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
 		D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */; };
 		D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */; };
@@ -19,8 +22,7 @@
 		D1CFD6191E15BFFE00E5FE23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */; };
 		D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */; };
 		D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */; };
-		D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */; };
-		D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */; };
+		D1DAD02B1E415CA9002300FC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */; };
 		D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */; };
 		D1FDDF2D1E28A429003B4189 /* otherPrayersData.json in Resources */ = {isa = PBXBuildFile; fileRef = D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */; };
 		D1FDDF2F1E28A469003B4189 /* OtherPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */; };
@@ -30,10 +32,13 @@
 /* Begin PBXFileReference section */
 		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
 		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayersTableViewCells.swift; sourceTree = "<group>"; };
-		D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayers.swift; sourceTree = "<group>"; };
+		D12DCBBD1E1EE71500909CB0 /* RosaryPrayerTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerTableViewCells.swift; sourceTree = "<group>"; };
+		D12DCBBF1E201F8F00909CB0 /* RosaryDataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryDataStructures.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryData.json; sourceTree = "<group>"; };
 		D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerViewController.swift; sourceTree = "<group>"; };
+		D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
+		D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
+		D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -43,8 +48,7 @@
 		D1CFD61B1E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1CFD61D1E15BFFE00E5FE23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerSectionDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayersViewController.swift; sourceTree = "<group>"; };
 		D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = otherPrayersData.json; sourceTree = "<group>"; };
 		D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayers.swift; sourceTree = "<group>"; };
@@ -81,6 +85,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D17EEA941E3D781A005645C4 /* JTAppleCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */,
+				D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */,
+			);
+			name = JTAppleCalendar;
+			sourceTree = "<group>";
+		};
+		D17EEA951E3D782E005645C4 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */,
+				D155C8D71E1D7CF400236BF0 /* rosaryData.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		D1CFD6021E15BFFE00E5FE23 = {
 			isa = PBXGroup;
 			children = (
@@ -102,13 +124,15 @@
 		D1CFD60D1E15BFFE00E5FE23 /* Rosary */ = {
 			isa = PBXGroup;
 			children = (
-				D1FDDF2C1E28A429003B4189 /* otherPrayersData.json */,
-				D155C8D71E1D7CF400236BF0 /* rosaryData.json */,
+				D17EEA951E3D782E005645C4 /* JSON */,
+				D17EEA941E3D781A005645C4 /* JTAppleCalendar */,
 				D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */,
 				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
+				D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */,
+				D12DCBBF1E201F8F00909CB0 /* RosaryDataStructures.swift */,
+				D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */,
 				D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */,
-				D12DCBBF1E201F8F00909CB0 /* RosaryPrayers.swift */,
-				D12DCBBD1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift */,
+				D12DCBBD1E1EE71500909CB0 /* RosaryPrayerTableViewCells.swift */,
 				D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */,
 				D1FDDF2E1E28A469003B4189 /* OtherPrayers.swift */,
 				D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */,
@@ -118,8 +142,6 @@
 				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 				D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */,
-				D1CFD6271E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift */,
-				D1CFD6251E16FC3700E5FE23 /* DetailsViewController.swift */,
 			);
 			path = Rosary;
 			sourceTree = "<group>";
@@ -187,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D17EEA731E3D4501005645C4 /* CalendarDayCellView.xib in Resources */,
 				D1FDDF2D1E28A429003B4189 /* otherPrayersData.json in Resources */,
 				D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */,
 				D155C8D81E1D7CF400236BF0 /* rosaryData.json in Resources */,
@@ -251,17 +274,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FDDF2F1E28A469003B4189 /* OtherPrayers.swift in Sources */,
-				D12DCBC01E201F8F00909CB0 /* RosaryPrayers.swift in Sources */,
-				D1CFD6281E17767100E5FE23 /* PrayerSectionDetailTableViewCell.swift in Sources */,
+				D17EEA9B1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift in Sources */,
+				D12DCBC01E201F8F00909CB0 /* RosaryDataStructures.swift in Sources */,
 				D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */,
-				D12DCBBE1E1EE71500909CB0 /* RosaryPrayersTableViewCells.swift in Sources */,
+				D12DCBBE1E1EE71500909CB0 /* RosaryPrayerTableViewCells.swift in Sources */,
 				D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */,
 				D1CFD6171E15BFFE00E5FE23 /* Rosary.xcdatamodeld in Sources */,
+				D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */,
 				D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */,
+				D1DAD02B1E415CA9002300FC /* UIViewExtension.swift in Sources */,
 				D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */,
 				D1FDDF311E29E336003B4189 /* OtherPrayersTableViewCell.swift in Sources */,
 				D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */,
-				D1CFD6261E16FC3700E5FE23 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

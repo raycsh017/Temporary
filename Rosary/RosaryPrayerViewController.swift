@@ -25,6 +25,8 @@ class RosaryPrayerViewController: UIViewController, UITableViewDataSource, UITab
 	var mystery: RosaryMystery!
 	var selectedColor: UIColor!
 	
+	var selectedCellIndexPath: IndexPath?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
