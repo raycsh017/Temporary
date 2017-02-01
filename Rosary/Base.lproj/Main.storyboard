@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6JJ-BY-bc3">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6JJ-BY-bc3">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,141 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-lh-AIc">
-                                <rect key="frame" x="26" y="84" width="323" height="493"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a4W-f9-lAY">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="236.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWI-yt-R6n">
-                                                <rect key="frame" x="0.0" y="0.0" width="151.5" height="236.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="joa-Lq-tXc">
-                                                        <rect key="frame" x="43.5" y="81.5" width="64.5" height="74.5"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jt1-ap-R0D">
-                                                                <rect key="frame" x="8.5" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="48" id="6qv-zx-TPu"/>
-                                                                    <constraint firstAttribute="width" constant="48" id="KIc-ck-ytI"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환희의 신비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bsy-wN-8pJ">
-                                                                <rect key="frame" x="0.0" y="58" width="64.5" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="joa-Lq-tXc" firstAttribute="centerY" secondItem="bWI-yt-R6n" secondAttribute="centerY" id="RIo-c5-MLW"/>
-                                                    <constraint firstItem="joa-Lq-tXc" firstAttribute="centerX" secondItem="bWI-yt-R6n" secondAttribute="centerX" id="mQX-36-Hfd"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFc-zK-UXh">
-                                                <rect key="frame" x="171.5" y="0.0" width="151.5" height="236.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2HE-VD-i5U">
-                                                        <rect key="frame" x="49.5" y="81.5" width="52.5" height="74.5"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Auw-v6-Uf2">
-                                                                <rect key="frame" x="2.5" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="48" id="Ysa-p1-Us5"/>
-                                                                    <constraint firstAttribute="width" constant="48" id="vIT-rU-KNP"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="빛의 신비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJQ-qj-vr8">
-                                                                <rect key="frame" x="0.0" y="58" width="52.5" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="2HE-VD-i5U" firstAttribute="centerX" secondItem="SFc-zK-UXh" secondAttribute="centerX" id="Mlc-eV-h4u"/>
-                                                    <constraint firstItem="2HE-VD-i5U" firstAttribute="centerY" secondItem="SFc-zK-UXh" secondAttribute="centerY" id="s2t-Hd-G3p"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4BH-zl-2xx">
-                                        <rect key="frame" x="0.0" y="256.5" width="323" height="236.5"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMt-bz-ZL1">
-                                                <rect key="frame" x="0.0" y="0.0" width="151.5" height="236.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-zT-ObN">
-                                                        <rect key="frame" x="43.5" y="81" width="64.5" height="74.5"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lcB-Bm-sOp">
-                                                                <rect key="frame" x="8.5" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="48" id="mq2-Ox-G2o"/>
-                                                                    <constraint firstAttribute="height" constant="48" id="rCg-25-b5O"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고통의 신비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y66-RQ-3Or">
-                                                                <rect key="frame" x="0.0" y="58" width="64.5" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="NVa-zT-ObN" firstAttribute="centerY" secondItem="DMt-bz-ZL1" secondAttribute="centerY" id="96c-AX-Acj"/>
-                                                    <constraint firstItem="NVa-zT-ObN" firstAttribute="centerX" secondItem="DMt-bz-ZL1" secondAttribute="centerX" id="IeT-wN-Cuv"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bM-6N-q1i">
-                                                <rect key="frame" x="171.5" y="0.0" width="151.5" height="236.5"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZAM-yF-c3w">
-                                                        <rect key="frame" x="44" y="81.5" width="64.5" height="74.5"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DsY-2A-hMn">
-                                                                <rect key="frame" x="8.5" y="0.0" width="48" height="48"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="48" id="LA4-iv-dZW"/>
-                                                                    <constraint firstAttribute="height" constant="48" id="uRB-ZY-VPm"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영광의 신비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeL-V7-1j6">
-                                                                <rect key="frame" x="0.0" y="58" width="64.5" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="ZAM-yF-c3w" firstAttribute="centerY" secondItem="4bM-6N-q1i" secondAttribute="centerY" id="OYa-ei-PdS"/>
-                                                    <constraint firstItem="ZAM-yF-c3w" firstAttribute="centerX" secondItem="4bM-6N-q1i" secondAttribute="centerX" id="oIg-eq-FfT"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-31-Z7D">
-                                <rect key="frame" x="26" y="597" width="323" height="50"/>
+                                <rect key="frame" x="40" y="666" width="334" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 기도문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-A0-5UP">
-                                        <rect key="frame" x="129.5" y="17" width="64.5" height="16.5"/>
+                                        <rect key="frame" x="135" y="17.666666666666629" width="64.666666666666657" height="16.333333333333371"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -165,36 +39,91 @@
                                     <constraint firstItem="rPj-A0-5UP" firstAttribute="centerX" secondItem="PEG-31-Z7D" secondAttribute="centerX" id="Uxt-zT-JQA"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SDz-cO-p1w">
+                                <rect key="frame" x="40" y="320" width="334" height="334"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SDz-cO-p1w" secondAttribute="height" multiplier="1:1" id="non-Xp-0oM"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="95s-wb-HdF">
+                                    <size key="itemSize" width="103" height="105"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RosaryMenuCell" id="J2J-eh-HlB" customClass="RosaryMenuCollectionViewCell" customModule="Rosary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="103" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="103" height="105"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-ug-0gr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="103" height="105"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0b8-x7-9Kr">
+                                                            <rect key="frame" x="12.666666666666664" y="15.333333333333336" width="78" height="74.333333333333343"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-KR-5C7">
+                                                                    <rect key="frame" x="17.666666666666664" y="0.0" width="42.333333333333343" height="42"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="42" id="MY6-kU-ChP"/>
+                                                                        <constraint firstAttribute="width" constant="42" id="qri-Zs-HJh"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환희의 신비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-ov-jYM">
+                                                                    <rect key="frame" x="0.0" y="53.999999999999986" width="78" height="20.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="0b8-x7-9Kr" firstAttribute="centerY" secondItem="GdU-ug-0gr" secondAttribute="centerY" id="5zm-6q-WbR"/>
+                                                        <constraint firstItem="0b8-x7-9Kr" firstAttribute="centerX" secondItem="GdU-ug-0gr" secondAttribute="centerX" id="TwN-hP-XI9"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="GdU-ug-0gr" firstAttribute="top" secondItem="J2J-eh-HlB" secondAttribute="top" id="a2Q-dq-gkk"/>
+                                            <constraint firstAttribute="trailing" secondItem="GdU-ug-0gr" secondAttribute="trailing" id="lca-qM-wve"/>
+                                            <constraint firstItem="GdU-ug-0gr" firstAttribute="leading" secondItem="J2J-eh-HlB" secondAttribute="leading" id="tgG-0B-JgD"/>
+                                            <constraint firstAttribute="bottom" secondItem="GdU-ug-0gr" secondAttribute="bottom" id="upx-zR-dvv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="menuIconImageView" destination="gd6-KR-5C7" id="2i3-a2-JNE"/>
+                                            <outlet property="menuTitleLabel" destination="QrW-ov-jYM" id="G1w-0e-ljC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PEG-31-Z7D" secondAttribute="bottom" constant="20" id="39X-dm-waK"/>
-                            <constraint firstItem="kuB-lh-AIc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="6r8-El-A77"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PEG-31-Z7D" secondAttribute="trailing" constant="10" id="EkQ-hP-jYH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kuB-lh-AIc" secondAttribute="trailing" constant="10" id="fNm-33-g3l"/>
-                            <constraint firstItem="kuB-lh-AIc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="h1j-jC-OZe"/>
-                            <constraint firstItem="PEG-31-Z7D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="vXG-2B-WlX"/>
-                            <constraint firstItem="PEG-31-Z7D" firstAttribute="top" secondItem="kuB-lh-AIc" secondAttribute="bottom" constant="20" id="vjz-AL-emC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SDz-cO-p1w" secondAttribute="trailing" constant="20" id="7sM-Xb-9qg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PEG-31-Z7D" secondAttribute="trailing" constant="20" id="EkQ-hP-jYH"/>
+                            <constraint firstItem="SDz-cO-p1w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="UJa-pD-yUX"/>
+                            <constraint firstItem="PEG-31-Z7D" firstAttribute="top" secondItem="SDz-cO-p1w" secondAttribute="bottom" constant="12" id="bmk-sX-V1M"/>
+                            <constraint firstItem="PEG-31-Z7D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vXG-2B-WlX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AAF-vK-ags"/>
                     <connections>
-                        <outlet property="gloriousImageView" destination="DsY-2A-hMn" id="B0d-Mg-DLY"/>
-                        <outlet property="gloriousView" destination="4bM-6N-q1i" id="GO5-Z4-d78"/>
-                        <outlet property="joyfulImageView" destination="jt1-ap-R0D" id="5Vw-4a-bJT"/>
-                        <outlet property="joyfulView" destination="bWI-yt-R6n" id="Jve-Uh-nBA"/>
-                        <outlet property="lightImageView" destination="Auw-v6-Uf2" id="Gf0-Ch-ohx"/>
-                        <outlet property="lightView" destination="SFc-zK-UXh" id="Nfx-0v-qVh"/>
                         <outlet property="otherPrayersView" destination="PEG-31-Z7D" id="hat-yq-8vO"/>
-                        <outlet property="sorrowfulImageView" destination="lcB-Bm-sOp" id="Pqa-5x-1AZ"/>
-                        <outlet property="sorrowfulView" destination="DMt-bz-ZL1" id="BBt-LF-hXD"/>
+                        <outlet property="rosaryMenuCollectionView" destination="SDz-cO-p1w" id="AC0-OW-YEZ"/>
                         <segue destination="trb-zX-mtA" kind="show" identifier="displayRosaryPrayerSegue" id="ZvK-4o-NDm"/>
                         <segue destination="t2e-qt-KmB" kind="show" identifier="displayOtherPrayersSegue" id="ofS-hr-gaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1075.3623188405797" y="136.95652173913044"/>
         </scene>
         <!--Rosary Prayer View Controller-->
         <scene sceneID="NuH-fw-2S6">
@@ -205,58 +134,58 @@
                         <viewControllerLayoutGuide type="bottom" id="8bQ-yy-55d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tza-N5-Upe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h3V-mr-OJG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="startingPrayerCell" rowHeight="200" id="lN0-7A-Fsz" customClass="StartingPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN0-7A-Fsz" id="jf0-sz-Ded">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성부와 성자와 성령의 이름으로, 아멘." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-Vg-rWC">
-                                                    <rect key="frame" x="85.5" y="8" width="205" height="17"/>
+                                                    <rect key="frame" x="104.66666666666669" y="8" width="205" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성모송" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKy-MY-cyD">
-                                                    <rect key="frame" x="169.5" y="33" width="36.5" height="17"/>
+                                                    <rect key="frame" x="189" y="33" width="36.333333333333343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청원기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfW-5I-uii">
-                                                    <rect key="frame" x="163.5" y="58" width="48.5" height="17"/>
+                                                    <rect key="frame" x="183" y="58" width="48.333333333333343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094822942197712423" green="0.29131114685457515" blue="0.65564268024918304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감사기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iK-Ug-JzF">
-                                                    <rect key="frame" x="163.5" y="116" width="48.5" height="17"/>
+                                                    <rect key="frame" x="183" y="116" width="48.333333333333343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094822942199999996" green="0.29131114689999998" blue="0.65564268020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청원기도 메인" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIn-Ex-wtl">
-                                                    <rect key="frame" x="33" y="83" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="83" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감사기도 메인" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoX-Xs-hlu">
-                                                    <rect key="frame" x="33" y="141" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="141" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사도신경, 주님의 기도, 성모송(세 번), 영광송, 구원의 기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-6R-Bw4">
-                                                    <rect key="frame" x="8" y="166" width="359" height="17"/>
+                                                    <rect key="frame" x="8" y="166" width="398" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094117647058823528" green="0.29019607843137252" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -291,10 +220,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainPrayerCell" rowHeight="135" id="AGR-Sz-BGV" customClass="MainPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="228" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGR-Sz-BGV" id="bFx-17-mBf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="신비 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-eB-mQ9">
@@ -354,74 +283,74 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="endingPrayerCell" rowHeight="292" id="MGn-aY-cUa" customClass="EndingPrayerTableViewCell" customModule="Rosary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="363" width="375" height="292"/>
+                                        <rect key="frame" x="0.0" y="363" width="414" height="292"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGn-aY-cUa" id="vhx-Ru-O5z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="291"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="291.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신령성체의 기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-6q-Q1h">
-                                                    <rect key="frame" x="143" y="8" width="89" height="17"/>
+                                                    <rect key="frame" x="162.66666666666666" y="8" width="89" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094117647060000004" green="0.2901960784" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신령성체 기도 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wp6-JQ-Ivt">
-                                                    <rect key="frame" x="33" y="33" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="33" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청원기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efK-WF-195">
-                                                    <rect key="frame" x="163" y="58" width="49" height="17"/>
+                                                    <rect key="frame" x="182.66666666666666" y="58" width="49" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094117647060000004" green="0.2901960784" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감사기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD8-qb-iUN">
-                                                    <rect key="frame" x="163" y="108" width="49" height="17"/>
+                                                    <rect key="frame" x="182.66666666666666" y="108" width="49" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094117647060000004" green="0.2901960784" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감사기도 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-MN-xtA">
-                                                    <rect key="frame" x="33" y="133" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="133" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성모송" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phf-3j-Nkh">
-                                                    <rect key="frame" x="169.5" y="158" width="36.5" height="17"/>
+                                                    <rect key="frame" x="189" y="158" width="36.333333333333343" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성모찬송" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1K-Ez-XSW">
-                                                    <rect key="frame" x="163" y="183" width="49" height="17"/>
+                                                    <rect key="frame" x="182.66666666666666" y="183" width="49" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.094117647060000004" green="0.2901960784" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성모찬송 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4q-5q-L4t">
-                                                    <rect key="frame" x="33" y="208" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="208" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성모찬송 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-vu-CCV">
-                                                    <rect key="frame" x="33" y="233" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="233" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성부와 성자와 성령의 이름으로, 아멘." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="728-MF-DB3">
-                                                    <rect key="frame" x="85" y="258" width="205" height="17"/>
+                                                    <rect key="frame" x="104.66666666666669" y="258" width="205" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="청원기도 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-o1-g3H">
-                                                    <rect key="frame" x="33" y="83" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="83" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -499,18 +428,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Xf3-VH-kUs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qBt-Cj-9eg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vg7-NO-InR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="otherPrayersCell" rowHeight="99" id="xWi-X1-noJ" customClass="OtherPrayersTableViewCell" customModule="Rosary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWi-X1-noJ" id="drd-ck-BIh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기도 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlU-Cw-9l8">
@@ -520,7 +449,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기도 내용" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wh-vf-eUa">
-                                                    <rect key="frame" x="33" y="57" width="309" height="17"/>
+                                                    <rect key="frame" x="33" y="57" width="348" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
