@@ -22,23 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-31-Z7D">
-                                <rect key="frame" x="40" y="666" width="334" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 기도문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-A0-5UP">
-                                        <rect key="frame" x="135" y="17.666666666666629" width="64.666666666666657" height="16.333333333333371"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="5xZ-9f-3vH"/>
-                                    <constraint firstItem="rPj-A0-5UP" firstAttribute="centerY" secondItem="PEG-31-Z7D" secondAttribute="centerY" id="SFd-1a-6C7"/>
-                                    <constraint firstItem="rPj-A0-5UP" firstAttribute="centerX" secondItem="PEG-31-Z7D" secondAttribute="centerX" id="Uxt-zT-JQA"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SDz-cO-p1w">
                                 <rect key="frame" x="40" y="320" width="334" height="334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,7 +49,7 @@
                                                             <rect key="frame" x="12.666666666666664" y="15.333333333333336" width="78" height="74.333333333333343"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd6-KR-5C7">
-                                                                    <rect key="frame" x="17.666666666666664" y="0.0" width="42.333333333333343" height="42"/>
+                                                                    <rect key="frame" x="18" y="0.0" width="42.333333333333329" height="42"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="42" id="MY6-kU-ChP"/>
                                                                         <constraint firstAttribute="width" constant="42" id="qri-Zs-HJh"/>
@@ -102,19 +85,45 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-31-Z7D">
+                                <rect key="frame" x="40" y="666" width="334" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주요 기도문" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPj-A0-5UP">
+                                        <rect key="frame" x="135" y="17.666666666666629" width="64.666666666666657" height="16.333333333333371"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5xZ-9f-3vH"/>
+                                    <constraint firstItem="rPj-A0-5UP" firstAttribute="centerY" secondItem="PEG-31-Z7D" secondAttribute="centerY" id="SFd-1a-6C7"/>
+                                    <constraint firstItem="rPj-A0-5UP" firstAttribute="centerX" secondItem="PEG-31-Z7D" secondAttribute="centerX" id="Uxt-zT-JQA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-0F-Hvi" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="20" y="72" width="374" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PEG-31-Z7D" secondAttribute="bottom" constant="20" id="39X-dm-waK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SDz-cO-p1w" secondAttribute="trailing" constant="20" id="7sM-Xb-9qg"/>
+                            <constraint firstItem="tkK-0F-Hvi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Deo-Kh-cDW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PEG-31-Z7D" secondAttribute="trailing" constant="20" id="EkQ-hP-jYH"/>
                             <constraint firstItem="SDz-cO-p1w" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="UJa-pD-yUX"/>
+                            <constraint firstItem="SDz-cO-p1w" firstAttribute="top" secondItem="tkK-0F-Hvi" secondAttribute="bottom" constant="20" id="W73-I9-gVi"/>
+                            <constraint firstItem="tkK-0F-Hvi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YZu-T2-25f"/>
                             <constraint firstItem="PEG-31-Z7D" firstAttribute="top" secondItem="SDz-cO-p1w" secondAttribute="bottom" constant="12" id="bmk-sX-V1M"/>
+                            <constraint firstItem="tkK-0F-Hvi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="fzB-Ih-chd"/>
                             <constraint firstItem="PEG-31-Z7D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vXG-2B-WlX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AAF-vK-ags"/>
                     <connections>
+                        <outlet property="calendarView" destination="tkK-0F-Hvi" id="3hQ-dZ-192"/>
                         <outlet property="otherPrayersView" destination="PEG-31-Z7D" id="hat-yq-8vO"/>
                         <outlet property="rosaryMenuCollectionView" destination="SDz-cO-p1w" id="AC0-OW-YEZ"/>
                         <segue destination="trb-zX-mtA" kind="show" identifier="displayRosaryPrayerSegue" id="ZvK-4o-NDm"/>

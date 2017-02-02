@@ -11,5 +11,9 @@ import JTAppleCalendar
 
 class CalendarDayCellView: JTAppleDayCellView{
 	@IBOutlet weak var dayLabel: UILabel!
-	
+	@IBOutlet weak var dayCircleView: UIView!{
+		didSet{
+			self.dayCircleView.layer.cornerRadius = 3
+		}
+	}
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import JTAppleCalendar
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
@@ -17,6 +18,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	let cellSpacing: CGFloat = 20
 	let numCellsInRow: CGFloat = 2
 	
+	let APP_TITLE: String = "54Days"
+	
+	@IBOutlet weak var calendarView: JTAppleCalendarView!
 	@IBOutlet weak var rosaryMenuCollectionView: UICollectionView!{
 		didSet{
 			let flowLayout = UICollectionViewFlowLayout()
@@ -78,7 +82,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	}
 	
 	func setup(){
+		self.navigationItem.title = self.APP_TITLE
 		self.view.backgroundColor = self.LIGHT_GRAY
+		self.calendarView.dataSource = self
+		self.calendarView.delegate = self
+		self.calendarView.registerCellViewXib(file: "CalendarDayCellView")
 		self.rosaryMenuCollectionView.dataSource = self
 		self.rosaryMenuCollectionView.delegate = self
 	}
