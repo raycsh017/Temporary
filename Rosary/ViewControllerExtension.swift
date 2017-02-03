@@ -11,32 +11,77 @@ import UIKit
 import JTAppleCalendar
 
 extension MainViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
+	
 	func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy MM dd"
+		dateFormatter.dateFormat = "yyyy MM dd"
 		
-		let startDate = formatter.date(from: "2017 02 01")! // You can use date generated from a formatter
-		let endDate = Date()                                // You can also use dates created from this function
+		let startDate = Date()
+		let endDate = Date()
+		
 		let parameters = ConfigurationParameters(startDate: startDate,
 		                                         endDate: endDate,
 		                                         numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
 												 calendar: Calendar.current,
 												 generateInDates: .forAllMonths,
 												 generateOutDates: .tillEndOfGrid,
-												 firstDayOfWeek: .monday)
+												 firstDayOfWeek: .sunday)
 		return parameters
 	}
 	func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
-		let myCustomCell = cell as! CalendarDayCellView
+		let cellView = cell as! CalendarDayCellView
 		
-		// Setup Cell text
-		myCustomCell.dayLabel.text = cellState.text
+		// Setup text
+		cellView.dayLabel.text = cellState.text
 		
-		// Setup text color
-		if cellState.dateBelongsTo == .thisMonth {
-			myCustomCell.dayLabel.textColor = UIColor.black
+		self.handleCellTextColor(view: cellView, cellState: cellState)
+		self.handleCellSelection(view: cellView, cellState: cellState)
+	}
+	
+	// When cell gets selected (Uni-selection)
+	func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+		let cellView = cell as! CalendarDayCellView
+		self.handleCellSelection(view: cellView, cellState: cellState)
+		self.handleCellTextColor(view: cellView, cellState: cellState)
+	}
+	// When cell gets de-selected
+	func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+		let cellView = cell as! CalendarDayCellView
+		self.handleCellSelection(view: cellView, cellState: cellState)
+		self.handleCellTextColor(view: cellView, cellState: cellState)
+	}
+	// Function to handle the text color of the calendar
+	func handleCellTextColor(view: JTAppleDayCellView?, cellState: CellState) {
+		
+		guard let cellView = view as? CalendarDayCellView  else {
+			return
+		}
+		
+		if cellState.isSelected {
+			cellView.dayLabel.textColor = UIColor.black
 		} else {
-			myCustomCell.dayLabel.textColor = UIColor.gray
+			if cellState.dateBelongsTo == .thisMonth {
+				cellView.dayLabel.textColor = UIColor.black
+			} else {
+				cellView.dayLabel.textColor = UIColor.gray
+			}
+		}
+	}
+	// Function to handle the calendar selection
+	func handleCellSelection(view: JTAppleDayCellView?, cellState: CellState) {
+		guard let cellView = view as? CalendarDayCellView  else {
+			return
+		}
+		
+		dateFormatter.dateFormat = "yyyy MM dd"
+		let currentDateString = dateFormatter.string(from: self.currentDate)
+		let cellDateString = dateFormatter.string(from: cellState.date)
+		
+		if cellState.isSelected || currentDateString == cellDateString{
+			cellView.daySelectedView.layer.cornerRadius =  2
+			cellView.daySelectedView.backgroundColor = UIColor.black
+			cellView.daySelectedView.isHidden = false
+		} else {
+			cellView.daySelectedView.isHidden = true
 		}
 	}
 }

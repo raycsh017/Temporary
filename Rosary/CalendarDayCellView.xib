@@ -21,25 +21,25 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-GC-N5Q">
-                    <rect key="frame" x="112" y="102" width="6" height="6"/>
+                    <rect key="frame" x="113" y="96" width="4" height="4"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="6" id="C0B-sI-K9n"/>
-                        <constraint firstAttribute="width" constant="6" id="wAw-1Z-ZOu"/>
+                        <constraint firstAttribute="height" constant="4" id="C0B-sI-K9n"/>
+                        <constraint firstAttribute="width" constant="4" id="wAw-1Z-ZOu"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IPl-GC-N5Q" firstAttribute="top" secondItem="nuV-3V-OkL" secondAttribute="bottom" constant="8" id="3HN-Dy-RpQ"/>
+                <constraint firstItem="IPl-GC-N5Q" firstAttribute="top" secondItem="nuV-3V-OkL" secondAttribute="bottom" constant="2" id="3HN-Dy-RpQ"/>
                 <constraint firstItem="nuV-3V-OkL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AmH-Nf-Bwq"/>
                 <constraint firstItem="IPl-GC-N5Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="enj-qL-aP2"/>
                 <constraint firstItem="nuV-3V-OkL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mlu-Jq-pFi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="dayCircleView" destination="IPl-GC-N5Q" id="ka2-Hr-F7U"/>
                 <outlet property="dayLabel" destination="nuV-3V-OkL" id="SgG-j5-PyF"/>
+                <outlet property="daySelectedView" destination="IPl-GC-N5Q" id="SyI-43-bxf"/>
             </connections>
             <point key="canvasLocation" x="-39" y="-198"/>
         </view>

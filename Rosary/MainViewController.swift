@@ -14,13 +14,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	
 	// Static variables for drawing out views
 	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
+	let colorScheme = [
+		UIColor.withRGB(red: 252, green: 177, blue: 122),
+		UIColor.withRGB(red: 239, green: 132, blue: 100),
+		UIColor.withRGB(red: 214, green: 73, blue: 90),
+		UIColor.withRGB(red: 72, green: 73, blue: 137)
+	]
 	
 	let cellSpacing: CGFloat = 20
 	let numCellsInRow: CGFloat = 2
 	
 	let APP_TITLE: String = "54Days"
 	
-	@IBOutlet weak var calendarView: JTAppleCalendarView!
+	@IBOutlet weak var calendarView: JTAppleCalendarView!{
+		didSet{
+			self.calendarView.allowsMultipleSelection = true
+		}
+	}
 	@IBOutlet weak var rosaryMenuCollectionView: UICollectionView!{
 		didSet{
 			let flowLayout = UICollectionViewFlowLayout()
@@ -57,6 +67,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	let rosarySegueIdentifier = "displayRosaryPrayerSegue"
 	let otherPrayersSegueIdentifier = "displayOtherPrayersSegue"
 	
+	let currentDate = Date()
+	let dateFormatter = DateFormatter()
+	
 	// Dymanic data
 	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
 	var rosaryEndingPrayer: RosaryEndingPrayer?
@@ -84,9 +97,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	func setup(){
 		self.navigationItem.title = self.APP_TITLE
 		self.view.backgroundColor = self.LIGHT_GRAY
+		
 		self.calendarView.dataSource = self
 		self.calendarView.delegate = self
 		self.calendarView.registerCellViewXib(file: "CalendarDayCellView")
+		
 		self.rosaryMenuCollectionView.dataSource = self
 		self.rosaryMenuCollectionView.delegate = self
 	}
