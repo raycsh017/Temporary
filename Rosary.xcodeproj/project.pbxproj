@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
+		D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */; };
 		D12DCBBE1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */; };
 		D12DCBC01E201F8F00909CB0 /* RosaryPrayerDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */; };
 		D1443FB01E4483C200EB66DB /* CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
 		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarResetModalViewController.swift; sourceTree = "<group>"; };
 		D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingPrayerTableViewCell.swift; sourceTree = "<group>"; };
 		D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerDS.swift; sourceTree = "<group>"; };
 		D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarHeaderView.xib; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
 				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
+				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
 				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
 				D1DAD0391E42F80D002300FC /* Extensions */,
 				D1DAD0381E42F7FC002300FC /* Model */,
@@ -350,6 +353,7 @@
 				D1FDDF2F1E28A469003B4189 /* OtherPrayersDS.swift in Sources */,
 				D17EEA9B1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift in Sources */,
 				D1DAD0311E42A7D1002300FC /* MainPrayerTableViewCell.swift in Sources */,
+				D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */,
 				D12DCBC01E201F8F00909CB0 /* RosaryPrayerDS.swift in Sources */,
 				D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */,
 				D12DCBBE1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift in Sources */,

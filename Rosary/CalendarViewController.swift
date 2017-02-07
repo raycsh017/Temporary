@@ -18,14 +18,32 @@ class CalendarViewController: UIViewController {
 		UIColor.withRGB(red: 72, green: 73, blue: 137)
 	]
 	
-	@IBOutlet weak var calendarMonthLabel: UILabel!{
+	@IBOutlet weak var calendarView: UIView!{
 		didSet{
-			self.calendarMonthLabel.font = UIFont(name: "Futura Medium", size: 16.0)
-			self.calendarMonthLabel.textAlignment = .center
+			self.calendarView.addShadow()
 		}
 	}
-	@IBOutlet weak var calendarBodyView: JTAppleCalendarView!
+	@IBOutlet weak var calendarMonthLabel: UILabel!{
+		didSet{
+			self.dateFormatter.dateFormat = "yyyy MM"
+			let monthString = self.dateFormatter.string(from: self.currentDate)
+			self.calendarMonthLabel.text = monthString
+		}
+	}
+	@IBOutlet weak var calendarBodyView: JTAppleCalendarView!{
+		didSet{
+			self.calendarBodyView.dataSource = self
+			self.calendarBodyView.delegate = self
+			self.calendarBodyView.registerCellViewXib(file: "CalendarDayCellView")
+		}
+	}
 	
+	@IBOutlet weak var calendarResetButton: UIButton!{
+		didSet{
+			self.calendarResetButton.setTitle("", for: .normal)
+			self.calendarResetButton.setImage(UIImage(named: "ic_calendar_reset"), for: .normal)
+		}
+	}
 	let currentDate = Date()
 	let dateFormatter = DateFormatter()
 	
@@ -39,14 +57,14 @@ class CalendarViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+	}
 	
 	func setup(){
-		self.view.backgroundColor = self.LIGHT_GRAY
-		
-		self.calendarBodyView.dataSource = self
-		self.calendarBodyView.delegate = self
-		self.calendarBodyView.registerCellViewXib(file: "CalendarDayCellView")
-		//		self.calendarView.scrollingMode = .stopAtEachSection
+//		self.modalPresentationStyle = .overCurrentContext
+	}
+	@IBAction func openCalendarResetModal(_ sender: Any) {
+		let calendarResetModalVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarResetModalViewController") as? CalendarResetModalViewController
+		calendarResetModalVC?.modalPresentationStyle = .overCurrentContext
+		self.present(calendarResetModalVC!, animated: false, completion: nil)
 	}
 }

@@ -35,20 +35,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 			self.rosaryMenuCollectionView.setCollectionViewLayout(flowLayout, animated: false)
 			self.rosaryMenuCollectionView.backgroundColor = self.LIGHT_GRAY
 			self.rosaryMenuCollectionView.clipsToBounds = false
+			
+			self.rosaryMenuCollectionView.dataSource = self
+			self.rosaryMenuCollectionView.delegate = self
 		}
 	}
-//	@IBOutlet weak var otherPrayersView: UIView!{
-//		didSet{
-//			self.otherPrayersView.tag = 4
-//			
-//			self.otherPrayersView.clipsToBounds = false
-//			self.otherPrayersView.addShadow()
-//			
-//			self.otherPrayersView.isUserInteractionEnabled = true
-//			let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.touchedOtherPrayers(_:)))
-//			self.otherPrayersView.addGestureRecognizer(tapRecognizer)
-//		}
-//	}
 	
 	// Static data
 	let menus: [Menu] = [
@@ -88,12 +79,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	}
 	
 	func setup(){
-		self.navigationItem.title = self.APP_TITLE
-		self.view.backgroundColor = self.LIGHT_GRAY
 		self.automaticallyAdjustsScrollViewInsets = false
-		
-		self.rosaryMenuCollectionView.dataSource = self
-		self.rosaryMenuCollectionView.delegate = self
 	}
 	// Load initial rosary data from a local JSON file (rosaryData.json)
 	func loadInitialRosaryData(){
@@ -195,13 +181,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 			break
 		}
 	}
-	
-//	func touchedOtherPrayers(_ sender: UITapGestureRecognizer){
-//		if let tag = sender.view?.tag{
-//			self.selectedViewTag = tag
-//			self.performSegue(withIdentifier: self.otherPrayersSegueIdentifier, sender: self)
-//		}
-//	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let identifier = segue.identifier{
