@@ -16,11 +16,6 @@ enum Rosary{
 	case glorious
 }
 
-struct RosaryMenu{
-	let title: String
-	let icon: UIImage
-	let id: Int
-}
 struct RosaryStartingPrayer{
 	let petition: String
 	let grace: String
@@ -34,7 +29,6 @@ struct RosaryEndingPrayer{
 }
 struct RosaryMystery{
 	let title: String
-//	let color: UIColor
 	var sections: [RosaryMysterySection]
 }
 struct RosaryMysterySection{

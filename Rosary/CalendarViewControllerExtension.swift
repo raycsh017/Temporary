@@ -1,5 +1,5 @@
 //
-//  ViewControllerExtension.swift
+//  CalendarViewControllerExtension.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 2/1/17.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 
-extension MainViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
+extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
 	
 	func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
 		dateFormatter.dateFormat = "yyyy MM dd"
@@ -23,7 +23,7 @@ extension MainViewController: JTAppleCalendarViewDataSource, JTAppleCalendarView
 		                                         numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
 												 calendar: Calendar.current,
 												 generateInDates: .forAllMonths,
-												 generateOutDates: .tillEndOfGrid,
+												 generateOutDates: .tillEndOfRow,
 												 firstDayOfWeek: .sunday)
 		return parameters
 	}
