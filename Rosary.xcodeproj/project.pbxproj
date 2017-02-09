@@ -150,7 +150,8 @@
 				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
 				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
 				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
-				D1DAD0391E42F80D002300FC /* Extensions */,
+				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
+				D1DAD0391E42F80D002300FC /* Common Extensions */,
 				D1DAD0381E42F7FC002300FC /* Model */,
 				D1DAD0351E42A852002300FC /* MainVC */,
 				D1DAD0331E42A832002300FC /* RosaryPrayerVC */,
@@ -211,14 +212,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D1DAD0391E42F80D002300FC /* Extensions */ = {
+		D1DAD0391E42F80D002300FC /* Common Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D1CFD6231E15C70200E5FE23 /* ColorExtension.swift */,
 				D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */,
-				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
 			);
-			name = Extensions;
+			name = "Common Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

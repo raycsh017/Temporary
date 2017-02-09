@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CalendarResetModalDelegate{
+	func calendarReset(with selectedDate: Date)
+}
+
 class CalendarResetModalViewController: UIViewController {
 
 	let radius: CGFloat = 4.0
@@ -15,42 +19,49 @@ class CalendarResetModalViewController: UIViewController {
 	
 	@IBOutlet weak var backgroundView: UIView!{
 		didSet{
-			backgroundView.backgroundColor = .black
-			backgroundView.alpha = 0.0
+			self.backgroundView.backgroundColor = .black
+			self.backgroundView.alpha = 0.0
 		}
 	}
-	@IBOutlet weak var datePickerWrapperView: UIView!{
+	@IBOutlet weak var datePickerView: UIView!{
 		didSet{
-			datePickerWrapperView.layer.cornerRadius = radius
+			self.datePickerView.layer.cornerRadius = self.radius
 		}
 	}
-	@IBOutlet weak var datePickerView: UIDatePicker!
+	@IBOutlet weak var datePicker: UIDatePicker!{
+		didSet{
+
+		}
+	}
 	@IBOutlet weak var confirmButton: UIButton!{
 		didSet{
-			confirmButton.backgroundColor = UIColor.withRGB(red: 0, green: 189, blue: 157)
-			confirmButton.layer.cornerRadius = radius
-			confirmButton.setTitleColor(.white, for: .normal)
-			confirmButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: fontSize)
+			self.confirmButton.backgroundColor = UIColor.withRGB(red: 0, green: 189, blue: 157)
+			self.confirmButton.layer.cornerRadius = self.radius
+			self.confirmButton.setTitleColor(.white, for: .normal)
+			self.confirmButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: self.fontSize)
 		}
 	}
 	@IBOutlet weak var cancelButton: UIButton!{
 		didSet{
-			cancelButton.backgroundColor = UIColor.withRGB(red: 244, green: 95, blue: 99)
-			cancelButton.layer.cornerRadius = radius
-			cancelButton.setTitleColor(.white, for: .normal)
-			cancelButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: fontSize)
+			self.cancelButton.backgroundColor = UIColor.withRGB(red: 244, green: 95, blue: 99)
+			self.cancelButton.layer.cornerRadius = self.radius
+			self.cancelButton.setTitleColor(.white, for: .normal)
+			self.cancelButton.titleLabel!.font = UIFont.boldSystemFont(ofSize: self.fontSize)
 		}
 	}
+	
+	var delegate: CalendarResetModalDelegate?
+	var newRosaryStartDate: Date?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		setup()
+		self.setup()
     }
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		animateView()
+		self.animateView()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -63,18 +74,18 @@ class CalendarResetModalViewController: UIViewController {
 	}
 	
 	func animateView(){
-		self.datePickerWrapperView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-		self.datePickerWrapperView.alpha = 0.0
+		self.datePickerView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+		self.datePickerView.alpha = 0.0
 		UIView.animate(withDuration: 0.25) {
 			self.backgroundView.alpha = 0.4
-			self.datePickerWrapperView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-			self.datePickerWrapperView.alpha = 1.0
+			self.datePickerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+			self.datePickerView.alpha = 1.0
 		}
 	}
 	func deAnimateView(){
 		UIView.animate(withDuration: 0.25, animations: { 
-			self.datePickerWrapperView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-			self.datePickerWrapperView.alpha = 0.0
+			self.datePickerView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+			self.datePickerView.alpha = 0.0
 			self.backgroundView.alpha = 0.0
 		}) { (completed) in
 			if completed{
@@ -83,13 +94,12 @@ class CalendarResetModalViewController: UIViewController {
 		}
 	}
 	
-	@IBAction func changedDate(_ sender: Any) {
-		
-	}
 	@IBAction func confirmReset(_ sender: Any) {
-		
+		self.delegate?.calendarReset(with: datePicker.date)
+		self.deAnimateView()
 	}
 	@IBAction func cancelReset(_ sender: Any) {
-		deAnimateView()
+		self.deAnimateView()
 	}
+	
 }
