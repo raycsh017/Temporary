@@ -8,6 +8,8 @@
 
 import UIKit
 import JTAppleCalendar
+import RealmSwift
+
 class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 
 	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
@@ -48,13 +50,16 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	
 	let currentDate = Date()
 	let dateFormatter = DateFormatter()
+
+	let realm = try! Realm()
 	
-	var rosaryStartDate: Date?
+	var rosaryPeriod: RosaryPeriod?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		self.setup()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +75,27 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		self.endDateView.addShadow()
 	}
 	
+	func setup(){
+		// Retrieve data from Realm
+		let rosaryPeriods = realm.objects(RosaryPeriod.self)
+		self.rosaryPeriod = rosaryPeriods.first
+		
+		// Check if RosaryPeriod exists in Realm. If not, create an object
+		if self.rosaryPeriod == nil{
+			print("1")
+			self.rosaryPeriod = RosaryPeriod()
+			try! self.realm.write {
+				self.realm.add(self.rosaryPeriod!)
+			}
+		}
+		else{
+			print("2")
+			if let startDate = self.rosaryPeriod?.startDate, let endDate = self.rosaryPeriod?.endDate{
+				self.updateDatesLabels(startDate: startDate, endDate: endDate)
+			}
+		}
+	}
+	
 	@IBAction func openCalendarResetModal(_ sender: Any) {
 		let calendarResetModalVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarResetModalViewController") as? CalendarResetModalViewController
 		calendarResetModalVC?.modalPresentationStyle = .overCurrentContext
@@ -77,24 +103,28 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		self.present(calendarResetModalVC!, animated: false, completion: nil)
 	}
 	
-	func findEndOfPeriod(startingWith startDate: Date)->Date{
-		// We add 53 to the startDate, because the period is start-date-inclusive
-		let daysInOnePeriod = 53
-		let endDate = Calendar.current.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)
-		return endDate!
-	}
-	func updateStartEndDateLabels(startDate: Date, endDate: Date){
-		self.dateFormatter.dateFormat = "MM/dd/yyyy"
-		self.startDateBodyLabel.text = self.dateFormatter.string(from: startDate)
-		self.endDateBodyLabel.text = self.dateFormatter.string(from: endDate)
-	}
-	
 	// CalendarResetModalDelegate function
 	func calendarReset(with selectedDate: Date) {
 		let startDate = selectedDate
-		let endDate = self.findEndOfPeriod(startingWith: selectedDate)
-		self.updateStartEndDateLabels(startDate: startDate, endDate: endDate)
-		print(self.calendarView.bounds)
+		// We add 53 to the startDate, because the period is start-date-inclusive
+		let daysInOnePeriod = 53
+		let endDate = Calendar.current.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)!
+		self.writeDatesToRealm(startDate: startDate, endDate: endDate)
+	}
+	
+	func writeDatesToRealm(startDate: Date, endDate: Date){
+		if let rosaryPeriod = self.rosaryPeriod{
+			try! self.realm.write{
+				rosaryPeriod.startDate = startDate
+				rosaryPeriod.endDate = endDate
+			}
+			self.updateDatesLabels(startDate: startDate, endDate: endDate)
+		}
+	}
+	func updateDatesLabels(startDate: Date, endDate: Date){
+		self.dateFormatter.dateFormat = "MM/dd/yyyy"
+		self.startDateBodyLabel.text = self.dateFormatter.string(from: startDate)
+		self.endDateBodyLabel.text = self.dateFormatter.string(from: endDate)
 	}
 	
 }
