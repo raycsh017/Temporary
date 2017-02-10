@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csz-Gc-Fvi">
-                                <rect key="frame" x="20" y="84" width="374" height="234"/>
+                                <rect key="frame" x="20" y="84" width="374" height="257"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="D5m-Nv-sQz">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="234"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="249"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSN-Rv-cTT">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -101,7 +101,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-0F-Hvi" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                                <rect key="frame" x="0.0" y="50" width="374" height="184"/>
+                                                <rect key="frame" x="0.0" y="50" width="374" height="199"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -119,8 +119,8 @@
                                 <constraints>
                                     <constraint firstItem="D5m-Nv-sQz" firstAttribute="top" secondItem="csz-Gc-Fvi" secondAttribute="top" id="0fi-w3-ora"/>
                                     <constraint firstItem="D5m-Nv-sQz" firstAttribute="leading" secondItem="csz-Gc-Fvi" secondAttribute="leading" id="TP2-zb-yC5"/>
-                                    <constraint firstAttribute="bottom" secondItem="D5m-Nv-sQz" secondAttribute="bottom" id="Zxz-wE-Ckg"/>
-                                    <constraint firstAttribute="width" secondItem="csz-Gc-Fvi" secondAttribute="height" multiplier="16:10" id="cr3-H0-ZRZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="D5m-Nv-sQz" secondAttribute="bottom" constant="8" id="Zxz-wE-Ckg"/>
+                                    <constraint firstAttribute="width" secondItem="csz-Gc-Fvi" secondAttribute="height" multiplier="16:11" id="cr3-H0-ZRZ"/>
                                     <constraint firstAttribute="trailing" secondItem="D5m-Nv-sQz" secondAttribute="trailing" id="tlH-s4-gZy"/>
                                 </constraints>
                             </view>
@@ -136,19 +136,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pm7-ey-hVb">
-                                <rect key="frame" x="20" y="334" width="179" height="101"/>
+                                <rect key="frame" x="20" y="357" width="179" height="101"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aY1-Zy-myI">
-                                        <rect key="frame" x="43.333333333333329" y="22.333333333333314" width="92.666666666666671" height="57"/>
+                                        <rect key="frame" x="36" y="22.333333333333314" width="107.66666666666666" height="57"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵주기도 시작" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exX-Kh-52B">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666657" height="20.333333333333371"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵주기도 시작일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exX-Kh-52B">
+                                                <rect key="frame" x="0.0" y="0.0" width="107.66666666666666" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBf-U3-bWO">
-                                                <rect key="frame" x="26.999999999999993" y="28.333333333333371" width="39.000000000000007" height="28.666666666666629"/>
+                                                <rect key="frame" x="34.333333333333329" y="28.333333333333371" width="39.000000000000014" height="28.666666666666629"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -163,19 +163,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Diy-xk-m0l">
-                                <rect key="frame" x="215" y="334" width="179" height="101"/>
+                                <rect key="frame" x="215" y="357" width="179" height="101"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bwo-fF-l8l">
-                                        <rect key="frame" x="50" y="22.333333333333314" width="78" height="57"/>
+                                        <rect key="frame" x="28" y="22.333333333333314" width="122.33333333333331" height="57"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵주기도 끝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0j-wm-a7M">
-                                                <rect key="frame" x="0.0" y="0.0" width="78" height="20.333333333333371"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="묵주기도 마지막일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0j-wm-a7M">
+                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333331" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRg-w0-hb5">
-                                                <rect key="frame" x="19.666666666666686" y="28.333333333333371" width="39" height="28.666666666666629"/>
+                                                <rect key="frame" x="41.666666666666686" y="28.333333333333371" width="39" height="28.666666666666629"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -424,7 +424,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lN0-7A-Fsz" id="jf0-sz-Ded">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성부와 성자와 성령의 이름으로, 아멘." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-Vg-rWC">
@@ -502,7 +502,7 @@
                                         <rect key="frame" x="0.0" y="228" width="414" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGR-Sz-BGV" id="bFx-17-mBf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="신비 제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ntd-eB-mQ9">
@@ -565,7 +565,7 @@
                                         <rect key="frame" x="0.0" y="363" width="414" height="292"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MGn-aY-cUa" id="vhx-Ru-O5z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="291.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="291.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신령성체의 기도" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFK-6q-Q1h">

@@ -12,4 +12,6 @@ import JTAppleCalendar
 class CalendarDayCellView: JTAppleDayCellView{
 	@IBOutlet weak var dayLabel: UILabel!
 	@IBOutlet weak var daySelectedView: UIView!
+	
+	var prevColor: UIColor?
 }

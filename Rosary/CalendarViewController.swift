@@ -10,6 +10,11 @@ import UIKit
 import JTAppleCalendar
 import RealmSwift
 
+struct RosaryDate{
+	let date: Date
+	let colorIndex: Int
+}
+
 class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 
 	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
@@ -109,16 +114,18 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		// We add 53 to the startDate, because the period is start-date-inclusive
 		let daysInOnePeriod = 53
 		let endDate = Calendar.current.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)!
-		self.writeDatesToRealm(startDate: startDate, endDate: endDate)
+		self.writeDatesToRealm(startDate: startDate, endDate: endDate) { 
+			self.updateDatesLabels(startDate: startDate, endDate: endDate)
+			self.calendarBodyView.reloadData()
+		}
 	}
-	
-	func writeDatesToRealm(startDate: Date, endDate: Date){
+	func writeDatesToRealm(startDate: Date, endDate: Date, completion: ()->()){
 		if let rosaryPeriod = self.rosaryPeriod{
 			try! self.realm.write{
 				rosaryPeriod.startDate = startDate
 				rosaryPeriod.endDate = endDate
 			}
-			self.updateDatesLabels(startDate: startDate, endDate: endDate)
+			completion()
 		}
 	}
 	func updateDatesLabels(startDate: Date, endDate: Date){
