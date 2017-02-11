@@ -15,18 +15,20 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 	func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
 		dateFormatter.dateFormat = "yyyy MM dd"
 		
-		let startDate = Date()
-		let endDate = Date()
+		let startDate = self.calendar.date(byAdding: .month, value: -2, to: self.currentDate)!
+		let endDate = self.calendar.date(byAdding: .month, value: 2, to: self.currentDate)!
 		
 		let parameters = ConfigurationParameters(startDate: startDate,
 		                                         endDate: endDate,
 		                                         numberOfRows: 6, // Only 1, 2, 3, & 6 are allowed
-												 calendar: Calendar.current,
+												 calendar: self.calendar,
 												 generateInDates: .forAllMonths,
 												 generateOutDates: .tillEndOfRow,
 												 firstDayOfWeek: .sunday)
+		
 		return parameters
 	}
+	
 	func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
 		let cellView = cell as! CalendarDayCellView
 		
@@ -35,24 +37,29 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		
 		self.handleCellTextColor(view: cellView, cellState: cellState)
 		self.handleDatesInPeriod(view: cellView, cellState: cellState)
-//		self.handleCellSelection(view: cellView, cellState: cellState)
+		self.handleCellSelection(view: cellView, cellState: cellState)
 	}
 	
 	// When cell gets selected (Uni-selection)
 	func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
 		let cellView = cell as! CalendarDayCellView
-//		self.handleCellSelection(view: cellView, cellState: cellState)
+		self.handleCellSelection(view: cellView, cellState: cellState)
 		self.handleCellTextColor(view: cellView, cellState: cellState)
 	}
 	// When cell gets de-selected
 	func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-		let cellView = cell as! CalendarDayCellView
-//		self.handleCellSelection(view: cellView, cellState: cellState)
-		self.handleCellTextColor(view: cellView, cellState: cellState)
+		// If deselect happens in the section outside of the visible section, cell == nil
+		if let cellView = cell as? CalendarDayCellView{
+			self.handleCellSelection(view: cellView, cellState: cellState)
+			self.handleCellTextColor(view: cellView, cellState: cellState)
+		}
+	}
+	func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+		let visibleDate = visibleDates.monthDates.first!
+		self.updateCalendarHeader(dateInMonth: visibleDate)
 	}
 	// Function to handle the text color of the calendar
 	func handleCellTextColor(view: JTAppleDayCellView?, cellState: CellState) {
-		
 		guard let cellView = view as? CalendarDayCellView  else {
 			return
 		}
@@ -74,13 +81,13 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		let cellDateString = dateFormatter.string(from: cellState.date)
 		
 		if cellState.isSelected || currentDateString == cellDateString{
-			cellView.daySelectedView.layer.cornerRadius =  2
-			cellView.daySelectedView.backgroundColor = UIColor.black
-			cellView.daySelectedView.isHidden = false
+			cellView.dayContainerView.layer.borderWidth = 1
+			cellView.dayContainerView.layer.borderColor = UIColor.black.cgColor
 		} else {
-			cellView.daySelectedView.isHidden = true
+			cellView.dayContainerView.layer.borderColor = UIColor.clear.cgColor
 		}
 	}
+	// Function to handle colors for dates in user-set Rosary Period
 	func handleDatesInPeriod(view: JTAppleDayCellView?, cellState: CellState){
 		guard let cellView = view as? CalendarDayCellView else{
 			return
@@ -88,9 +95,9 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		
 		if cellState.dateBelongsTo == .thisMonth{
 			if let rosaryStartDate = self.rosaryPeriod?.startDate{
-				let date1 = Calendar.current.startOfDay(for: rosaryStartDate)
-				let date2 = Calendar.current.startOfDay(for: cellState.date)
-				let numDaysBetween = Calendar.current.dateComponents([.day], from: date1, to: date2).day!
+				let date1 = self.calendar.startOfDay(for: rosaryStartDate)
+				let date2 = self.calendar.startOfDay(for: cellState.date)
+				let numDaysBetween = self.calendar.dateComponents([.day], from: date1, to: date2).day!
 				
 				switch numDaysBetween{
 				case 0..<54:

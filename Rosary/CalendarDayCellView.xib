@@ -14,30 +14,46 @@
             <rect key="frame" x="0.0" y="0.0" width="230" height="164"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-3V-OkL">
-                    <rect key="frame" x="88.5" y="74.5" width="54" height="16.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-GC-N5Q">
-                    <rect key="frame" x="113" y="93" width="4" height="4"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-yx-ag9">
+                    <rect key="frame" x="0.0" y="0.0" width="230" height="164"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-bt-qzF">
+                            <rect key="frame" x="89" y="70" width="53.5" height="24.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-3V-OkL">
+                                    <rect key="frame" x="0.0" y="0.0" width="53.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-GC-N5Q">
+                                    <rect key="frame" x="25" y="20.5" width="4" height="4"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="4" id="C0B-sI-K9n"/>
+                                        <constraint firstAttribute="width" constant="4" id="wAw-1Z-ZOu"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="4" id="C0B-sI-K9n"/>
-                        <constraint firstAttribute="width" constant="4" id="wAw-1Z-ZOu"/>
+                        <constraint firstItem="Jmr-bt-qzF" firstAttribute="centerY" secondItem="5NT-yx-ag9" secondAttribute="centerY" id="B2T-5t-sCA"/>
+                        <constraint firstItem="Jmr-bt-qzF" firstAttribute="centerX" secondItem="5NT-yx-ag9" secondAttribute="centerX" id="sHa-hT-cDq"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="IPl-GC-N5Q" firstAttribute="top" secondItem="nuV-3V-OkL" secondAttribute="bottom" constant="2" id="3HN-Dy-RpQ"/>
-                <constraint firstItem="nuV-3V-OkL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AmH-Nf-Bwq"/>
-                <constraint firstItem="IPl-GC-N5Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="enj-qL-aP2"/>
-                <constraint firstItem="nuV-3V-OkL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mlu-Jq-pFi"/>
+                <constraint firstItem="5NT-yx-ag9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8Bp-og-IVD"/>
+                <constraint firstItem="5NT-yx-ag9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gta-kh-I6H"/>
+                <constraint firstAttribute="trailing" secondItem="5NT-yx-ag9" secondAttribute="trailing" id="Jda-TD-LZ9"/>
+                <constraint firstAttribute="bottom" secondItem="5NT-yx-ag9" secondAttribute="bottom" id="vGs-0g-y6y"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="dayContainerView" destination="5NT-yx-ag9" id="p1F-6h-IZp"/>
                 <outlet property="dayLabel" destination="nuV-3V-OkL" id="SgG-j5-PyF"/>
                 <outlet property="daySelectedView" destination="IPl-GC-N5Q" id="SyI-43-bxf"/>
             </connections>

@@ -26,18 +26,14 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	]
 	
 	@IBOutlet weak var calendarView: UIView!
-	@IBOutlet weak var calendarMonthLabel: UILabel!{
-		didSet{
-			self.dateFormatter.dateFormat = "yyyy MM"
-			let monthString = self.dateFormatter.string(from: self.currentDate)
-			self.calendarMonthLabel.text = monthString
-		}
-	}
+	@IBOutlet weak var calendarMonthLabel: UILabel!
 	@IBOutlet weak var calendarBodyView: JTAppleCalendarView!{
 		didSet{
 			self.calendarBodyView.dataSource = self
 			self.calendarBodyView.delegate = self
 			self.calendarBodyView.registerCellViewXib(file: "CalendarDayCellView")
+			
+			self.calendarBodyView.scrollingMode = .stopAtEachCalendarFrameWidth
 		}
 	}
 	
@@ -55,6 +51,7 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	
 	let currentDate = Date()
 	let dateFormatter = DateFormatter()
+	let calendar = Calendar.current
 
 	let realm = try! Realm()
 	
@@ -80,7 +77,15 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		self.endDateView.addShadow()
 	}
 	
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		self.calendarBodyView.itemSize = self.calendarBodyView.bounds.width / 7
+	}
+	
 	func setup(){
+		self.calendarBodyView.scrollToDate(self.currentDate)
+		self.updateCalendarHeader(dateInMonth: self.currentDate)
+		
 		// Retrieve data from Realm
 		let rosaryPeriods = realm.objects(RosaryPeriod.self)
 		self.rosaryPeriod = rosaryPeriods.first
@@ -113,7 +118,7 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		let startDate = selectedDate
 		// We add 53 to the startDate, because the period is start-date-inclusive
 		let daysInOnePeriod = 53
-		let endDate = Calendar.current.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)!
+		let endDate = self.calendar.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)!
 		self.writeDatesToRealm(startDate: startDate, endDate: endDate) { 
 			self.updateDatesLabels(startDate: startDate, endDate: endDate)
 			self.calendarBodyView.reloadData()
@@ -133,5 +138,9 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		self.startDateBodyLabel.text = self.dateFormatter.string(from: startDate)
 		self.endDateBodyLabel.text = self.dateFormatter.string(from: endDate)
 	}
-	
+	func updateCalendarHeader(dateInMonth: Date){
+		self.dateFormatter.dateFormat = "MMMM yyyy"
+		let monthString = self.dateFormatter.string(from: dateInMonth)
+		self.calendarMonthLabel.text = monthString
+	}
 }
