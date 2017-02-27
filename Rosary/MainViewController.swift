@@ -51,16 +51,21 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		Menu(title: "달력", icon: UIImage(named: "ic_calendar")!, id: 5)
 	]
 	
-	let calendarSegueIdentifier = "displayCalendarSegue"
+	let calendarSegueIdentifier = "mainToCalendarSegue"
+	let prayersSegueIdentifier = "mainToPrayersSegue"
 	let rosarySegueIdentifier = "displayRosaryPrayerSegue"
 	let otherPrayersSegueIdentifier = "displayOtherPrayersSegue"
 	
 	// Dymanic data
-	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
-	var rosaryEndingPrayer: RosaryEndingPrayer?
 	var rosaryMysteries: [String: RosaryMystery] = [:]
+	var rosaryEndingPrayer: RosaryEndingPrayer?
 	
-	var otherPrayers: [Prayer] = []
+	var commonPrayers: [CommonPrayer] = []
+//	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
+//	var rosaryEndingPrayer: RosaryEndingPrayer?
+//	var rosaryMysteries: [String: RosaryMystery] = [:]
+	
+//	var otherPrayers: [Prayer] = []
 	
 	// For identifying which view was touched
 	var selectedViewTag: Int = 0
@@ -69,8 +74,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		self.setup()
-		self.loadInitialRosaryData()
-		self.loadOtherPrayersData()
+		self.loadRosaryPrayers()
+		self.loadCommonPrayers()
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -82,43 +87,65 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		self.automaticallyAdjustsScrollViewInsets = false
 	}
 	// Load initial rosary data from a local JSON file (rosaryData.json)
-	func loadInitialRosaryData(){
+	func loadRosaryPrayers(){
 		// Get the JSON data from rosaryData.json
-		let path = Bundle.main.path(forResource: "rosaryData", ofType: "json")!
+		let path = Bundle.main.path(forResource: "rosaryPrayers", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
-		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMysteries, rosaryEndingPrayer
-		// Starting part of Rosary prayer
-		let startingPrayerSection = json["startingPrayers"]
-		for(mysteryKey, startingPrayer) in startingPrayerSection{
-			if let petition = startingPrayer["petition"].string, let grace = startingPrayer["grace"].string{
-				self.rosaryStartingPrayers[mysteryKey] = RosaryStartingPrayer(petition: petition, grace: grace)
+		// Parse JSON, Store into local variables
+		for(key, mystery) in json["mysteries"]{
+			let startingPrayer = mystery["startingPrayers"]
+			let rosaryStartingPrayer = RosaryStartingPrayer(petition: startingPrayer["petition"].stringValue, grace: startingPrayer["grace"].stringValue)
+			
+			var mysterySections = [RosaryMysterySection]()
+			for (_, section) in mystery["mainPrayers"]{
+				let mysterySection = RosaryMysterySection(title: section["title"].stringValue, subText: section["subText"].stringValue, mainText: section["mainText"].stringValue, endingText: section["endingText"].stringValue)
+				mysterySections.append(mysterySection)
 			}
+			
+			let endingPrayer = mystery["endingPrayers"]
+			let praise1Stringified = endingPrayer["praise1"].arrayValue.map({$0.stringValue})
+			let rosaryEndingPrayer = RosaryEndingPrayer(spirit: endingPrayer["spirit"].stringValue, petition: endingPrayer["petition"].stringValue, grace: endingPrayer["grace"].stringValue, praise1: praise1Stringified, praise2: endingPrayer["praise2"].stringValue)
+			
+			let rosaryMystery = RosaryMystery(title: key, sections: mysterySections, startingPrayer: rosaryStartingPrayer, endingPrayer: rosaryEndingPrayer)
+			self.rosaryMysteries[key] = rosaryMystery
 		}
 		
-		// Main part of Rosary prayer
-		let mysteriesSection = json["mysteries"]
-		for (mysteryKey, mystery) in mysteriesSection{
-			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [])
-			for(_, mysterySection) in mystery{
-				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
-					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
-					self.rosaryMysteries[mysteryKey]?.sections.append(rosaryMysterySection)
-				}
-			}
-		}
-		
-		// Ending part of Rosary prayer
-		let endingPrayerSection = json["endingPrayer"]
-		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].array, let praise2 = endingPrayerSection["praise2"].string{
-			let praise1Processed = praise1.map({$0.stringValue})
-			self.rosaryEndingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
-		}
+//		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMysteries, rosaryEndingPrayer
+//		// Starting part of Rosary prayer
+//		let startingPrayerSection = json["startingPrayers"]
+//		for(mysteryKey, startingPrayer) in startingPrayerSection{
+//			if let petition = startingPrayer["petition"].string, let grace = startingPrayer["grace"].string{
+//				self.rosaryMysteries[mysteryKey]?.startingPrayer = RosaryStartingPrayer(petition: petition, grace: grace)
+////				self.rosaryStartingPrayers[mysteryKey] = RosaryStartingPrayer(petition: petition, grace: grace)
+//			}
+//		}
+//		
+//		// Main part of Rosary prayer
+//		let mysteriesSection = json["mysteries"]
+//		for (mysteryKey, mystery) in mysteriesSection{
+//			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [], startingPrayer: nil)
+//			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [])
+//			for(_, mysterySection) in mystery{
+//				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
+//					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
+//					self.rosaryMysteries[mysteryKey]?.sections.append(rosaryMysterySection)
+//				}
+//			}
+//		}
+//		
+//		// Ending part of Rosary prayer
+//		let endingPrayerSection = json["endingPrayer"]
+//		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].array, let praise2 = endingPrayerSection["praise2"].string{
+//			let praise1Processed = praise1.map({$0.stringValue})
+//			self.rosaryEndingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
+////			self.rosaryMysteries[mysteryKey]?.endingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
+//		}
 	}
 	// Load other prayers data from a local JSON file (otherPrayersData.json)
-	func loadOtherPrayersData(){
-		let path = Bundle.main.path(forResource: "otherPrayersData", ofType: "json")!
+	func loadCommonPrayers(){
+		let path = Bundle.main.path(forResource: "commonPrayers", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
@@ -142,7 +169,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 				let ordinaryString = NSAttributedString(string: prayerTextLines[i].stringValue)
 				prayerText.append(ordinaryString)
 			}
-			self.otherPrayers.append(Prayer(title: prayerTitle, text: prayerText))
+			let prayerNumLines = prayerTextLines.count
+			self.commonPrayers.append(CommonPrayer(title: prayerTitle, text: prayerText, numberOfLines: prayerNumLines))
 		}
 	}
 	
@@ -163,7 +191,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RosaryMenuCollectionViewCell.cellID, for: indexPath) as? RosaryMenuCollectionViewCell
 		let menu = self.menus[indexPath.row]
 		
-		cell?.initialize(title: menu.title, icon: menu.icon)
+		cell?.setValues(title: menu.title, icon: menu.icon)
 		cell?.addShadow()
 		
 		return cell!
@@ -171,10 +199,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.selectedViewTag = indexPath.row
 		switch indexPath.row{
-		case 0...3:
-			self.performSegue(withIdentifier: self.rosarySegueIdentifier, sender: self)
-		case 4:
-			self.performSegue(withIdentifier: self.otherPrayersSegueIdentifier, sender: self)
+		case 0...4:
+			self.performSegue(withIdentifier: self.prayersSegueIdentifier, sender: self)
+//			self.performSegue(withIdentifier: self.rosarySegueIdentifier, sender: self)
+//		case 4:
+//			self.performSegue(withIdentifier: self.otherPrayersSegueIdentifier, sender: self)
 		case 5:
 			self.performSegue(withIdentifier: self.calendarSegueIdentifier, sender: self)
 		default:
@@ -185,33 +214,59 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let identifier = segue.identifier{
 			switch identifier{
-			case self.rosarySegueIdentifier:
-				let destinationVC = segue.destination as? RosaryPrayerViewController
-				destinationVC?.endingPrayer = self.rosaryEndingPrayer
+			case self.prayersSegueIdentifier:
+				let destVC = segue.destination as? PrayersViewController
 				switch self.selectedViewTag{
 				case 0:
-					destinationVC?.startingPrayer = self.rosaryStartingPrayers["환희의 신비"]
-					destinationVC?.mystery = self.rosaryMysteries["환희의 신비"]
+					destVC?.rosaryPrayers = self.rosaryMysteries["환희의 신비"]
 				case 1:
-					destinationVC?.startingPrayer = self.rosaryStartingPrayers["빛의 신비"]
-					destinationVC?.mystery = self.rosaryMysteries["빛의 신비"]
+					destVC?.rosaryPrayers = self.rosaryMysteries["빛의 신비"]
 				case 2:
-					destinationVC?.startingPrayer = self.rosaryStartingPrayers["고통의 신비"]
-					destinationVC?.mystery = self.rosaryMysteries["고통의 신비"]
+					destVC?.rosaryPrayers = self.rosaryMysteries["고통의 신비"]
 				case 3:
-					destinationVC?.startingPrayer = self.rosaryStartingPrayers["영광의 신비"]
-					destinationVC?.mystery = self.rosaryMysteries["영광의 신비"]
+					destVC?.rosaryPrayers = self.rosaryMysteries["영광의 신비"]
+				case 4:
+					destVC?.commonPrayers = self.commonPrayers
 				default:
 					break
 				}
-			case self.otherPrayersSegueIdentifier:
-				let destinationVC = segue.destination as? OtherPrayersViewController
-				destinationVC?.otherPrayers = self.otherPrayers
 			case self.calendarSegueIdentifier:
-				let destinationVC = segue.destination as? CalendarViewController
+				let destVC = segue.destination as? CalendarViewController
 			default:
 				break
 			}
 		}
+		
+//		if let identifier = segue.identifier{
+//			switch identifier{
+//			case self.rosarySegueIdentifier:
+//				
+//				let destinationVC = segue.destination as? RosaryPrayerViewController
+//				destinationVC?.endingPrayer = self.rosaryEndingPrayer
+//				switch self.selectedViewTag{
+//				case 0:
+//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["환희의 신비"]
+//					destinationVC?.mystery = self.rosaryMysteries["환희의 신비"]
+//				case 1:
+//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["빛의 신비"]
+//					destinationVC?.mystery = self.rosaryMysteries["빛의 신비"]
+//				case 2:
+//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["고통의 신비"]
+//					destinationVC?.mystery = self.rosaryMysteries["고통의 신비"]
+//				case 3:
+//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["영광의 신비"]
+//					destinationVC?.mystery = self.rosaryMysteries["영광의 신비"]
+//				default:
+//					break
+//				}
+//			case self.otherPrayersSegueIdentifier:
+//				let destinationVC = segue.destination as? OtherPrayersViewController
+//				destinationVC?.otherPrayers = self.otherPrayers
+//			case self.calendarSegueIdentifier:
+//				let destinationVC = segue.destination as? CalendarViewController
+//			default:
+//				break
+//			}
+//		}
 	}
 }

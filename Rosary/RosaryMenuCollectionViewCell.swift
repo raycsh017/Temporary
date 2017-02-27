@@ -34,7 +34,7 @@ class RosaryMenuCollectionViewCell: UICollectionViewCell {
 	func setup(){
 		self.clipsToBounds = false
 	}
-	func initialize(title: String, icon: UIImage){
+	func setValues(title: String, icon: UIImage){
 		self.menuTitleLabel.text = title
 		self.menuIconImageView.image = icon
 	}

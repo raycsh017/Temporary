@@ -1,5 +1,5 @@
 //
-//  OtherPrayers.swift
+//  CommonPrayers.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 1/12/17.
@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Prayer{
+struct CommonPrayer{
 	let title: String
 	let text: NSMutableAttributedString
+	let numberOfLines: Int
 }
