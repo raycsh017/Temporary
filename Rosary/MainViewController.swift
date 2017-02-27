@@ -61,11 +61,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	var rosaryEndingPrayer: RosaryEndingPrayer?
 	
 	var commonPrayers: [CommonPrayer] = []
-//	var rosaryStartingPrayers: [String: RosaryStartingPrayer] = [:]
-//	var rosaryEndingPrayer: RosaryEndingPrayer?
-//	var rosaryMysteries: [String: RosaryMystery] = [:]
-	
-//	var otherPrayers: [Prayer] = []
 	
 	// For identifying which view was touched
 	var selectedViewTag: Int = 0
@@ -86,9 +81,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	func setup(){
 		self.automaticallyAdjustsScrollViewInsets = false
 	}
-	// Load initial rosary data from a local JSON file (rosaryData.json)
+	// Load initial rosary data from a local JSON file (rosaryPrayers.json)
 	func loadRosaryPrayers(){
-		// Get the JSON data from rosaryData.json
 		let path = Bundle.main.path(forResource: "rosaryPrayers", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
@@ -111,52 +105,22 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 			let rosaryMystery = RosaryMystery(title: key, sections: mysterySections, startingPrayer: rosaryStartingPrayer, endingPrayer: rosaryEndingPrayer)
 			self.rosaryMysteries[key] = rosaryMystery
 		}
-		
-//		// Parse JSON and initialize var:rosaryStartingPrayer, rosaryMysteries, rosaryEndingPrayer
-//		// Starting part of Rosary prayer
-//		let startingPrayerSection = json["startingPrayers"]
-//		for(mysteryKey, startingPrayer) in startingPrayerSection{
-//			if let petition = startingPrayer["petition"].string, let grace = startingPrayer["grace"].string{
-//				self.rosaryMysteries[mysteryKey]?.startingPrayer = RosaryStartingPrayer(petition: petition, grace: grace)
-////				self.rosaryStartingPrayers[mysteryKey] = RosaryStartingPrayer(petition: petition, grace: grace)
-//			}
-//		}
-//		
-//		// Main part of Rosary prayer
-//		let mysteriesSection = json["mysteries"]
-//		for (mysteryKey, mystery) in mysteriesSection{
-//			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [], startingPrayer: nil)
-//			self.rosaryMysteries[mysteryKey] = RosaryMystery(title: mysteryKey, sections: [])
-//			for(_, mysterySection) in mystery{
-//				if let title = mysterySection["title"].string, let subText = mysterySection["subText"].string, let mainText = mysterySection["mainText"].string, let endingText = mysterySection["endingText"].string{
-//					let rosaryMysterySection = RosaryMysterySection(title: title, subText: subText, mainText: mainText, endingText: endingText)
-//					self.rosaryMysteries[mysteryKey]?.sections.append(rosaryMysterySection)
-//				}
-//			}
-//		}
-//		
-//		// Ending part of Rosary prayer
-//		let endingPrayerSection = json["endingPrayer"]
-//		if let spirit = endingPrayerSection["spirit"].string, let petition = endingPrayerSection["petition"].string, let grace = endingPrayerSection["grace"].string, let praise1 = endingPrayerSection["praise1"].array, let praise2 = endingPrayerSection["praise2"].string{
-//			let praise1Processed = praise1.map({$0.stringValue})
-//			self.rosaryEndingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
-////			self.rosaryMysteries[mysteryKey]?.endingPrayer = RosaryEndingPrayer(spirit: spirit, petition: petition, grace: grace, praise1: praise1Processed, praise2: praise2)
-//		}
+
 	}
-	// Load other prayers data from a local JSON file (otherPrayersData.json)
+	// Load other prayers data from a local JSON file (commonPrayers.json)
 	func loadCommonPrayers(){
 		let path = Bundle.main.path(forResource: "commonPrayers", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
 		let json = JSON(data: data)
 		
-		// Parse JSON data from otherPrayersData.json
+		// Parse JSON data from commonPrayers.json
 		for (_, prayer) in json{
 			// Append every string in each prayer array into a string
 			let prayerTitle = prayer["title"].stringValue
 			let prayerText = NSMutableAttributedString()
 			let prayerTextLines = prayer["text"].arrayValue
 			for i in 0 ..< prayerTextLines.count{
-				// Check a part of the prayer needs to be underlined
+				// Check if a part of the prayer needs to be underlined
 				// Underline it if necessary
 				if let underlineAt = prayer["underlineAt"].int{
 					if i == underlineAt{
@@ -201,9 +165,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		switch indexPath.row{
 		case 0...4:
 			self.performSegue(withIdentifier: self.prayersSegueIdentifier, sender: self)
-//			self.performSegue(withIdentifier: self.rosarySegueIdentifier, sender: self)
-//		case 4:
-//			self.performSegue(withIdentifier: self.otherPrayersSegueIdentifier, sender: self)
 		case 5:
 			self.performSegue(withIdentifier: self.calendarSegueIdentifier, sender: self)
 		default:
@@ -236,37 +197,5 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 				break
 			}
 		}
-		
-//		if let identifier = segue.identifier{
-//			switch identifier{
-//			case self.rosarySegueIdentifier:
-//				
-//				let destinationVC = segue.destination as? RosaryPrayerViewController
-//				destinationVC?.endingPrayer = self.rosaryEndingPrayer
-//				switch self.selectedViewTag{
-//				case 0:
-//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["환희의 신비"]
-//					destinationVC?.mystery = self.rosaryMysteries["환희의 신비"]
-//				case 1:
-//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["빛의 신비"]
-//					destinationVC?.mystery = self.rosaryMysteries["빛의 신비"]
-//				case 2:
-//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["고통의 신비"]
-//					destinationVC?.mystery = self.rosaryMysteries["고통의 신비"]
-//				case 3:
-//					destinationVC?.startingPrayer = self.rosaryStartingPrayers["영광의 신비"]
-//					destinationVC?.mystery = self.rosaryMysteries["영광의 신비"]
-//				default:
-//					break
-//				}
-//			case self.otherPrayersSegueIdentifier:
-//				let destinationVC = segue.destination as? OtherPrayersViewController
-//				destinationVC?.otherPrayers = self.otherPrayers
-//			case self.calendarSegueIdentifier:
-//				let destinationVC = segue.destination as? CalendarViewController
-//			default:
-//				break
-//			}
-//		}
 	}
 }

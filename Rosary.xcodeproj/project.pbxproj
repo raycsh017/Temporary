@@ -164,46 +164,79 @@
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
 				D1CFD6181E15BFFE00E5FE23 /* Assets.xcassets */,
-				D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */,
-				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
-				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
-				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
 				D1DAD0391E42F80D002300FC /* Common Extensions */,
-				D1DAD0381E42F7FC002300FC /* Model */,
+				D1DAD0381E42F7FC002300FC /* CommonModel */,
 				D1DAD0351E42A852002300FC /* MainVC */,
-				D1DAD0331E42A832002300FC /* RosaryPrayerVC */,
-				D1DAD0341E42A847002300FC /* OtherPrayersVC */,
+				D1DAD0331E42A832002300FC /* PrayerVC */,
+				D1D521B21E64C4A0007B03C1 /* CalendarVC */,
 				D17EEA941E3D781A005645C4 /* JTAppleCalendar */,
 				D17EEA951E3D782E005645C4 /* JSON */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 				D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */,
+				D1D521B11E64C2B8007B03C1 /* TemporaryTrash */,
 			);
 			path = Rosary;
 			sourceTree = "<group>";
 		};
-		D1DAD0321E42A80A002300FC /* RosaryPrayerTableViewCells */ = {
+		D1D521B11E64C2B8007B03C1 /* TemporaryTrash */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAD0341E42A847002300FC /* OtherPrayersVC */,
+				D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */,
+				D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */,
 				D1DAD02C1E42A776002300FC /* TitleTableViewCell.swift */,
 				D1DAD02E1E42A7A1002300FC /* StartingPrayerTableViewCell.swift */,
 				D1DAD0301E42A7D1002300FC /* MainPrayerTableViewCell.swift */,
 				D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */,
+			);
+			name = TemporaryTrash;
+			sourceTree = "<group>";
+		};
+		D1D521B21E64C4A0007B03C1 /* CalendarVC */ = {
+			isa = PBXGroup;
+			children = (
+				D1D521B41E64C4F5007B03C1 /* Model */,
+				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
+				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
+				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
+			);
+			name = CalendarVC;
+			sourceTree = "<group>";
+		};
+		D1D521B31E64C4E5007B03C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1443FB51E492F1F00EB66DB /* Menu.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D1D521B41E64C4F5007B03C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D1DAD0321E42A80A002300FC /* PrayerVC Cells */ = {
+			isa = PBXGroup;
+			children = (
 				D13B4A791E5292F400069FEB /* StartingPrayerCollectionViewCell.swift */,
 				D13B4A7B1E52930F00069FEB /* MainPrayerCollectionViewCell.swift */,
 				D13B4A7D1E52931800069FEB /* EndingPrayerCollectionViewCell.swift */,
 				D11B3A921E624ED000831212 /* CommonPrayerCollectionViewCell.swift */,
 			);
-			name = RosaryPrayerTableViewCells;
+			name = "PrayerVC Cells";
 			sourceTree = "<group>";
 		};
-		D1DAD0331E42A832002300FC /* RosaryPrayerVC */ = {
+		D1DAD0331E42A832002300FC /* PrayerVC */ = {
 			isa = PBXGroup;
 			children = (
-				D1DAD0321E42A80A002300FC /* RosaryPrayerTableViewCells */,
-				D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */,
+				D1DAD0321E42A80A002300FC /* PrayerVC Cells */,
 				D13B4A7F1E5294FE00069FEB /* PrayersViewController.swift */,
 			);
-			name = RosaryPrayerVC;
+			name = PrayerVC;
 			sourceTree = "<group>";
 		};
 		D1DAD0341E42A847002300FC /* OtherPrayersVC */ = {
@@ -218,21 +251,20 @@
 		D1DAD0351E42A852002300FC /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				D1D521B31E64C4E5007B03C1 /* Model */,
 				D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */,
 				D1CFD6101E15BFFE00E5FE23 /* MainViewController.swift */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
 		};
-		D1DAD0381E42F7FC002300FC /* Model */ = {
+		D1DAD0381E42F7FC002300FC /* CommonModel */ = {
 			isa = PBXGroup;
 			children = (
-				D1443FB51E492F1F00EB66DB /* Menu.swift */,
-				D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */,
 				D1FDDF2E1E28A469003B4189 /* CommonPrayer.swift */,
 				D13B4A811E52980C00069FEB /* RosaryPrayer.swift */,
 			);
-			name = Model;
+			name = CommonModel;
 			sourceTree = "<group>";
 		};
 		D1DAD0391E42F80D002300FC /* Common Extensions */ = {
