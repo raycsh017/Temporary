@@ -40,6 +40,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 			self.rosaryMenuCollectionView.delegate = self
 		}
 	}
+	@IBOutlet weak var creditsView: UIView!{
+		didSet{
+			let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.openCreditsModal))
+			self.creditsView.addGestureRecognizer(gestureRecognizer)
+		}
+	}
 	
 	// Static data
 	let menus: [Menu] = [
@@ -54,7 +60,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	let calendarSegueIdentifier = "mainToCalendarSegue"
 	let prayersSegueIdentifier = "mainToPrayersSegue"
 	let rosarySegueIdentifier = "displayRosaryPrayerSegue"
-	let otherPrayersSegueIdentifier = "displayOtherPrayersSegue"
 	
 	// Dymanic data
 	var rosaryMysteries: [String: RosaryMystery] = [:]
@@ -107,7 +112,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		}
 
 	}
-	// Load other prayers data from a local JSON file (commonPrayers.json)
+	// Load common prayers data from a local JSON file (commonPrayers.json)
 	func loadCommonPrayers(){
 		let path = Bundle.main.path(forResource: "commonPrayers", ofType: "json")!
 		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
@@ -170,6 +175,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		default:
 			break
 		}
+	}
+	
+	func openCreditsModal(gestureRecognizer: UITapGestureRecognizer){
+		let creditsModalVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditsModalViewController") as? CreditsModalViewController
+		creditsModalVC?.modalPresentationStyle = .overCurrentContext
+		self.present(creditsModalVC!, animated: false, completion: nil)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
