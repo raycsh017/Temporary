@@ -37,17 +37,39 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		}
 	}
 	
+	let circleViewWidth: CGFloat = 8.0
+	@IBOutlet weak var joyfulView: UIView!{
+		didSet{
+			self.joyfulView.layer.cornerRadius = circleViewWidth / 2
+			self.joyfulView.backgroundColor = colorScheme[0]
+		}
+	}
+	@IBOutlet weak var lightView: UIView!{
+		didSet{
+			self.lightView.layer.cornerRadius = circleViewWidth / 2
+			self.lightView.backgroundColor = colorScheme[1]
+		}
+	}
+	@IBOutlet weak var sorrowfulView: UIView!{
+		didSet{
+			self.sorrowfulView.layer.cornerRadius = circleViewWidth / 2
+			self.sorrowfulView.backgroundColor = colorScheme[2]
+		}
+	}
+	@IBOutlet weak var gloriousView: UIView!{
+		didSet{
+			self.gloriousView.layer.cornerRadius = circleViewWidth / 2
+			self.gloriousView.backgroundColor = colorScheme[3]
+		}
+	}
+	
 	@IBOutlet weak var startDateView: UIView!
 	@IBOutlet weak var startDateBodyLabel: UILabel!
 	@IBOutlet weak var endDateView: UIView!
 	@IBOutlet weak var endDateBodyLabel: UILabel!
 	
-	@IBOutlet weak var calendarResetButton: UIButton!{
-		didSet{
-			self.calendarResetButton.setTitle("", for: .normal)
-			self.calendarResetButton.setImage(UIImage(named: "ic_calendar_reset"), for: .normal)
-		}
-	}
+	@IBOutlet weak var calendarResetButton: UIButton!
+	
 	
 	let currentDate = Date()
 	let dateFormatter = DateFormatter()
@@ -75,6 +97,7 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		self.calendarView.addShadow()
 		self.startDateView.addShadow()
 		self.endDateView.addShadow()
+		self.calendarResetButton.addShadow()
 	}
 	
 	override func viewWillLayoutSubviews() {
@@ -92,14 +115,12 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		
 		// Check if RosaryPeriod exists in Realm. If not, create an object
 		if self.rosaryPeriod == nil{
-			print("1")
 			self.rosaryPeriod = RosaryPeriod()
 			try! self.realm.write {
 				self.realm.add(self.rosaryPeriod!)
 			}
 		}
 		else{
-			print("2")
 			if let startDate = self.rosaryPeriod?.startDate, let endDate = self.rosaryPeriod?.endDate{
 				self.updateDatesLabels(startDate: startDate, endDate: endDate)
 			}

@@ -18,4 +18,20 @@ extension UIView{
 		self.layer.shouldRasterize = true
 		self.layer.rasterizationScale = UIScreen.main.scale
 	}
+//	func deepenShadow(){
+//		UIView.animate(withDuration: 0.2) {
+//			self.frame.origin.x = self.frame.origin.x - 5.0
+//			self.frame.origin.y = self.frame.origin.y - 5.0
+//			self.layer.shadowOpacity = 0.5
+//			self.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+//		}
+//	}
+//	func ligntenShadow(){
+//		UIView.animate(withDuration: 0.2) {
+//			self.frame.origin.x = self.frame.origin.x + 5.0
+//			self.frame.origin.y = self.frame.origin.y + 5.0
+//			self.layer.shadowOpacity = 0.3
+//			self.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+//		}
+//	}
 }
