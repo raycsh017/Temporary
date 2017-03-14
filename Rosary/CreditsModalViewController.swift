@@ -9,8 +9,6 @@
 import UIKit
 
 class CreditsModalViewController: UIViewController {
-
-	let radius: CGFloat = 4.0
 	
 	@IBOutlet weak var backgroundView: UIView!{
 		didSet{
@@ -20,12 +18,12 @@ class CreditsModalViewController: UIViewController {
 	}
 	@IBOutlet weak var creditsModalView: UIView!{
 		didSet{
-			self.creditsModalView.layer.cornerRadius = radius
+			self.creditsModalView.layer.cornerRadius = FiftyFour.modalRadius
 		}
 	}
 	@IBOutlet weak var confirmButton: UIButton!{
 		didSet{
-			self.confirmButton.layer.cornerRadius = radius
+			self.confirmButton.layer.cornerRadius = FiftyFour.modalRadius
 		}
 	}
 	

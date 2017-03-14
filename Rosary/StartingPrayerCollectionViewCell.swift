@@ -12,6 +12,8 @@ class StartingPrayerCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var petitionPrayerLabel: UILabel!
 	@IBOutlet weak var gracePrayerLabel: UILabel!
 	
+	static let cellIdentifier = "startingPrayerCell"
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()

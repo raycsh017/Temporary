@@ -103,7 +103,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 				case 0..<54:
 					let colorIndex = (numDaysBetween < 27) ? (numDaysBetween % 4) : ((numDaysBetween+1) % 4)
 					cellView.daySelectedView.layer.cornerRadius = 2
-					cellView.daySelectedView.backgroundColor = self.colorScheme[colorIndex]
+					cellView.daySelectedView.backgroundColor = self.colorScheme[colorIndex].uiColor
 					cellView.daySelectedView.isHidden = false
 				default:
 					cellView.daySelectedView.isHidden = true

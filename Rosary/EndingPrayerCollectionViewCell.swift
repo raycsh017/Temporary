@@ -15,6 +15,8 @@ class EndingPrayerCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var praise1PrayerLabel: UILabel!
 	@IBOutlet weak var praise2PrayerLabel: UILabel!
 	
+	static let cellIdentifier = "endingPrayerCell"
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()

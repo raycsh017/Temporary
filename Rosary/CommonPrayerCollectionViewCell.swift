@@ -12,6 +12,8 @@ class CommonPrayerCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var prayerTitleLabel: UILabel!
 	@IBOutlet weak var prayerTextLabel: UILabel!
 	
+	static let cellIdentifier = "commonPrayerCell"
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()

@@ -12,6 +12,8 @@ class PrayersSectionTitleCollectionViewCell: UICollectionViewCell {
 	
 	@IBOutlet weak var prayersSectionTitleLabel: UILabel!
 	
+	static let cellIdentifier = "prayersSectionTitleCell"
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()

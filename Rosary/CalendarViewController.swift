@@ -17,13 +17,7 @@ struct RosaryDate{
 
 class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 
-	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
-	let colorScheme = [
-		UIColor.withRGB(red: 252, green: 177, blue: 122),
-		UIColor.withRGB(red: 239, green: 132, blue: 100),
-		UIColor.withRGB(red: 214, green: 73, blue: 90),
-		UIColor.withRGB(red: 72, green: 73, blue: 137)
-	]
+	let colorScheme = RosaryColor.scheme
 	
 	@IBOutlet weak var calendarView: UIView!
 	@IBOutlet weak var calendarMonthLabel: UILabel!
@@ -41,25 +35,25 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	@IBOutlet weak var joyfulView: UIView!{
 		didSet{
 			self.joyfulView.layer.cornerRadius = circleViewWidth / 2
-			self.joyfulView.backgroundColor = colorScheme[0]
+			self.joyfulView.backgroundColor = colorScheme[0].uiColor
 		}
 	}
 	@IBOutlet weak var lightView: UIView!{
 		didSet{
 			self.lightView.layer.cornerRadius = circleViewWidth / 2
-			self.lightView.backgroundColor = colorScheme[1]
+			self.lightView.backgroundColor = colorScheme[1].uiColor
 		}
 	}
 	@IBOutlet weak var sorrowfulView: UIView!{
 		didSet{
 			self.sorrowfulView.layer.cornerRadius = circleViewWidth / 2
-			self.sorrowfulView.backgroundColor = colorScheme[2]
+			self.sorrowfulView.backgroundColor = colorScheme[2].uiColor
 		}
 	}
 	@IBOutlet weak var gloriousView: UIView!{
 		didSet{
 			self.gloriousView.layer.cornerRadius = circleViewWidth / 2
-			self.gloriousView.backgroundColor = colorScheme[3]
+			self.gloriousView.backgroundColor = colorScheme[3].uiColor
 		}
 	}
 	

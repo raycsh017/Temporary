@@ -8,33 +8,48 @@
 
 import UIKit
 import SwiftyJSON
-import JTAppleCalendar
+import RealmSwift
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	// Static variables for drawing out views
-	let LIGHT_GRAY = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
-	let colorScheme = [
-		UIColor.withRGB(red: 252, green: 177, blue: 122),
-		UIColor.withRGB(red: 239, green: 132, blue: 100),
-		UIColor.withRGB(red: 214, green: 73, blue: 90),
-		UIColor.withRGB(red: 72, green: 73, blue: 137)
-	]
-	
-	let cellSpacing: CGFloat = 20
 	let numCellsInRow: CGFloat = 2
 	
 	let APP_TITLE: String = "54Days"
 	
+	let menuCellSpacing: CGFloat = 16.0
+	
+	@IBOutlet weak var miniCalendarView: UIView!
+	@IBOutlet weak var miniCalendarDayLabel: UILabel!{
+		didSet{
+			self.dateFormatter.dateFormat = "dd"
+			self.miniCalendarDayLabel.text = self.dateFormatter.string(from: self.currentDate)
+		}
+	}
+	@IBOutlet weak var miniCalendarMonthLabel: UILabel!{
+		didSet{
+			self.dateFormatter.dateFormat = "MMM"
+			self.miniCalendarMonthLabel.text = self.dateFormatter.string(from: self.currentDate)
+		}
+	}
+	@IBOutlet weak var miniCalendarDescriptionLabel: UILabel!
+	
+	@IBOutlet weak var rosaryMenuContainerView: UIView!{
+		didSet{
+			self.rosaryMenuContainerView.backgroundColor = FiftyFour.color.lightGray
+			self.rosaryMenuContainerView.clipsToBounds = true
+		}
+	}
 	@IBOutlet weak var rosaryMenuCollectionView: UICollectionView!{
 		didSet{
 			let flowLayout = UICollectionViewFlowLayout()
-			flowLayout.minimumLineSpacing = self.cellSpacing
-			flowLayout.minimumInteritemSpacing = self.cellSpacing
+			flowLayout.minimumLineSpacing = self.menuCellSpacing
+			flowLayout.minimumInteritemSpacing = self.menuCellSpacing
 			
 			self.rosaryMenuCollectionView.setCollectionViewLayout(flowLayout, animated: false)
-			self.rosaryMenuCollectionView.backgroundColor = self.LIGHT_GRAY
+			self.rosaryMenuCollectionView.backgroundColor = FiftyFour.color.lightGray
 			self.rosaryMenuCollectionView.clipsToBounds = false
+			self.rosaryMenuCollectionView.showsVerticalScrollIndicator = false
 			
 			self.rosaryMenuCollectionView.dataSource = self
 			self.rosaryMenuCollectionView.delegate = self
@@ -48,27 +63,26 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	}
 	
 	// Static data
-	let menus: [Menu] = [
-		Menu(title: "환희의 신비", icon: UIImage(named: "ic_star")!, id: 0),
-		Menu(title: "빛의 신비", icon: UIImage(named: "ic_fish")!, id: 1),
-		Menu(title: "고통의 신비", icon: UIImage(named: "ic_crown_thorns")!, id: 2),
-		Menu(title: "영광의 신비", icon: UIImage(named: "ic_cross")!, id: 3),
-		Menu(title: "주요 기도문", icon: UIImage(named: "ic_pray")!, id: 4),
-		Menu(title: "달력", icon: UIImage(named: "ic_calendar")!, id: 5)
-	]
+	let menus = MainMenu.all
 	
 	let calendarSegueIdentifier = "mainToCalendarSegue"
 	let prayersSegueIdentifier = "mainToPrayersSegue"
 	let rosarySegueIdentifier = "displayRosaryPrayerSegue"
+	
+	let calendar = Calendar.current
+	let dateFormatter = DateFormatter()
+	let currentDate = Date()
+	let realm = try! Realm()
 	
 	// Dymanic data
 	var rosaryMysteries: [String: RosaryMystery] = [:]
 	var rosaryEndingPrayer: RosaryEndingPrayer?
 	
 	var commonPrayers: [CommonPrayer] = []
+	var rosaryPeriod: RosaryPeriod?
 	
 	// For identifying which view was touched
-	var selectedViewTag: Int = 0
+	var selectedIndexPath: IndexPath?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -83,9 +97,65 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		// Dispose of any resources that can be recreated.
 	}
 	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		self.miniCalendarView.addShadow()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.updateMiniCalendar()
+	}
+	
+	func updateMiniCalendar(){
+		let rosaryPeriods = realm.objects(RosaryPeriod.self)
+		if let rosaryStartDate = rosaryPeriods.first?.startDate{
+			// Calculate the number of days passed from the StartDate to today's date
+			let date1 = self.calendar.startOfDay(for: rosaryStartDate)
+			let date2 = self.calendar.startOfDay(for: self.currentDate)
+			let numDaysFromStartDate = self.calendar.dateComponents([.day], from: date1, to: date2).day!
+			
+			// If the user is in the middle of Rosary Period, update the miniCalendarView
+			if 0 <= numDaysFromStartDate && numDaysFromStartDate < 54{
+				let boldStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0)]
+				let numDaysPassedString = NSAttributedString(string: "\(numDaysFromStartDate + 1)일", attributes: boldStringAttr)
+				
+				let colorIndex = (numDaysFromStartDate < 27) ? (numDaysFromStartDate % 4) : ((numDaysFromStartDate+1) % 4)
+				let color = RosaryColor(rawValue: colorIndex)!
+				let coloredStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0), NSForegroundColorAttributeName: color.uiColor]
+				let coloredStringValue = RosaryMysteryType(rawValue: colorIndex)!.inKorean
+				let rosaryForTodayString = NSAttributedString(string: "\(coloredStringValue)", attributes: coloredStringAttr)
+				
+				let newCalendarDescription = NSMutableAttributedString()
+				newCalendarDescription.append(NSAttributedString(string: "오늘은 묵주기도 "))
+				newCalendarDescription.append(numDaysPassedString)
+				newCalendarDescription.append(NSAttributedString(string: "째이며, "))
+				newCalendarDescription.append(rosaryForTodayString)
+				
+				// Account for 27th, 54th day of Rosary
+				if numDaysFromStartDate == 26 || numDaysFromStartDate == 53{
+					let additionalColor = RosaryColor.darkSlateBlue
+					let additionalColorStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0), NSForegroundColorAttributeName: additionalColor.uiColor]
+					let additionalStringValue = RosaryMysteryType.glorious.inKorean
+					let rosaryForTodayString = NSAttributedString(string: "\(additionalStringValue)", attributes: additionalColorStringAttr)
+					newCalendarDescription.append(NSAttributedString(string: ", "))
+					newCalendarDescription.append(rosaryForTodayString)
+				}
+				
+				newCalendarDescription.append(NSAttributedString(string: "를 하실 차례입니다 :)"))
+				
+				self.miniCalendarDescriptionLabel.attributedText = newCalendarDescription
+			}
+			else{
+				self.miniCalendarDescriptionLabel.text = "묵주기도를 하시는 중이 아닌가봐요 >:("
+			}
+		}
+	}
+	
 	func setup(){
 		self.automaticallyAdjustsScrollViewInsets = false
 	}
+	
 	// Load initial rosary data from a local JSON file (rosaryPrayers.json)
 	func loadRosaryPrayers(){
 		let path = Bundle.main.path(forResource: "rosaryPrayers", ofType: "json")!
@@ -107,7 +177,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 			let praise1Stringified = endingPrayer["praise1"].arrayValue.map({$0.stringValue})
 			let rosaryEndingPrayer = RosaryEndingPrayer(spirit: endingPrayer["spirit"].stringValue, petition: endingPrayer["petition"].stringValue, grace: endingPrayer["grace"].stringValue, praise1: praise1Stringified, praise2: endingPrayer["praise2"].stringValue)
 			
-			let rosaryMystery = RosaryMystery(title: key, sections: mysterySections, startingPrayer: rosaryStartingPrayer, endingPrayer: rosaryEndingPrayer)
+			let rosaryMystery = RosaryMystery(type: RosaryMysteryType(rawString: key)!, sections: mysterySections, startingPrayer: rosaryStartingPrayer, endingPrayer: rosaryEndingPrayer)
 			self.rosaryMysteries[key] = rosaryMystery
 		}
 
@@ -152,7 +222,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		
 		let cvWidth = collectionView.bounds.width
-		let cellWidth = (cvWidth - self.cellSpacing)/self.numCellsInRow
+		let cellWidth = (cvWidth - self.menuCellSpacing)/self.numCellsInRow
 		
 		return CGSize(width: cellWidth, height: cellWidth)
 	}
@@ -166,7 +236,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 		return cell!
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		self.selectedViewTag = indexPath.row
+		self.selectedIndexPath = indexPath
 		switch indexPath.row{
 		case 0...4:
 			self.performSegue(withIdentifier: self.prayersSegueIdentifier, sender: self)
@@ -184,19 +254,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let selectedMenu = self.selectedIndexPath?.row else{
+			return
+		}
+		
 		if let identifier = segue.identifier{
+			segue.destination.navigationItem.title = MainMenu(rawValue: selectedMenu)?.title
+			
 			switch identifier{
 			case self.prayersSegueIdentifier:
 				let destVC = segue.destination as? PrayersViewController
-				switch self.selectedViewTag{
-				case 0:
-					destVC?.rosaryPrayers = self.rosaryMysteries["환희의 신비"]
-				case 1:
-					destVC?.rosaryPrayers = self.rosaryMysteries["빛의 신비"]
-				case 2:
-					destVC?.rosaryPrayers = self.rosaryMysteries["고통의 신비"]
-				case 3:
-					destVC?.rosaryPrayers = self.rosaryMysteries["영광의 신비"]
+				switch selectedMenu{
+				case 0...3:
+					let rosaryMystery = RosaryMysteryType(rawValue: selectedMenu)!.inEnglish
+					destVC?.rosaryPrayers = self.rosaryMysteries[rosaryMystery]
 				case 4:
 					destVC?.commonPrayers = self.commonPrayers
 				default:

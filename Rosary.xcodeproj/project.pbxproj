@@ -11,19 +11,19 @@
 		D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B3A901E621D0A00831212 /* StringExtension.swift */; };
 		D11B3A931E624ED000831212 /* CommonPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B3A921E624ED000831212 /* CommonPrayerCollectionViewCell.swift */; };
 		D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */; };
-		D12DCBBE1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */; };
-		D12DCBC01E201F8F00909CB0 /* RosaryPrayerDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */; };
 		D13B4A7A1E5292F500069FEB /* StartingPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A791E5292F400069FEB /* StartingPrayerCollectionViewCell.swift */; };
 		D13B4A7C1E52930F00069FEB /* MainPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7B1E52930F00069FEB /* MainPrayerCollectionViewCell.swift */; };
 		D13B4A7E1E52931800069FEB /* EndingPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7D1E52931800069FEB /* EndingPrayerCollectionViewCell.swift */; };
 		D13B4A801E5294FE00069FEB /* PrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7F1E5294FE00069FEB /* PrayersViewController.swift */; };
 		D13B4A821E52980C00069FEB /* RosaryPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A811E52980C00069FEB /* RosaryPrayer.swift */; };
+		D1433DA51E74C3AD00B05CBB /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DA41E74C3AD00B05CBB /* AppCommon.swift */; };
+		D1433DA91E74C41B00B05CBB /* RosaryColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DA81E74C41B00B05CBB /* RosaryColor.swift */; };
+		D1433DAB1E74D2DE00B05CBB /* RosaryMysteryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */; };
 		D1443FB01E4483C200EB66DB /* CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */; };
 		D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB11E44887B00EB66DB /* CalendarHeaderView.swift */; };
 		D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB31E4856E200EB66DB /* CalendarViewController.swift */; };
-		D1443FB61E492F1F00EB66DB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB51E492F1F00EB66DB /* Menu.swift */; };
+		D1443FB61E492F1F00EB66DB /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB51E492F1F00EB66DB /* MainMenu.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */; };
-		D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */; };
 		D17EEA731E3D4501005645C4 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */; };
 		D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */; };
 		D17EEA9B1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */; };
@@ -38,14 +38,9 @@
 		D1D521B81E651252007B03C1 /* CreditsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */; };
 		D1D521BA1E651CDE007B03C1 /* PrayersSectionTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D521B91E651CDE007B03C1 /* PrayersSectionTitleCollectionViewCell.swift */; };
 		D1DAD02B1E415CA9002300FC /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */; };
-		D1DAD02D1E42A776002300FC /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD02C1E42A776002300FC /* TitleTableViewCell.swift */; };
-		D1DAD02F1E42A7A1002300FC /* StartingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD02E1E42A7A1002300FC /* StartingPrayerTableViewCell.swift */; };
-		D1DAD0311E42A7D1002300FC /* MainPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD0301E42A7D1002300FC /* MainPrayerTableViewCell.swift */; };
 		D1DAD0371E42F7DE002300FC /* CalendarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */; };
-		D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */; };
 		D1FDDF2D1E28A429003B4189 /* commonPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D1FDDF2C1E28A429003B4189 /* commonPrayers.json */; };
 		D1FDDF2F1E28A469003B4189 /* CommonPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF2E1E28A469003B4189 /* CommonPrayer.swift */; };
-		D1FDDF311E29E336003B4189 /* OtherPrayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,19 +49,19 @@
 		D11B3A901E621D0A00831212 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D11B3A921E624ED000831212 /* CommonPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarResetModalViewController.swift; sourceTree = "<group>"; };
-		D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingPrayerTableViewCell.swift; sourceTree = "<group>"; };
-		D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerDS.swift; sourceTree = "<group>"; };
 		D13B4A791E5292F400069FEB /* StartingPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D13B4A7B1E52930F00069FEB /* MainPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D13B4A7D1E52931800069FEB /* EndingPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndingPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D13B4A7F1E5294FE00069FEB /* PrayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersViewController.swift; sourceTree = "<group>"; };
 		D13B4A811E52980C00069FEB /* RosaryPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayer.swift; sourceTree = "<group>"; };
+		D1433DA41E74C3AD00B05CBB /* AppCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
+		D1433DA81E74C41B00B05CBB /* RosaryColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryColor.swift; sourceTree = "<group>"; };
+		D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMysteryType.swift; sourceTree = "<group>"; };
 		D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarHeaderView.xib; sourceTree = "<group>"; };
 		D1443FB11E44887B00EB66DB /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		D1443FB31E4856E200EB66DB /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		D1443FB51E492F1F00EB66DB /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		D1443FB51E492F1F00EB66DB /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryPrayers.json; sourceTree = "<group>"; };
-		D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayerViewController.swift; sourceTree = "<group>"; };
 		D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		D17EEA9A1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,14 +78,9 @@
 		D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsModalViewController.swift; sourceTree = "<group>"; };
 		D1D521B91E651CDE007B03C1 /* PrayersSectionTitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersSectionTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		D1DAD02C1E42A776002300FC /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
-		D1DAD02E1E42A7A1002300FC /* StartingPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingPrayerTableViewCell.swift; sourceTree = "<group>"; };
-		D1DAD0301E42A7D1002300FC /* MainPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPrayerTableViewCell.swift; sourceTree = "<group>"; };
 		D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerExtension.swift; sourceTree = "<group>"; };
-		D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayersViewController.swift; sourceTree = "<group>"; };
 		D1FDDF2C1E28A429003B4189 /* commonPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = commonPrayers.json; sourceTree = "<group>"; };
 		D1FDDF2E1E28A469003B4189 /* CommonPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPrayer.swift; sourceTree = "<group>"; };
-		D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayersTableViewCell.swift; sourceTree = "<group>"; };
 		D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +158,7 @@
 				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
+				D1433DA41E74C3AD00B05CBB /* AppCommon.swift */,
 				D1DAD0391E42F80D002300FC /* Common Extensions */,
 				D1DAD0381E42F7FC002300FC /* CommonModel */,
 				D1DAD0351E42A852002300FC /* MainVC */,
@@ -177,23 +168,8 @@
 				D17EEA951E3D782E005645C4 /* JSON */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 				D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */,
-				D1D521B11E64C2B8007B03C1 /* TemporaryTrash */,
 			);
 			path = Rosary;
-			sourceTree = "<group>";
-		};
-		D1D521B11E64C2B8007B03C1 /* TemporaryTrash */ = {
-			isa = PBXGroup;
-			children = (
-				D1DAD0341E42A847002300FC /* OtherPrayersVC */,
-				D12DCBBF1E201F8F00909CB0 /* RosaryPrayerDS.swift */,
-				D16F89F81E26B8AE003609CE /* RosaryPrayerViewController.swift */,
-				D1DAD02C1E42A776002300FC /* TitleTableViewCell.swift */,
-				D1DAD02E1E42A7A1002300FC /* StartingPrayerTableViewCell.swift */,
-				D1DAD0301E42A7D1002300FC /* MainPrayerTableViewCell.swift */,
-				D12DCBBD1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift */,
-			);
-			name = TemporaryTrash;
 			sourceTree = "<group>";
 		};
 		D1D521B21E64C4A0007B03C1 /* CalendarVC */ = {
@@ -210,7 +186,7 @@
 		D1D521B31E64C4E5007B03C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1443FB51E492F1F00EB66DB /* Menu.swift */,
+				D1443FB51E492F1F00EB66DB /* MainMenu.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -244,15 +220,6 @@
 			name = PrayerVC;
 			sourceTree = "<group>";
 		};
-		D1DAD0341E42A847002300FC /* OtherPrayersVC */ = {
-			isa = PBXGroup;
-			children = (
-				D1FDDF301E29E336003B4189 /* OtherPrayersTableViewCell.swift */,
-				D1FDDF2A1E2890B9003B4189 /* OtherPrayersViewController.swift */,
-			);
-			name = OtherPrayersVC;
-			sourceTree = "<group>";
-		};
 		D1DAD0351E42A852002300FC /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +236,8 @@
 			children = (
 				D1FDDF2E1E28A469003B4189 /* CommonPrayer.swift */,
 				D13B4A811E52980C00069FEB /* RosaryPrayer.swift */,
+				D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */,
+				D1433DA81E74C41B00B05CBB /* RosaryColor.swift */,
 			);
 			name = CommonModel;
 			sourceTree = "<group>";
@@ -318,7 +287,7 @@
 				TargetAttributes = {
 					D1CFD60A1E15BFFE00E5FE23 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 4W227SQZ26;
+						DevelopmentTeam = 9P4ACRKSW7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -411,36 +380,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1DAD02D1E42A776002300FC /* TitleTableViewCell.swift in Sources */,
 				D13B4A7E1E52931800069FEB /* EndingPrayerCollectionViewCell.swift in Sources */,
 				D1D521B81E651252007B03C1 /* CreditsModalViewController.swift in Sources */,
 				D1FDDF2F1E28A469003B4189 /* CommonPrayer.swift in Sources */,
 				D17EEA9B1E3EE532005645C4 /* RosaryMenuCollectionViewCell.swift in Sources */,
 				D11B3A931E624ED000831212 /* CommonPrayerCollectionViewCell.swift in Sources */,
-				D1DAD0311E42A7D1002300FC /* MainPrayerTableViewCell.swift in Sources */,
 				D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */,
-				D12DCBC01E201F8F00909CB0 /* RosaryPrayerDS.swift in Sources */,
-				D1FDDF2B1E2890B9003B4189 /* OtherPrayersViewController.swift in Sources */,
 				D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */,
-				D12DCBBE1E1EE71500909CB0 /* EndingPrayerTableViewCell.swift in Sources */,
 				D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */,
 				D1CFD6111E15BFFE00E5FE23 /* MainViewController.swift in Sources */,
 				D1CFD6171E15BFFE00E5FE23 /* Rosary.xcdatamodeld in Sources */,
 				D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */,
+				D1433DA51E74C3AD00B05CBB /* AppCommon.swift in Sources */,
 				D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */,
 				D13B4A7A1E5292F500069FEB /* StartingPrayerCollectionViewCell.swift in Sources */,
+				D1433DAB1E74D2DE00B05CBB /* RosaryMysteryType.swift in Sources */,
 				D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */,
 				D1A1BBF51E4D6AA00003DE73 /* RosaryPeriod.swift in Sources */,
 				D1DAD02B1E415CA9002300FC /* UIViewExtension.swift in Sources */,
-				D1443FB61E492F1F00EB66DB /* Menu.swift in Sources */,
+				D1443FB61E492F1F00EB66DB /* MainMenu.swift in Sources */,
 				D13B4A821E52980C00069FEB /* RosaryPrayer.swift in Sources */,
-				D16F89F91E26B8AE003609CE /* RosaryPrayerViewController.swift in Sources */,
-				D1FDDF311E29E336003B4189 /* OtherPrayersTableViewCell.swift in Sources */,
 				D13B4A7C1E52930F00069FEB /* MainPrayerCollectionViewCell.swift in Sources */,
 				D1D521BA1E651CDE007B03C1 /* PrayersSectionTitleCollectionViewCell.swift in Sources */,
+				D1433DA91E74C41B00B05CBB /* RosaryColor.swift in Sources */,
 				D1DAD0371E42F7DE002300FC /* CalendarViewControllerExtension.swift in Sources */,
 				D13B4A801E5294FE00069FEB /* PrayersViewController.swift in Sources */,
-				D1DAD02F1E42A7A1002300FC /* StartingPrayerTableViewCell.swift in Sources */,
 				D1CFD6241E15C70200E5FE23 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,7 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4W227SQZ26;
+				DEVELOPMENT_TEAM = 9P4ACRKSW7;
 				INFOPLIST_FILE = Rosary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -582,7 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4W227SQZ26;
+				DEVELOPMENT_TEAM = 9P4ACRKSW7;
 				INFOPLIST_FILE = Rosary/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

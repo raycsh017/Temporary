@@ -9,7 +9,7 @@
 import Foundation
 
 struct RosaryMystery{
-	let title: String
+	let type: RosaryMysteryType
 	var sections: [RosaryMysterySection]
 	var startingPrayer: RosaryStartingPrayer
 	var endingPrayer: RosaryEndingPrayer
