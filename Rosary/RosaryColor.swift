@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Color scheme used for Rosary mysteries
 enum RosaryColor: Int{
 	case tacao
 	case burntSienna

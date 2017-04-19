@@ -19,5 +19,6 @@ struct FiftyFour{
 	
 	struct color{
 		static let lightGray = UIColor(colorLiteralRed: 0.97, green: 0.97, blue: 0.97, alpha: 1.0)
+		static let darkGray = UIColor.withRGB(red: 79.0, green: 79.0, blue: 79.0)
 	}
 }

@@ -9,10 +9,13 @@
 import UIKit
 
 class StartingPrayerCollectionViewCell: UICollectionViewCell {
+	
+	static let identifier = "startingPrayerCell"
+	
 	@IBOutlet weak var petitionPrayerLabel: UILabel!
 	@IBOutlet weak var gracePrayerLabel: UILabel!
 	
-	static let cellIdentifier = "startingPrayerCell"
+	
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -23,6 +26,8 @@ class StartingPrayerCollectionViewCell: UICollectionViewCell {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
+	
+	
 	
 	func setup(){
 		self.clipsToBounds = false

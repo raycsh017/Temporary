@@ -9,27 +9,34 @@
 import UIKit
 
 class EndingPrayerCollectionViewCell: UICollectionViewCell {
+	
+	static let identifier = "endingPrayerCell"
+	
 	@IBOutlet weak var spiritPrayerLabel: UILabel!
 	@IBOutlet weak var petitionPrayerLabel: UILabel!
 	@IBOutlet weak var gracePrayerLabel: UILabel!
 	@IBOutlet weak var praise1PrayerLabel: UILabel!
 	@IBOutlet weak var praise2PrayerLabel: UILabel!
 	
-	static let cellIdentifier = "endingPrayerCell"
+	
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
+	
 	required init?(coder aDecoder: NSCoder)
 	{
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
+	
+	
 	func setup(){
 		self.clipsToBounds = false
 	}
+	
 	func setValues(spiritPrayer: String, petitionPrayer: String, gracePrayer: String, praise1Prayer: [String], praise2Prayer: String){
 		self.spiritPrayerLabel.text = spiritPrayer
 		self.petitionPrayerLabel.text = petitionPrayer

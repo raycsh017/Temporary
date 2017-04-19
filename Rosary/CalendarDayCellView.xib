@@ -17,8 +17,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NT-yx-ag9">
                     <rect key="frame" x="0.0" y="0.0" width="230" height="164"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-bt-qzF">
-                            <rect key="frame" x="89" y="70" width="53.5" height="24.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-bt-qzF">
+                            <rect key="frame" x="88.5" y="70.5" width="53.5" height="24.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-3V-OkL">
                                     <rect key="frame" x="0.0" y="0.0" width="53.5" height="16.5"/>
@@ -26,14 +26,27 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-GC-N5Q">
-                                    <rect key="frame" x="25" y="20.5" width="4" height="4"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="4" id="C0B-sI-K9n"/>
-                                        <constraint firstAttribute="width" constant="4" id="wAw-1Z-ZOu"/>
-                                    </constraints>
-                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-J3-551">
+                                    <rect key="frame" x="21" y="20.5" width="12" height="4"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPl-GC-N5Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="4" height="4"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="4" id="C0B-sI-K9n"/>
+                                                <constraint firstAttribute="width" constant="4" id="wAw-1Z-ZOu"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J22-eV-R7W">
+                                            <rect key="frame" x="8" y="0.0" width="4" height="4"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="4" id="2ev-9E-bz7"/>
+                                                <constraint firstAttribute="width" constant="4" id="NoR-2v-ZTj"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                         </stackView>
                     </subviews>
@@ -53,9 +66,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="additionalDaySelectedView" destination="J22-eV-R7W" id="yLY-iv-h14"/>
                 <outlet property="dayContainerView" destination="5NT-yx-ag9" id="p1F-6h-IZp"/>
                 <outlet property="dayLabel" destination="nuV-3V-OkL" id="SgG-j5-PyF"/>
-                <outlet property="daySelectedView" destination="IPl-GC-N5Q" id="SyI-43-bxf"/>
+                <outlet property="daySelectedStackView" destination="CRX-J3-551" id="TkQ-4i-vlR"/>
+                <outlet property="daySelectedView" destination="IPl-GC-N5Q" id="AZD-Tb-IyV"/>
             </connections>
             <point key="canvasLocation" x="-39" y="-198"/>
         </view>

@@ -8,37 +8,47 @@
 
 import UIKit
 
-class PrayersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PrayersViewController: UIViewController {
 
-	// Common variables used by views
-	let prayersCellSpacing: CGFloat = 16.0
+	// MARK: - View Config Variables
+	// MARK: Common Values
+	let viewSpacing: CGFloat = 16.0
+	
+	// MARK: UICollectionView Values
+	let sectionTopMargin: CGFloat = 4.0
+	let sectionBottomMargin: CGFloat = 24.0
+	
+	let cellSpacing: CGFloat = 16.0
+	
+	
 
+	// MARK: - Outlets
 	@IBOutlet weak var prayersCollectionView: UICollectionView!{
 		didSet{
 			let flowLayout = UICollectionViewFlowLayout()
-			flowLayout.minimumLineSpacing = self.prayersCellSpacing
+			flowLayout.minimumLineSpacing = self.cellSpacing
 			flowLayout.minimumInteritemSpacing = 0
-			
+			flowLayout.sectionInset = UIEdgeInsets(top: self.sectionTopMargin, left: 0, bottom: self.sectionBottomMargin, right: 0)
 			self.prayersCollectionView.setCollectionViewLayout(flowLayout, animated: false)
+			
 			self.prayersCollectionView.backgroundColor = FiftyFour.color.lightGray
 			self.prayersCollectionView.clipsToBounds = false
 			self.prayersCollectionView.showsVerticalScrollIndicator = false
-			self.prayersCollectionView.allowsSelection = true
 			
 			self.prayersCollectionView.dataSource = self
 			self.prayersCollectionView.delegate = self
+			
+			self.prayersCollectionView.register(PrayersCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: PrayersCollectionHeaderView.identifier)
 		}
 	}
 	
-	// Static data variables
-	var sectionTitles: [String] = ["시작기도", "신비기도", "마침기도"]
+	// MARK: - Static variables
+	let prayersViewModel = PrayersViewModel()
 	
-	// Dynamic data variables
-	var rosaryPrayers: RosaryMystery?
-	var commonPrayers: [CommonPrayer]?
-	
+	// MARK: - Dynamic variables
 	var selectedCellIndexPath: IndexPath?
 	
+	// MARK: - Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,130 +64,160 @@ class PrayersViewController: UIViewController, UICollectionViewDataSource, UICol
 	func setup(){
 		self.automaticallyAdjustsScrollViewInsets = false
 	}
+}
+
+
+// MARK: - UICollectionView DataSource and Delegates
+extension PrayersViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 	
+	// MARK: UICollectionView Section Config
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 1
+		guard let prayer = self.prayersViewModel.prayer else{
+			return 0
+		}
+		
+		return prayer.numItemsPerSection.count
 	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+		
+		guard let prayer = self.prayersViewModel.prayer else{
+			return .zero
+		}
+		
+		guard prayer.hasSectionHeaders else{
+			return .zero
+		}
+		
+		let headerWidth: CGFloat = collectionView.bounds.width
+		let headerHeight: CGFloat = 20.0
+		
+		return CGSize(width: headerWidth, height: headerHeight)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		
+		guard let prayer = self.prayersViewModel.prayer else{
+			return UICollectionReusableView()
+		}
+		
+		guard kind == UICollectionElementKindSectionHeader else{
+			return UICollectionReusableView()
+		}
+		
+		// Prepare a reusable view for the UICollectionView header
+		let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PrayersCollectionHeaderView.identifier, for: indexPath) as? PrayersCollectionHeaderView
+		let sectionTitle = prayer.sectionTitles[indexPath.section]
+		
+		headerView?.setValues(title: sectionTitle)
+		
+		return headerView!
+	}
+	
+	// MARK: UICollectionView Cell (Section Items) Config
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		if self.rosaryPrayers != nil{
-			return 1 + 5 + 1 + sectionTitles.count
+		guard let prayer = self.prayersViewModel.prayer else{
+			return 0
 		}
-		if let numPrayers = self.commonPrayers?.count{
-			return numPrayers
-		}
-		return 0
+		
+		return prayer.numItemsPerSection[section]
 	}
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		guard let prayer = self.prayersViewModel.prayer else{
+			return .zero
+		}
 		
 		// Variables used to calculate sizes of each CollectionView Cell
 		let cellWidth: CGFloat = collectionView.bounds.width
 		let cellPadding: CGFloat = 16.0
 		let cellContentWidth: CGFloat = cellWidth - (cellPadding * 2)
 		
-		let titleCellHeight: CGFloat = 17.0
 		var cellHeight: CGFloat = 0
 		let fixedLabelHeight: CGFloat = 17.0
-		let labelLineSpacing: CGFloat = 8.0
+		let labelsLineSpacing: CGFloat = 8.0
 		
 		let cellFont = UIFont.systemFont(ofSize: 14.0)
 		
-		if let rosary = self.rosaryPrayers{
-			switch indexPath.row{
-			// Section Title Cells
-			case 0, 2, 8:
-				cellHeight += (cellPadding * 2)
-				cellHeight += titleCellHeight
+		switch prayer{
+		case .rosary(let rosaryPrayer):
+			switch indexPath.section{
+			// Figure out the height for startingPrayerCell
+			case 0:
+				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 6) + (labelsLineSpacing * 6)
+				cellHeight += (rosaryPrayer.startingPrayer.grace as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
+				cellHeight += (rosaryPrayer.startingPrayer.petition as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				return CGSize(width: cellWidth, height: cellHeight)
-			// Starting Prayer Cell
+			// Figure out the height for mainPrayerCell
 			case 1:
-				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 6) + (labelLineSpacing * 6)
-				cellHeight += (rosary.startingPrayer.grace as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
-				cellHeight += (rosary.startingPrayer.petition as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
-				return CGSize(width: cellWidth, height: cellHeight)
-			// Mystery Prayer Cells
-			case 3...7:
-				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 3) + (labelLineSpacing * 4)
-				let index = indexPath.row - 3
-				let prayer = rosary.sections[index]
+				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 3) + (labelsLineSpacing * 4)
+				let index = indexPath.row
+				let prayer = rosaryPrayer.mystery.sections[index]
 				cellHeight += (prayer.title as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				cellHeight += (prayer.subText as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				cellHeight += (prayer.mainText as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				cellHeight += (prayer.endingText as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				return CGSize(width: cellWidth, height: cellHeight)
-			// Ending Prayer Cell
-			case 9:
-				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 6) + (labelLineSpacing * 10)
-				cellHeight += (rosary.endingPrayer.spirit as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
-				cellHeight += (rosary.endingPrayer.grace as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
-				cellHeight += (rosary.endingPrayer.petition as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
+			// Figure out the height for endingPrayerCell
+			case 2:
+				cellHeight += (cellPadding * 2) + (fixedLabelHeight * 6) + (labelsLineSpacing * 10)
+				cellHeight += (rosaryPrayer.endingPrayer.spirit as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
+				cellHeight += (rosaryPrayer.endingPrayer.grace as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
+				cellHeight += (rosaryPrayer.endingPrayer.petition as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				cellHeight += fixedLabelHeight * 14
-				cellHeight += (rosary.endingPrayer.praise2 as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
+				cellHeight += (rosaryPrayer.endingPrayer.praise2 as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 				return CGSize(width: cellWidth, height: cellHeight)
 			default:
-				break
+				return .zero
 			}
-		}
-		if let commonPrayers = self.commonPrayers{
-			let prayer = commonPrayers[indexPath.row]
-			cellHeight += (cellPadding * 2) + (labelLineSpacing * 2) + fixedLabelHeight
+		// Figure out the height for generalPrayerCell
+		case .general(let generalPrayers):
+			let prayer = generalPrayers[indexPath.row]
+			cellHeight += (cellPadding * 2) + (labelsLineSpacing * 2) + fixedLabelHeight
 			cellHeight += (prayer.text.string as NSString).getEstimatedHeight(with: cellContentWidth, font: cellFont)
 			return CGSize(width: cellWidth, height: cellHeight)
 		}
-		return .zero
-		
 	}
+	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		if let rosary = self.rosaryPrayers{
-			switch indexPath.row{
-			// Section Title Cell
-			case 0, 2, 8:
-				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrayersSectionTitleCollectionViewCell.cellIdentifier, for: indexPath) as? PrayersSectionTitleCollectionViewCell
-				var index = 0
-				switch indexPath.row{
-				case 0:
-					index = 0
-				case 2:
-					index = 1
-				case 8:
-					index = 2
-				default: break
-				}
-				cell?.setValues(title: self.sectionTitles[index])
-				cell?.addShadow()
-				return cell!
-			// Starting Prayer Cell
-			case 1:
-				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StartingPrayerCollectionViewCell.cellIdentifier, for: indexPath) as? StartingPrayerCollectionViewCell
-				let prayer = rosary.startingPrayer
+		
+		guard let prayer = self.prayersViewModel.prayer else{
+			return UICollectionViewCell()
+		}
+		
+		switch prayer{
+		case .rosary(let rosaryPrayer):
+			switch indexPath.section{
+			// Starting Cell
+			case 0:
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StartingPrayerCollectionViewCell.identifier, for: indexPath) as? StartingPrayerCollectionViewCell
+				let prayer = rosaryPrayer.startingPrayer
 				cell?.setValues(petitionPrayer: prayer.petition, gracePrayer: prayer.grace)
 				cell?.addShadow()
 				return cell!
-			// Mystery Prayer Cells
-			case 3...7:
-				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPrayerCollectionViewCell.cellIdentifier, for: indexPath) as? MainPrayerCollectionViewCell
-				let index = indexPath.row - 3
-				let prayer = rosary.sections[index]
+			case 1:
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPrayerCollectionViewCell.identifier, for: indexPath) as? MainPrayerCollectionViewCell
+				let index = indexPath.row
+				let prayer = rosaryPrayer.mystery.sections[index]
 				cell?.setValues(title: prayer.title, subText: prayer.subText, mainText: prayer.mainText, endingText: prayer.endingText)
 				cell?.addShadow()
 				return cell!
-			// Ending Prayer Cell
-			case 9:
-				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EndingPrayerCollectionViewCell.cellIdentifier, for: indexPath) as? EndingPrayerCollectionViewCell
-				let prayer = rosary.endingPrayer
+			case 2:
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EndingPrayerCollectionViewCell.identifier, for: indexPath) as? EndingPrayerCollectionViewCell
+				let prayer = rosaryPrayer.endingPrayer
 				cell?.setValues(spiritPrayer: prayer.spirit, petitionPrayer: prayer.petition, gracePrayer: prayer.grace, praise1Prayer: prayer.praise1, praise2Prayer: prayer.praise2)
 				cell?.addShadow()
 				return cell!
 			default:
-				break
+				return UICollectionViewCell()
 			}
-		}
-		if let commonPrayers = self.commonPrayers{
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CommonPrayerCollectionViewCell.cellIdentifier, for: indexPath) as? CommonPrayerCollectionViewCell
-			let prayer = commonPrayers[indexPath.row]
+		case .general(let generalPrayers):
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GeneralPrayerCollectionViewCell.identifier, for: indexPath) as? GeneralPrayerCollectionViewCell
+			let prayer = generalPrayers[indexPath.row]
 			cell?.setValues(title: prayer.title, attributedText: prayer.text)
 			cell?.addShadow()
 			return cell!
 		}
-		return UICollectionViewCell()
 	}
 }

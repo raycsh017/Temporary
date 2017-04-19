@@ -95,23 +95,39 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		
 		if cellState.dateBelongsTo == .thisMonth{
 			if let rosaryStartDate = self.rosaryPeriod?.startDate{
+				// Check if each day in month belongs to Rosary Period
 				let date1 = self.calendar.startOfDay(for: rosaryStartDate)
 				let date2 = self.calendar.startOfDay(for: cellState.date)
 				let numDaysBetween = self.calendar.dateComponents([.day], from: date1, to: date2).day!
 				
 				switch numDaysBetween{
 				case 0..<54:
+					// If a part of the Rosary period, display a circle view
 					let colorIndex = (numDaysBetween < 27) ? (numDaysBetween % 4) : ((numDaysBetween+1) % 4)
 					cellView.daySelectedView.layer.cornerRadius = 2
 					cellView.daySelectedView.backgroundColor = self.colorScheme[colorIndex].uiColor
 					cellView.daySelectedView.isHidden = false
+					
+					// For 27th and 54th days, display an additional circle view
+					if numDaysBetween == 26 || numDaysBetween == 53{
+						cellView.additionalDaySelectedView.layer.cornerRadius = 2
+						cellView.additionalDaySelectedView.backgroundColor = RosaryColor.darkSlateBlue.uiColor
+						cellView.additionalDaySelectedView.isHidden = false
+					}
+					else{
+						cellView.additionalDaySelectedView.isHidden = true
+					}
 				default:
+					// If not a part of the Rosary period, hide the circle views
 					cellView.daySelectedView.isHidden = true
+					cellView.additionalDaySelectedView.isHidden = true
 				}
 			}
 		}
 		else{
+			// If Rosary period is not set, hide the circle views entirely
 			cellView.daySelectedView.isHidden = true
+			cellView.additionalDaySelectedView.isHidden = true
 		}
 	}
 }

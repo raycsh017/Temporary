@@ -88,6 +88,7 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		
+		// Add shadows to views after they have the correct size
 		self.calendarView.addShadow()
 		self.startDateView.addShadow()
 		self.endDateView.addShadow()
@@ -96,6 +97,8 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 	
 	override func viewWillLayoutSubviews() {
 		super.viewWillLayoutSubviews()
+		
+		// Adjust itemSize after calendarBodyView have the correct size
 		self.calendarBodyView.itemSize = self.calendarBodyView.bounds.width / 7
 	}
 	
@@ -134,11 +137,13 @@ class CalendarViewController: UIViewController, CalendarResetModalDelegate {
 		// We add 53 to the startDate, because the period is start-date-inclusive
 		let daysInOnePeriod = 53
 		let endDate = self.calendar.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)!
+		// Write the start and end dates to Realm DB
 		self.writeDatesToRealm(startDate: startDate, endDate: endDate) { 
 			self.updateDatesLabels(startDate: startDate, endDate: endDate)
 			self.calendarBodyView.reloadData()
 		}
 	}
+	
 	func writeDatesToRealm(startDate: Date, endDate: Date, completion: ()->()){
 		if let rosaryPeriod = self.rosaryPeriod{
 			try! self.realm.write{

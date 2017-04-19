@@ -8,34 +8,32 @@
 
 import UIKit
 
-class RosaryMenuCollectionViewCell: UICollectionViewCell {
-	static let cellID = "RosaryMenuCell"
+class PrayersListCollectionViewCell: UICollectionViewCell {
 	
-	@IBOutlet weak var menuIconImageView: UIImageView!{
-		didSet{
-			self.menuIconImageView.contentMode = .scaleAspectFit
-		}
-	}
-	@IBOutlet weak var menuTitleLabel: UILabel!{
-		didSet{
-			self.menuTitleLabel.font = UIFont(name: "Helvetica Neue", size: 14.0)
-		}
-	}
+	static let identifier = "PrayersListCell"
+	
+	@IBOutlet weak var iconImageView: UIImageView!
+	@IBOutlet weak var titleLabel: UILabel!
+	
+	
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
+	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
+	
+	
 	func setup(){
 		self.clipsToBounds = false
 	}
 	func setValues(title: String, icon: UIImage){
-		self.menuTitleLabel.text = title
-		self.menuIconImageView.image = icon
+		self.titleLabel.text = title
+		self.iconImageView.image = icon
 	}
 }

@@ -1,5 +1,5 @@
 //
-//  CommonPrayerCollectionViewCell.swift
+//  GeneralPrayerCollectionViewCell.swift
 //  Rosary
 //
 //  Created by Sang Hyuk Cho on 2/25/17.
@@ -8,21 +8,27 @@
 
 import UIKit
 
-class CommonPrayerCollectionViewCell: UICollectionViewCell {
+class GeneralPrayerCollectionViewCell: UICollectionViewCell {
+	
+	static let identifier = "generalPrayerCell"
+	
 	@IBOutlet weak var prayerTitleLabel: UILabel!
 	@IBOutlet weak var prayerTextLabel: UILabel!
 	
-	static let cellIdentifier = "commonPrayerCell"
+	
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
+	
 	required init?(coder aDecoder: NSCoder)
 	{
 		super.init(coder: aDecoder)
 		self.setup()
 	}
+	
+	
 	
 	func setup(){
 		self.clipsToBounds = false
