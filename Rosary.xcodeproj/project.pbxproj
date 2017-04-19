@@ -142,13 +142,13 @@
 			name = JTAppleCalendar;
 			sourceTree = "<group>";
 		};
-		D17EEA951E3D782E005645C4 /* JSON */ = {
+		D17EEA951E3D782E005645C4 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
 				D1FDDF2C1E28A429003B4189 /* prayers.json */,
 				D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */,
 			);
-			name = JSON;
+			name = "JSON Files";
 			sourceTree = "<group>";
 		};
 		D1B0C8C31EA7ECAE00CCEBB9 /* Model */ = {
@@ -175,6 +175,16 @@
 				D17EEA941E3D781A005645C4 /* JTAppleCalendar */,
 			);
 			name = CalendarTab;
+			sourceTree = "<group>";
+		};
+		D1B0C8C71EA7F15700CCEBB9 /* PrayerNotesTab */ = {
+			isa = PBXGroup;
+			children = (
+				D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */,
+				D17AEA521E7DDBFA005CA1F2 /* NoteEditViewController.swift */,
+				D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */,
+			);
+			name = PrayerNotesTab;
 			sourceTree = "<group>";
 		};
 		D1CFD6021E15BFFE00E5FE23 = {
@@ -207,13 +217,11 @@
 				D1DAD0391E42F80D002300FC /* Common Extensions */,
 				D1DAD0381E42F7FC002300FC /* CommonModel */,
 				D1B0C8C51EA7ED2100CCEBB9 /* PrayersTab */,
+				D1B0C8C71EA7F15700CCEBB9 /* PrayerNotesTab */,
 				D1B0C8C61EA7ED3300CCEBB9 /* CalendarTab */,
-				D17EEA951E3D782E005645C4 /* JSON */,
+				D17EEA951E3D782E005645C4 /* JSON Files */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 				D1CFD6151E15BFFE00E5FE23 /* Rosary.xcdatamodeld */,
-				D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */,
-				D17AEA521E7DDBFA005CA1F2 /* NoteEditViewController.swift */,
-				D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */,
 				D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */,
 			);
 			path = Rosary;

@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EmY-De-J6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="-537"/>
+            <point key="canvasLocation" x="1073" y="343"/>
         </scene>
         <!--Calendar Reset Modal View Controller-->
         <scene sceneID="ZQD-at-Ilt">
@@ -416,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0HN-dL-X8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="-537"/>
+            <point key="canvasLocation" x="1785" y="342"/>
         </scene>
         <!--54Days-->
         <scene sceneID="tne-QT-ifu">
@@ -588,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074.4000000000001" y="136.28185907046478"/>
+            <point key="canvasLocation" x="1073" y="-1077"/>
         </scene>
         <!--Credits Modal View Controller-->
         <scene sceneID="LC8-1L-eav">
@@ -778,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLN-s1-hfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2510" y="136"/>
+            <point key="canvasLocation" x="337" y="1028"/>
         </scene>
         <!--Prayers View Controller-->
         <scene sceneID="NSA-Io-9PJ">
@@ -1126,7 +1126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIa-je-Wlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="136"/>
+            <point key="canvasLocation" x="1785" y="-1077"/>
         </scene>
         <!--기도노트-->
         <scene sceneID="1Ct-9V-IJ5">
@@ -1148,18 +1148,18 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R8v-r9-GPh" id="Ghj-cy-PIh">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YjB-oX-2jN">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NYd-Bb-cgC">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1187,7 +1187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcd-g4-7BB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="849"/>
+            <point key="canvasLocation" x="1073" y="-367"/>
         </scene>
         <!--Note Edit View Controller-->
         <scene sceneID="GNK-4q-0DV">
@@ -1222,13 +1222,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5md-zo-QHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="849"/>
+            <point key="canvasLocation" x="1785" y="-367"/>
         </scene>
-        <!--기도문-->
+        <!--Navigation Controller-->
         <scene sceneID="nhn-gr-jwP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6JJ-BY-bc3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="기도문" id="e2b-0o-UN3"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_prayer" id="e2b-0o-UN3">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DNX-gf-zEh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1246,13 +1248,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seh-c6-gc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339" y="137"/>
+            <point key="canvasLocation" x="337" y="-1077"/>
         </scene>
-        <!--기도노트-->
+        <!--Navigation Controller-->
         <scene sceneID="U0Y-n5-U8G">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4i5-IT-J2a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="기도노트" id="AZf-Vp-NXQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_notepad" id="AZf-Vp-NXQ">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DLT-QM-Sdl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1265,7 +1269,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvu-QT-eBH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="849"/>
+            <point key="canvasLocation" x="337" y="-366"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b4E-11-A7o">
@@ -1287,11 +1291,13 @@
             </objects>
             <point key="canvasLocation" x="-655" y="135"/>
         </scene>
-        <!--달력-->
+        <!--Navigation Controller-->
         <scene sceneID="vCs-u1-0wT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nfG-1C-NxU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="달력" id="xxN-eT-mx1"/>
+                    <tabBarItem key="tabBarItem" title="" image="ic_calendar" id="xxN-eT-mx1">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A9f-IM-xLj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1304,7 +1310,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNw-XV-Cxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="-537"/>
+            <point key="canvasLocation" x="337" y="344"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_calendar" width="26" height="25"/>
+        <image name="ic_notepad" width="22" height="25"/>
+        <image name="ic_prayer" width="37" height="25"/>
+    </resources>
 </document>
