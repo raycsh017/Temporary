@@ -24,7 +24,7 @@ enum Prayer{
 	var sectionTitles: [String]{
 		switch self{
 		case .rosary:
-			return ["시작기도", "묵주기도", "마침기도"]
+			return ["시작기도", "신비기도", "마침기도"]
 		case .general:
 			return []
 		}
