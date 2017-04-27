@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0800121747F9A1461B901D4 /* Pods_Rosary.framework */; };
+		C5649DD73D7B6B7B2F3568AC /* Pods_54Days.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CFBD32541CC9432F89DC4 /* Pods_54Days.framework */; };
 		D1197DD61EA9378300D2B1D1 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1197DD51EA9378300D2B1D1 /* NotesViewModel.swift */; };
 		D1197DD81EA93D9C00D2B1D1 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1197DD71EA93D9C00D2B1D1 /* UITableViewExtension.swift */; };
 		D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B3A901E621D0A00831212 /* StringExtension.swift */; };
@@ -55,8 +55,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.debug.xcconfig"; sourceTree = "<group>"; };
-		B0800121747F9A1461B901D4 /* Pods_Rosary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rosary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C08E12F89B9E26CD63F6C7 /* Pods-54Days.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-54Days.release.xcconfig"; path = "Pods/Target Support Files/Pods-54Days/Pods-54Days.release.xcconfig"; sourceTree = "<group>"; };
+		9280CFE11836EE8FA675D593 /* Pods-54Days.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-54Days.debug.xcconfig"; path = "Pods/Target Support Files/Pods-54Days/Pods-54Days.debug.xcconfig"; sourceTree = "<group>"; };
+		CE6CFBD32541CC9432F89DC4 /* Pods_54Days.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_54Days.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D102FF101EB1833700C6178A /* 54Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 54Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1197DD51EA9378300D2B1D1 /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		D1197DD71EA93D9C00D2B1D1 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		D11B3A901E621D0A00831212 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -87,7 +89,6 @@
 		D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPeriod.swift; sourceTree = "<group>"; };
 		D1A9970F1E8D9BC5003C5C5C /* PrayersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListViewModel.swift; sourceTree = "<group>"; };
 		D1A997111E8DA8C3003C5C5C /* PrayersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersViewModel.swift; sourceTree = "<group>"; };
-		D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rosary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CFD6101E15BFFE00E5FE23 /* PrayersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayersListViewController.swift; sourceTree = "<group>"; };
 		D1CFD6131E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		D1F65A131EA65DA300803867 /* PrayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerType.swift; sourceTree = "<group>"; };
 		D1FDDF2C1E28A429003B4189 /* prayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prayers.json; sourceTree = "<group>"; };
 		D1FDDF2E1E28A469003B4189 /* GeneralPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPrayer.swift; sourceTree = "<group>"; };
-		D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rosary.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rosary/Pods-Rosary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,30 +111,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6FF256178FCCDABA9EC86A /* Pods_Rosary.framework in Frameworks */,
+				C5649DD73D7B6B7B2F3568AC /* Pods_54Days.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3759CB2CCD767AD8A97C5F6F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B0800121747F9A1461B901D4 /* Pods_Rosary.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7994B907ED07F2E5D2766014 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */,
-				D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D17EEA941E3D781A005645C4 /* JTAppleCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,18 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				D1CFD60D1E15BFFE00E5FE23 /* 54Days */,
-				D1CFD60C1E15BFFE00E5FE23 /* Products */,
-				7994B907ED07F2E5D2766014 /* Pods */,
-				3759CB2CCD767AD8A97C5F6F /* Frameworks */,
+				E345FC7B71F21C29BB6D93C8 /* Pods */,
+				F6CA92315A1211F70729CB6C /* Frameworks */,
+				D102FF101EB1833700C6178A /* 54Days.app */,
 			);
-			sourceTree = "<group>";
-		};
-		D1CFD60C1E15BFFE00E5FE23 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D1CFD60D1E15BFFE00E5FE23 /* 54Days */ = {
@@ -349,12 +324,29 @@
 			name = PrayersListColViewCells;
 			sourceTree = "<group>";
 		};
+		E345FC7B71F21C29BB6D93C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9280CFE11836EE8FA675D593 /* Pods-54Days.debug.xcconfig */,
+				45C08E12F89B9E26CD63F6C7 /* Pods-54Days.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6CA92315A1211F70729CB6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE6CFBD32541CC9432F89DC4 /* Pods_54Days.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D1CFD60A1E15BFFE00E5FE23 /* Rosary */ = {
+		D1CFD60A1E15BFFE00E5FE23 /* 54Days */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "Rosary" */;
+			buildConfigurationList = D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "54Days" */;
 			buildPhases = (
 				67D11C7A12664ED2E3C4ACD8 /* [CP] Check Pods Manifest.lock */,
 				D1CFD6071E15BFFE00E5FE23 /* Sources */,
@@ -367,9 +359,9 @@
 			);
 			dependencies = (
 			);
-			name = Rosary;
+			name = 54Days;
 			productName = Rosary;
-			productReference = D1CFD60B1E15BFFE00E5FE23 /* Rosary.app */;
+			productReference = D102FF101EB1833700C6178A /* 54Days.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -379,7 +371,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = sang;
 				TargetAttributes = {
 					D1CFD60A1E15BFFE00E5FE23 = {
@@ -398,11 +390,11 @@
 				Base,
 			);
 			mainGroup = D1CFD6021E15BFFE00E5FE23;
-			productRefGroup = D1CFD60C1E15BFFE00E5FE23 /* Products */;
+			productRefGroup = D1CFD6021E15BFFE00E5FE23;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D1CFD60A1E15BFFE00E5FE23 /* Rosary */,
+				D1CFD60A1E15BFFE00E5FE23 /* 54Days */,
 			);
 		};
 /* End PBXProject section */
@@ -437,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rosary/Pods-Rosary-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-54Days/Pods-54Days-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D02B13B357C4C4CA1339950 /* [CP] Embed Pods Frameworks */ = {
@@ -452,7 +444,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rosary/Pods-Rosary-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-54Days/Pods-54Days-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		67D11C7A12664ED2E3C4ACD8 /* [CP] Check Pods Manifest.lock */ = {
@@ -557,6 +549,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -607,6 +600,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -634,12 +628,13 @@
 		};
 		D1CFD6211E15BFFE00E5FE23 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DD7ADC3B8E649D8A203F0F0 /* Pods-Rosary.debug.xcconfig */;
+			baseConfigurationReference = 9280CFE11836EE8FA675D593 /* Pods-54Days.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9P4ACRKSW7;
-				INFOPLIST_FILE = Rosary/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/54Days/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sang.fiftyFour;
@@ -650,12 +645,13 @@
 		};
 		D1CFD6221E15BFFE00E5FE23 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7C541C868B132EA7B9A58BE /* Pods-Rosary.release.xcconfig */;
+			baseConfigurationReference = 45C08E12F89B9E26CD63F6C7 /* Pods-54Days.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9P4ACRKSW7;
-				INFOPLIST_FILE = Rosary/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/54Days/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sang.fiftyFour;
@@ -676,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "Rosary" */ = {
+		D1CFD6201E15BFFE00E5FE23 /* Build configuration list for PBXNativeTarget "54Days" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D1CFD6211E15BFFE00E5FE23 /* Debug */,
