@@ -94,7 +94,10 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		}
 		
 		if cellState.dateBelongsTo == .thisMonth{
-			if let rosaryStartDate = self.rosaryPeriod?.startDate{
+			guard let rosaryStartDate = self.calendarViewModel.rosaryPeriod?.startDate else{
+				return
+			}
+//			if let rosaryStartDate = self.rosaryPeriod?.startDate{
 				// Check if each day in month belongs to Rosary Period
 				let date1 = self.calendar.startOfDay(for: rosaryStartDate)
 				let date2 = self.calendar.startOfDay(for: cellState.date)
@@ -122,7 +125,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 					cellView.daySelectedView.isHidden = true
 					cellView.additionalDaySelectedView.isHidden = true
 				}
-			}
+//			}
 		}
 		else{
 			// If Rosary period is not set, hide the circle views entirely

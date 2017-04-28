@@ -36,6 +36,7 @@
 		D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */; };
 		D17EEA9B1E3EE532005645C4 /* PrayersListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA9A1E3EE532005645C4 /* PrayersListCollectionViewCell.swift */; };
 		D1A1BBF51E4D6AA00003DE73 /* RosaryPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */; };
+		D1A5D08C1EB2CE4D001C1FFA /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */; };
 		D1A997101E8D9BC5003C5C5C /* PrayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A9970F1E8D9BC5003C5C5C /* PrayersListViewModel.swift */; };
 		D1A997121E8DA8C3003C5C5C /* PrayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A997111E8DA8C3003C5C5C /* PrayersViewModel.swift */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 		D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		D17EEA9A1E3EE532005645C4 /* PrayersListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPeriod.swift; sourceTree = "<group>"; };
+		D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		D1A9970F1E8D9BC5003C5C5C /* PrayersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListViewModel.swift; sourceTree = "<group>"; };
 		D1A997111E8DA8C3003C5C5C /* PrayersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersViewModel.swift; sourceTree = "<group>"; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			name = "JSON Files";
 			sourceTree = "<group>";
 		};
+		D1A5D08D1EB30540001C1FFA /* CalendarResetVC */ = {
+			isa = PBXGroup;
+			children = (
+				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
+			);
+			name = CalendarResetVC;
+			sourceTree = "<group>";
+		};
 		D1B0C8C31EA7ECAE00CCEBB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D1D521B21E64C4A0007B03C1 /* CalendarVC */,
+				D1A5D08D1EB30540001C1FFA /* CalendarResetVC */,
 				D17EEA941E3D781A005645C4 /* JTAppleCalendar */,
 			);
 			name = CalendarTab;
@@ -252,7 +263,7 @@
 			children = (
 				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
 				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
-				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
+				D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */,
 			);
 			name = CalendarVC;
 			sourceTree = "<group>";
@@ -501,6 +512,7 @@
 				D1D521BA1E651CDE007B03C1 /* PrayersCollectionHeaderView.swift in Sources */,
 				D1433DA91E74C41B00B05CBB /* RosaryColor.swift in Sources */,
 				D17AEA511E7DD014005CA1F2 /* PrayerNote.swift in Sources */,
+				D1A5D08C1EB2CE4D001C1FFA /* CalendarViewModel.swift in Sources */,
 				D1DAD0371E42F7DE002300FC /* CalendarViewControllerExtension.swift in Sources */,
 				D1197DD61EA9378300D2B1D1 /* NotesViewModel.swift in Sources */,
 				D13B4A801E5294FE00069FEB /* PrayersViewController.swift in Sources */,

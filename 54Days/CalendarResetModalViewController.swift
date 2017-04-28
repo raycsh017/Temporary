@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol CalendarResetModalDelegate{
-	func calendarReset(with selectedDate: Date)
+protocol CalendarResetModalDelegate: class{
+	func resetCalendar(with selectedDate: Date)
 }
 
 class CalendarResetModalViewController: UIViewController {
-
+	
+	// MARK: - View Config Variables
 	let buttonFontSize: CGFloat = 15.0
 	
+	// MARK: - Outlets
 	@IBOutlet weak var backgroundView: UIView!{
 		didSet{
 			self.backgroundView.backgroundColor = .black
@@ -45,15 +47,22 @@ class CalendarResetModalViewController: UIViewController {
 		}
 	}
 	
-	var delegate: CalendarResetModalDelegate?
+	// MARK: - Static Variables
+	weak var delegate: CalendarResetModalDelegate?
+	
+	// MARK: - Dynamic Variables
 	var newRosaryStartDate: Date?
 	
+	
+	
+	// MARK: - Overrides and Additional View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 		self.setup()
     }
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.animateView()
@@ -77,6 +86,7 @@ class CalendarResetModalViewController: UIViewController {
 			self.datePickerModalView.alpha = 1.0
 		}
 	}
+	
 	func deAnimateView(){
 		UIView.animate(withDuration: 0.25, animations: { 
 			self.datePickerModalView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -89,8 +99,9 @@ class CalendarResetModalViewController: UIViewController {
 		}
 	}
 	
+	// MARK: - Other Functions
 	@IBAction func confirmReset(_ sender: Any) {
-		self.delegate?.calendarReset(with: datePicker.date)
+		self.delegate?.resetCalendar(with: datePicker.date)
 		self.deAnimateView()
 	}
 	@IBAction func cancelReset(_ sender: Any) {
