@@ -46,6 +46,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 		self.handleCellSelection(view: cellView, cellState: cellState)
 		self.handleCellTextColor(view: cellView, cellState: cellState)
 	}
+	
 	// When cell gets de-selected
 	func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
 		// If deselect happens in the section outside of the visible section, cell == nil
@@ -54,10 +55,12 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 			self.handleCellTextColor(view: cellView, cellState: cellState)
 		}
 	}
+	
 	func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
 		let visibleDate = visibleDates.monthDates.first!
 		self.updateCalendarHeader(dateInMonth: visibleDate)
 	}
+	
 	// Function to handle the text color of the calendar
 	func handleCellTextColor(view: JTAppleDayCellView?, cellState: CellState) {
 		guard let cellView = view as? CalendarDayCellView  else {
@@ -70,6 +73,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 			cellView.dayLabel.textColor = .gray
 		}
 	}
+	
 	// Function to handle the calendar selection
 	func handleCellSelection(view: JTAppleDayCellView?, cellState: CellState) {
 		guard let cellView = view as? CalendarDayCellView  else {
@@ -87,6 +91,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 			cellView.dayContainerView.layer.borderColor = UIColor.clear.cgColor
 		}
 	}
+	
 	// Function to handle colors for dates in user-set Rosary Period
 	func handleDatesInPeriod(view: JTAppleDayCellView?, cellState: CellState){
 		guard let cellView = view as? CalendarDayCellView else{
@@ -97,35 +102,33 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
 			guard let rosaryStartDate = self.calendarViewModel.rosaryPeriod?.startDate else{
 				return
 			}
-//			if let rosaryStartDate = self.rosaryPeriod?.startDate{
-				// Check if each day in month belongs to Rosary Period
-				let date1 = self.calendar.startOfDay(for: rosaryStartDate)
-				let date2 = self.calendar.startOfDay(for: cellState.date)
-				let numDaysBetween = self.calendar.dateComponents([.day], from: date1, to: date2).day!
+			// Check if each day in month belongs to Rosary Period
+			let date1 = self.calendar.startOfDay(for: rosaryStartDate)
+			let date2 = self.calendar.startOfDay(for: cellState.date)
+			let numDaysBetween = self.calendar.dateComponents([.day], from: date1, to: date2).day!
+			
+			switch numDaysBetween{
+			case 0..<54:
+				// If a part of the Rosary period, display a circle view
+				let colorIndex = (numDaysBetween < 27) ? (numDaysBetween % 4) : ((numDaysBetween+1) % 4)
+				cellView.daySelectedView.layer.cornerRadius = 2
+				cellView.daySelectedView.backgroundColor = self.colorScheme[colorIndex].uiColor
+				cellView.daySelectedView.isHidden = false
 				
-				switch numDaysBetween{
-				case 0..<54:
-					// If a part of the Rosary period, display a circle view
-					let colorIndex = (numDaysBetween < 27) ? (numDaysBetween % 4) : ((numDaysBetween+1) % 4)
-					cellView.daySelectedView.layer.cornerRadius = 2
-					cellView.daySelectedView.backgroundColor = self.colorScheme[colorIndex].uiColor
-					cellView.daySelectedView.isHidden = false
-					
-					// For 27th and 54th days, display an additional circle view
-					if numDaysBetween == 26 || numDaysBetween == 53{
-						cellView.additionalDaySelectedView.layer.cornerRadius = 2
-						cellView.additionalDaySelectedView.backgroundColor = RosaryColor.darkSlateBlue.uiColor
-						cellView.additionalDaySelectedView.isHidden = false
-					}
-					else{
-						cellView.additionalDaySelectedView.isHidden = true
-					}
-				default:
-					// If not a part of the Rosary period, hide the circle views
-					cellView.daySelectedView.isHidden = true
+				// For 27th and 54th days, display an additional circle view
+				if numDaysBetween == 26 || numDaysBetween == 53{
+					cellView.additionalDaySelectedView.layer.cornerRadius = 2
+					cellView.additionalDaySelectedView.backgroundColor = RosaryColor.darkSlateBlue.uiColor
+					cellView.additionalDaySelectedView.isHidden = false
+				}
+				else{
 					cellView.additionalDaySelectedView.isHidden = true
 				}
-//			}
+			default:
+				// If not a part of the Rosary period, hide the circle views
+				cellView.daySelectedView.isHidden = true
+				cellView.additionalDaySelectedView.isHidden = true
+			}
 		}
 		else{
 			// If Rosary period is not set, hide the circle views entirely

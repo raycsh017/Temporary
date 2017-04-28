@@ -101,6 +101,7 @@ class CalendarViewController: UIViewController{
 	}
 	
 	func setup(){
+		self.automaticallyAdjustsScrollViewInsets = false
 		self.calendarBodyView.scrollToDate(self.currentDate)
 		self.updateCalendarHeader(dateInMonth: self.currentDate)
 		
