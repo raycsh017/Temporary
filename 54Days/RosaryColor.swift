@@ -12,7 +12,7 @@ import UIKit
 // Color scheme used for Rosary mysteries
 enum RosaryColor: Int{
 	case tacao
-	case burntSienna
+	case chelseaCucumber
 	case darkTerraCotta
 	case darkSlateBlue
 	
@@ -20,7 +20,7 @@ enum RosaryColor: Int{
 		switch self{
 		case .tacao:
 			return UIColor.withRGB(red: 252, green: 177, blue: 122)
-		case .burntSienna:
+		case .chelseaCucumber:
 			return UIColor.withRGB(red: 124, green: 174, blue: 102)
 		case .darkTerraCotta:
 			return UIColor.withRGB(red: 214, green: 73, blue: 90)
@@ -28,7 +28,8 @@ enum RosaryColor: Int{
 			return UIColor.withRGB(red: 72, green: 73, blue: 137)
 		}
 	}
+	
 	static var scheme: [RosaryColor]{
-		return [.tacao, .burntSienna, .darkTerraCotta, .darkSlateBlue]
+		return [.tacao, .chelseaCucumber, .darkTerraCotta, .darkSlateBlue]
 	}
 }
