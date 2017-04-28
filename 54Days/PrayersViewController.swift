@@ -63,6 +63,15 @@ class PrayersViewController: UIViewController {
 	
 	func setup(){
 		self.automaticallyAdjustsScrollViewInsets = false
+		
+		self.setNavigationItemTitle()
+	}
+	
+	func setNavigationItemTitle(){
+		guard let prayer = self.prayersViewModel.prayer else{
+			return
+		}
+		self.navigationItem.title = prayer.currentTitle
 	}
 }
 

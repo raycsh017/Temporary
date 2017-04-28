@@ -38,4 +38,13 @@ enum Prayer{
 			return [prayer.count]
 		}
 	}
+	
+	var currentTitle: String{
+		switch self{
+		case .rosary(let rosaryPrayer):
+			return rosaryPrayer.mystery.type.inKorean
+		case .general:
+			return "주요 기도문"
+		}
+	}
 }
