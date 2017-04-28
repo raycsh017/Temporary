@@ -13,7 +13,7 @@ extension UIView{
 	func addShadow(){
 		self.layer.shadowColor = UIColor.black.cgColor
 		self.layer.shadowOpacity = 0.3
-		self.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+		self.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
 		self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 0).cgPath
 		self.layer.shouldRasterize = true
 		self.layer.rasterizationScale = UIScreen.main.scale

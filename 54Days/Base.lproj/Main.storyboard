@@ -419,7 +419,7 @@
             </objects>
             <point key="canvasLocation" x="1785" y="342"/>
         </scene>
-        <!--54Days-->
+        <!--기도문-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PrayersListViewController" customModule="_4Days" customModuleProvider="target" sceneMemberID="viewController">
@@ -574,7 +574,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WDH-OC-fDz" secondAttribute="bottom" constant="16" id="xTt-YG-N4h"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="54Days" id="AAF-vK-ags"/>
+                    <navigationItem key="navigationItem" title="기도문" id="AAF-vK-ags"/>
                     <connections>
                         <outlet property="calendarHeaderVIew" destination="GSN-Rv-cTT" id="cFL-i7-wj4"/>
                         <outlet property="calendarView" destination="tkK-0F-Hvi" id="3hQ-dZ-192"/>
@@ -624,7 +624,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qxz-ja-NeS">
-                                        <rect key="frame" x="16" y="16" width="230.5" height="237.5"/>
+                                        <rect key="frame" x="16" y="16" width="230.5" height="270"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-cH-MAV">
                                                 <rect key="frame" x="0.0" y="0.0" width="230.5" height="30"/>
@@ -670,7 +670,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="r7I-SR-vV9">
-                                                <rect key="frame" x="0.0" y="127" width="230.5" height="21"/>
+                                                <rect key="frame" x="0.0" y="127" width="219.5" height="36.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용된 라이브러리 및 프레임워크:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf5-BJ-pJe">
                                                         <rect key="frame" x="0.0" y="0.0" width="185.5" height="17"/>
@@ -679,7 +679,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JTAppleCalendar, Realm, SwiftyJSON" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-I3-tqm">
-                                                        <rect key="frame" x="0.0" y="21" width="230.5" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="21" width="219.5" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -687,16 +687,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-Hk-05S">
-                                                <rect key="frame" x="0.0" y="156" width="230.5" height="81.5"/>
+                                                <rect key="frame" x="0.0" y="171.5" width="225.5" height="98.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이콘 출처 (Flaticon, NounProject):" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPI-wa-koW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225.5" height="17"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="jSP-U6-zJ4">
-                                                        <rect key="frame" x="0.0" y="4" width="189" height="77.5"/>
+                                                        <rect key="frame" x="0.0" y="21" width="189" height="77.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오른쪽 화살표 by Noe Araujo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSq-57-2qU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="15.5"/>
@@ -1325,15 +1325,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="SsR-B9-Evu" kind="relationship" relationship="rootViewController" id="xuG-z6-QRe"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sl-kG-Sq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="337" y="1058"/>
         </scene>
-        <!--View Controller-->
+        <!--54Days-->
         <scene sceneID="V95-HZ-h0B">
             <objects>
-                <viewController id="SsR-B9-Evu" sceneMemberID="viewController">
+                <viewController id="SsR-B9-Evu" customClass="CreditsViewController" customModule="_4Days" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e06-zZ-hUO"/>
                         <viewControllerLayoutGuide type="bottom" id="uZ8-am-eUz"/>
@@ -1341,8 +1344,108 @@
                     <view key="view" contentMode="scaleToFill" id="rXm-mV-3Y4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제작에 도움을 주신 분들" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yG-tB-llU">
+                                <rect key="frame" x="16" y="80" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bQw-NQ-5eN">
+                                <rect key="frame" x="16" y="108.5" width="343" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G86-Yd-gex">
+                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공석입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlC-n7-UC2">
+                                        <rect key="frame" x="0.0" y="21" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-mp-JVs">
+                                <rect key="frame" x="16" y="162.5" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjb-mB-gU3">
+                                        <rect key="frame" x="0.0" y="0.0" width="36.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공석입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJd-lG-gEp">
+                                        <rect key="frame" x="0.0" y="17" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ILj-Ap-aCh">
+                                <rect key="frame" x="16" y="212.5" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오픈 소스 라이브러리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwB-xK-ISt">
+                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공석입니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygf-VU-7Nj">
+                                        <rect key="frame" x="0.0" y="17" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="K25-7J-kL1">
+                                <rect key="frame" x="16" y="262.5" width="343" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이콘 디자인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86w-TD-ThT">
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공석입니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2C-oQ-EVx">
+                                        <rect key="frame" x="0.0" y="17" width="61" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ILj-Ap-aCh" firstAttribute="top" secondItem="8iY-mp-JVs" secondAttribute="bottom" constant="16" id="8kt-Yh-3Rr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K25-7J-kL1" secondAttribute="trailing" id="94m-f8-5WW"/>
+                            <constraint firstItem="bQw-NQ-5eN" firstAttribute="leading" secondItem="rXm-mV-3Y4" secondAttribute="leadingMargin" id="Afp-6x-Ljq"/>
+                            <constraint firstItem="K25-7J-kL1" firstAttribute="top" secondItem="ILj-Ap-aCh" secondAttribute="bottom" constant="16" id="BEx-CD-hOS"/>
+                            <constraint firstItem="ILj-Ap-aCh" firstAttribute="leading" secondItem="rXm-mV-3Y4" secondAttribute="leadingMargin" id="LpM-9V-XMH"/>
+                            <constraint firstItem="8iY-mp-JVs" firstAttribute="leading" secondItem="rXm-mV-3Y4" secondAttribute="leadingMargin" id="OVf-09-6yD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8iY-mp-JVs" secondAttribute="trailing" id="Q2y-6O-Ksu"/>
+                            <constraint firstItem="K25-7J-kL1" firstAttribute="leading" secondItem="rXm-mV-3Y4" secondAttribute="leadingMargin" id="WeJ-d2-hSt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bQw-NQ-5eN" secondAttribute="trailing" id="ZI4-Dj-3lO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4yG-tB-llU" secondAttribute="trailing" id="d7p-Gw-UTX"/>
+                            <constraint firstItem="8iY-mp-JVs" firstAttribute="top" secondItem="bQw-NQ-5eN" secondAttribute="bottom" constant="16" id="gHC-hy-DUO"/>
+                            <constraint firstItem="bQw-NQ-5eN" firstAttribute="top" secondItem="4yG-tB-llU" secondAttribute="bottom" constant="8" id="hqQ-SW-HAu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ILj-Ap-aCh" secondAttribute="trailing" id="rjl-uY-9kl"/>
+                            <constraint firstItem="4yG-tB-llU" firstAttribute="leading" secondItem="rXm-mV-3Y4" secondAttribute="leadingMargin" id="wNj-ol-6sz"/>
+                            <constraint firstItem="4yG-tB-llU" firstAttribute="top" secondItem="e06-zZ-hUO" secondAttribute="bottom" constant="16" id="zVh-Fa-E4c"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="54Days" id="te2-aq-U18"/>
+                    <connections>
+                        <outlet property="designContributorsLabel" destination="iJd-lG-gEp" id="x4e-FZ-HwO"/>
+                        <outlet property="developmentContributorsLabel" destination="tlC-n7-UC2" id="k3j-ma-A1y"/>
+                        <outlet property="iconDesignersLabel" destination="e2C-oQ-EVx" id="Qo8-9V-UQH"/>
+                        <outlet property="openSourceLibrariesLabel" destination="Ygf-VU-7Nj" id="TJG-gu-okJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBG-2b-yZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -27,6 +27,8 @@
 		D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB31E4856E200EB66DB /* CalendarViewController.swift */; };
 		D1443FB61E492F1F00EB66DB /* GeneralPrayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB51E492F1F00EB66DB /* GeneralPrayerType.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */; };
+		D15E7B4A1EB3CF900015EA73 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */; };
+		D15E7B4C1EB3D09E0015EA73 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15E7B4B1EB3D09E0015EA73 /* ArrayExtension.swift */; };
 		D172E00D1EA9809000BD9B07 /* NoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E00C1EA9809000BD9B07 /* NoteEditViewModel.swift */; };
 		D17AEA4F1E7DCE10005CA1F2 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */; };
 		D17AEA511E7DD014005CA1F2 /* PrayerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */; };
@@ -79,6 +81,8 @@
 		D1443FB31E4856E200EB66DB /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D1443FB51E492F1F00EB66DB /* GeneralPrayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPrayerType.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryPrayers.json; sourceTree = "<group>"; };
+		D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		D15E7B4B1EB3D09E0015EA73 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		D172E00C1EA9809000BD9B07 /* NoteEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteEditViewModel.swift; sourceTree = "<group>"; };
 		D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerNote.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				D17EEA951E3D782E005645C4 /* JSON Files */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 				D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */,
+				D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */,
 			);
 			path = 54Days;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				D1DAD02A1E415CA9002300FC /* UIViewExtension.swift */,
 				D11B3A901E621D0A00831212 /* StringExtension.swift */,
 				D1197DD71EA93D9C00D2B1D1 /* UITableViewExtension.swift */,
+				D15E7B4B1EB3D09E0015EA73 /* ArrayExtension.swift */,
 			);
 			name = "Common Extensions";
 			sourceTree = "<group>";
@@ -493,6 +499,8 @@
 				D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */,
 				D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */,
 				D1CFD6111E15BFFE00E5FE23 /* PrayersListViewController.swift in Sources */,
+				D15E7B4A1EB3CF900015EA73 /* CreditsViewController.swift in Sources */,
+				D15E7B4C1EB3D09E0015EA73 /* ArrayExtension.swift in Sources */,
 				D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */,
 				D1433DA51E74C3AD00B05CBB /* AppCommon.swift in Sources */,
 				D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */,
