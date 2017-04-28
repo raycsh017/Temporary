@@ -1203,7 +1203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aqm-Um-Fg6">
-                                <rect key="frame" x="16" y="80" width="343" height="522"/>
+                                <rect key="frame" x="8" y="72" width="359" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1211,10 +1211,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aqm-Um-Fg6" secondAttribute="trailing" constant="16" id="JzX-U1-qjw"/>
-                            <constraint firstItem="aqm-Um-Fg6" firstAttribute="top" secondItem="fIb-LD-Mik" secondAttribute="bottom" constant="16" id="ZGL-QE-7EJ"/>
-                            <constraint firstItem="tCm-t7-eaC" firstAttribute="top" secondItem="aqm-Um-Fg6" secondAttribute="bottom" constant="16" id="n39-3Q-tc3"/>
-                            <constraint firstItem="aqm-Um-Fg6" firstAttribute="leading" secondItem="R3u-Bx-FKl" secondAttribute="leading" constant="16" id="oIH-sa-dKV"/>
+                            <constraint firstAttribute="trailing" secondItem="aqm-Um-Fg6" secondAttribute="trailing" constant="8" id="JzX-U1-qjw"/>
+                            <constraint firstItem="aqm-Um-Fg6" firstAttribute="top" secondItem="fIb-LD-Mik" secondAttribute="bottom" constant="8" id="ZGL-QE-7EJ"/>
+                            <constraint firstItem="tCm-t7-eaC" firstAttribute="top" secondItem="aqm-Um-Fg6" secondAttribute="bottom" constant="8" id="n39-3Q-tc3"/>
+                            <constraint firstItem="aqm-Um-Fg6" firstAttribute="leading" secondItem="R3u-Bx-FKl" secondAttribute="leading" constant="8" id="oIH-sa-dKV"/>
                         </constraints>
                     </view>
                     <connections>

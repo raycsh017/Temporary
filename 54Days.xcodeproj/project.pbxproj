@@ -124,6 +124,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D15E7B4D1EB3D8950015EA73 /* MoreTab */ = {
+			isa = PBXGroup;
+			children = (
+				D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */,
+			);
+			name = MoreTab;
+			sourceTree = "<group>";
+		};
+		D15E7B4E1EB3D8A80015EA73 /* NotUsed */ = {
+			isa = PBXGroup;
+			children = (
+				D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */,
+			);
+			name = NotUsed;
+			sourceTree = "<group>";
+		};
 		D17EEA941E3D781A005645C4 /* JTAppleCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,16 +257,16 @@
 				D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */,
 				D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */,
 				D1433DA41E74C3AD00B05CBB /* AppCommon.swift */,
-				D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */,
+				D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */,
+				D15E7B4E1EB3D8A80015EA73 /* NotUsed */,
 				D1DAD0391E42F80D002300FC /* Common Extensions */,
 				D1DAD0381E42F7FC002300FC /* CommonModel */,
 				D1B0C8C51EA7ED2100CCEBB9 /* PrayersTab */,
 				D1B0C8C71EA7F15700CCEBB9 /* PrayerNotesTab */,
 				D1B0C8C61EA7ED3300CCEBB9 /* CalendarTab */,
+				D15E7B4D1EB3D8950015EA73 /* MoreTab */,
 				D17EEA951E3D782E005645C4 /* JSON Files */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
-				D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */,
-				D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */,
 			);
 			path = 54Days;
 			sourceTree = "<group>";

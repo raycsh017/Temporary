@@ -21,7 +21,7 @@ enum RosaryColor: Int{
 		case .tacao:
 			return UIColor.withRGB(red: 252, green: 177, blue: 122)
 		case .burntSienna:
-			return UIColor.withRGB(red: 239, green: 132, blue: 100)
+			return UIColor.withRGB(red: 124, green: 174, blue: 102)
 		case .darkTerraCotta:
 			return UIColor.withRGB(red: 214, green: 73, blue: 90)
 		case .darkSlateBlue:
