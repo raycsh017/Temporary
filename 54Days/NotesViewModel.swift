@@ -17,7 +17,7 @@ class NotesViewModel{
 	// MARK: - Dynamic Variables
 	var prayerNotes: Results<PrayerNote>{
 		get{
-			return self.realm.objects(PrayerNote.self)
+			return self.realm.objects(PrayerNote.self).sorted(byKeyPath: "addedDate")
 		}
 	}
 	
