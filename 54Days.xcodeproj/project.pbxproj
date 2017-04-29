@@ -12,7 +12,7 @@
 		D1197DD81EA93D9C00D2B1D1 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1197DD71EA93D9C00D2B1D1 /* UITableViewExtension.swift */; };
 		D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B3A901E621D0A00831212 /* StringExtension.swift */; };
 		D11B3A931E624ED000831212 /* GeneralPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B3A921E624ED000831212 /* GeneralPrayerCollectionViewCell.swift */; };
-		D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */; };
+		D1264EC51E4A6C5A007123AD /* CalendarResetModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1264EC41E4A6C5A007123AD /* CalendarResetModalView.swift */; };
 		D12CDA061EA57E03005A857C /* PrayersListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CDA051EA57E03005A857C /* PrayersListHeaderView.swift */; };
 		D13B4A7A1E5292F500069FEB /* StartingPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A791E5292F400069FEB /* StartingPrayerCollectionViewCell.swift */; };
 		D13B4A7C1E52930F00069FEB /* MainPrayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7B1E52930F00069FEB /* MainPrayerCollectionViewCell.swift */; };
@@ -66,7 +66,7 @@
 		D1197DD71EA93D9C00D2B1D1 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		D11B3A901E621D0A00831212 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D11B3A921E624ED000831212 /* GeneralPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarResetModalViewController.swift; sourceTree = "<group>"; };
+		D1264EC41E4A6C5A007123AD /* CalendarResetModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarResetModalView.swift; sourceTree = "<group>"; };
 		D12CDA051EA57E03005A857C /* PrayersListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListHeaderView.swift; sourceTree = "<group>"; };
 		D13B4A791E5292F400069FEB /* StartingPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		D13B4A7B1E52930F00069FEB /* MainPrayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPrayerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -160,14 +160,6 @@
 			name = "JSON Files";
 			sourceTree = "<group>";
 		};
-		D1A5D08D1EB30540001C1FFA /* CalendarResetVC */ = {
-			isa = PBXGroup;
-			children = (
-				D1264EC41E4A6C5A007123AD /* CalendarResetModalViewController.swift */,
-			);
-			name = CalendarResetVC;
-			sourceTree = "<group>";
-		};
 		D1B0C8C31EA7ECAE00CCEBB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				D1D521B21E64C4A0007B03C1 /* CalendarVC */,
-				D1A5D08D1EB30540001C1FFA /* CalendarResetVC */,
 				D17EEA941E3D781A005645C4 /* JTAppleCalendar */,
 			);
 			name = CalendarTab;
@@ -282,6 +273,7 @@
 		D1D521B21E64C4A0007B03C1 /* CalendarVC */ = {
 			isa = PBXGroup;
 			children = (
+				D1264EC41E4A6C5A007123AD /* CalendarResetModalView.swift */,
 				D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */,
 				D1443FB31E4856E200EB66DB /* CalendarViewController.swift */,
 				D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */,
@@ -510,7 +502,7 @@
 				D17EEA9B1E3EE532005645C4 /* PrayersListCollectionViewCell.swift in Sources */,
 				D1D4DADC1EA7E83E00933379 /* Prayer.swift in Sources */,
 				D11B3A931E624ED000831212 /* GeneralPrayerCollectionViewCell.swift in Sources */,
-				D1264EC51E4A6C5A007123AD /* CalendarResetModalViewController.swift in Sources */,
+				D1264EC51E4A6C5A007123AD /* CalendarResetModalView.swift in Sources */,
 				D1F65A141EA65DA300803867 /* PrayerType.swift in Sources */,
 				D11B3A911E621D0A00831212 /* StringExtension.swift in Sources */,
 				D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */,

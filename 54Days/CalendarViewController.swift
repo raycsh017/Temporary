@@ -17,7 +17,7 @@ class CalendarViewController: UIViewController{
 	
 	let circleViewWidth: CGFloat = 8.0
 	
-	// MARK: - Outlets
+	// MARK: - Outlets and Custom Views
 	@IBOutlet weak var calendarView: UIView!
 	@IBOutlet weak var calendarMonthLabel: UILabel!
 	@IBOutlet weak var calendarBodyView: JTAppleCalendarView!{
@@ -64,7 +64,7 @@ class CalendarViewController: UIViewController{
 	
 	@IBOutlet weak var calendarResetButton: UIButton!
 	
-	
+	let calendarResetModalView = CalendarResetModalView()
 	
 	// MARK: - Static Variables
 	let calendar = Calendar.current
@@ -114,9 +114,22 @@ class CalendarViewController: UIViewController{
 			return
 		}
 		self.updateDatesLabels(startDate: startDate, endDate: endDate)
+		self.setupViews()
+		self.setupConstraints()
 	}
 	
+	func setupViews(){
+		self.calendarResetModalView.delegate = self
+		self.view.addSubview(self.calendarResetModalView)
+	}
 	
+	func setupConstraints(){
+		
+//		self.calendarResetModalView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+//		self.calendarResetModalView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+//		self.calendarResetModalView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+//		self.calendarResetModalView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+	}
 	
 	// MARK: - View Related Functions
 	func updateDatesLabels(startDate: Date, endDate: Date){
@@ -149,9 +162,6 @@ extension CalendarViewController: CalendarResetModalDelegate{
 // MARK: - Presenter
 extension CalendarViewController{
 	@IBAction func openCalendarResetModal(_ sender: Any) {
-		let calendarResetModalVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarResetModalViewController") as? CalendarResetModalViewController
-		calendarResetModalVC?.modalPresentationStyle = .overCurrentContext
-		calendarResetModalVC?.delegate = self
-		self.present(calendarResetModalVC!, animated: false, completion: nil)
+		self.calendarResetModalView.animateView()
 	}
 }
