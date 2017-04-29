@@ -26,7 +26,7 @@ class CalendarViewModel{
 	func findEndOfRosaryPeriod(usingStartDate startDate: Date) -> Date{
 		// Add 53 to the startDate, because the period is start-date-inclusive
 		let daysInOnePeriod = 53
-		let endDate = self.calendar.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: Date())
+		let endDate = self.calendar.date(byAdding: Calendar.Component.day, value: daysInOnePeriod, to: startDate)
 		return endDate!
 	}
 	
