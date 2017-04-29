@@ -29,8 +29,8 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZB-Zp-sve">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZF-t4-A9h">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZF-t4-A9h">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="530"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csz-Gc-Fvi">
                                                         <rect key="frame" x="16" y="16" width="288" height="358"/>

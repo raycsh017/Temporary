@@ -156,11 +156,11 @@ class PrayersListViewModel{
 		case 0...26:
 			let petitionPrayerString = NSAttributedString(string: "청원기도", attributes: underlineStringAttr)
 			newCalendarDescription.append(petitionPrayerString)
-			newCalendarDescription.append(NSAttributedString(string: ", "))
+			newCalendarDescription.append(NSAttributedString(string: " "))
 		case 27...53:
 			let gracePrayerString = NSAttributedString(string: "감사기도", attributes: underlineStringAttr)
 			newCalendarDescription.append(gracePrayerString)
-			newCalendarDescription.append(NSAttributedString(string: ", "))
+			newCalendarDescription.append(NSAttributedString(string: " "))
 		default:
 			break
 		}
