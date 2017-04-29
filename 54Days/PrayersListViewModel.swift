@@ -142,21 +142,38 @@ class PrayersListViewModel{
 		
 		// Add attributes to substrings
 		let boldStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0)]
+		let underlineStringAttr = [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
 		let numDaysPassedString = NSAttributedString(string: "\(numDaysFromStartDate + 1)일", attributes: boldStringAttr)
 		
+		let newCalendarDescription = NSMutableAttributedString()
+		
+		newCalendarDescription.append(NSAttributedString(string: "오늘은 묵주기도 "))
+		newCalendarDescription.append(numDaysPassedString)
+		newCalendarDescription.append(NSAttributedString(string: "째이며, "))
+		
+		// 1~27 petition prayer period, 28~54 grace prayer period
+		switch numDaysFromStartDate{
+		case 0...26:
+			let petitionPrayerString = NSAttributedString(string: "청원기도", attributes: underlineStringAttr)
+			newCalendarDescription.append(petitionPrayerString)
+			newCalendarDescription.append(NSAttributedString(string: ", "))
+		case 27...53:
+			let gracePrayerString = NSAttributedString(string: "감사기도", attributes: underlineStringAttr)
+			newCalendarDescription.append(gracePrayerString)
+			newCalendarDescription.append(NSAttributedString(string: ", "))
+		default:
+			break
+		}
+		
+		// Determine which mystery the user has to do for the current date
 		let colorIndex = (numDaysFromStartDate < 27) ? (numDaysFromStartDate % 4) : ((numDaysFromStartDate+1) % 4)
 		let color = RosaryColor(rawValue: colorIndex)!
 		let coloredStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0), NSForegroundColorAttributeName: color.uiColor]
 		let coloredStringValue = RosaryMysteryType(rawValue: colorIndex)!.inKorean
 		let rosaryForTodayString = NSAttributedString(string: "\(coloredStringValue)", attributes: coloredStringAttr)
-		
-		let newCalendarDescription = NSMutableAttributedString()
-		newCalendarDescription.append(NSAttributedString(string: "오늘은 묵주기도 "))
-		newCalendarDescription.append(numDaysPassedString)
-		newCalendarDescription.append(NSAttributedString(string: "째이며, "))
 		newCalendarDescription.append(rosaryForTodayString)
-		
-		// Account for 27th, 54th day of Rosary
+			
+		// Account for 27th, 54th days of Rosary
 		if numDaysFromStartDate == 26 || numDaysFromStartDate == 53{
 			let additionalColor = RosaryColor.darkSlateBlue
 			let additionalColorStringAttr = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0), NSForegroundColorAttributeName: additionalColor.uiColor]
@@ -165,7 +182,6 @@ class PrayersListViewModel{
 			newCalendarDescription.append(NSAttributedString(string: ", "))
 			newCalendarDescription.append(rosaryForTodayString)
 		}
-		
 		newCalendarDescription.append(NSAttributedString(string: "를 하실 차례입니다 :)"))
 			
 		completionHandler(newCalendarDescription)
