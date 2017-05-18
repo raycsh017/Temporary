@@ -105,6 +105,9 @@ class CalendarViewController: UIViewController{
 		self.calendarBodyView.scrollToDate(self.currentDate)
 		self.updateCalendarHeader(dateInMonth: self.currentDate)
 		
+		self.setupViews()
+		self.setupConstraints()
+		
 		// If rosaryPeriod is set, update the start and end date labels
 		guard
 			let rosaryPeriod = self.calendarViewModel.rosaryPeriod,
@@ -114,8 +117,6 @@ class CalendarViewController: UIViewController{
 			return
 		}
 		self.updateDatesLabels(startDate: startDate, endDate: endDate)
-		self.setupViews()
-		self.setupConstraints()
 	}
 	
 	func setupViews(){
