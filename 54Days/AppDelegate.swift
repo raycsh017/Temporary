@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// UINavigation
 		UINavigationBar.appearance().tintColor = .black
 		
+		let mainViewController = MainTabBarController()
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.rootViewController = mainViewController
+		window?.makeKeyAndVisible()
+		
 		return true
 	}
 
