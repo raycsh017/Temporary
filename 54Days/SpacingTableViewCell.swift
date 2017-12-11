@@ -1,10 +1,10 @@
 import UIKit
 import SnapKit
 
-struct SpacingDisplayData {
+struct SpacingCellData {
 	let spacing: Int
 	
-	init(_ spacing: Int) {
+	init(spacing: Int) {
 		self.spacing = spacing
 	}
 }
@@ -13,7 +13,7 @@ class SpacingTableViewCell: UITableViewCell {
 	
 	var heightConstraint: Constraint?
 	
-	var spacingDisplayData: SpacingDisplayData?
+	var spacingDisplayData: SpacingCellData?
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,9 +32,9 @@ class SpacingTableViewCell: UITableViewCell {
 }
 
 extension SpacingTableViewCell: CellUpdatable {
-	typealias CellData = SpacingDisplayData
+	typealias CellData = SpacingCellData
 	
-	func update(withCellData cellData: SpacingDisplayData) {
+	func update(withCellData cellData: SpacingCellData) {
 		spacingDisplayData = cellData
 		
 		heightConstraint?.update(offset: cellData.spacing)

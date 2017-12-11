@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C5649DD73D7B6B7B2F3568AC /* Pods_54Days.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6CFBD32541CC9432F89DC4 /* Pods_54Days.framework */; };
+		D10744D01F7A139300C0DC47 /* OtherPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10744CF1F7A139300C0DC47 /* OtherPrayerTableViewCell.swift */; };
 		D1197DD61EA9378300D2B1D1 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1197DD51EA9378300D2B1D1 /* NotesViewModel.swift */; };
 		D1264EC51E4A6C5A007123AD /* CalendarResetModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1264EC41E4A6C5A007123AD /* CalendarResetModalView.swift */; };
 		D12A4FB41F6C265B00B2DEF4 /* PrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A4FB31F6C265B00B2DEF4 /* PrayerViewController.swift */; };
-		D12A4FB81F6F001800B2DEF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A4FB71F6F001800B2DEF4 /* Prayer.swift */; };
 		D12A4FBA1F6F020B00B2DEF4 /* PrayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A4FB91F6F020B00B2DEF4 /* PrayerViewModel.swift */; };
 		D12A4FBC1F6F027600B2DEF4 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A4FBB1F6F027600B2DEF4 /* FileUtility.swift */; };
 		D12C59CB1F6A47A800131734 /* CellConfiguratorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12C59CA1F6A47A800131734 /* CellConfiguratorType.swift */; };
@@ -19,17 +19,15 @@
 		D12C59D01F6A488A00131734 /* CellConfiguratorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12C59CF1F6A488A00131734 /* CellConfiguratorSection.swift */; };
 		D1389ADD1F3FF2BE001D53E0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389ADC1F3FF2BE001D53E0 /* RealmManager.swift */; };
 		D1389AE01F3FFB40001D53E0 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389ADF1F3FFB40001D53E0 /* Font.swift */; };
-		D1389AE21F3FFF3C001D53E0 /* Legend in Resources */ = {isa = PBXBuildFile; fileRef = D1389AE11F3FFF3C001D53E0 /* Legend */; };
 		D1389AE81F400282001D53E0 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389AE71F400282001D53E0 /* UIColorExtensions.swift */; };
 		D1389AEA1F40059F001D53E0 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389AE91F40059F001D53E0 /* DictionaryExtensions.swift */; };
 		D1389AEC1F4D659D001D53E0 /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389AEB1F4D659D001D53E0 /* UIEdgeInsetsExtensions.swift */; };
 		D1389AEE1F507D7A001D53E0 /* TableViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389AED1F507D7A001D53E0 /* TableViewUtility.swift */; };
 		D1389AF01F507DB5001D53E0 /* TableCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1389AEF1F507DB5001D53E0 /* TableCellConfigurator.swift */; };
-		D13B4A801E5294FE00069FEB /* PrayersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7F1E5294FE00069FEB /* PrayersListViewController.swift */; };
-		D13B4A821E52980C00069FEB /* RosaryPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A811E52980C00069FEB /* RosaryPrayer.swift */; };
+		D13B4A801E5294FE00069FEB /* PrayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A7F1E5294FE00069FEB /* PrayerListViewController.swift */; };
+		D13B4A821E52980C00069FEB /* RosaryMystery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A811E52980C00069FEB /* RosaryMystery.swift */; };
 		D1433DA51E74C3AD00B05CBB /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DA41E74C3AD00B05CBB /* AppCommon.swift */; };
 		D1433DA91E74C41B00B05CBB /* RosaryColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DA81E74C41B00B05CBB /* RosaryColor.swift */; };
-		D1433DAB1E74D2DE00B05CBB /* RosaryMysteryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */; };
 		D1443FB01E4483C200EB66DB /* CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */; };
 		D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB11E44887B00EB66DB /* CalendarHeaderView.swift */; };
 		D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB31E4856E200EB66DB /* CalendarViewController.swift */; };
@@ -38,12 +36,12 @@
 		D14AB1A01F2B235A00B7FCBA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB19F1F2B235A00B7FCBA /* Color.swift */; };
 		D14AB1A21F2B23B400B7FCBA /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A11F2B23B400B7FCBA /* CornerRadius.swift */; };
 		D14AB1A41F2B947100B7FCBA /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A31F2B947100B7FCBA /* Spacing.swift */; };
-		D14AB1A61F2D686900B7FCBA /* MiniCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A51F2D686900B7FCBA /* MiniCalendarView.swift */; };
 		D14AB1A81F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A71F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift */; };
 		D14AB1AA1F2DC76B00B7FCBA /* UIScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */; };
 		D14AB1AC1F2DC99300B7FCBA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1AB1F2DC99300B7FCBA /* TableViewController.swift */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */; };
-		D15E7B4A1EB3CF900015EA73 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */; };
+		D16382ED1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16382EC1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift */; };
+		D16382EF1F78351900B74382 /* RosarySubMysteryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16382EE1F78351900B74382 /* RosarySubMysteryTableViewCell.swift */; };
 		D172E00D1EA9809000BD9B07 /* NoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172E00C1EA9809000BD9B07 /* NoteEditViewModel.swift */; };
 		D17AEA4F1E7DCE10005CA1F2 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */; };
 		D17AEA511E7DD014005CA1F2 /* PrayerNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */; };
@@ -51,19 +49,26 @@
 		D17C4F4C1E8751B80070DA0A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */; };
 		D17EEA731E3D4501005645C4 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */; };
 		D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */; };
+		D1929B5A1F7845EC00198FFC /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1929B591F7845EC00198FFC /* ArrayExtensions.swift */; };
 		D1A1BBF51E4D6AA00003DE73 /* RosaryPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */; };
 		D1A5D08C1EB2CE4D001C1FFA /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */; };
-		D1A997121E8DA8C3003C5C5C /* PrayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A997111E8DA8C3003C5C5C /* PrayersListViewModel.swift */; };
+		D1A997121E8DA8C3003C5C5C /* PrayerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A997111E8DA8C3003C5C5C /* PrayerListViewModel.swift */; };
+		D1B7E8DC1F6FB195001EABC4 /* RosaryStartingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B7E8DB1F6FB195001EABC4 /* RosaryStartingPrayerTableViewCell.swift */; };
+		D1B85A241FD7D92B00C8DCCF /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B85A231FD7D92B00C8DCCF /* UIStackViewExtensions.swift */; };
+		D1BAE4601FCD5AA6003CF968 /* RoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAE45F1FCD5AA6003CF968 /* RoundCardView.swift */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
 		D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */; };
 		D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */; };
 		D1D521B61E64CE86007B03C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D521B51E64CE86007B03C1 /* Assets.xcassets */; };
-		D1D521B81E651252007B03C1 /* CreditsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */; };
 		D1DAD0371E42F7DE002300FC /* CalendarViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */; };
+		D1F80E0E1FCDCB0B007D856B /* RosarySubMysteryTableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F80E0D1FCDCB0B007D856B /* RosarySubMysteryTableCellData.swift */; };
+		D1F80E101FD13EB0007D856B /* RosaryFinishingPrayerTableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F80E0F1FD13EB0007D856B /* RosaryFinishingPrayerTableCellData.swift */; };
+		D1F80E131FD14446007D856B /* Unicode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F80E121FD14446007D856B /* Unicode.swift */; };
+		D1F80E151FD48929007D856B /* RosaryStartingPrayerTableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F80E141FD48929007D856B /* RosaryStartingPrayerTableCellData.swift */; };
+		D1F80E181FD49850007D856B /* OtherPrayerTableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F80E171FD49850007D856B /* OtherPrayerTableCellData.swift */; };
 		D1FA0E0F1F38C44800E3A0E4 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E0E1F38C44800E3A0E4 /* UITableViewCellExtensions.swift */; };
-		D1FA0E1E1F3AE4E700E3A0E4 /* PrayersTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E1D1F3AE4E700E3A0E4 /* PrayersTableSection.swift */; };
-		D1FA0E221F3B66EE00E3A0E4 /* PrayersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E211F3B66EE00E3A0E4 /* PrayersListTableViewCell.swift */; };
-		D1FA0E241F3B675000E3A0E4 /* PrayersListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E231F3B675000E3A0E4 /* PrayersListItemView.swift */; };
+		D1FA0E221F3B66EE00E3A0E4 /* PrayerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E211F3B66EE00E3A0E4 /* PrayerListTableViewCell.swift */; };
+		D1FA0E241F3B675000E3A0E4 /* PrayerListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FA0E231F3B675000E3A0E4 /* PrayerListItemView.swift */; };
 		D1FAB11D1F661F4100CEAA5B /* SpacingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FAB11C1F661F4100CEAA5B /* SpacingTableViewCell.swift */; };
 		D1FAB11F1F6625AE00CEAA5B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FAB11E1F6625AE00CEAA5B /* UIViewControllerExtensions.swift */; };
 		D1FDDF2D1E28A429003B4189 /* prayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D1FDDF2C1E28A429003B4189 /* prayers.json */; };
@@ -75,10 +80,10 @@
 		9280CFE11836EE8FA675D593 /* Pods-54Days.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-54Days.debug.xcconfig"; path = "Pods/Target Support Files/Pods-54Days/Pods-54Days.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6CFBD32541CC9432F89DC4 /* Pods_54Days.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_54Days.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D102FF101EB1833700C6178A /* 54Days.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 54Days.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10744CF1F7A139300C0DC47 /* OtherPrayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayerTableViewCell.swift; sourceTree = "<group>"; };
 		D1197DD51EA9378300D2B1D1 /* NotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		D1264EC41E4A6C5A007123AD /* CalendarResetModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarResetModalView.swift; sourceTree = "<group>"; };
 		D12A4FB31F6C265B00B2DEF4 /* PrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewController.swift; sourceTree = "<group>"; };
-		D12A4FB71F6F001800B2DEF4 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		D12A4FB91F6F020B00B2DEF4 /* PrayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewModel.swift; sourceTree = "<group>"; };
 		D12A4FBB1F6F027600B2DEF4 /* FileUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
 		D12C59CA1F6A47A800131734 /* CellConfiguratorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguratorType.swift; sourceTree = "<group>"; };
@@ -86,17 +91,15 @@
 		D12C59CF1F6A488A00131734 /* CellConfiguratorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguratorSection.swift; sourceTree = "<group>"; };
 		D1389ADC1F3FF2BE001D53E0 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		D1389ADF1F3FFB40001D53E0 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		D1389AE11F3FFF3C001D53E0 /* Legend */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Legend; sourceTree = "<group>"; };
 		D1389AE71F400282001D53E0 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		D1389AE91F40059F001D53E0 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		D1389AEB1F4D659D001D53E0 /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		D1389AED1F507D7A001D53E0 /* TableViewUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewUtility.swift; path = Utilities/TableViewUtility.swift; sourceTree = "<group>"; };
 		D1389AEF1F507DB5001D53E0 /* TableCellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCellConfigurator.swift; path = Utilities/TableCellConfigurator.swift; sourceTree = "<group>"; };
-		D13B4A7F1E5294FE00069FEB /* PrayersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListViewController.swift; sourceTree = "<group>"; };
-		D13B4A811E52980C00069FEB /* RosaryPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPrayer.swift; sourceTree = "<group>"; };
+		D13B4A7F1E5294FE00069FEB /* PrayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerListViewController.swift; sourceTree = "<group>"; };
+		D13B4A811E52980C00069FEB /* RosaryMystery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMystery.swift; sourceTree = "<group>"; };
 		D1433DA41E74C3AD00B05CBB /* AppCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
 		D1433DA81E74C41B00B05CBB /* RosaryColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryColor.swift; sourceTree = "<group>"; };
-		D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMysteryType.swift; sourceTree = "<group>"; };
 		D1443FAF1E4483C200EB66DB /* CalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarHeaderView.xib; sourceTree = "<group>"; };
 		D1443FB11E44887B00EB66DB /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		D1443FB31E4856E200EB66DB /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -105,12 +108,12 @@
 		D14AB19F1F2B235A00B7FCBA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Common/Color.swift; sourceTree = "<group>"; };
 		D14AB1A11F2B23B400B7FCBA /* CornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CornerRadius.swift; path = Common/CornerRadius.swift; sourceTree = "<group>"; };
 		D14AB1A31F2B947100B7FCBA /* Spacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Spacing.swift; path = Common/Spacing.swift; sourceTree = "<group>"; };
-		D14AB1A51F2D686900B7FCBA /* MiniCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniCalendarView.swift; sourceTree = "<group>"; };
 		D14AB1A71F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniCalendarTableViewCell.swift; sourceTree = "<group>"; };
 		D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScreenExtensions.swift; path = Common/Extensions/UIScreenExtensions.swift; sourceTree = "<group>"; };
 		D14AB1AB1F2DC99300B7FCBA /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryPrayers.json; sourceTree = "<group>"; };
-		D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		D16382EC1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryFinishingPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		D16382EE1F78351900B74382 /* RosarySubMysteryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosarySubMysteryTableViewCell.swift; sourceTree = "<group>"; };
 		D172E00C1EA9809000BD9B07 /* NoteEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteEditViewModel.swift; sourceTree = "<group>"; };
 		D17AEA4E1E7DCE10005CA1F2 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		D17AEA501E7DD014005CA1F2 /* PrayerNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerNote.swift; sourceTree = "<group>"; };
@@ -118,20 +121,27 @@
 		D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		D17EEA721E3D4501005645C4 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		D17EEA741E3D4591005645C4 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
+		D1929B591F7845EC00198FFC /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		D1A1BBF41E4D6AA00003DE73 /* RosaryPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryPeriod.swift; sourceTree = "<group>"; };
 		D1A5D08B1EB2CE4D001C1FFA /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		D1A997111E8DA8C3003C5C5C /* PrayersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListViewModel.swift; sourceTree = "<group>"; };
+		D1A997111E8DA8C3003C5C5C /* PrayerListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerListViewModel.swift; sourceTree = "<group>"; };
+		D1B7E8DB1F6FB195001EABC4 /* RosaryStartingPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryStartingPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		D1B85A231FD7D92B00C8DCCF /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
+		D1BAE45F1FCD5AA6003CF968 /* RoundCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCardView.swift; sourceTree = "<group>"; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CFD6131E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1CFD61B1E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1CFD61D1E15BFFE00E5FE23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D521B51E64CE86007B03C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsModalViewController.swift; sourceTree = "<group>"; };
 		D1DAD0361E42F7DE002300FC /* CalendarViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerExtension.swift; sourceTree = "<group>"; };
+		D1F80E0D1FCDCB0B007D856B /* RosarySubMysteryTableCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosarySubMysteryTableCellData.swift; sourceTree = "<group>"; };
+		D1F80E0F1FD13EB0007D856B /* RosaryFinishingPrayerTableCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryFinishingPrayerTableCellData.swift; sourceTree = "<group>"; };
+		D1F80E121FD14446007D856B /* Unicode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Unicode.swift; path = String/Unicode.swift; sourceTree = "<group>"; };
+		D1F80E141FD48929007D856B /* RosaryStartingPrayerTableCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryStartingPrayerTableCellData.swift; sourceTree = "<group>"; };
+		D1F80E171FD49850007D856B /* OtherPrayerTableCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherPrayerTableCellData.swift; sourceTree = "<group>"; };
 		D1FA0E0E1F38C44800E3A0E4 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
-		D1FA0E1D1F3AE4E700E3A0E4 /* PrayersTableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersTableSection.swift; sourceTree = "<group>"; };
-		D1FA0E211F3B66EE00E3A0E4 /* PrayersListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListTableViewCell.swift; sourceTree = "<group>"; };
-		D1FA0E231F3B675000E3A0E4 /* PrayersListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersListItemView.swift; sourceTree = "<group>"; };
+		D1FA0E211F3B66EE00E3A0E4 /* PrayerListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerListTableViewCell.swift; sourceTree = "<group>"; };
+		D1FA0E231F3B675000E3A0E4 /* PrayerListItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerListItemView.swift; sourceTree = "<group>"; };
 		D1FAB11C1F661F4100CEAA5B /* SpacingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacingTableViewCell.swift; sourceTree = "<group>"; };
 		D1FAB11E1F6625AE00CEAA5B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		D1FDDF2C1E28A429003B4189 /* prayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prayers.json; sourceTree = "<group>"; };
@@ -150,12 +160,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10744CE1F7A135000C0DC47 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D10744CF1F7A139300C0DC47 /* OtherPrayerTableViewCell.swift */,
+				D1F80E171FD49850007D856B /* OtherPrayerTableCellData.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		D10744D31F80664200C0DC47 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D10744D61F80666000C0DC47 /* View */,
+				D10744D51F80665800C0DC47 /* ViewModel */,
+				D10744D41F80665300C0DC47 /* Model */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		D10744D41F80665300C0DC47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D10744D51F80665800C0DC47 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		D10744D61F80666000C0DC47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		D12A4FAE1F6C260B00B2DEF4 /* Prayer */ = {
 			isa = PBXGroup;
 			children = (
-				D12A4FB11F6C262200B2DEF4 /* ViewModel */,
-				D12A4FB01F6C262000B2DEF4 /* Model */,
 				D12A4FAF1F6C261900B2DEF4 /* View */,
+				D12A4FB11F6C262200B2DEF4 /* ViewModel */,
 			);
 			name = Prayer;
 			sourceTree = "<group>";
@@ -163,16 +212,11 @@
 		D12A4FAF1F6C261900B2DEF4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D10744CE1F7A135000C0DC47 /* Other */,
+				D16382F21F783A3400B74382 /* Rosary */,
 				D12A4FB31F6C265B00B2DEF4 /* PrayerViewController.swift */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		D12A4FB01F6C262000B2DEF4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		D12A4FB11F6C262200B2DEF4 /* ViewModel */ = {
@@ -186,9 +230,9 @@
 		D12A4FB21F6C264300B2DEF4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				D13B4A811E52980C00069FEB /* RosaryPrayer.swift */,
+				D1443FB51E492F1F00EB66DB /* PrayerType.swift */,
+				D13B4A811E52980C00069FEB /* RosaryMystery.swift */,
 				D1FDDF2E1E28A469003B4189 /* OtherPrayer.swift */,
-				D12A4FB71F6F001800B2DEF4 /* Prayer.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -212,13 +256,13 @@
 		D14AB1991F2B228300B7FCBA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D1F80E111FD14424007D856B /* Unicode */,
 				D12A4FB21F6C264300B2DEF4 /* Entity */,
 				D1389ADE1F3FF3EC001D53E0 /* RealmSwift */,
 				D1FA0E181F3AE14E00E3A0E4 /* SubClasses */,
 				D1FA0E171F3AE13000E3A0E4 /* Static */,
 				D1FA0E0B1F38586700E3A0E4 /* Utilities */,
 				D14AB19A1F2B228B00B7FCBA /* Extensions */,
-				D1389AE11F3FFF3C001D53E0 /* Legend */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -233,6 +277,8 @@
 				D1389AE91F40059F001D53E0 /* DictionaryExtensions.swift */,
 				D1389AEB1F4D659D001D53E0 /* UIEdgeInsetsExtensions.swift */,
 				D1FAB11E1F6625AE00CEAA5B /* UIViewControllerExtensions.swift */,
+				D1929B591F7845EC00198FFC /* ArrayExtensions.swift */,
+				D1B85A231FD7D92B00C8DCCF /* UIStackViewExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +286,7 @@
 		D14AB19D1F2B231C00B7FCBA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D10744D31F80664200C0DC47 /* Calendar */,
 				D12A4FAE1F6C260B00B2DEF4 /* Prayer */,
 				D14AB19E1F2B232400B7FCBA /* PrayersList */,
 			);
@@ -251,25 +298,45 @@
 			children = (
 				D1FA0E1B1F3AE48200E3A0E4 /* View */,
 				D1FA0E1A1F3AE47D00E3A0E4 /* ViewModel */,
-				D1FA0E191F3AE47500E3A0E4 /* Model */,
 			);
 			name = PrayersList;
 			sourceTree = "<group>";
 		};
-		D15E7B4D1EB3D8950015EA73 /* MoreTab */ = {
+		D16382F01F783A2700B74382 /* StartingPrayer */ = {
 			isa = PBXGroup;
 			children = (
-				D15E7B491EB3CF900015EA73 /* CreditsViewController.swift */,
+				D1B7E8DB1F6FB195001EABC4 /* RosaryStartingPrayerTableViewCell.swift */,
+				D1F80E141FD48929007D856B /* RosaryStartingPrayerTableCellData.swift */,
 			);
-			name = MoreTab;
+			name = StartingPrayer;
 			sourceTree = "<group>";
 		};
-		D15E7B4E1EB3D8A80015EA73 /* NotUsed */ = {
+		D16382F11F783A3200B74382 /* Finishing */ = {
 			isa = PBXGroup;
 			children = (
-				D1D521B71E651252007B03C1 /* CreditsModalViewController.swift */,
+				D16382EC1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift */,
+				D1F80E0F1FD13EB0007D856B /* RosaryFinishingPrayerTableCellData.swift */,
 			);
-			name = NotUsed;
+			name = Finishing;
+			sourceTree = "<group>";
+		};
+		D16382F21F783A3400B74382 /* Rosary */ = {
+			isa = PBXGroup;
+			children = (
+				D16382F01F783A2700B74382 /* StartingPrayer */,
+				D16382F11F783A3200B74382 /* Finishing */,
+				D16382F31F783A4400B74382 /* SubMystery */,
+			);
+			name = Rosary;
+			sourceTree = "<group>";
+		};
+		D16382F31F783A4400B74382 /* SubMystery */ = {
+			isa = PBXGroup;
+			children = (
+				D16382EE1F78351900B74382 /* RosarySubMysteryTableViewCell.swift */,
+				D1F80E0D1FCDCB0B007D856B /* RosarySubMysteryTableCellData.swift */,
+			);
+			name = SubMystery;
 			sourceTree = "<group>";
 		};
 		D17EEA941E3D781A005645C4 /* JTAppleCalendar */ = {
@@ -309,6 +376,15 @@
 				D1C0DFAF1EB17B7C00681F08 /* NoteEditVC */,
 			);
 			name = PrayerNotesTab;
+			sourceTree = "<group>";
+		};
+		D1B85A251FD84C4600C8DCCF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D14AB1A71F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift */,
+				D1FA0E211F3B66EE00E3A0E4 /* PrayerListTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		D1C0DFAD1EB17B4D00681F08 /* RealmModel */ = {
@@ -358,11 +434,9 @@
 				D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */,
 				D1433DA41E74C3AD00B05CBB /* AppCommon.swift */,
 				D17C4F4B1E8751B80070DA0A /* MainTabBarController.swift */,
-				D15E7B4E1EB3D8A80015EA73 /* NotUsed */,
 				D1DAD0381E42F7FC002300FC /* CommonModel */,
 				D1B0C8C71EA7F15700CCEBB9 /* PrayerNotesTab */,
 				D1B0C8C61EA7ED3300CCEBB9 /* CalendarTab */,
-				D15E7B4D1EB3D8950015EA73 /* MoreTab */,
 				D17EEA951E3D782E005645C4 /* JSON Files */,
 				D1CFD61D1E15BFFE00E5FE23 /* Info.plist */,
 			);
@@ -397,12 +471,27 @@
 			name = CommonModel;
 			sourceTree = "<group>";
 		};
-		D1FA0E0B1F38586700E3A0E4 /* Utilities */ = {
+		D1F80E111FD14424007D856B /* Unicode */ = {
+			isa = PBXGroup;
+			children = (
+				D1F80E121FD14446007D856B /* Unicode.swift */,
+			);
+			name = Unicode;
+			sourceTree = "<group>";
+		};
+		D1F80E161FD495B3007D856B /* CellConfigurator */ = {
 			isa = PBXGroup;
 			children = (
 				D12C59CA1F6A47A800131734 /* CellConfiguratorType.swift */,
 				D12C59CD1F6A486200131734 /* CellUpdatable.swift */,
 				D12C59CF1F6A488A00131734 /* CellConfiguratorSection.swift */,
+			);
+			name = CellConfigurator;
+			sourceTree = "<group>";
+		};
+		D1FA0E0B1F38586700E3A0E4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
 				D1FAB11B1F661F1B00CEAA5B /* TableView */,
 				D12A4FBB1F6F027600B2DEF4 /* FileUtility.swift */,
 			);
@@ -424,24 +513,15 @@
 			isa = PBXGroup;
 			children = (
 				D14AB1AB1F2DC99300B7FCBA /* TableViewController.swift */,
+				D1BAE45F1FCD5AA6003CF968 /* RoundCardView.swift */,
 			);
 			name = SubClasses;
-			sourceTree = "<group>";
-		};
-		D1FA0E191F3AE47500E3A0E4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D1FA0E1D1F3AE4E700E3A0E4 /* PrayersTableSection.swift */,
-				D1433DAA1E74D2DE00B05CBB /* RosaryMysteryType.swift */,
-				D1443FB51E492F1F00EB66DB /* PrayerType.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		D1FA0E1A1F3AE47D00E3A0E4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D1A997111E8DA8C3003C5C5C /* PrayersListViewModel.swift */,
+				D1A997111E8DA8C3003C5C5C /* PrayerListViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -449,11 +529,9 @@
 		D1FA0E1B1F3AE48200E3A0E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D13B4A7F1E5294FE00069FEB /* PrayersListViewController.swift */,
-				D14AB1A51F2D686900B7FCBA /* MiniCalendarView.swift */,
-				D14AB1A71F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift */,
-				D1FA0E231F3B675000E3A0E4 /* PrayersListItemView.swift */,
-				D1FA0E211F3B66EE00E3A0E4 /* PrayersListTableViewCell.swift */,
+				D1B85A251FD84C4600C8DCCF /* Cells */,
+				D1FA0E231F3B675000E3A0E4 /* PrayerListItemView.swift */,
+				D13B4A7F1E5294FE00069FEB /* PrayerListViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -461,6 +539,7 @@
 		D1FAB11B1F661F1B00CEAA5B /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				D1F80E161FD495B3007D856B /* CellConfigurator */,
 				D12C59CC1F6A481E00131734 /* CommonCells */,
 				D1389AED1F507D7A001D53E0 /* TableViewUtility.swift */,
 				D1389AEF1F507DB5001D53E0 /* TableCellConfigurator.swift */,
@@ -552,7 +631,6 @@
 				D1FDDF2D1E28A429003B4189 /* prayers.json in Resources */,
 				D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */,
 				D1D521B61E64CE86007B03C1 /* Assets.xcassets in Resources */,
-				D1389AE21F3FFF3C001D53E0 /* Legend in Resources */,
 				D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */,
 				D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */,
 			);
@@ -582,9 +660,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-54Days/Pods-54Days-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -597,13 +690,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-54Days-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -613,58 +709,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D12A4FB81F6F001800B2DEF4 /* Prayer.swift in Sources */,
 				D12C59CE1F6A486200131734 /* CellUpdatable.swift in Sources */,
 				D14AB1A41F2B947100B7FCBA /* Spacing.swift in Sources */,
-				D1D521B81E651252007B03C1 /* CreditsModalViewController.swift in Sources */,
-				D1FA0E1E1F3AE4E700E3A0E4 /* PrayersTableSection.swift in Sources */,
 				D17C4F4C1E8751B80070DA0A /* MainTabBarController.swift in Sources */,
 				D1FDDF2F1E28A469003B4189 /* OtherPrayer.swift in Sources */,
+				D1B85A241FD7D92B00C8DCCF /* UIStackViewExtensions.swift in Sources */,
 				D14AB19C1F2B22E100B7FCBA /* UIViewExtensions.swift in Sources */,
-				D1A997121E8DA8C3003C5C5C /* PrayersListViewModel.swift in Sources */,
+				D1F80E0E1FCDCB0B007D856B /* RosarySubMysteryTableCellData.swift in Sources */,
+				D1A997121E8DA8C3003C5C5C /* PrayerListViewModel.swift in Sources */,
 				D1264EC51E4A6C5A007123AD /* CalendarResetModalView.swift in Sources */,
+				D10744D01F7A139300C0DC47 /* OtherPrayerTableViewCell.swift in Sources */,
 				D1443FB21E44887B00EB66DB /* CalendarHeaderView.swift in Sources */,
 				D1389AEA1F40059F001D53E0 /* DictionaryExtensions.swift in Sources */,
-				D15E7B4A1EB3CF900015EA73 /* CreditsViewController.swift in Sources */,
 				D1FAB11D1F661F4100CEAA5B /* SpacingTableViewCell.swift in Sources */,
+				D1F80E151FD48929007D856B /* RosaryStartingPrayerTableCellData.swift in Sources */,
 				D1443FB41E4856E200EB66DB /* CalendarViewController.swift in Sources */,
 				D1389AEE1F507D7A001D53E0 /* TableViewUtility.swift in Sources */,
 				D1433DA51E74C3AD00B05CBB /* AppCommon.swift in Sources */,
 				D17EEA751E3D4591005645C4 /* CalendarDayCellView.swift in Sources */,
 				D14AB1A21F2B23B400B7FCBA /* CornerRadius.swift in Sources */,
+				D16382EF1F78351900B74382 /* RosarySubMysteryTableViewCell.swift in Sources */,
 				D1FA0E0F1F38C44800E3A0E4 /* UITableViewCellExtensions.swift in Sources */,
 				D17AEA4F1E7DCE10005CA1F2 /* NotesViewController.swift in Sources */,
-				D1433DAB1E74D2DE00B05CBB /* RosaryMysteryType.swift in Sources */,
 				D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */,
 				D12A4FBA1F6F020B00B2DEF4 /* PrayerViewModel.swift in Sources */,
-				D1FA0E241F3B675000E3A0E4 /* PrayersListItemView.swift in Sources */,
+				D1FA0E241F3B675000E3A0E4 /* PrayerListItemView.swift in Sources */,
 				D1A1BBF51E4D6AA00003DE73 /* RosaryPeriod.swift in Sources */,
 				D1443FB61E492F1F00EB66DB /* PrayerType.swift in Sources */,
 				D14AB1AC1F2DC99300B7FCBA /* TableViewController.swift in Sources */,
 				D1389AF01F507DB5001D53E0 /* TableCellConfigurator.swift in Sources */,
-				D14AB1A61F2D686900B7FCBA /* MiniCalendarView.swift in Sources */,
-				D13B4A821E52980C00069FEB /* RosaryPrayer.swift in Sources */,
+				D13B4A821E52980C00069FEB /* RosaryMystery.swift in Sources */,
 				D1389AE01F3FFB40001D53E0 /* Font.swift in Sources */,
+				D1F80E101FD13EB0007D856B /* RosaryFinishingPrayerTableCellData.swift in Sources */,
 				D12C59CB1F6A47A800131734 /* CellConfiguratorType.swift in Sources */,
 				D12A4FB41F6C265B00B2DEF4 /* PrayerViewController.swift in Sources */,
 				D17AEA531E7DDBFA005CA1F2 /* NoteEditViewController.swift in Sources */,
 				D172E00D1EA9809000BD9B07 /* NoteEditViewModel.swift in Sources */,
-				D1FA0E221F3B66EE00E3A0E4 /* PrayersListTableViewCell.swift in Sources */,
+				D1BAE4601FCD5AA6003CF968 /* RoundCardView.swift in Sources */,
+				D1FA0E221F3B66EE00E3A0E4 /* PrayerListTableViewCell.swift in Sources */,
 				D1389AEC1F4D659D001D53E0 /* UIEdgeInsetsExtensions.swift in Sources */,
 				D12A4FBC1F6F027600B2DEF4 /* FileUtility.swift in Sources */,
+				D1929B5A1F7845EC00198FFC /* ArrayExtensions.swift in Sources */,
 				D1433DA91E74C41B00B05CBB /* RosaryColor.swift in Sources */,
 				D17AEA511E7DD014005CA1F2 /* PrayerNote.swift in Sources */,
+				D1F80E181FD49850007D856B /* OtherPrayerTableCellData.swift in Sources */,
+				D1B7E8DC1F6FB195001EABC4 /* RosaryStartingPrayerTableViewCell.swift in Sources */,
 				D1389ADD1F3FF2BE001D53E0 /* RealmManager.swift in Sources */,
 				D1389AE81F400282001D53E0 /* UIColorExtensions.swift in Sources */,
 				D1A5D08C1EB2CE4D001C1FFA /* CalendarViewModel.swift in Sources */,
 				D1DAD0371E42F7DE002300FC /* CalendarViewControllerExtension.swift in Sources */,
 				D14AB1A81F2DC55E00B7FCBA /* MiniCalendarTableViewCell.swift in Sources */,
+				D1F80E131FD14446007D856B /* Unicode.swift in Sources */,
 				D12C59D01F6A488A00131734 /* CellConfiguratorSection.swift in Sources */,
+				D16382ED1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift in Sources */,
 				D14AB1A01F2B235A00B7FCBA /* Color.swift in Sources */,
 				D1FAB11F1F6625AE00CEAA5B /* UIViewControllerExtensions.swift in Sources */,
 				D1197DD61EA9378300D2B1D1 /* NotesViewModel.swift in Sources */,
 				D14AB1AA1F2DC76B00B7FCBA /* UIScreenExtensions.swift in Sources */,
-				D13B4A801E5294FE00069FEB /* PrayersListViewController.swift in Sources */,
+				D13B4A801E5294FE00069FEB /* PrayerListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

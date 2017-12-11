@@ -1,7 +1,7 @@
 import UIKit
 
 enum PrayerType {
-	case rosary(RosaryMysteryType)
+	case rosary(RosaryMystery.MysteryType)
 	case other
 	
 	var key: String {
@@ -13,21 +13,30 @@ enum PrayerType {
 		}
 	}
 	
-	var title: String {
+	var koreanTitle: String {
 		switch self {
 		case .rosary(let mystery):
-			return mystery.inKorean
+			return mystery.koreanTitle
 		case .other:
 			return "주요 기도문"
 		}
 	}
 	
-	var icon: UIImage? {
-		switch self{
+	var assignedIcon: UIImage? {
+		switch self {
 		case .rosary(let mystery):
-			return mystery.icon
+			return mystery.assignedIcon
 		case .other:
 			return UIImage(named: "ic_pray")
+		}
+	}
+	
+	var assignedColor: UIColor? {
+		switch self {
+		case .rosary(let mystery):
+			return mystery.assignedColor
+		case .other:
+			return nil
 		}
 	}
 	

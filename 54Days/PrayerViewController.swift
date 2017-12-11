@@ -3,41 +3,35 @@ import SnapKit
 
 class PrayerViewController: TableViewController {
 	
-	// MARK: View Components
-	
-	// MARK: View Models
-
-	var prayerType: PrayerType?
+	let viewModel: PrayerViewModel
 	
 	// MARK: Overriden Methods
+	init(viewModel: PrayerViewModel) {
+		self.viewModel = viewModel
+		super.init()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		// Do any additional setup after loading the view.
-		tableViewUtility.delegate = self
-		tableViewUtility.register(cells: cellConfigurators())
-		tableViewUtility.show()
+		tableViewUtility.register(cells: viewModel.cellConfigurators())
+		tableViewUtility.reload()
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
 }
 
 extension PrayerViewController {
 	override func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {
-//		if let cell = reusableCell as? PrayersListTableViewCell {
-//			cell.delegate = self
-//		}
+		return
 	}
 }
-
-extension PrayerViewController {
-	func cellConfigurators() -> [CellConfiguratorType] {
-		var cellConfigurators = [CellConfiguratorType]()
-		
-		return cellConfigurators
-	}
-}
-

@@ -11,4 +11,5 @@ struct TableCellConfigurator<Cell> where Cell: CellUpdatable, Cell: UITableViewC
 		}
 	}
 }
+
 extension TableCellConfigurator: CellConfiguratorType {}

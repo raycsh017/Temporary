@@ -6,4 +6,3 @@ protocol CellUpdatable: class {
 	
 	func update(withCellData cellData: CellData)
 }
-

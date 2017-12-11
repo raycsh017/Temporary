@@ -4,6 +4,10 @@ protocol TableViewUtilityDelegate: class {
 	func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath)
 }
 
+extension TableViewUtilityDelegate {
+	func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {}
+}
+
 class TableViewUtility: NSObject {
 	let tableView: UITableView
 	
@@ -19,14 +23,15 @@ class TableViewUtility: NSObject {
 		self.tableView.delegate = self
 	}
 	
+	func register(sections cellConfiguratorSections: [CellConfiguratorSection]) {
+		self.cellConfiguratorSections = cellConfiguratorSections
+		register()
+	}
+	
 	func register(cells cellConfigurators: [CellConfiguratorType]) {
 		let cellConfiguratorSection = CellConfiguratorSection(cellConfigurators: cellConfigurators)
 		cellConfiguratorSections = [cellConfiguratorSection]
 		register()
-	}
-	
-	func show() {
-		tableView.reloadData()
 	}
 	
 	private func register() {
@@ -35,6 +40,10 @@ class TableViewUtility: NSObject {
 				tableView.register(cellConfigurator.cellClass, forCellReuseIdentifier: cellConfigurator.reuseIdentifier)
 			}
 		}
+	}
+	
+	func reload() {
+		tableView.reloadData()
 	}
 }
 

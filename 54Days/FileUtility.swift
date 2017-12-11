@@ -4,7 +4,7 @@ class FileUtility {
 	init() {
 	}
 	
-	func loadData(fromJSONFileWithName resourceName: String) -> Data? {
+	class func loadData(fromJSONFileWithName resourceName: String) -> Data? {
 		guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else {
 			return nil
 		}

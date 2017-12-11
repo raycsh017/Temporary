@@ -8,13 +8,14 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let firstViewController = PrayersListViewController()
-		let firstTabBarItem = UITabBarItem(title: "", image: UIImage(named: "ic_prayer"), tag: 0)
+		let firstViewController = PrayerListViewController()
+		let firstTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_prayer"), tag: 0)
 		firstTabBarItem.imageInsets = kFixedTabBarIconInset
 		firstViewController.tabBarItem = firstTabBarItem
+		let firstTabNavigationController = UINavigationController(rootViewController: firstViewController)
 		
-		viewControllers = [firstViewController]
-		selectedViewController = firstViewController
+		viewControllers = [firstTabNavigationController]
+		selectedViewController = firstTabNavigationController
     }
 
     override func didReceiveMemoryWarning() {

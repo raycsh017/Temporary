@@ -3,106 +3,188 @@ import UIKit
 import SwiftyJSON
 
 class PrayerViewModel {
-	// MARK: Static
+	typealias RosaryMysteryKey = String
+	
 	private let kOtherPrayersJsonFileName = "prayers"
 	private let kRosaryPrayersJsonFileName = "rosaryPrayers"
 	
-	let fileUtility = FileUtility()
+	let prayerType: PrayerType
 	
-	// MARK: Dynamic
-	var rosaryPrayers: [String: RosaryPrayer] = [:]
-	var otherPrayers: [OtherPrayer] = []
+	var rosaryPrayer = [RosaryMysteryKey: RosaryMystery]()
+	var otherPrayers = [OtherPrayer]()
 	
-	init() {
-		let rosaryPrayersData = fileUtility.loadData(fromJSONFileWithName: kRosaryPrayersJsonFileName)
-		parseRosaryPrayers(fromJSON: rosaryPrayersData)
+	init(prayerType: PrayerType) {
+		self.prayerType = prayerType
 		
-		let otherPrayersData = fileUtility.loadData(fromJSONFileWithName: kOtherPrayersJsonFileName)
-		parseOtherPrayers(fromJSON: otherPrayersData)
+		switch prayerType {
+		case .rosary:
+			loadRosaryPrayers()
+		case .other:
+			loadOtherPrayers()
+		}
 	}
 	
-	private func parseRosaryPrayers(fromJSON data: Data?) {
+	// MARK: Cell Configuration
+	func cellConfigurators() -> [CellConfiguratorType] {
+		var cellConfigurators = [CellConfiguratorType]()
+		
+		switch prayerType {
+		case .rosary(let mysteryType):
+			guard let rosaryMystery = rosaryPrayer[mysteryType.key] else {
+				break
+			}
+			
+			let startingPrayer = rosaryMystery.startingPrayer
+			let startingPrayerCellConfigurator = TableCellConfigurator<RosaryStartingPrayerTableViewCell>(cellData: RosaryStartingPrayerTableCellData(petitionPrayer: startingPrayer.petition, gracePrayer: startingPrayer.grace))
+			
+			let subMysteryPrayers = rosaryMystery.subMysteryPrayers
+			let subMysteryCellConfigurators = subMysteryPrayers
+				.map { RosarySubMysteryTableCellData(title: $0.title, subText: $0.subText, mainText: $0.mainText, endingText: $0.endingText) }
+				.map { TableCellConfigurator<RosarySubMysteryTableViewCell>(cellData: $0) as CellConfiguratorType }
+
+			let finishingPrayer = rosaryMystery.finishingPrayer
+			let praise1BulletsApplied = applyAlternatingBulletsToTextLines(finishingPrayer.praise1)
+			let praise1Prayer = combine(praise1BulletsApplied)
+			let finishingPrayerCellConfigurator = TableCellConfigurator<RosaryFinishingPrayerTableViewCell>(cellData: RosaryFinishingPrayerTableCellData(spiritPrayer: finishingPrayer.spirit, petitionPrayer: finishingPrayer.petition, gracePrayer: finishingPrayer.grace, praiseFirstPart: praise1Prayer, praiseSecondPart: finishingPrayer.praise2))
+
+			cellConfigurators.append(startingPrayerCellConfigurator)
+			cellConfigurators.append(contentsOf: subMysteryCellConfigurators)
+			cellConfigurators.append(finishingPrayerCellConfigurator)
+			cellConfigurators = cellConfigurators.interleave(element: TableCellConfigurator<SpacingTableViewCell>(cellData: SpacingCellData(spacing: Spacing.s16)))
+			
+		case .other:
+			var otherPrayerCellConfigurators: [CellConfiguratorType] = []
+			otherPrayerCellConfigurators = otherPrayers.map {
+				let prayerLinesUnderlined = combine(applyUnderlineOnPrayerLines($0.textLines, at: $0.underlineLineOffset))
+				return OtherPrayerTableCellData(title: $0.title, body: prayerLinesUnderlined)
+			}.map {
+				return TableCellConfigurator<OtherPrayerTableViewCell>(cellData: $0) as CellConfiguratorType
+			}
+			
+			cellConfigurators.append(contentsOf: otherPrayerCellConfigurators)
+		}
+		
+		return cellConfigurators
+	}
+	
+	// MARK: Load Data
+	private func loadRosaryPrayers() {
+		let rosaryPrayersData = FileUtility.loadData(fromJSONFileWithName: kRosaryPrayersJsonFileName)
+		rosaryPrayer = parseRosaryPrayers(fromJSON: rosaryPrayersData)
+	}
+	
+	private func parseRosaryPrayers(fromJSON data: Data?) -> [RosaryMysteryKey: RosaryMystery] {
 		guard let data = data else{
-			return
+			return [:]
 		}
 		
 		let json = JSON(data: data)
-		var rosaryPrayers: [String: RosaryPrayer] = [:]
+		var rosaryPrayer = [RosaryMysteryKey: RosaryMystery]()
 		
 		for(key, mystery) in json["mysteries"]{
-			// Parse the starting portion of a Rosary Mystery
-			let startingPrayers = mystery["startingPrayers"]
-			guard let petition = startingPrayers["petition"].string, let grace = startingPrayers["grace"].string else {
+			// Parse the mystery type
+			guard let rosaryMysteryType = RosaryMystery.MysteryType(rawValue: key) else {
 				break
 			}
-			let rosaryStartingPrayer = RosaryStartingPrayer(petition: petition, grace: grace)
 			
-			// Parse the main portion of a Rosary Mystery
-			let rosaryMysterySections = mystery["mainPrayers"].flatMap {
-				(_, section) -> RosaryMystery.Section? in
-				if let title = section["title"].string, let subText = section["subText"].string, let mainText = section["mainText"].string, let endingText = section["endingText"].string {
-					return RosaryMystery.Section(title: title, subText: subText, mainText: mainText, endingText: endingText)
+			// Parse the starting portion of a Rosary Mystery
+			let startingPrayer = mystery["startingPrayer"]
+			guard let petition = startingPrayer["petition"].string, let grace = startingPrayer["grace"].string else {
+				break
+			}
+			let rosaryStartingPrayers = RosaryMystery.StartingPrayer(petition: petition, grace: grace)
+			
+			// Parse the subMystery portion of a Rosary Mystery
+			let rosarySubMysteries = mystery["subMysteries"].flatMap {
+				(_, subMystery) -> RosaryMystery.SubMysteryPrayer? in
+				if let title = subMystery["title"].string,
+					let subText = subMystery["subText"].string,
+					let mainText = subMystery["mainText"].string,
+					let endingText = subMystery["endingText"].string {
+					return RosaryMystery.SubMysteryPrayer(title: title, subText: subText, mainText: mainText, endingText: endingText)
 				} else {
 					return nil
 				}
 			}
-			guard let rosaryMysteryType = RosaryMysteryType(rawValue: key), !rosaryMysterySections.isEmpty else {
-				break
-			}
-			let rosaryMystery = RosaryMystery(type: rosaryMysteryType, sections: rosaryMysterySections)
 			
 			// Parse the ending portion of a Rosary Mystery
-			let endingPrayers = mystery["endingPrayers"]
-			guard let spirit = endingPrayers["spirit"].string,
-				let epPetition = endingPrayers["petition"].string,
-				let epGrace = endingPrayers["grace"].string,
-				let praise1 = endingPrayers["praise1"].array,
-				let praise2 = endingPrayers["praise2"].string else {
+			let finishingPrayer = mystery["finishingPrayer"]
+			guard let spirit = finishingPrayer["spirit"].string,
+				let petitionPrayer = finishingPrayer["petition"].string,
+				let gracePrayer = finishingPrayer["grace"].string,
+				let praiseFirstPartArray = finishingPrayer["praise1"].array,
+				let praiseSecondPart = finishingPrayer["praise2"].string else {
 					break
 			}
-			let praise1StringParsed = praise1.flatMap{ $0.string }
-			let rosaryEndingPrayer = RosaryEndingPrayer(spirit: spirit, petition: epPetition, grace: epGrace, praise1: praise1StringParsed, praise2: praise2)
+			let parsedPraiseFirstPart = praiseFirstPartArray.flatMap{ $0.string }
+			let rosaryfinishingPrayer = RosaryMystery.FinishingPrayer(spirit: spirit, petition: petitionPrayer, grace: gracePrayer, praise1: parsedPraiseFirstPart, praise2: praiseSecondPart)
 			
 			// Combine what's parsed and save it in one data structure
-			let rosaryPrayer = RosaryPrayer(mystery: rosaryMystery, startingPrayer: rosaryStartingPrayer, endingPrayer: rosaryEndingPrayer)
-			rosaryPrayers[key] = rosaryPrayer
+			let rosaryMystery = RosaryMystery(type: rosaryMysteryType, startingPrayer: rosaryStartingPrayers, subMysteryPrayers: rosarySubMysteries, finishingPrayer: rosaryfinishingPrayer)
+			rosaryPrayer[key] = rosaryMystery
 		}
+		
+		return rosaryPrayer
 	}
 	
-	private func parseOtherPrayers(fromJSON data: Data?){
+	private func loadOtherPrayers() {
+		let otherPrayersData = FileUtility.loadData(fromJSONFileWithName: kOtherPrayersJsonFileName)
+		otherPrayers = parseOtherPrayers(fromJSON: otherPrayersData)
+	}
+	
+	private func parseOtherPrayers(fromJSON data: Data?) -> [OtherPrayer] {
 		guard let data = data else{
-			return
+			return []
 		}
 		
 		let json = JSON(data: data)
-		var prayers: [OtherPrayer] = []
+		var otherPrayers: [OtherPrayer] = []
 		
 		for (_, prayer) in json{
-			guard let prayerTitle = prayer["title"].string, let prayerTextLines = prayer["text"].array else {
+			guard let prayerTitle = prayer["title"].string,
+				let prayerTextArray = prayer["text"].array else {
 				break
 			}
-			let prayerText = NSMutableAttributedString()
 			
-			for i in 0..<prayerTextLines.count {
-				if let underlineAt = prayer["underlineAt"].int, i == underlineAt,
-					let prayerTextLine = prayerTextLines[underlineAt].string {
-					let underlinedTextLine = NSAttributedString(string: prayerTextLine, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle])
-					prayerText.append(underlinedTextLine)
-				} else {
-					if let prayerTextLine = prayerTextLines[i].string {
-						let ordinaryString = NSAttributedString(string: prayerTextLine)
-						prayerText.append(ordinaryString)
-					}
-				}
-			}
+			let prayerTextLines = prayerTextArray.flatMap { $0.string }
+			let prayerUnderlinedLineOffset = prayer["underlineLineOffset"].int
 			
-			let prayerNumLines = prayerTextLines.count
-			
-			let prayer = OtherPrayer(title: prayerTitle, text: prayerText, numberOfLines: prayerNumLines)
-			prayers.append(prayer)
+			let otherPrayer = OtherPrayer(title: prayerTitle, textLines: prayerTextLines, underlineLineOffset: prayerUnderlinedLineOffset)
+			otherPrayers.append(otherPrayer)
 		}
 		
-		otherPrayers = prayers
+		return otherPrayers
 	}
 
+	// MARK: Style Models
+	private func applyAlternatingBulletsToTextLines(_ textLines: [String]) -> [String] {
+		return textLines.enumerated().map { (offset, string) -> String in
+					if offset % 2 == 0 {
+						return Unicode.WhiteBullet + " \(string)"
+					} else {
+						return Unicode.Bullet + " \(string)"
+					}
+				}
+	}
+	
+	private func combine(_ textLines: [String]) -> String {
+		return textLines.reduce("") { $0 + $1 }
+	}
+	
+	private func combine(_ attributedTextLines: [NSAttributedString]) -> NSAttributedString {
+		var mutableAttributedString = NSMutableAttributedString()
+		attributedTextLines.forEach { mutableAttributedString.append($0) }
+		return mutableAttributedString as NSAttributedString
+	}
+	
+	private func applyUnderlineOnPrayerLines(_ textLines: [String], at lineOffset: Int?) -> [NSAttributedString] {
+		return textLines.enumerated().map {
+			if let lineOffset = lineOffset,
+				$0.offset == lineOffset {
+				return NSAttributedString(string: $0.element, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+			} else {
+				return NSAttributedString(string: $0.element)
+			}
+		}
+	}
 }

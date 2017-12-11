@@ -1,7 +1,7 @@
 [
 	{
 		"title": "사도신경",
-		"underlineAt": 4,
+		"underlineLineOffset": 4,
 		"text": [
 			"전능하신 천주 성부\n",
 			"천지의 창조주를 저는 믿나이다.\n",
@@ -50,7 +50,7 @@
 	},
 	{
 		"title": "영광송",
-		"underlineAt": 1,
+		"underlineLineOffset": 1,
 		"text": [
 			"(밑줄 부분에서 고개를 숙이며)\n",
 			"영광이 성부와 성자와 성령께\n",

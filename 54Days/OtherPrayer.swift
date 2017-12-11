@@ -2,12 +2,12 @@ import Foundation
 
 struct OtherPrayer {
 	let title: String
-	let text: NSMutableAttributedString
-	let numberOfLines: Int
+	let textLines: [String]
+	let underlineLineOffset: Int?
 	
-	init(title: String, text: NSMutableAttributedString, numberOfLines: Int) {
+	init(title: String, textLines: [String], underlineLineOffset: Int?) {
 		self.title = title
-		self.text = text
-		self.numberOfLines = numberOfLines
+		self.textLines = textLines
+		self.underlineLineOffset = underlineLineOffset
 	}
 }

@@ -7,16 +7,19 @@ class TableViewController: UIViewController {
 	let tableView: UITableView = {
 		let tableview = UITableView()
 		tableview.backgroundColor = Color.BackgroundGray
+		tableview.contentInset = UIEdgeInsets.make(withVerticalInset: Spacing.s16, horizontalInset: 0)
 		tableview.estimatedRowHeight = 30.0	// Random value
 		tableview.rowHeight = UITableViewAutomaticDimension
 		tableview.separatorStyle = .none
 		tableview.allowsSelection = false
 		return tableview
 	}()
+	
 	let tableViewUtility: TableViewUtility
 
 	init() {
 		tableViewUtility = TableViewUtility(tableView: tableView)
+		
 		super.init(nibName: nil, bundle: nil)
 	}
 	
