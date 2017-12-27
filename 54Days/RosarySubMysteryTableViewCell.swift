@@ -1,33 +1,37 @@
 import UIKit
 import SnapKit
 
+class RosarySubMysteryTableCellData {
+	let title: String
+	let subTitle: String
+	let mainText: String
+	let endingText: String
+	
+	init(title: String, subTitle: String, mainText: String, endingText: String) {
+		self.title = title
+		self.subTitle = subTitle
+		self.mainText = mainText
+		self.endingText = endingText
+	}
+}
+
 class RosarySubMysteryTableViewCell: UITableViewCell {
 	
-	let roundCardView = RoundCardView(frame: .zero)
-	
-	let cardContentStackView: UIStackView = {
-		let stackview = UIStackView()
-		stackview.axis = .vertical
-		stackview.alignment = .fill
-		stackview.distribution = .equalSpacing
-		stackview.spacing = CGFloat(Spacing.s16)
-		return stackview
-	}()
+	let contentInsetView = UIView()
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
-		label.numberOfLines = 0
+		label.font = Font.bf20
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		return label
 	}()
 	
-	let subTextLabel: UILabel = {
+	let subTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
-		label.textColor = Color.CrimsonGlory
-		label.textAlignment = .center
+		label.font = Font.bf14
+		label.textColor = Color.CrimsonRed
+		label.textAlignment = .left
 		label.numberOfLines = 0
 		return label
 	}()
@@ -44,8 +48,8 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	let listOfPrayersLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "주님의 기도, 성모송(열 번), 영광송, 구원의 기도"
 		label.numberOfLines = 0
 		return label
@@ -65,28 +69,56 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		contentView.backgroundColor = Color.BackgroundGray
+		backgroundColor = Color.White
+		contentView.backgroundColor = Color.White
 		
-		contentView.addSubview(roundCardView)
+		contentView.addSubview(contentInsetView)
 		
-		roundCardView.addCardContentView(cardContentStackView)
+		contentInsetView.addSubview(titleLabel)
+		contentInsetView.addSubview(subTitleLabel)
+		contentInsetView.addSubview(mainTextLabel)
+		contentInsetView.addSubview(listOfPrayersLabel)
+		contentInsetView.addSubview(endingTextLabel)
 		
-		roundCardView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s8)
+		contentInsetView.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().offset(Spacing.s24)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.bottom.equalToSuperview().offset(-Spacing.s8)
+			make.bottom.equalToSuperview().offset(-Spacing.s24)
 		}
 		
-		cardContentStackView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(UIEdgeInsets.make(with: Spacing.s16))
+		titleLabel.snp.makeConstraints { (make) in
+			make.top.equalToSuperview()
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
 		}
 		
-		cardContentStackView.addArrangedSubview(titleLabel)
-		cardContentStackView.addArrangedSubview(subTextLabel)
-		cardContentStackView.addArrangedSubview(mainTextLabel)
-		cardContentStackView.addArrangedSubview(listOfPrayersLabel)
-		cardContentStackView.addArrangedSubview(endingTextLabel)
+		subTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		mainTextLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(subTitleLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		listOfPrayersLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(mainTextLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		endingTextLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(listOfPrayersLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
+		}
+		
+		contentView.applyUnderline()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -101,7 +133,7 @@ extension RosarySubMysteryTableViewCell: CellUpdatable {
 		rosarySubMysteryTableCellData = cellData
 		
 		titleLabel.text = cellData.title
-		subTextLabel.text = cellData.subText
+		subTitleLabel.text = cellData.subTitle
 		mainTextLabel.text = cellData.mainText
 		endingTextLabel.text = cellData.endingText
 	}

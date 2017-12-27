@@ -17,7 +17,7 @@ class PrayerInfoTableViewCell: UITableViewCell {
 	
 	let dateLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf16
+		label.font = Font.bf20
 		label.textColor = Color.BalticSeaGray
 		label.textAlignment = .left
 		return label
@@ -25,7 +25,7 @@ class PrayerInfoTableViewCell: UITableViewCell {
 	
 	let infoLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf12
+		label.font = Font.bf16
 		label.textColor = Color.BalticSeaGray
 		label.textAlignment = .left
 		return label

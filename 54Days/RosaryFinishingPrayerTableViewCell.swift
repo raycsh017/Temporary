@@ -1,26 +1,41 @@
 import UIKit
 import SnapKit
 
+class RosaryFinishingPrayerTableCellData {
+	let spiritPrayer: String
+	let petitionPrayer: String
+	let gracePrayer: String
+	let praiseFirstPart: String
+	let praiseSecondPart: String
+	
+	init(spiritPrayer: String, petitionPrayer: String, gracePrayer: String, praiseFirstPart: String, praiseSecondPart: String) {
+		self.spiritPrayer = spiritPrayer
+		self.petitionPrayer = petitionPrayer
+		self.gracePrayer = gracePrayer
+		self.praiseFirstPart = praiseFirstPart
+		self.praiseSecondPart = praiseSecondPart
+	}
+}
+
 class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
-	let roundCardView = RoundCardView(frame: .zero)
+	let contentInsetView = UIView()
 	
-	let cardContentStackView: UIStackView = {
-		let stackview = UIStackView()
-		stackview.axis = .vertical
-		stackview.alignment = .fill
-		stackview.distribution = .equalSpacing
-		stackview.spacing = CGFloat(Spacing.s8)
-		return stackview
+	let titleLabel: UILabel = {
+		let label = UILabel()
+		label.font = Font.bf20
+		label.textColor = Color.Black
+		label.textAlignment = .left
+		label.text = "마침기도"
+		return label
 	}()
 	
 	let spiritPrayerTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "신령성체의 기도"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -28,7 +43,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		let label = UILabel()
 		label.font = Font.f14
 		label.textColor = Color.Black
-		label.textAlignment = .center
+		label.textAlignment = .left
 		label.numberOfLines = 0
 		return label
 	}()
@@ -36,10 +51,9 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	let petitionPrayerTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "청원기도"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -55,10 +69,9 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	let gracePrayerTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "감사기도"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -75,19 +88,17 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		let label = UILabel()
 		label.font = Font.bf14
 		label.textColor = Color.Black
-		label.textAlignment = .center
+		label.textAlignment = .left
 		label.text = "성모송"
-		label.numberOfLines = 0
 		return label
 	}()
 	
 	let hailHolyQueenTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "성모찬송"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -124,36 +135,102 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		contentView.backgroundColor = Color.BackgroundGray
+		backgroundColor = Color.White
+		contentView.backgroundColor = Color.White
 		
-		contentView.addSubview(roundCardView)
+		contentView.addSubview(contentInsetView)
 		
-		roundCardView.addCardContentView(cardContentStackView)
+		contentInsetView.addSubview(titleLabel)
+		contentInsetView.addSubview(spiritPrayerTitleLabel)
+		contentInsetView.addSubview(spiritPrayerBodyLabel)
+		contentInsetView.addSubview(petitionPrayerTitleLabel)
+		contentInsetView.addSubview(petitionPrayerBodyLabel)
+		contentInsetView.addSubview(gracePrayerTitleLabel)
+		contentInsetView.addSubview(gracePrayerBodyLabel)
+		contentInsetView.addSubview(hailMaryTitleLabel)
+		contentInsetView.addSubview(hailHolyQueenTitleLabel)
+		contentInsetView.addSubview(praiseFirstPartLabel)
+		contentInsetView.addSubview(praiseSecondPartLabel)
+		contentInsetView.addSubview(signOfTheCrossLabel)
 		
-		roundCardView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s8)
+		contentInsetView.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().offset(Spacing.s24)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.bottom.equalToSuperview().offset(-Spacing.s8)
+			make.bottom.equalToSuperview().offset(-Spacing.s24)
 		}
 		
-		cardContentStackView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(UIEdgeInsets.make(with: Spacing.s16))
+		titleLabel.snp.makeConstraints { (make) in
+			make.top.equalToSuperview()
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
 		}
 		
-		cardContentStackView.addArrangedSubview(spiritPrayerTitleLabel)
-		cardContentStackView.addArrangedSubview(spiritPrayerBodyLabel)
-		cardContentStackView.addArrangedSubview(petitionPrayerTitleLabel)
-		cardContentStackView.addArrangedSubview(petitionPrayerBodyLabel)
-		cardContentStackView.addArrangedSubview(gracePrayerTitleLabel)
-		cardContentStackView.addArrangedSubview(gracePrayerBodyLabel)
-		cardContentStackView.addArrangedSubview(hailMaryTitleLabel)
-		cardContentStackView.addArrangedSubview(praiseFirstPartLabel)
-		cardContentStackView.addArrangedSubview(praiseSecondPartLabel)
-		cardContentStackView.addArrangedSubview(signOfTheCrossLabel)
+		spiritPrayerTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
 		
-		cardContentStackView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(UIEdgeInsets.make(with: Spacing.s16))
+		spiritPrayerBodyLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(spiritPrayerTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		petitionPrayerTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(spiritPrayerBodyLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		petitionPrayerBodyLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(petitionPrayerTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		gracePrayerTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(petitionPrayerBodyLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		gracePrayerBodyLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(gracePrayerTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		hailMaryTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(gracePrayerBodyLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		hailHolyQueenTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(hailMaryTitleLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		praiseFirstPartLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(hailHolyQueenTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		praiseSecondPartLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(praiseFirstPartLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		signOfTheCrossLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(praiseSecondPartLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
 		}
 	}
 	

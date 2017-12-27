@@ -1,24 +1,34 @@
 import UIKit
 import SnapKit
 
+class RosaryStartingPrayerTableCellData {
+	let petitionPrayer: String
+	let gracePrayer: String
+	
+	init(petitionPrayer: String, gracePrayer: String) {
+		self.petitionPrayer = petitionPrayer
+		self.gracePrayer = gracePrayer
+	}
+}
+
 class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
-	let roundCardView = RoundCardView(frame: .zero)
+	let contentInsetView = UIView()
 	
-	let cardContentStackView: UIStackView = {
-		let stackview = UIStackView()
-		stackview.axis = .vertical
-		stackview.alignment = .fill
-		stackview.distribution = .equalSpacing
-		stackview.spacing = CGFloat(Spacing.s8)
-		return stackview
+	let titleLabel: UILabel = {
+		let label = UILabel()
+		label.font = Font.bf20
+		label.textColor = Color.Black
+		label.textAlignment = .left
+		label.text = "시작기도"
+		return label
 	}()
 	
 	let signOfTheCrossLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.f14
 		label.textColor = Color.Black
-		label.textAlignment = .center
+		label.textAlignment = .left
 		label.text = "성부와 성자와 성령의 이름으로, 아멘."
 		label.numberOfLines = 0
 		return label
@@ -28,19 +38,17 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		let label = UILabel()
 		label.font = Font.bf14
 		label.textColor = Color.Black
-		label.textAlignment = .center
+		label.textAlignment = .left
 		label.text = "성모송"
-		label.numberOfLines = 0
 		return label
 	}()
 	
 	let petitionPrayerTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "청원기도"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -56,10 +64,9 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	let gracePrayerTitleLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
-		label.textAlignment = .center
+		label.textColor = Color.OceanBlue
+		label.textAlignment = .left
 		label.text = "감사기도"
-		label.numberOfLines = 0
 		return label
 	}()
 	
@@ -75,7 +82,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	let listOfPrayersLabel: UILabel = {
 		let label = UILabel()
 		label.font = Font.bf14
-		label.textColor = Color.Ocean
+		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "사도신경, 주님의 기도, 성모송(세 번), 영광송, 구원의 기도"
 		label.numberOfLines = 0
@@ -87,31 +94,77 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		contentView.backgroundColor = Color.BackgroundGray
+		backgroundColor = Color.White
+		contentView.backgroundColor = Color.White
 		
-		contentView.addSubview(roundCardView)
+		contentView.addSubview(contentInsetView)
 		
-		roundCardView.addCardContentView(cardContentStackView)
+		contentInsetView.addSubview(titleLabel)
+		contentInsetView.addSubview(signOfTheCrossLabel)
+		contentInsetView.addSubview(hailMaryTitleLabel)
+		contentInsetView.addSubview(petitionPrayerTitleLabel)
+		contentInsetView.addSubview(petitionPrayerBodyLabel)
+		contentInsetView.addSubview(gracePrayerTitleLabel)
+		contentInsetView.addSubview(gracePrayerBodyLabel)
+		contentInsetView.addSubview(listOfPrayersLabel)
 		
-		roundCardView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s8)
+		contentInsetView.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().offset(Spacing.s24)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.bottom.equalToSuperview().offset(-Spacing.s8)
+			make.bottom.equalToSuperview().offset(-Spacing.s24)
 		}
 		
-		cardContentStackView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(UIEdgeInsets.make(with: Spacing.s16))
+		titleLabel.snp.makeConstraints { (make) in
+			make.top.equalToSuperview()
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
 		}
 		
-		cardContentStackView.addArrangedSubview(signOfTheCrossLabel)
-		cardContentStackView.addArrangedSubview(hailMaryTitleLabel)
-		cardContentStackView.addArrangedSubview(petitionPrayerTitleLabel)
-		cardContentStackView.addArrangedSubview(petitionPrayerBodyLabel)
-		cardContentStackView.addArrangedSubview(gracePrayerTitleLabel)
-		cardContentStackView.addArrangedSubview(gracePrayerBodyLabel)
-		cardContentStackView.addArrangedSubview(listOfPrayersLabel)
+		signOfTheCrossLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
 		
+		hailMaryTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(signOfTheCrossLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		petitionPrayerTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(hailMaryTitleLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		petitionPrayerBodyLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(petitionPrayerTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		gracePrayerTitleLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(petitionPrayerBodyLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		gracePrayerBodyLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(gracePrayerTitleLabel.snp.bottom).offset(Spacing.s8)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+		}
+		
+		listOfPrayersLabel.snp.makeConstraints { (make) in
+			make.top.equalTo(gracePrayerBodyLabel.snp.bottom).offset(Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
+		}
+		
+		contentView.applyUnderline()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

@@ -7,4 +7,19 @@ extension UIView {
 		layer.shadowRadius = CGFloat(0.5)
 		layer.shadowOpacity = Float(0.3)
 	}
+	
+	func applyUnderline() {
+		let underlineView = UIView()
+		underlineView.backgroundColor = Color.BackgroundGray
+		
+		let underlineThickness: CGFloat = 1.0
+		
+		addSubview(underlineView)
+		underlineView.snp.makeConstraints { (make) in
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
+			make.height.equalTo(underlineThickness)
+		}
+	}
 }

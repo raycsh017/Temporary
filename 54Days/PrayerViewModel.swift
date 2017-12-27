@@ -39,7 +39,7 @@ class PrayerViewModel {
 			
 			let subMysteryPrayers = rosaryMystery.subMysteryPrayers
 			let subMysteryCellConfigurators = subMysteryPrayers
-				.map { RosarySubMysteryTableCellData(title: $0.title, subText: $0.subText, mainText: $0.mainText, endingText: $0.endingText) }
+				.map { RosarySubMysteryTableCellData(title: $0.title, subTitle: $0.subText, mainText: $0.mainText, endingText: $0.endingText) }
 				.map { TableCellConfigurator<RosarySubMysteryTableViewCell>(cellData: $0) as CellConfiguratorType }
 
 			let finishingPrayer = rosaryMystery.finishingPrayer
@@ -50,7 +50,6 @@ class PrayerViewModel {
 			cellConfigurators.append(startingPrayerCellConfigurator)
 			cellConfigurators.append(contentsOf: subMysteryCellConfigurators)
 			cellConfigurators.append(finishingPrayerCellConfigurator)
-			cellConfigurators = cellConfigurators.interleave(element: TableCellConfigurator<SpacingTableViewCell>(cellData: SpacingCellData(spacing: Spacing.s16)))
 			
 		case .other:
 			var otherPrayerCellConfigurators: [CellConfiguratorType] = []
