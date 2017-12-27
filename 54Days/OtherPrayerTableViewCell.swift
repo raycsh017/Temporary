@@ -1,15 +1,23 @@
 import UIKit
 import SnapKit
 
+class OtherPrayerTableCellData {
+	let title: String
+	let body: NSAttributedString
+	
+	init(title: String, body: NSAttributedString) {
+		self.title = title
+		self.body = body
+	}
+}
+
 class OtherPrayerTableViewCell: UITableViewCell {
 	
-	let roundCardView = RoundCardView(frame: .zero)
-	
-	let cardContentView = UIView()
+	let contentInsetView = UIView()
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		return label
@@ -17,7 +25,7 @@ class OtherPrayerTableViewCell: UITableViewCell {
 	
 	let bodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -29,38 +37,35 @@ class OtherPrayerTableViewCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		contentView.backgroundColor = Color.BackgroundGray
+		backgroundColor = Color.White
+		contentView.backgroundColor = Color.White
 		
-		contentView.addSubview(roundCardView)
+		contentView.addSubview(contentInsetView)
 		
-		roundCardView.addCardContentView(cardContentView)
+		contentInsetView.addSubview(titleLabel)
+		contentInsetView.addSubview(bodyLabel)
 		
-		cardContentView.addSubview(titleLabel)
-		cardContentView.addSubview(bodyLabel)
-		
-		roundCardView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s8)
+		contentInsetView.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().offset(Spacing.s24)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.bottom.equalToSuperview().offset(-Spacing.s8)
-		}
-		
-		cardContentView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview()
+			make.bottom.equalToSuperview().offset(-Spacing.s24)
 		}
 		
 		titleLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s16)
-			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().offset(-Spacing.s16)
+			make.top.equalToSuperview()
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
 		}
 		
 		bodyLabel.snp.makeConstraints { (make) in
 			make.top.equalTo(titleLabel.snp.bottom).offset(Spacing.s8)
-			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.bottom.equalToSuperview().offset(-Spacing.s16)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview()
 		}
+		
+		contentView.applyUnderline()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
