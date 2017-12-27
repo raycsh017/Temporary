@@ -1,9 +1,9 @@
 import UIKit
 import SwiftyJSON
 
-class PrayerListViewModel {
+class HomeViewModel {
 	
-	fileprivate let kcurrentPrayerInformationDefaultString: String = "현재 진행중인 묵주기도가 없습니다 :("
+	fileprivate let kPrayerInformationPlaceholder: String = "현재 진행중인 묵주기도가 없습니다 😕"
 	
 	fileprivate let calendar = Calendar.current
 	fileprivate let dateFormatter = DateFormatter()
@@ -16,24 +16,28 @@ class PrayerListViewModel {
 	func cellConfigurators() -> [CellConfiguratorType] {
 		var cellConfigurators = [CellConfiguratorType]()
 		
-		let miniCalendarDisplayData = MiniCalendarTableCellData(currentDay: currentDayFormatted(), currentMonth: currentMonthFormatted(), currentPrayerInfo: currentPrayerInfoAttributed())
-		
-		cellConfigurators.append(TableCellConfigurator<MiniCalendarTableViewCell>(cellData: miniCalendarDisplayData))
-		cellConfigurators.append(TableCellConfigurator<PrayerListTableViewCell>(cellData: PrayerListCellData()))
+		cellConfigurators.append(prayerInfoCellConfigurator())
+		cellConfigurators.append(contentsOf: prayerEntryCellConfigurators())
 		
 		return cellConfigurators
+	}
+	
+	private func prayerInfoCellConfigurator() -> CellConfiguratorType {
+		let prayerInfoCellData = PrayerInfoCellData(dateText: currentDateFormatted(), infoAttributedText: currentPrayerInfoAttributed(), numberOfDaysPassed: 0)
+		return TableCellConfigurator<PrayerInfoTableViewCell>(cellData: prayerInfoCellData) as CellConfiguratorType
+	}
+	
+	private func prayerEntryCellConfigurators() -> [CellConfiguratorType] {
+		let prayerEntryCellData = prayerTypes.map { PrayerEntryCellData(prayerType: $0) }
+		let prayerEntryCellConfigurators = prayerEntryCellData.map { TableCellConfigurator<PrayerEntryTableViewCell>(cellData: $0) as CellConfiguratorType }
+		return prayerEntryCellConfigurators
 	}
 }
 
 // MiniCalendar
-extension PrayerListViewModel {
-	func currentMonthFormatted() -> String {
-		dateFormatter.dateFormat = "MMM"
-		return dateFormatter.string(from: currentDate)
-	}
-	
-	func currentDayFormatted() -> String {
-		dateFormatter.dateFormat = "dd"
+extension HomeViewModel {
+	func currentDateFormatted() -> String {
+		dateFormatter.dateFormat = "MMMM dd"
 		return dateFormatter.string(from: currentDate)
 	}
 	
@@ -41,7 +45,7 @@ extension PrayerListViewModel {
 		let rosaryPeriods = RealmManager.shared.rosaryPeriods
 		
 		guard let startDate = rosaryPeriods?.first?.startDate else {
-			return NSAttributedString(string: kcurrentPrayerInformationDefaultString)
+			return NSAttributedString(string: kPrayerInformationPlaceholder)
 		}
 		
 		let startOfStartDate = calendar.startOfDay(for: startDate)
@@ -49,7 +53,7 @@ extension PrayerListViewModel {
 		let diffBetweenTwoDates = calendar.dateComponents([.day], from: startOfStartDate, to: startOfCurrentDate)
 		
 		guard let numDaysFromStartDate = diffBetweenTwoDates.day, 0 <= numDaysFromStartDate && numDaysFromStartDate < 54 else {
-			return NSAttributedString(string: kcurrentPrayerInformationDefaultString)
+			return NSAttributedString(string: kPrayerInformationPlaceholder)
 		}
 		
 		// _일
@@ -72,20 +76,20 @@ extension PrayerListViewModel {
 		let mysteryString = mystery.koreanTitle
 		
 		let numDaysPassedAttributedString = NSAttributedString(string: numDaysPassedString, attributes: [
-				NSFontAttributeName: Font.f17
+				NSAttributedStringKey.font: Font.f17
 			])
 		let rosaryTypeAttributedString = NSAttributedString(string: rosaryTypeString, attributes: [
-				NSUnderlineStyleAttributeName: NSUnderlineStyle.styleThick
+				NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleThick
 			])
 		let mysteryAttributedString = NSAttributedString(string: mysteryString, attributes: [
-				NSFontAttributeName: Font.f17,
-				NSForegroundColorAttributeName: mystery.assignedColor
+				NSAttributedStringKey.font: Font.f17,
+				NSAttributedStringKey.foregroundColor: mystery.assignedColor
 			])
 		var additionalMysteryAttributedString: NSAttributedString?
 		if numDaysFromStartDate == 26 || numDaysFromStartDate == 53 {
 			additionalMysteryAttributedString = NSAttributedString(string: "영광의 신비", attributes: [
-					NSFontAttributeName: Font.f17,
-					NSForegroundColorAttributeName: Color.DarkSlateBlue
+					NSAttributedStringKey.font: Font.f17,
+					NSAttributedStringKey.foregroundColor: Color.RosaryPurple
 				])
 		}
 		

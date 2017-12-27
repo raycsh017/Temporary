@@ -8,14 +8,22 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let firstViewController = PrayerListViewController()
-		let firstTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_prayer"), tag: 0)
-		firstTabBarItem.imageInsets = kFixedTabBarIconInset
-		firstViewController.tabBarItem = firstTabBarItem
-		let firstTabNavigationController = UINavigationController(rootViewController: firstViewController)
+		let homeViewController = HomeViewController()
+		let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_prayer"), tag: 0)
+		homeTabBarItem.imageInsets = kFixedTabBarIconInset
+		homeViewController.tabBarItem = homeTabBarItem
 		
-		viewControllers = [firstTabNavigationController]
-		selectedViewController = firstTabNavigationController
+		let homeNavigationController = NavigationController(rootViewController: homeViewController)
+		homeNavigationController.prefersLargeTitles = true
+		
+		let calendarViewController = CalendarViewController()
+		let calendarTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_calendar"), tag: 1)
+		calendarTabBarItem.imageInsets = kFixedTabBarIconInset
+		calendarViewController.tabBarItem = calendarTabBarItem
+		
+		viewControllers = [homeNavigationController, calendarViewController]
+		
+		selectedViewController = homeNavigationController
     }
 
     override func didReceiveMemoryWarning() {

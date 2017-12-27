@@ -181,7 +181,7 @@ class PrayerViewModel {
 		return textLines.enumerated().map {
 			if let lineOffset = lineOffset,
 				$0.offset == lineOffset {
-				return NSAttributedString(string: $0.element, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+				return NSAttributedString(string: $0.element, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
 			} else {
 				return NSAttributedString(string: $0.element)
 			}

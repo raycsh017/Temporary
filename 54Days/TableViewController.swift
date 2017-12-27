@@ -1,18 +1,17 @@
 import UIKit
 import SnapKit
 
-class TableViewController: UIViewController {
+class TableViewController: UIViewController, TableViewUtilityDelegate {
 
 	// MARK: View Components
 	let tableView: UITableView = {
-		let tableview = UITableView()
-		tableview.backgroundColor = Color.BackgroundGray
-		tableview.contentInset = UIEdgeInsets.make(withVerticalInset: Spacing.s16, horizontalInset: 0)
-		tableview.estimatedRowHeight = 30.0	// Random value
-		tableview.rowHeight = UITableViewAutomaticDimension
-		tableview.separatorStyle = .none
-		tableview.allowsSelection = false
-		return tableview
+		let tableView = UITableView()
+		tableView.backgroundColor = Color.White
+		tableView.estimatedRowHeight = 30.0	// Random value
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.separatorStyle = .none
+		tableView.allowsSelection = false
+		return tableView
 	}()
 	
 	let tableViewUtility: TableViewUtility
@@ -49,9 +48,7 @@ class TableViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-extension TableViewController: TableViewUtilityDelegate {
+	
 	func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {
 		fatalError("tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) has not been implemented")
 	}

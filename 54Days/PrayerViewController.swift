@@ -19,6 +19,9 @@ class PrayerViewController: TableViewController {
 		super.viewDidLoad()
 		
 		// Do any additional setup after loading the view.
+		let prayerType = viewModel.prayerType
+		navigationItem.title = prayerType.koreanTitle
+		
 		tableViewUtility.register(cells: viewModel.cellConfigurators())
 		tableViewUtility.reload()
 	}
@@ -28,9 +31,6 @@ class PrayerViewController: TableViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-}
-
-extension PrayerViewController {
 	override func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {
 		return
 	}

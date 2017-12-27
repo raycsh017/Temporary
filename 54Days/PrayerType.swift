@@ -36,7 +36,7 @@ enum PrayerType {
 		case .rosary(let mystery):
 			return mystery.assignedColor
 		case .other:
-			return nil
+			return Color.SilverSandGray
 		}
 	}
 	

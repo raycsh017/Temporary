@@ -1,16 +1,15 @@
 import UIKit
 import SnapKit
 
-class PrayerListViewController: TableViewController {
-	// MARK: View Models
-	let viewModel = PrayerListViewModel()
+class HomeViewController: TableViewController {
 	
-	// MARK: Overriden Methods
+	let viewModel = HomeViewModel()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
         // Do any additional setup after loading the view.
-		navigationItem.title = "54days"
+		navigationItem.title = "54Days"
 		
 		tableViewUtility.register(cells: viewModel.cellConfigurators())
 		tableViewUtility.reload()
@@ -21,24 +20,21 @@ class PrayerListViewController: TableViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-}
-
-extension PrayerListViewController {
 	override func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {
-		if let cell = reusableCell as? PrayerListTableViewCell {
+		if let cell = reusableCell as? PrayerEntryTableViewCell {
 			cell.delegate = self
 		}
 	}
 }
 
-extension PrayerListViewController: PrayerListTableViewCellDelegate {
-	func prayerListTableViewCell(_ cell: PrayerListTableViewCell, didSelectPrayer prayerType: PrayerType) {
+extension HomeViewController: PrayerEntryTableViewCellDelegate {
+	func prayerEntryTableViewCell(_ cell: PrayerEntryTableViewCell, didSelectPrayer prayerType: PrayerType) {
 		moveToPrayer(withType: prayerType)
 	}
 }
 
-extension PrayerListViewController {
-	// MARK: Routing
+// MARK: Routing
+extension HomeViewController {
 	fileprivate func moveToPrayer(withType prayerType: PrayerType) {
 		let prayerViewModel = PrayerViewModel(prayerType: prayerType)
 		let prayerViewController = PrayerViewController(viewModel: prayerViewModel)

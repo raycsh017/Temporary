@@ -78,13 +78,13 @@ extension RosaryMystery.MysteryType {
 	var assignedColor: UIColor {
 		switch self {
 		case .joyful:
-			return Color.Tacao
+			return Color.RosaryYellow
 		case .light:
-			return Color.ChelseaCucumber
+			return Color.RosaryGreen
 		case .sorrowful:
-			return Color.DarkTerraCotta
+			return Color.RosaryRed
 		case .glorious:
-			return Color.DarkSlateBlue
+			return Color.RosaryPurple
 		}
 	}
 
