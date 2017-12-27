@@ -21,7 +21,7 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf20
+		label.font = Font.bf24
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		return label
@@ -29,7 +29,7 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let subTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.f16
 		label.textColor = Color.CrimsonRed
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -38,7 +38,7 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let mainTextLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -47,7 +47,7 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let listOfPrayersLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "주님의 기도, 성모송(열 번), 영광송, 구원의 기도"
@@ -57,7 +57,7 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let endingTextLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0

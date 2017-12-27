@@ -23,7 +23,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf20
+		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "마침기도"
@@ -32,7 +32,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let spiritPrayerTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "신령성체의 기도"
@@ -41,7 +41,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let spiritPrayerBodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -50,7 +50,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let petitionPrayerTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "청원기도"
@@ -59,7 +59,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let petitionPrayerBodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -68,7 +68,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let gracePrayerTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "감사기도"
@@ -77,7 +77,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let gracePrayerBodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -86,7 +86,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let hailMaryTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "성모송"
@@ -95,7 +95,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let hailHolyQueenTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "성모찬송"
@@ -104,7 +104,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let praiseFirstPartLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -113,7 +113,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let praiseSecondPartLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -122,7 +122,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let signOfTheCrossLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "성부와 성자와 성령의 이름으로, 아멘."

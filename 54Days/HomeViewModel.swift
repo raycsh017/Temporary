@@ -76,19 +76,19 @@ extension HomeViewModel {
 		let mysteryString = mystery.koreanTitle
 		
 		let numDaysPassedAttributedString = NSAttributedString(string: numDaysPassedString, attributes: [
-				NSAttributedStringKey.font: Font.f17
+				NSAttributedStringKey.font: Font.f16
 			])
 		let rosaryTypeAttributedString = NSAttributedString(string: rosaryTypeString, attributes: [
 				NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleThick
 			])
 		let mysteryAttributedString = NSAttributedString(string: mysteryString, attributes: [
-				NSAttributedStringKey.font: Font.f17,
+				NSAttributedStringKey.font: Font.f16,
 				NSAttributedStringKey.foregroundColor: mystery.assignedColor
 			])
 		var additionalMysteryAttributedString: NSAttributedString?
 		if numDaysFromStartDate == 26 || numDaysFromStartDate == 53 {
 			additionalMysteryAttributedString = NSAttributedString(string: "영광의 신비", attributes: [
-					NSAttributedStringKey.font: Font.f17,
+					NSAttributedStringKey.font: Font.f16,
 					NSAttributedStringKey.foregroundColor: Color.RosaryPurple
 				])
 		}

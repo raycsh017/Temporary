@@ -17,7 +17,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let titleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf20
+		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "시작기도"
@@ -26,7 +26,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let signOfTheCrossLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "성부와 성자와 성령의 이름으로, 아멘."
@@ -36,7 +36,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let hailMaryTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.text = "성모송"
@@ -45,7 +45,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let petitionPrayerTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "청원기도"
@@ -54,7 +54,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let petitionPrayerBodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -63,7 +63,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let gracePrayerTitleLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "감사기도"
@@ -72,7 +72,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let gracePrayerBodyLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.f14
+		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
@@ -81,7 +81,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let listOfPrayersLabel: UILabel = {
 		let label = UILabel()
-		label.font = Font.bf14
+		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		label.text = "사도신경, 주님의 기도, 성모송(세 번), 영광송, 구원의 기도"

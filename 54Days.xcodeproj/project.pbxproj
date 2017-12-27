@@ -43,6 +43,8 @@
 		D14CA51A1FDE63A000B2EC09 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA5191FDE63A000B2EC09 /* CalendarViewModel.swift */; };
 		D14CA51E1FDE66F600B2EC09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA51D1FDE66F600B2EC09 /* ViewController.swift */; };
 		D151294D1FF3171D00DEB96C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D151294C1FF3171D00DEB96C /* NavigationController.swift */; };
+		D15129561FF371D300DEB96C /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */; };
+		D15129571FF371D300DEB96C /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15129551FF371D300DEB96C /* NanumBarunGothicBold.ttf */; };
 		D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */; };
 		D16382ED1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16382EC1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift */; };
 		D16382EF1F78351900B74382 /* RosarySubMysteryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16382EE1F78351900B74382 /* RosarySubMysteryTableViewCell.swift */; };
@@ -116,6 +118,8 @@
 		D14CA5191FDE63A000B2EC09 /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewModel.swift; path = Modules/Calendar/ViewModel/CalendarViewModel.swift; sourceTree = "<group>"; };
 		D14CA51D1FDE66F600B2EC09 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Common/SubClasses/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		D151294C1FF3171D00DEB96C /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothic.ttf; path = Resources/Fonts/NanumBarunGothic/NanumBarunGothic.ttf; sourceTree = "<group>"; };
+		D15129551FF371D300DEB96C /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothicBold.ttf; path = Resources/Fonts/NanumBarunGothic/NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
 		D155C8D71E1D7CF400236BF0 /* rosaryPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rosaryPrayers.json; sourceTree = "<group>"; };
 		D16382EC1F75685800B74382 /* RosaryFinishingPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryFinishingPrayerTableViewCell.swift; sourceTree = "<group>"; };
 		D16382EE1F78351900B74382 /* RosarySubMysteryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosarySubMysteryTableViewCell.swift; sourceTree = "<group>"; };
@@ -314,6 +318,23 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D151294E1FF370D500DEB96C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D151294F1FF370DF00DEB96C /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D151294F1FF370DF00DEB96C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */,
+				D15129551FF371D300DEB96C /* NanumBarunGothicBold.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		D16382F01F783A2700B74382 /* StartingPrayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +456,7 @@
 		D1CFD60D1E15BFFE00E5FE23 /* 54Days */ = {
 			isa = PBXGroup;
 			children = (
+				D151294E1FF370D500DEB96C /* Resources */,
 				D14AB19D1F2B231C00B7FCBA /* Modules */,
 				D14AB1991F2B228300B7FCBA /* Common */,
 				D1D521B51E64CE86007B03C1 /* Assets.xcassets */,
@@ -639,8 +661,10 @@
 				D17EEA731E3D4501005645C4 /* CalendarDayCellView.xib in Resources */,
 				D1443FB01E4483C200EB66DB /* CalendarHeaderView.xib in Resources */,
 				D1FDDF2D1E28A429003B4189 /* prayers.json in Resources */,
+				D15129571FF371D300DEB96C /* NanumBarunGothicBold.ttf in Resources */,
 				D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */,
 				D1D521B61E64CE86007B03C1 /* Assets.xcassets in Resources */,
+				D15129561FF371D300DEB96C /* NanumBarunGothic.ttf in Resources */,
 				D155C8D81E1D7CF400236BF0 /* rosaryPrayers.json in Resources */,
 				D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */,
 			);
