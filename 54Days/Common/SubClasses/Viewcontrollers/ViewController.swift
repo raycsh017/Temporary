@@ -30,10 +30,10 @@ class ViewController: UIViewController {
 		view.addSubview(safeAreaView)
 		
 		safeAreaView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(statusBarHeight)
-			make.bottom.equalToSuperview()
-			make.left.equalToSuperview()
-			make.right.equalToSuperview()
+			make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+			make.left.equalTo(view.safeAreaLayoutGuide.snp.left)
+			make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
+			make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
 		}
 	}
 }

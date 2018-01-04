@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class TableViewController: UIViewController, TableViewUtilityDelegate {
+class TableViewController: ViewController, TableViewUtilityDelegate {
 
 	// MARK: View Components
 	let tableView: UITableView = {
@@ -16,10 +16,9 @@ class TableViewController: UIViewController, TableViewUtilityDelegate {
 	
 	let tableViewUtility: TableViewUtility
 
-	init() {
+	override init() {
 		tableViewUtility = TableViewUtility(tableView: tableView)
-		
-		super.init(nibName: nil, bundle: nil)
+		super.init()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -30,15 +29,11 @@ class TableViewController: UIViewController, TableViewUtilityDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		view.backgroundColor = Color.BackgroundGray
 		
-		view.addSubview(tableView)
+		safeAreaView.addSubview(tableView)
 		
 		tableView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview()
-			make.left.equalToSuperview()
-			make.right.equalToSuperview()
-			make.bottom.equalToSuperview()
+			make.edges.equalToSuperview()
 		}
 		
 		tableViewUtility.delegate = self
