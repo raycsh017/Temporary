@@ -1,15 +1,11 @@
-////
-////  RosaryPeriod.swift
-////  Rosary
-////
-////  Created by Sang Hyuk Cho on 2/9/17.
-////  Copyright © 2017 sang. All rights reserved.
-////
-//
-//import Foundation
-//import RealmSwift
-//
-//class RosaryPeriod: Object{
-//	dynamic var startDate: Date?
-//	dynamic var endDate: Date?
-//}
+import Foundation
+
+struct RosaryPeriod {
+	struct RosaryDate {
+		let index: Int
+		let date: Date
+		let mystery: RosaryMystery.MysteryType
+	}
+	
+	let rosaryDates: [RosaryDate]
+}
