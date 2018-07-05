@@ -13,7 +13,7 @@ enum MonthOfYear {
 	case oct(Int)
 	case nov(Int)
 	case dec(Int)
-	
+
 	init(rawValue: Int, year: Int) {
 		switch rawValue {
 		case 1: self = .jan(year)
@@ -32,7 +32,7 @@ enum MonthOfYear {
 			self = .jan(year)
 		}
 	}
-	
+
 	var rawValue: Int {
 		switch self {
 		case .jan: return 1
@@ -49,7 +49,7 @@ enum MonthOfYear {
 		case .dec: return 12
 		}
 	}
-	
+
 	var associatedYear: Int {
 		switch self {
 		case .jan(let year),
@@ -67,7 +67,7 @@ enum MonthOfYear {
 			return year
 		}
 	}
-	
+
 	var numberOfDays: Int {
 		switch self {
 		case .jan, .mar, .may, .jul, .aug, .oct, .dec:
@@ -82,8 +82,8 @@ enum MonthOfYear {
 			return numberOfDatesInFebruary
 		}
 	}
-	
-	func previousMonth() -> MonthOfYear {
+
+	var previousMonthOfYear: MonthOfYear {
 		switch self {
 		case .jan(let year):
 			return .dec(year - 1)
@@ -91,8 +91,8 @@ enum MonthOfYear {
 			return MonthOfYear(rawValue: self.rawValue - 1, year: self.associatedYear)
 		}
 	}
-	
-	func nextMonth() -> MonthOfYear {
+
+	var nextMonthOfYear: MonthOfYear {
 		switch self {
 		case .dec(let year):
 			return .jan(year + 1)
@@ -100,8 +100,8 @@ enum MonthOfYear {
 			return MonthOfYear(rawValue: self.rawValue + 1, year: self.associatedYear)
 		}
 	}
-	
-	func formattedTitle(withFormat format: String = "MMMM yyyy") -> String? {
+
+	func title(withFormat format: String = "MMMM yyyy") -> String? {
 		guard let currentMonthDateForm = currentMonthInDateForm() else {
 			return nil
 		}
@@ -110,7 +110,7 @@ enum MonthOfYear {
 		dateFormatter.dateFormat = format
 		return dateFormatter.string(from: currentMonthDateForm)
 	}
-	
+
 	private func currentMonthInDateForm() -> Date? {
 		let month = rawValue
 		let year = associatedYear

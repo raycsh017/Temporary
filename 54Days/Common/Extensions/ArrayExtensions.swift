@@ -18,4 +18,8 @@ extension Array {
 		
 		return interleavedArray
 	}
+
+	func getItem(at index: Int) -> Element? {
+		return index < count ? self[index] : nil
+	}
 }

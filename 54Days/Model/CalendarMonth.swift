@@ -9,13 +9,13 @@ struct CalendarMonth {
 	let preDatesIndexRange: Range<Int>
 	let inDatesIndexRange: Range<Int>
 	let postDatesIndexRange: Range<Int>
-	
+
 	init(monthOfYear: MonthOfYear, preDates: [Date], inDates: [Date], postDates: [Date]) {
 		var dates: [Date] = []
 		dates.append(contentsOf: preDates)
 		dates.append(contentsOf: inDates)
 		dates.append(contentsOf: postDates)
-		
+
 		self.monthOfYear = monthOfYear
 		self.preDates = preDates
 		self.inDates = inDates

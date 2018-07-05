@@ -3,7 +3,7 @@ import Realm
 import RealmSwift
 
 protocol RosarySessionInfoUserInterface: class {
-	func refreshCalendar()
+	func refreshWith(cellConfigurators: [CellConfiguratorType])
 	func updateRosaryForm(petitionSummary text: String)
 	func updateRosaryForm(startDateText text: String)
 	func updateRosaryForm(datePickerDate date: Date)
@@ -24,6 +24,33 @@ class RosarySessionInfoViewModel {
 	private(set) var formPetitionSummary: String = ""
 	private(set) var formStartDate: Date = Date()
 	
+	private var periodSummary: String? {
+		guard let startDate = self.startDateFormatted,
+			let endDate = self.endDateFormatted else {
+				return nil
+		}
+		return "\(startDate) ~ \(endDate)"
+	}
+	
+	private var startDateFormatted: String? {
+		guard let startDate = recentRosaryRecord?.startDate else {
+			return nil
+		}
+		return self.dateFormatter.string(from: startDate)
+	}
+	
+	private var endDateFormatted: String? {
+		guard let startDate = recentRosaryRecord?.startDate,
+			let endDate = RosaryDateCalculator.endDateInRosaryPeriod(startingFrom: startDate) else {
+			return nil
+		}
+		return self.dateFormatter.string(from: endDate)
+	}
+	
+	private var petitionSummary: String? {
+		return recentRosaryRecord?.petitionSummary
+	}
+	
 	private var formStartDateFormatted: String {
 		return dateFormatter.string(from: formStartDate)
 	}
@@ -38,6 +65,24 @@ class RosarySessionInfoViewModel {
 	init() {
 		initializeRealm()
 		loadRecentRosaryRecord()
+	}
+	
+	func cellConfigurators() -> [CellConfiguratorType] {
+		var cellConfigurators: [CellConfiguratorType] = []
+		
+		cellConfigurators.append(contentsOf: currentSessionCellConfigurators())
+		
+		return cellConfigurators
+	}
+	
+	private func currentSessionCellConfigurators() -> [CellConfiguratorType] {
+		guard let periodSummary = periodSummary,
+			let petitionSummary = petitionSummary else {
+			return []
+		}
+		
+		let cellData = RosarySessionInfoCurrentSessionCellData(periodSummary: periodSummary, petitionSummary: petitionSummary)
+		return [TableCellConfigurator<RosarySessionInfoCurrentSessionTableViewCell>(cellData: cellData)]
 	}
 	
 	private func initializeRealm() {
@@ -65,6 +110,7 @@ class RosarySessionInfoViewModel {
 	}
 }
 
+// MARK: - Local DB
 extension RosarySessionInfoViewModel {
 	typealias RosaryDate = RosaryPeriod.RosaryDate
 	
@@ -107,6 +153,7 @@ extension RosarySessionInfoViewModel {
 		let calendar = Calendar.current
 		let numberOfDaysInPeriod = RosaryConstants.numberOfDaysInPeriod
 		let petitionPeriodLastIndex = RosaryConstants.petitionPeriod.last!
+		let gracePeriodLastIndex = RosaryConstants.gracePeriod.last!
 		let startOfStartDate = calendar.startOfDay(for: startDate)
 		
 		var rosaryDates: [RosaryDate] = []
@@ -114,13 +161,15 @@ extension RosarySessionInfoViewModel {
 			let date = calendar.date(byAdding: .day, value: i, to: startOfStartDate) ?? Date()
 			let mysteryIndex = (i <= petitionPeriodLastIndex) ? (i % 4) : ((i + 1) % 4)
 			let mystery = RosaryMystery.MysteryType.all[mysteryIndex]
+			let additionalMystery = (i == petitionPeriodLastIndex || i == gracePeriodLastIndex) ? RosaryMystery.MysteryType.glorious : nil
 			
-			rosaryDates.append(RosaryDate(index: i, date: date, mystery: mystery))
+			rosaryDates.append(RosaryDate(index: i, date: date, mystery: mystery, additionalMystery: additionalMystery))
 		}
 		rosaryPeriod = RosaryPeriod(rosaryDates: rosaryDates)
 	}
 }
 
+// MARK: - EventHandler
 extension RosarySessionInfoViewModel: RosarySessionInfoEventHandler {
 	func didShowRosaryForm() {
 		resetRosaryFormData()
@@ -141,7 +190,7 @@ extension RosarySessionInfoViewModel: RosarySessionInfoEventHandler {
 	func didCompleteRosaryForm() {
 		saveRosaryFormData()
 		reloadRosaryPeriod()
-		userInterface?.refreshCalendar()
+		userInterface?.refreshWith(cellConfigurators: cellConfigurators())
 	}
 }
 

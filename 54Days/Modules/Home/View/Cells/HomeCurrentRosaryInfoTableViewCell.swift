@@ -15,16 +15,16 @@ class HomeCurrentRosaryInfoCellData {
 
 class HomeCurrentRosaryInfoTableViewCell: UITableViewCell {
 	
-	let dateLabel: UILabel = {
-		let label = UILabel()
+	let dateLabel: Label = {
+		let label = Label()
 		label.font = Font.bf20
 		label.textColor = Color.BalticSeaGray
 		label.textAlignment = .left
 		return label
 	}()
 	
-	let infoLabel: UILabel = {
-		let label = UILabel()
+	let infoLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.BalticSeaGray
 		label.textAlignment = .left

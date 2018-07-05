@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class RosaryStartingPrayerTableCellData {
+class PrayerRosaryStartingPrayerTableCellData {
 	let petitionPrayer: String
 	let gracePrayer: String
 	
@@ -11,12 +11,12 @@ class RosaryStartingPrayerTableCellData {
 	}
 }
 
-class RosaryStartingPrayerTableViewCell: UITableViewCell {
+class PrayerRosaryStartingPrayerTableViewCell: UITableViewCell {
 	
 	let contentInsetView = UIView()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
+	let titleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -24,8 +24,8 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let signOfTheCrossLabel: UILabel = {
-		let label = UILabel()
+	let signOfTheCrossLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -34,8 +34,8 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let hailMaryTitleLabel: UILabel = {
-		let label = UILabel()
+	let hailMaryTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -43,8 +43,8 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let petitionPrayerTitleLabel: UILabel = {
-		let label = UILabel()
+	let petitionPrayerTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -52,17 +52,18 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let petitionPrayerBodyLabel: UILabel = {
-		let label = UILabel()
+	let petitionPrayerBodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let gracePrayerTitleLabel: UILabel = {
-		let label = UILabel()
+	let gracePrayerTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -70,17 +71,18 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let gracePrayerBodyLabel: UILabel = {
-		let label = UILabel()
+	let gracePrayerBodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let listOfPrayersLabel: UILabel = {
-		let label = UILabel()
+	let listOfPrayersLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -89,7 +91,7 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	var rosaryStartingPrayerCellData: RosaryStartingPrayerTableCellData?
+	var rosaryStartingPrayerCellData: PrayerRosaryStartingPrayerTableCellData?
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -172,8 +174,8 @@ class RosaryStartingPrayerTableViewCell: UITableViewCell {
 	}
 }
 
-extension RosaryStartingPrayerTableViewCell: CellUpdatable {
-	typealias CellData = RosaryStartingPrayerTableCellData
+extension PrayerRosaryStartingPrayerTableViewCell: CellUpdatable {
+	typealias CellData = PrayerRosaryStartingPrayerTableCellData
 	
 	func update(withCellData cellData: CellData) {
 		rosaryStartingPrayerCellData = cellData

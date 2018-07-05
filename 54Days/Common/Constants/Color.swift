@@ -21,3 +21,9 @@ struct Color {
 	static let CrimsonRed = UIColor.withHex(0xBA002F)
 	static let Aquamarine = UIColor.withHex(0x71E7A8)
 }
+
+extension Color {
+	struct Divider {
+		static let Default = Color.BackgroundGray
+	}
+}

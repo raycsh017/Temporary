@@ -19,8 +19,8 @@ class RosaryFormModalView: ModalView {
 	
 	let formAreaView = UIView()
 	
-	let instructionLabel: UILabel = {
-		let label = UILabel()
+	let instructionLabel: Label = {
+		let label = Label()
 		label.font = Font.bf20
 		label.textColor = Color.Black
 		label.text = "청원 제목과 묵주기도 시작일을\n정해주세요!"
@@ -28,8 +28,8 @@ class RosaryFormModalView: ModalView {
 		return label
 	}()
 	
-	let petitionSummarySectionTitleLabel: UILabel = {
-		let label = UILabel()
+	let petitionSummarySectionTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf14
 		label.textColor = Color.StarDust
 		label.text = "청원제목"
@@ -44,17 +44,18 @@ class RosaryFormModalView: ModalView {
 		return view
 	}()
 	
-	let petitionSummaryTextView: UITextView = {
+	lazy var petitionSummaryTextView: UITextView = {
 		let textView = UITextView()
 		textView.font = Font.f14
 		textView.textColor = Color.Black
 		textView.tintColor = Color.Black
 		textView.autocorrectionType = .no
+		textView.delegate = self
 		return textView
 	}()
 	
-	let startDateSectionTitleLabel: UILabel = {
-		let label = UILabel()
+	let startDateSectionTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf14
 		label.textColor = Color.StarDust
 		label.text = "묵주기도 시작일"

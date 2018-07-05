@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class RosaryFinishingPrayerTableCellData {
+class PrayerRosaryFinishingPrayerTableCellData {
 	let spiritPrayer: String
 	let petitionPrayer: String
 	let gracePrayer: String
@@ -17,12 +17,12 @@ class RosaryFinishingPrayerTableCellData {
 	}
 }
 
-class RosaryFinishingPrayerTableViewCell: UITableViewCell {
+class PrayerRosaryFinishingPrayerTableViewCell: UITableViewCell {
 	
 	let contentInsetView = UIView()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
+	let titleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -30,8 +30,8 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let spiritPrayerTitleLabel: UILabel = {
-		let label = UILabel()
+	let spiritPrayerTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -39,17 +39,18 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let spiritPrayerBodyLabel: UILabel = {
-		let label = UILabel()
+	let spiritPrayerBodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let petitionPrayerTitleLabel: UILabel = {
-		let label = UILabel()
+	let petitionPrayerTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -57,17 +58,18 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let petitionPrayerBodyLabel: UILabel = {
-		let label = UILabel()
+	let petitionPrayerBodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let gracePrayerTitleLabel: UILabel = {
-		let label = UILabel()
+	let gracePrayerTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -75,17 +77,18 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let gracePrayerBodyLabel: UILabel = {
-		let label = UILabel()
+	let gracePrayerBodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let hailMaryTitleLabel: UILabel = {
-		let label = UILabel()
+	let hailMaryTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -93,8 +96,8 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let hailHolyQueenTitleLabel: UILabel = {
-		let label = UILabel()
+	let hailHolyQueenTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -102,26 +105,28 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	let praiseFirstPartLabel: UILabel = {
-		let label = UILabel()
+	let praiseFirstPartLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.TextLines
 		return label
 	}()
 	
-	let praiseSecondPartLabel: UILabel = {
-		let label = UILabel()
+	let praiseSecondPartLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.TextLines
 		return label
 	}()
 	
-	let signOfTheCrossLabel: UILabel = {
-		let label = UILabel()
+	let signOfTheCrossLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.Black
 		label.textAlignment = .left
@@ -130,7 +135,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		return label
 	}()
 	
-	var rosaryFinishingPrayerCellData: RosaryFinishingPrayerTableCellData?
+	var rosaryFinishingPrayerCellData: PrayerRosaryFinishingPrayerTableCellData?
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -221,7 +226,7 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 		}
 		
 		praiseSecondPartLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(praiseFirstPartLabel.snp.bottom).offset(Spacing.s8)
+			make.top.equalTo(praiseFirstPartLabel.snp.bottom).offset(Spacing.s12)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 		}
@@ -239,8 +244,8 @@ class RosaryFinishingPrayerTableViewCell: UITableViewCell {
 	}
 }
 
-extension RosaryFinishingPrayerTableViewCell: CellUpdatable {
-	typealias CellData = RosaryFinishingPrayerTableCellData
+extension PrayerRosaryFinishingPrayerTableViewCell: CellUpdatable {
+	typealias CellData = PrayerRosaryFinishingPrayerTableCellData
 	
 	func update(withCellData cellData: CellData) {
 		rosaryFinishingPrayerCellData = cellData

@@ -8,8 +8,14 @@ protocol RosarySessionInfoEventHandler: class {
 	func didCompleteRosaryForm()
 }
 
-class RosarySessionInfoViewController: ViewController {
-
+class RosarySessionInfoViewController: TableViewController {
+	private let tableViewBottomInset: CGFloat = 80.0
+	
+	let calendarContainerView: UIView = {
+		let view = UIView()
+		return view
+	}()
+	
 	lazy var calendarView: CalendarView = {
 		let calendar = CalendarView(frame: .zero)
 		calendar.delegate = self
@@ -49,14 +55,17 @@ class RosarySessionInfoViewController: ViewController {
 		
 		// Do any additional setup after loading the view.
 		navigationItem.title = "달력"
+		tableView.contentInset.bottom = tableViewBottomInset
 		
-		safeAreaView.addSubview(calendarView)
 		safeAreaView.addSubview(rosaryPeriodSetterOpenButton)
+		
+		calendarContainerView.addSubview(calendarView)
 		
 		calendarView.snp.makeConstraints { (make) in
 			make.top.equalToSuperview().offset(Spacing.s16)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
+			make.bottom.equalToSuperview().offset(-Spacing.s16)
 			make.height.equalTo(400.0)
 		}
 		
@@ -66,6 +75,11 @@ class RosarySessionInfoViewController: ViewController {
 			make.bottom.equalToSuperview().offset(-Spacing.s16)
 			make.height.equalTo(48.0)
 		}
+		
+		tableViewUtility.register(cells: viewModel.cellConfigurators())
+		tableViewUtility.reloadData()
+		
+		setHeaderView(calendarContainerView)
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -73,14 +87,20 @@ class RosarySessionInfoViewController: ViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
+	override func tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) {
+		return
+	}
+	
 	@objc private func tappedButton(_ sender: Any) {
 		rosaryFormModal.show()
 	}
 }
 
+// MARK: - User Interface
 extension RosarySessionInfoViewController: RosarySessionInfoUserInterface {
-	func refreshCalendar() {
+	func refreshWith(cellConfigurators: [CellConfiguratorType]) {
 		calendarView.reloadData()
+		tableViewUtility.reloadData(withCellConfigurators: cellConfigurators)
 	}
 	
 	func updateRosaryForm(petitionSummary text: String) {
@@ -96,23 +116,24 @@ extension RosarySessionInfoViewController: RosarySessionInfoUserInterface {
 	}
 }
 
+// MARK: - Other View Delegates
 extension RosarySessionInfoViewController: CalendarViewDelegate {
+	func calendarViewDidScrollToAdjacentMonth(_ calendar: CalendarView) {
+		return
+	}
+	
 	func calendarView(_ calendar: CalendarView, willDisplay dayView: CalendarDayView, with date: Date) {
 		if date.isToday {
 			dayView.dayLabel.textColor = Color.RosaryYellow
-		} else {
-			dayView.dayLabel.textColor = Color.Black
 		}
 		
-		guard let rosaryDates = viewModel.rosaryPeriod?.rosaryDates else {
-			return
-		}
-		
-		let dateMatchingRosaryDate = rosaryDates.filter { $0.date.isOnSameDay(as: date) }.first
-		if let mysteryAssignedColor = dateMatchingRosaryDate?.mystery.assignedColor {
-			dayView.showEventIndicator(withColor: mysteryAssignedColor)
+		if let rosaryDates = viewModel.rosaryPeriod?.rosaryDates,
+		    let dateMatchingRosaryDate = rosaryDates.filter({ $0.date.isOnSameDay(as: date) }).first {
+			let primaryMysteryColor = dateMatchingRosaryDate.mystery.assignedColor
+			let secondaryMysteryColor = dateMatchingRosaryDate.additionalMystery?.assignedColor
+			dayView.showEventIndicators(withColors: [primaryMysteryColor, secondaryMysteryColor])
 		} else {
-			dayView.hideEventIndicator()
+			dayView.hideEventIndicators()
 		}
 		
 		return

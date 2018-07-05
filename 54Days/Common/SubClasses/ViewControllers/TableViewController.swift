@@ -48,3 +48,17 @@ class TableViewController: ViewController, TableViewUtilityDelegate {
 		fatalError("tableViewUtility(_ tableViewUtility: TableViewUtility, reusableCell: UITableViewCell?, cellForRowAt indexPath: IndexPath) has not been implemented")
 	}
 }
+
+extension TableViewController {
+	func setHeaderView(_ view: UIView) {
+		view.layoutIfNeeded()
+		
+		let defaultWidth = UIScreen.main.bounds.width
+		let defaultHeight = UILayoutFittingCompressedSize.height
+		let frame = view.systemLayoutSizeFitting(CGSize(width: defaultWidth, height: defaultHeight))
+		
+		view.frame.size.height = frame.height
+		tableView.tableHeaderView = view
+		tableView.layoutIfNeeded()
+	}
+}

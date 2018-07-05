@@ -34,8 +34,8 @@ class HomePrayerEntryTableViewCell: UITableViewCell {
 		return view
 	}()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
+	let titleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.BalticSeaGray
 		return label

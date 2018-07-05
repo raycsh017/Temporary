@@ -23,8 +23,10 @@ class PrayerViewModel {
 			loadOtherPrayers()
 		}
 	}
-	
-	// MARK: Cell Configuration
+}
+
+// MARK: Cell Configuration
+extension PrayerViewModel {
 	func cellConfigurators() -> [CellConfiguratorType] {
 		var cellConfigurators = [CellConfiguratorType]()
 		
@@ -35,17 +37,17 @@ class PrayerViewModel {
 			}
 			
 			let startingPrayer = rosaryMystery.startingPrayer
-			let startingPrayerCellConfigurator = TableCellConfigurator<RosaryStartingPrayerTableViewCell>(cellData: RosaryStartingPrayerTableCellData(petitionPrayer: startingPrayer.petition, gracePrayer: startingPrayer.grace))
+			let startingPrayerCellConfigurator = TableCellConfigurator<PrayerRosaryStartingPrayerTableViewCell>(cellData: PrayerRosaryStartingPrayerTableCellData(petitionPrayer: startingPrayer.petition, gracePrayer: startingPrayer.grace))
 			
 			let subMysteryPrayers = rosaryMystery.subMysteryPrayers
 			let subMysteryCellConfigurators = subMysteryPrayers
-				.map { RosarySubMysteryTableCellData(title: $0.title, subTitle: $0.subText, mainText: $0.mainText, endingText: $0.endingText) }
-				.map { TableCellConfigurator<RosarySubMysteryTableViewCell>(cellData: $0) as CellConfiguratorType }
+				.map { PrayerRosarySubMysteryTableCellData(title: $0.title, subTitle: $0.subText, mainText: $0.mainText, endingText: $0.endingText) }
+				.map { TableCellConfigurator<PrayerRosarySubMysteryTableViewCell>(cellData: $0) as CellConfiguratorType }
 
 			let finishingPrayer = rosaryMystery.finishingPrayer
 			
 			let prayerFirstPartFormatted = textLinesCombined(textLinesBulletsPrepended(finishingPrayer.praise1))
-			let finishingPrayerCellConfigurator = TableCellConfigurator<RosaryFinishingPrayerTableViewCell>(cellData: RosaryFinishingPrayerTableCellData(spiritPrayer: finishingPrayer.spirit, petitionPrayer: finishingPrayer.petition, gracePrayer: finishingPrayer.grace, praiseFirstPart: prayerFirstPartFormatted, praiseSecondPart: finishingPrayer.praise2))
+			let finishingPrayerCellConfigurator = TableCellConfigurator<PrayerRosaryFinishingPrayerTableViewCell>(cellData: PrayerRosaryFinishingPrayerTableCellData(spiritPrayer: finishingPrayer.spirit, petitionPrayer: finishingPrayer.petition, gracePrayer: finishingPrayer.grace, praiseFirstPart: prayerFirstPartFormatted, praiseSecondPart: finishingPrayer.praise2))
 			
 			cellConfigurators.append(startingPrayerCellConfigurator)
 			cellConfigurators.append(contentsOf: subMysteryCellConfigurators)
@@ -56,9 +58,10 @@ class PrayerViewModel {
 			otherPrayerCellConfigurators = otherPrayers.map {
 				let prayerLinesUnderlined = textLinesUnderlined($0.textLines, at: $0.underlineLineOffset)
 				let prayerLinesCombined = textLinesCombined(prayerLinesUnderlined)
-				return OtherPrayerTableCellData(title: $0.title, body: prayerLinesCombined)
+				let prayerTextSpacingAdjusted = textSpacingAdjusted(prayerLinesCombined)
+				return PrayerOtherPrayerTableCellData(title: $0.title, body: prayerTextSpacingAdjusted)
 			}.map {
-				return TableCellConfigurator<OtherPrayerTableViewCell>(cellData: $0) as CellConfiguratorType
+				return TableCellConfigurator<PrayerOtherPrayerTableViewCell>(cellData: $0) as CellConfiguratorType
 			}
 			
 			cellConfigurators.append(contentsOf: otherPrayerCellConfigurators)
@@ -66,8 +69,10 @@ class PrayerViewModel {
 		
 		return cellConfigurators
 	}
-	
-	// MARK: Load Data
+}
+
+// MARK: Load Data
+extension PrayerViewModel {
 	private func loadRosaryPrayers() {
 		let rosaryPrayersData = FileUtility.loadData(fromJSONFileWithName: kRosaryPrayersJsonFileName)
 		rosaryPrayer = parseRosaryPrayers(fromJSON: rosaryPrayersData)
@@ -155,9 +160,11 @@ class PrayerViewModel {
 		
 		return otherPrayers
 	}
+}
 
-	// MARK: Style
-	private func textLinesBulletsPrepended(_ textLines: [String]) -> [String] {
+// MARK: Formatting
+extension PrayerViewModel {
+	fileprivate func textLinesBulletsPrepended(_ textLines: [String]) -> [String] {
 		return textLines.enumerated().map { (offset, string) -> String in
 			if offset % 2 == 0 {
 				return Unicode.WhiteBullet + " \(string)"
@@ -167,7 +174,7 @@ class PrayerViewModel {
 		}
 	}
 	
-	private func textLinesUnderlined(_ textLines: [String], at lineOffset: Int?) -> [NSAttributedString] {
+	fileprivate func textLinesUnderlined(_ textLines: [String], at lineOffset: Int?) -> [NSAttributedString] {
 		return textLines.enumerated().map {
 			if let lineOffset = lineOffset,
 				$0.offset == lineOffset {
@@ -178,17 +185,17 @@ class PrayerViewModel {
 		}
 	}
 	
-	private func textLinesCombined(_ textLines: [String]) -> String {
+	fileprivate func textLinesCombined(_ textLines: [String]) -> String {
 		return textLines.reduce("") { $0 + $1 }
 	}
 	
-	private func textLinesCombined(_ attributedTextLines: [NSAttributedString]) -> NSAttributedString {
+	fileprivate func textLinesCombined(_ attributedTextLines: [NSAttributedString]) -> NSAttributedString {
 		let mutableAttributedString = NSMutableAttributedString()
 		attributedTextLines.forEach { mutableAttributedString.append($0) }
 		return mutableAttributedString as NSAttributedString
 	}
 	
-	private func textSpacingAdjusted(_ attributedText: NSAttributedString) -> NSAttributedString {
+	fileprivate func textSpacingAdjusted(_ attributedText: NSAttributedString) -> NSAttributedString {
 		let mutableAttributedString = NSMutableAttributedString(attributedString: attributedText)
 		
 		let paragraphStyle = NSMutableParagraphStyle()

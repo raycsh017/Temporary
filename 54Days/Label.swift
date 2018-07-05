@@ -23,6 +23,7 @@ class Label: UILabel {
 		
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = textAttributes.lineSpacing
+		paragraphStyle.paragraphSpacing = textAttributes.paragraphSpacing
 		
 		mutableAttrString.addAttributes([
 			.paragraphStyle: paragraphStyle

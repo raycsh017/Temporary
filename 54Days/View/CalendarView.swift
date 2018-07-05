@@ -5,9 +5,11 @@ protocol CalendarViewDelegate: class {
 	func calendarView(_ calendar: CalendarView, willDisplay dayView: CalendarDayView, with date: Date)
 	func calendarView(_ calendar: CalendarView, didSelectDayView dayView: CalendarDayView, withDate date: Date)
 	func calendarView(_ calendar: CalendarView, didDeselectDayView dayView: CalendarDayView)
+	func calendarViewDidScrollToAdjacentMonth(_ calendar: CalendarView)
 }
 
 class CalendarView: UIView {
+	private static let centerPageIndex: Int = 1
 	
 	let yearTitleLabel: UILabel = {
 		let label = UILabel()
@@ -33,14 +35,17 @@ class CalendarView: UIView {
 		return stackView
 	}()
 	
-	lazy var monthCollectionView: UICollectionView = {
+	let monthCollectionViewFlowLayout: UICollectionViewFlowLayout = {
 		let flowlayout = UICollectionViewFlowLayout()
 		flowlayout.scrollDirection = .horizontal
 		flowlayout.sectionInset = .zero
 		flowlayout.minimumInteritemSpacing = 0
 		flowlayout.minimumLineSpacing = 0
-
-		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+		return flowlayout
+	}()
+	
+	lazy var monthCollectionView: UICollectionView = {
+		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.monthCollectionViewFlowLayout)
 		collectionView.backgroundColor = .white
 		collectionView.isPagingEnabled = true
 		collectionView.showsHorizontalScrollIndicator = false
@@ -50,34 +55,36 @@ class CalendarView: UIView {
 		return collectionView
 	}()
 
+	var pageWidth: CGFloat {
+		get {
+			return monthCollectionView.bounds.width
+		}
+	}
+
 	weak var delegate: CalendarViewDelegate?
-	
-	lazy var viewModel: CalendarViewModel = {
-		let viewModel = CalendarViewModel()
-		viewModel.delegate = self
-		return viewModel
-	}()
-	
+
+	let viewModel = CalendarViewModel()
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
+
 		addSubview(yearTitleLabel)
 		addSubview(monthTitleLabel)
 		addSubview(weekdayTitlesStackView)
 		addSubview(monthCollectionView)
-		
+
 		yearTitleLabel.snp.makeConstraints { (make) in
 			make.top.equalToSuperview()
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 		}
-		
+
 		monthTitleLabel.snp.makeConstraints { (make) in
 			make.top.equalTo(yearTitleLabel.snp.bottom).offset(8.0)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 		}
-		
+
 		weekdayTitlesStackView.snp.makeConstraints { (make) in
 			make.top.equalTo(monthTitleLabel.snp.bottom).offset(12.0)
 			make.left.equalToSuperview()
@@ -90,8 +97,9 @@ class CalendarView: UIView {
 			make.right.equalToSuperview()
 			make.bottom.equalToSuperview()
 		}
-		
-		configure()
+
+		setupWeekdayTitles()
+		reloadData()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -100,41 +108,34 @@ class CalendarView: UIView {
 
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		
-		adjustCalendarOffsetToCenter()
-	}
-	
-	func reloadData() {
-		monthCollectionView.reloadData()
+
+		centerContent()
 	}
 
-	private func configure() {
-		configureYearAndMonthTitles()
-		configureWeekdayTitles()
-	}
-	
-	private func configureYearAndMonthTitles() {
-		let currentYear = viewModel.currentYearTitle
-		let currentMonth = viewModel.currentMonthTitle
-		
-		yearTitleLabel.text = currentYear
-		monthTitleLabel.text = currentMonth
-	}
-	
-	private func configureWeekdayTitles() {
-		let weekdayTitles = viewModel.weekdayTitles
-		
-		for title in weekdayTitles {
-			let label = UILabel()
-			label.textAlignment = .center
-			label.textColor = .black
-			label.text = title
-			
-			weekdayTitlesStackView.addArrangedSubview(label)
+	private func setupWeekdayTitles() {
+		viewModel.getWeekdayTitles { [weak self] (titles) in
+			for title in titles {
+				let label = UILabel()
+				label.textAlignment = .center
+				label.textColor = .black
+				label.text = title
+				self?.weekdayTitlesStackView.addArrangedSubview(label)
+			}
 		}
+	}
+
+	func reloadData() {
+		viewModel.getYearAndMonth { [weak self] (yearTitle, monthTitle) in
+			self?.yearTitleLabel.text = yearTitle
+			self?.monthTitleLabel.text = monthTitle
+		}
+
+		monthCollectionView.reloadData()
+		centerContent()
 	}
 }
 
+// MARK: - CalendarView: UICollectionViewDataSource
 extension CalendarView: UICollectionViewDataSource {
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
@@ -148,49 +149,54 @@ extension CalendarView: UICollectionViewDataSource {
 		guard let monthCell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarMonthCollectionViewCell.cellIdentifier, for: indexPath) as? CalendarMonthCollectionViewCell else {
 			return UICollectionViewCell()
 		}
-		
-		let monthCellIndex = indexPath.row
-		let calendarMonth = viewModel.calendarMonths[monthCellIndex]
-		
+
+		guard let calendarMonth = viewModel.calendarMonths.getItem(at: indexPath.row) else {
+			return UICollectionViewCell()
+		}
+
 		monthCell.update(calendarMonth: calendarMonth)
 		monthCell.delegate = self
-		
+
 		return monthCell
 	}
 }
 
+// MARK: - CalendarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension CalendarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return monthCollectionView.bounds.size
 	}
 }
 
+// MARK: - CalendarView: UIScrollViewDelegate
 extension CalendarView: UIScrollViewDelegate {
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		let pageWidth = scrollView.bounds.width
-		let newPageIndex = Int(scrollView.contentOffset.x / pageWidth)
+		let pageIndexAfterScroll = Int(scrollView.contentOffset.x / pageWidth)
 
-		viewModel.updateMonthsBasedOnNewPage(withIndex: newPageIndex)
+		guard pageIndexAfterScroll != CalendarView.centerPageIndex else {
+			return
+		}
+
+		if pageIndexAfterScroll < CalendarView.centerPageIndex {
+			viewModel.shiftCalendarMonthsRight { [weak self] in
+				self?.reloadData()
+			}
+		} else {
+			viewModel.shiftCalendarMonthsLeft { [weak self] in
+				self?.reloadData()
+			}
+		}
 	}
 }
 
-extension CalendarView: CalendarViewModelDelegate {
-	func didUpdateMonths() {
-		adjustCalendarOffsetToCenter()
-		
-		yearTitleLabel.text = viewModel.currentYearTitle
-		monthTitleLabel.text = viewModel.currentMonthTitle
-		monthCollectionView.reloadData()
-	}
-	
-	func adjustCalendarOffsetToCenter() {
+extension CalendarView {
+	private func centerContent() {
 		monthCollectionView.layoutIfNeeded()
-		
-		let centerMonthStartingOffset = CGPoint(x: monthCollectionView.bounds.width, y: 0.0)
-		monthCollectionView.contentOffset = centerMonthStartingOffset
+		monthCollectionView.contentOffset = CGPoint(x: pageWidth, y: 0.0)
 	}
 }
 
+// MARK: - CalendarView: CalendarMonthCollectionViewCellDelegate
 extension CalendarView: CalendarMonthCollectionViewCellDelegate {
 	func calendarMonthCollectionViewCell(_ cell: CalendarMonthCollectionViewCell, willDisplay dayView: CalendarDayView, with date: Date) {
 		delegate?.calendarView(self, willDisplay: dayView, with: date)

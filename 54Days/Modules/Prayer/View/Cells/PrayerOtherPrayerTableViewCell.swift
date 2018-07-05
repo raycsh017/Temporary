@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class OtherPrayerTableCellData {
+class PrayerOtherPrayerTableCellData {
 	let title: String
 	let body: NSAttributedString
 	
@@ -11,28 +11,29 @@ class OtherPrayerTableCellData {
 	}
 }
 
-class OtherPrayerTableViewCell: UITableViewCell {
+class PrayerOtherPrayerTableViewCell: UITableViewCell {
 	
 	let contentInsetView = UIView()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
+	let titleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf24
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		return label
 	}()
 	
-	let bodyLabel: UILabel = {
-		let label = UILabel()
+	let bodyLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	var otherPrayerCellData: OtherPrayerTableCellData?
+	var otherPrayerCellData: PrayerOtherPrayerTableCellData?
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -73,8 +74,8 @@ class OtherPrayerTableViewCell: UITableViewCell {
 	}
 }
 
-extension OtherPrayerTableViewCell: CellUpdatable {
-	typealias CellData = OtherPrayerTableCellData
+extension PrayerOtherPrayerTableViewCell: CellUpdatable {
+	typealias CellData = PrayerOtherPrayerTableCellData
 	
 	func update(withCellData cellData: CellData) {
 		otherPrayerCellData = cellData

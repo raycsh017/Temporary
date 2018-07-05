@@ -11,16 +11,8 @@ target '54Days' do
   # Pods for 54Days
 	pod 'SwiftyJSON'
 	pod 'RealmSwift'
-	pod 'SnapKit', '~> 4.0.0'
-end
-
-target 'SwiftyCalendar' do
-	workspace '54Days'
-	project 'SwiftyCalendar/SwiftyCalendar.xcodeproj'
-	# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-	use_frameworks!
 	
-	# Pods for 54Days
+  # UI Related
 	pod 'SnapKit', '~> 4.0.0'
+	pod 'JTAppleCalendar', '~> 7.0'
 end
-	

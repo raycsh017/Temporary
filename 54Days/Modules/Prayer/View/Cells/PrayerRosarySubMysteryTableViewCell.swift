@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class RosarySubMysteryTableCellData {
+class PrayerRosarySubMysteryTableCellData {
 	let title: String
 	let subTitle: String
 	let mainText: String
@@ -15,20 +15,20 @@ class RosarySubMysteryTableCellData {
 	}
 }
 
-class RosarySubMysteryTableViewCell: UITableViewCell {
+class PrayerRosarySubMysteryTableViewCell: UITableViewCell {
 	
 	let contentInsetView = UIView()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
+	let titleLabel: Label = {
+		let label = Label()
 		label.font = Font.bf24
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
 		return label
 	}()
 	
-	let subTitleLabel: UILabel = {
-		let label = UILabel()
+	let subTitleLabel: Label = {
+		let label = Label()
 		label.font = Font.f16
 		label.textColor = Color.CrimsonRed
 		label.textAlignment = .left
@@ -42,12 +42,12 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
-		label.textAttributes = PredefinedTextAttributes.Paragraph
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	let listOfPrayersLabel: UILabel = {
-		let label = UILabel()
+	let listOfPrayersLabel: Label = {
+		let label = Label()
 		label.font = Font.bf16
 		label.textColor = Color.OceanBlue
 		label.textAlignment = .left
@@ -62,11 +62,11 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 		label.textColor = Color.Black
 		label.textAlignment = .left
 		label.numberOfLines = 0
-		label.textAttributes = PredefinedTextAttributes.Paragraph
+		label.textAttributes = TextAttributes.Predefined.Paragraph
 		return label
 	}()
 	
-	var rosarySubMysteryTableCellData: RosarySubMysteryTableCellData?
+	var rosarySubMysteryTableCellData: PrayerRosarySubMysteryTableCellData?
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -128,8 +128,8 @@ class RosarySubMysteryTableViewCell: UITableViewCell {
 	}
 }
 
-extension RosarySubMysteryTableViewCell: CellUpdatable {
-	typealias CellData = RosarySubMysteryTableCellData
+extension PrayerRosarySubMysteryTableViewCell: CellUpdatable {
+	typealias CellData = PrayerRosarySubMysteryTableCellData
 	
 	func update(withCellData cellData: CellData) {
 		rosarySubMysteryTableCellData = cellData
