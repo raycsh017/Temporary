@@ -31,15 +31,12 @@
 		D1443FB61E492F1F00EB66DB /* PrayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB51E492F1F00EB66DB /* PrayerType.swift */; };
 		D14AB19C1F2B22E100B7FCBA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB19B1F2B22E100B7FCBA /* UIViewExtensions.swift */; };
 		D14AB1AA1F2DC76B00B7FCBA /* UIScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */; };
-		D14CA5181FDE615A00B2EC09 /* RosarySessionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA5171FDE615A00B2EC09 /* RosarySessionInfoViewController.swift */; };
-		D14CA51A1FDE63A000B2EC09 /* RosarySessionInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA5191FDE63A000B2EC09 /* RosarySessionInfoViewModel.swift */; };
 		D14CA51E1FDE66F600B2EC09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA51D1FDE66F600B2EC09 /* ViewController.swift */; };
 		D15129561FF371D300DEB96C /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */; };
 		D15129571FF371D300DEB96C /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15129551FF371D300DEB96C /* NanumBarunGothicBold.ttf */; };
 		D174295B20F73EBE00FD738B /* RosaryFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D174295A20F73EBE00FD738B /* RosaryFormViewController.swift */; };
 		D174295D20F73ED400FD738B /* RosaryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D174295C20F73ED400FD738B /* RosaryFormViewModel.swift */; };
 		D174295F20F741F700FD738B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D174295E20F741F700FD738B /* TextView.swift */; };
-		D17F73DA20495A470012B8AE /* RosaryFormModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F73D920495A470012B8AE /* RosaryFormModalView.swift */; };
 		D17F8EFC200ADD190083A480 /* RosaryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F8EFB200ADD190083A480 /* RosaryRecord.swift */; };
 		D182B7CF20735EB800B19BD3 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B7CE20735EB800B19BD3 /* TextField.swift */; };
 		D1845AE120777166008CBE88 /* RosaryConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1845AE020777166008CBE88 /* RosaryConstants.swift */; };
@@ -83,7 +80,6 @@
 		D1891E522095972F00251CA3 /* rosaryPrayers.json in Resources */ = {isa = PBXBuildFile; fileRef = D1891E502095972F00251CA3 /* rosaryPrayers.json */; };
 		D1891E552098186B00251CA3 /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E542098186B00251CA3 /* TextAttributes.swift */; };
 		D1891E5820981A7B00251CA3 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E5720981A7B00251CA3 /* Label.swift */; };
-		D1891E9320AA9CBB00251CA3 /* RosarySessionInfoCurrentSessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E9220AA9CBB00251CA3 /* RosarySessionInfoCurrentSessionTableViewCell.swift */; };
 		D1891E9520B25A3900251CA3 /* RosaryDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E9420B25A3900251CA3 /* RosaryDateCalculator.swift */; };
 		D19EB8A820F2D72E009F4026 /* HomeRosaryProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB8A720F2D72D009F4026 /* HomeRosaryProgressTableViewCell.swift */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
@@ -134,15 +130,12 @@
 		D14AB19B1F2B22E100B7FCBA /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Common/Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
 		D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScreenExtensions.swift; path = Common/Extensions/UIScreenExtensions.swift; sourceTree = "<group>"; };
 		D14CA5141FDE605F00B2EC09 /* 54Days-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "54Days-Bridging-Header.h"; sourceTree = "<group>"; };
-		D14CA5171FDE615A00B2EC09 /* RosarySessionInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosarySessionInfoViewController.swift; sourceTree = "<group>"; };
-		D14CA5191FDE63A000B2EC09 /* RosarySessionInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RosarySessionInfoViewModel.swift; path = Modules/Calendar/ViewModel/RosarySessionInfoViewModel.swift; sourceTree = "<group>"; };
 		D14CA51D1FDE66F600B2EC09 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Common/SubClasses/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothic.ttf; path = Resources/Fonts/NanumBarunGothic/NanumBarunGothic.ttf; sourceTree = "<group>"; };
 		D15129551FF371D300DEB96C /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumBarunGothicBold.ttf; path = Resources/Fonts/NanumBarunGothic/NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
 		D174295A20F73EBE00FD738B /* RosaryFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryFormViewController.swift; sourceTree = "<group>"; };
 		D174295C20F73ED400FD738B /* RosaryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryFormViewModel.swift; sourceTree = "<group>"; };
 		D174295E20F741F700FD738B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		D17F73D920495A470012B8AE /* RosaryFormModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RosaryFormModalView.swift; path = Modules/Calendar/RosaryFormModalView.swift; sourceTree = "<group>"; };
 		D17F8EB01FFE17940083A480 /* SwiftyCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17F8EFB200ADD190083A480 /* RosaryRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RosaryRecord.swift; path = Common/Entities/Realm/RosaryRecord.swift; sourceTree = "<group>"; };
 		D182B7CE20735EB800B19BD3 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = Common/SubClasses/Views/TextField.swift; sourceTree = "<group>"; };
@@ -187,7 +180,6 @@
 		D1891E502095972F00251CA3 /* rosaryPrayers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = rosaryPrayers.json; path = Resources/JSON/rosaryPrayers.json; sourceTree = "<group>"; };
 		D1891E542098186B00251CA3 /* TextAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributes.swift; sourceTree = "<group>"; };
 		D1891E5720981A7B00251CA3 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		D1891E9220AA9CBB00251CA3 /* RosarySessionInfoCurrentSessionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosarySessionInfoCurrentSessionTableViewCell.swift; sourceTree = "<group>"; };
 		D1891E9420B25A3900251CA3 /* RosaryDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryDateCalculator.swift; sourceTree = "<group>"; };
 		D19EB8A720F2D72D009F4026 /* HomeRosaryProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeRosaryProgressTableViewCell.swift; path = Modules/Home/View/Cells/HomeRosaryProgressTableViewCell.swift; sourceTree = "<group>"; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,42 +202,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D10744D31F80664200C0DC47 /* RosarySessionInfo */ = {
-			isa = PBXGroup;
-			children = (
-				D10744D61F80666000C0DC47 /* View */,
-				D10744D51F80665800C0DC47 /* ViewModel */,
-				D10744D41F80665300C0DC47 /* Model */,
-			);
-			name = RosarySessionInfo;
-			sourceTree = "<group>";
-		};
-		D10744D41F80665300C0DC47 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		D10744D51F80665800C0DC47 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				D14CA5191FDE63A000B2EC09 /* RosarySessionInfoViewModel.swift */,
-			);
-			name = ViewModel;
-			sourceTree = "<group>";
-		};
-		D10744D61F80666000C0DC47 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D1891E9120AA9C7B00251CA3 /* Cells */,
-				D1891E9020AA8F6700251CA3 /* RosaryForm */,
-				D14CA5171FDE615A00B2EC09 /* RosarySessionInfoViewController.swift */,
-				D17F73D920495A470012B8AE /* RosaryFormModalView.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		D10BB18720C5229E00629B90 /* CalendarVIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,7 +324,6 @@
 		D14AB19D1F2B231C00B7FCBA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				D10744D31F80664200C0DC47 /* RosarySessionInfo */,
 				D19EB8A920F2D764009F4026 /* RosaryForm */,
 				D12A4FAE1F6C260B00B2DEF4 /* Prayer */,
 				D14AB19E1F2B232400B7FCBA /* Home */,
@@ -504,21 +459,6 @@
 				D1891E502095972F00251CA3 /* rosaryPrayers.json */,
 			);
 			name = JSON;
-			sourceTree = "<group>";
-		};
-		D1891E9020AA8F6700251CA3 /* RosaryForm */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = RosaryForm;
-			sourceTree = "<group>";
-		};
-		D1891E9120AA9C7B00251CA3 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				D1891E9220AA9CBB00251CA3 /* RosarySessionInfoCurrentSessionTableViewCell.swift */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		D19EB8A920F2D764009F4026 /* RosaryForm */ = {
@@ -797,7 +737,6 @@
 				D19EB8A820F2D72E009F4026 /* HomeRosaryProgressTableViewCell.swift in Sources */,
 				D1891E9520B25A3900251CA3 /* RosaryDateCalculator.swift in Sources */,
 				D138EADC20F8812A004AADCE /* Size.swift in Sources */,
-				D17F73DA20495A470012B8AE /* RosaryFormModalView.swift in Sources */,
 				D1891E022095942900251CA3 /* PrayerRosarySubMysteryTableViewCell.swift in Sources */,
 				D174295B20F73EBE00FD738B /* RosaryFormViewController.swift in Sources */,
 				D1891E012095942900251CA3 /* PrayerRosaryFinishingPrayerTableViewCell.swift in Sources */,
@@ -820,10 +759,8 @@
 				D1891E16209594FC00251CA3 /* TableViewController.swift in Sources */,
 				D10EEB52211ABF5F00547DF6 /* ImageView.swift in Sources */,
 				D1891E352095961000251CA3 /* UIViewControllerExtensions.swift in Sources */,
-				D14CA51A1FDE63A000B2EC09 /* RosarySessionInfoViewModel.swift in Sources */,
 				D1891E4B209596D800251CA3 /* HomeViewController.swift in Sources */,
 				D1443FB61E492F1F00EB66DB /* PrayerType.swift in Sources */,
-				D1891E9320AA9CBB00251CA3 /* RosarySessionInfoCurrentSessionTableViewCell.swift in Sources */,
 				D1891E18209594FC00251CA3 /* NavigationController.swift in Sources */,
 				D1891E242095959800251CA3 /* CellUpdatable.swift in Sources */,
 				D1891E382095961000251CA3 /* UIStackViewExtensions.swift in Sources */,
@@ -863,7 +800,6 @@
 				D138EADE20FA9013004AADCE /* UIView+TableView.swift in Sources */,
 				D1891E232095959800251CA3 /* TableView.swift in Sources */,
 				D174295D20F73ED400FD738B /* RosaryFormViewModel.swift in Sources */,
-				D14CA5181FDE615A00B2EC09 /* RosarySessionInfoViewController.swift in Sources */,
 				D174295F20F741F700FD738B /* TextView.swift in Sources */,
 				D1891E082095944000251CA3 /* PrayerViewModel.swift in Sources */,
 				D14AB1AA1F2DC76B00B7FCBA /* UIScreenExtensions.swift in Sources */,
