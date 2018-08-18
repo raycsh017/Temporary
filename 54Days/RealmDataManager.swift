@@ -70,5 +70,7 @@ extension RealmDataManager {
 		} catch {
 			print("Failed to deleteall records")
 		}
+
+		completion?()
 	}
 }
