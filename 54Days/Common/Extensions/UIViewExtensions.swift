@@ -7,7 +7,11 @@ extension UIView {
 		layer.shadowRadius = CGFloat(0.5)
 		layer.shadowOpacity = Float(0.3)
 	}
-	
+
+	func applyCornerRadius() {
+		layer.cornerRadius = CornerRadius.cr4
+	}
+
 	func applyUnderline() {
 		let underlineView = UIView()
 		underlineView.backgroundColor = Color.BackgroundGray

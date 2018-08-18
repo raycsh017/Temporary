@@ -1,31 +1,23 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-	
-	let kFixedTabBarIconInset = UIEdgeInsetsMake(5.0, 0.0, -5.0, 0.0)
-	
+	private static let fixedTabBarIconInset = UIEdgeInsetsMake(5.0, 0.0, -5.0, 0.0)
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 		let homeViewController = HomeViewController()
 		let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_prayer"), tag: 0)
-		homeTabBarItem.imageInsets = kFixedTabBarIconInset
+		homeTabBarItem.imageInsets = MainTabBarController.fixedTabBarIconInset
 		homeViewController.tabBarItem = homeTabBarItem
-		
+
 		let homeNavigationController = NavigationController(rootViewController: homeViewController)
 		homeNavigationController.prefersLargeTitles = true
-		
-		let rosarySessionInfoViewController = RosarySessionInfoViewController()
-		let rosarySessionInfoTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_calendar"), tag: 1)
-		rosarySessionInfoTabBarItem.imageInsets = kFixedTabBarIconInset
-		rosarySessionInfoViewController.tabBarItem = rosarySessionInfoTabBarItem
-		
-		viewControllers = [homeNavigationController, rosarySessionInfoViewController]
-//		viewControllers = [calendarViewController]
-		
-//		selectedViewController = homeNavigationController
-		selectedViewController = rosarySessionInfoViewController
+
+		viewControllers = [homeNavigationController]
+
+		selectedViewController = homeNavigationController
     }
 
     override func didReceiveMemoryWarning() {

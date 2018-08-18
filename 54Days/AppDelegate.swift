@@ -14,21 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-		
-		// UITab
-		UITabBar.appearance().tintColor = .black
-		
+
 		// UINavigation
 		UINavigationBar.appearance().tintColor = .black
-		
-		let mainViewController = MainTabBarController()
+
+		let homeViewController = HomeViewController()
+		let homeNavigationController = NavigationController(rootViewController: homeViewController)
+		homeNavigationController.prefersLargeTitles = true
+
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = mainViewController
+		window?.rootViewController = homeNavigationController
 		window?.makeKeyAndVisible()
-		
+
 		return true
 	}
 

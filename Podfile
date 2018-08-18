@@ -14,5 +14,4 @@ target '54Days' do
 	
   # UI Related
 	pod 'SnapKit', '~> 4.0.0'
-	pod 'JTAppleCalendar', '~> 7.0'
 end

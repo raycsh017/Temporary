@@ -100,7 +100,7 @@ class RosarySessionInfoViewController: TableViewController {
 extension RosarySessionInfoViewController: RosarySessionInfoUserInterface {
 	func refreshWith(cellConfigurators: [CellConfiguratorType]) {
 		calendarView.reloadData()
-		tableViewUtility.reloadData(withCellConfigurators: cellConfigurators)
+		reloadData(withCellConfigurators: cellConfigurators)
 	}
 	
 	func updateRosaryForm(petitionSummary text: String) {

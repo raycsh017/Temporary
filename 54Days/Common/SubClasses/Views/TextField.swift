@@ -1,33 +1,18 @@
 import UIKit
 import SnapKit
 
-class TextField: UIView {
-	var font: UIFont? {
-		didSet {
-			textField.font = font
-		}
+class TextField: UITextField {
+	private let suggestedTextInset = UIEdgeInsets.make(with: Spacing.s8)
+	
+	override func textRect(forBounds bounds: CGRect) -> CGRect {
+		return UIEdgeInsetsInsetRect(bounds, suggestedTextInset)
 	}
 	
-	let textField: UITextField = {
-		let textField = UITextField()
-		textField.textColor = Color.Black
-		textField.tintColor = Color.Black
-		textField.autocorrectionType = .no
-		textField.autocapitalizationType = .none
-		return textField
-	}()
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		
-		addSubview(textField)
-		
-		textField.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview().inset(UIEdgeInsets.make(with: Spacing.s8))
-		}
+	override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+		return UIEdgeInsetsInsetRect(bounds, suggestedTextInset)
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+	override func editingRect(forBounds bounds: CGRect) -> CGRect {
+		return UIEdgeInsetsInsetRect(bounds, suggestedTextInset)
 	}
 }

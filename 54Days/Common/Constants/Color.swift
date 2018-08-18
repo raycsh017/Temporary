@@ -23,7 +23,31 @@ struct Color {
 }
 
 extension Color {
+	struct Text {
+		static let Header = Color.StarDust
+		static let Body = Color.Black
+	}
+	
+	struct Form {
+		static let Header = Color.StarDust
+		static let TextFieldText = Color.Black
+		static let TextFieldPlaceholder = Color.Platinum
+	}
+	
+	struct Border {
+		static let TextField = Color.Platinum
+	}
+	
 	struct Divider {
 		static let Default = Color.BackgroundGray
+	}
+	
+	struct Button {
+		static let Confirm = Color.Aquamarine
+		static let Cancel = Color.SilverSandGray
+	}
+	
+	struct ToolBar {
+		static let Dark = Color.Black
 	}
 }

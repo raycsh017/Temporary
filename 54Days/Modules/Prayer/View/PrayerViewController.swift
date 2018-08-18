@@ -17,7 +17,7 @@ class PrayerViewController: TableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		// Do any additional setup after loading the view.
 		let prayerType = viewModel.prayerType
 		navigationItem.title = prayerType.koreanTitle

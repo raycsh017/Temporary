@@ -41,7 +41,7 @@ class RosarySessionInfoViewModel {
 	
 	private var endDateFormatted: String? {
 		guard let startDate = recentRosaryRecord?.startDate,
-			let endDate = RosaryDateCalculator.endDateInRosaryPeriod(startingFrom: startDate) else {
+			let endDate = RosaryDateCalculator.rosaryEndDate(fromStartDate: startDate) else {
 			return nil
 		}
 		return self.dateFormatter.string(from: endDate)
