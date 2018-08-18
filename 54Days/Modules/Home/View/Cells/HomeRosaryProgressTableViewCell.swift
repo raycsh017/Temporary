@@ -110,8 +110,8 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 	
 	let progressBar: ProgressBar = {
 		let progressBar = ProgressBar(totalProgress: CGFloat(RosaryConstants.numberOfDaysInPeriod))
-		progressBar.foregroundBarColor = Color.RosaryYellow
-		progressBar.backgroundBarColor = Color.Platinum
+		progressBar.foregroundBarColor = Color.StarDust
+		progressBar.backgroundBarColor = Color.BackgroundGray
 		return progressBar
 	}()
 	
@@ -223,26 +223,26 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 		}
 		
 		currentDateLabel.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s12)
+			make.top.equalToSuperview().offset(Spacing.s16)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
 		}
 		
 		progressDescriptionLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(currentDateLabel.snp.bottom).offset(Spacing.s8)
+			make.top.equalTo(currentDateLabel.snp.bottom).offset(Spacing.s12)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
 		}
-		
+
 		progressBar.snp.makeConstraints { (make) in
-			make.top.equalTo(progressDescriptionLabel.snp.bottom).offset(Spacing.s8)
+			make.top.equalTo(progressDescriptionLabel.snp.bottom).offset(Spacing.s12)
 			make.left.equalToSuperview().offset(Spacing.s16)
 			make.right.equalToSuperview().offset(-Spacing.s16)
-			make.height.equalTo(8.0).priority(.high)
+			make.height.equalTo(6.0).priority(.high)
 		}
-		
+
 		underlineView.snp.makeConstraints { (make) in
-			make.top.equalTo(progressBar.snp.bottom).offset(Spacing.s12)
+			make.top.equalTo(progressBar.snp.bottom).offset(Spacing.s16)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 			make.bottom.equalToSuperview()
