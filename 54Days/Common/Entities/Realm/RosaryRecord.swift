@@ -12,5 +12,4 @@ import RealmSwift
 class RosaryRecord: Object {
 	@objc dynamic var startDate: Date = Date()
 	@objc dynamic var petitionSummary: String = ""
-	@objc dynamic var didComplete: Bool = false
 }

@@ -69,8 +69,7 @@ extension RosaryFormViewModel {
 		RealmDataManager.shared.setObject(ofType: RosaryRecord.self, modify: { (rosaryRecord) in
 			rosaryRecord.startDate = rosaryStartDate
 			rosaryRecord.petitionSummary = rosaryPetitionText
-			rosaryRecord.didComplete = false
 		}, completion: completion)
 	}
-	
+
 }

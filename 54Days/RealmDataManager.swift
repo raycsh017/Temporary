@@ -56,12 +56,12 @@ extension RealmDataManager {
 
 		completion?()
 	}
-	
+
 	func removeAll(_ completion: (() -> Void)? = nil) {
 		guard let realm = realm else {
 			return
 		}
-		
+
 		do {
 			try realm.write {
 				realm.deleteAll()
