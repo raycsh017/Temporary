@@ -45,7 +45,7 @@ class RosaryFormDateFieldTableViewCell: UITableViewCell {
 		label.font = Font.bf14
 		label.textColor = Color.Form.Header
 		label.text = "마지막일"
-		label.alpha = 0.4
+		label.alpha = 0.5
 		return label
 	}()
 
@@ -58,7 +58,7 @@ class RosaryFormDateFieldTableViewCell: UITableViewCell {
 		textField.layer.borderColor = Color.Border.TextField.cgColor
 		textField.layer.borderWidth = 1.0
 		textField.isEnabled = false
-		textField.alpha = 0.4
+		textField.alpha = 0.5
 		return textField
 	}()
 
@@ -93,29 +93,30 @@ class RosaryFormDateFieldTableViewCell: UITableViewCell {
 
 		startDateHeaderLabel.snp.makeConstraints { (make) in
 			make.top.equalToSuperview().offset(Spacing.s16)
-			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16)
+			make.left.equalTo(startDateTextField.snp.left)
+			make.right.equalTo(startDateTextField.snp.right)
 		}
 
 		startDateTextField.snp.makeConstraints { (make) in
 			make.top.equalTo(startDateHeaderLabel.snp.bottom).offset(Spacing.s8)
 			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16)
-			make.height.equalTo(32.0)
+			make.bottom.equalToSuperview()
+			make.height.equalTo(TextField.suggestedHeight)
 		}
 		
 		endDateHeaderLabel.snp.makeConstraints { (make) in
-			make.top.equalTo(startDateTextField.snp.bottom).offset(Spacing.s12)
-			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16)
+			make.top.equalToSuperview().offset(Spacing.s16)
+			make.left.equalTo(endDateTextField.snp.left)
+			make.right.equalTo(endDateTextField.snp.right)
 		}
 		
 		endDateTextField.snp.makeConstraints { (make) in
 			make.top.equalTo(endDateHeaderLabel.snp.bottom).offset(Spacing.s8)
-			make.left.equalToSuperview().offset(Spacing.s16)
+			make.left.equalTo(startDateTextField.snp.right).offset(Spacing.s16)
 			make.right.equalToSuperview().inset(Spacing.s16)
 			make.bottom.equalToSuperview()
-			make.height.equalTo(32.0)
+			make.width.equalTo(startDateTextField.snp.width)
+			make.height.equalTo(TextField.suggestedHeight)
 		}
 	}
 
@@ -143,5 +144,6 @@ extension RosaryFormDateFieldTableViewCell: CellUpdatable {
 
 		startDateTextField.text = cellData.startDateText
 		endDateTextField.text = cellData.endDateText
+		datePicker.date = cellData.rosaryStartDate
 	}
 }

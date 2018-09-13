@@ -14,8 +14,17 @@ class HomeViewController: TableViewController {
 		return button
 	}()
 	
-	let viewModel = HomeViewModel()
+	let viewModel: HomeViewModel
 
+	init(viewModel: HomeViewModel, presentationType: PresentationType) {
+		self.viewModel = viewModel
+		super.init(presentationType: presentationType)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,14 +73,15 @@ extension HomeViewController: HomePrayerEntryTableViewCellDelegate {
 // MARK: Routing
 extension HomeViewController {
 	private func routeToPrayer(withType prayerType: PrayerType) {
-		let prayerViewModel = PrayerViewModel(prayerType: prayerType)
-		let prayerViewController = PrayerViewController(viewModel: prayerViewModel)
-		navigationController?.pushViewController(prayerViewController, animated: true)
+		let viewModel = PrayerViewModel(prayerType: prayerType)
+		let viewController = PrayerViewController(viewModel: viewModel, presentationType: .navigation)
+		navigationController?.pushViewController(viewController, animated: true)
 	}
-	
+
 	private func routeToRosaryForm() {
-		let rosaryFormViewModel = RosaryFormViewModel()
-		let rosaryFormViewController = RosaryFormViewController()
-		navigationController?.present(rosaryFormViewController, animated: true, completion: nil)
+		let viewModel = RosaryPeriodInfoViewModel()
+		let viewController = RosaryPeriodInfoViewController(viewModel: viewModel, presentationType: .modal)
+		let navigationController = NavigationController(rootViewController: viewController)
+		self.navigationController?.present(navigationController, animated: true, completion: nil)
 	}
 }

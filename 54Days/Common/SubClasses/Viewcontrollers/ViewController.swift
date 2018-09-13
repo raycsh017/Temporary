@@ -3,11 +3,18 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-	
+
+	enum PresentationType {
+		case modal
+		case navigation
+	}
+
+	let presentationType: PresentationType
+
 	private lazy var viewTapGestureRecognizer: UITapGestureRecognizer = {
 		return UITapGestureRecognizer(target: self, action: #selector(onViewTap(_:)))
 	}()
-	
+
 	lazy var navigationBar: UINavigationBar = {
 		let navBar = UINavigationBar(frame: CGRect.zero)
 		navBar.shadowImage = UIImage()
@@ -27,7 +34,8 @@ class ViewController: UIViewController {
 		}
 	}
 
-	init() {
+	init(presentationType: PresentationType) {
+		self.presentationType = presentationType
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -48,7 +56,6 @@ class ViewController: UIViewController {
 			make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
 			make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
 		}
-		
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -56,21 +63,52 @@ class ViewController: UIViewController {
 	}
 
 	func setupNavigationBar(withTitle title: String, leftButtonType: NavigationButtonType? = nil, rightButtonType: NavigationButtonType? = nil) {
-		addNavigationBarToView()
+		let navItem: UINavigationItem
+		if navigationController == nil {
+			addNavigationBarToView()
+			navItem = UINavigationItem(title: title)
+			navigationBar.setItems([navItem], animated: false)
+		} else {
+			navItem = navigationItem
+			navItem.title = title
+		}
 
-		let navigationItem = UINavigationItem(title: title)
-
+		var leftBarButtonItem: UIBarButtonItem?
 		if let leftButtonType = leftButtonType {
-			let leftBarButtonItem = UIBarButtonItem(image: leftButtonType.image, style: .plain, target: self, action: #selector(onLeftNavigationButtonTap(_:)))
-			navigationItem.leftBarButtonItem = leftBarButtonItem
+			switch leftButtonType {
+			case let .text(title):
+				leftBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(onLeftNavigationButtonTap(_:)))
+			case let .icon(iconType):
+				let button = Button(frame: CGRect(x: 0, y: 0, width: 36.0, height: 36.0))
+				button.layer.cornerRadius = CornerRadius.Button.RoundRect
+				button.setImage(iconType.image, for: .normal)
+				button.addTarget(self, action: #selector(onLeftNavigationButtonTap(_:)), for: .touchUpInside)
+				leftBarButtonItem = UIBarButtonItem(customView: button)
+			}
+			navItem.leftBarButtonItem = leftBarButtonItem
 		}
 
+		var rightBarButtonItem: UIBarButtonItem?
 		if let rightButtonType = rightButtonType {
-			let rightBarButtonItem = UIBarButtonItem(image: rightButtonType.image, style: .plain, target: self, action: #selector(onRightNavigationButtonTap(_:)))
-			navigationItem.rightBarButtonItem = rightBarButtonItem
+			switch rightButtonType {
+			case let .text(title):
+				rightBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(onRightNavigationButtonTap(_:)))
+			case let .icon(iconType):
+				let button = Button(frame: CGRect(x: 0, y: 0, width: 36.0, height: 36.0))
+				button.layer.cornerRadius = CornerRadius.Button.RoundRect
+				button.setImage(iconType.image, for: .normal)
+				button.addTarget(self, action: #selector(onRightNavigationButtonTap(_:)), for: .touchUpInside)
+				rightBarButtonItem = UIBarButtonItem(customView: button)
+			}
+			navItem.rightBarButtonItem = rightBarButtonItem
 		}
+	}
 
-		navigationBar.setItems([navigationItem], animated: false)
+	func makeNavigationBarTranslucent() {
+		let navBar = navigationController?.navigationBar ?? navigationBar
+		navBar.setBackgroundImage(UIImage(), for: .default)
+		navBar.shadowImage = UIImage()
+		navBar.isTranslucent = true
 	}
 
 	private func addNavigationBarToView() {
@@ -90,7 +128,7 @@ class ViewController: UIViewController {
 			make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
 		}
 	}
-	
+
 	private func reSetupGestureRecognizers() {
 		view.removeGestureRecognizer(viewTapGestureRecognizer)
 
@@ -100,7 +138,7 @@ class ViewController: UIViewController {
 	}
 
 	@objc func onLeftNavigationButtonTap(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
+		routeBack()
 		return
 	}
 
@@ -113,13 +151,37 @@ class ViewController: UIViewController {
 	}
 }
 
+// MARK: - Routing
+extension ViewController {
+	func routeBack() {
+		switch presentationType {
+		case .modal:
+			dismiss(animated: true, completion: nil)
+		case .navigation:
+			navigationController?.popViewController(animated: true)
+		}
+	}
+
+	func dismissNavigationController() {
+		navigationController?.dismiss(animated: true, completion: nil)
+	}
+}
+
 enum NavigationButtonType {
-	case x
-	
-	var image: UIImage? {
-		switch self {
-		case .x:
-			return #imageLiteral(resourceName: "ic_x")
+	case text(title: String)
+	case icon(iconType: IconType)
+
+	enum IconType {
+		case x
+		case leftChevron
+
+		var image: UIImage? {
+			switch self {
+			case .x:
+				return #imageLiteral(resourceName: "ic_x")
+			case .leftChevron:
+				return #imageLiteral(resourceName: "ic_chevron_left")
+			}
 		}
 	}
 }

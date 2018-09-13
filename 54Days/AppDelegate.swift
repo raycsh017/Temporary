@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 
 		// UINavigation
-		UINavigationBar.appearance().tintColor = .black
+		UINavigationBar.appearance().barTintColor = Color.White
+		UINavigationBar.appearance().tintColor = Color.Black
 
-		let homeViewController = HomeViewController()
+		let homeViewModel = HomeViewModel()
+		let homeViewController = HomeViewController(viewModel: homeViewModel, presentationType: .navigation)
 		let homeNavigationController = NavigationController(rootViewController: homeViewController)
 		homeNavigationController.prefersLargeTitles = true
 

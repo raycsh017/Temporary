@@ -29,7 +29,7 @@
 		D138EAE32103FF4A004AADCE /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138EAE22103FF4A004AADCE /* Typealiases.swift */; };
 		D13B4A821E52980C00069FEB /* RosaryMystery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4A811E52980C00069FEB /* RosaryMystery.swift */; };
 		D1443FB61E492F1F00EB66DB /* PrayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1443FB51E492F1F00EB66DB /* PrayerType.swift */; };
-		D14AB19C1F2B22E100B7FCBA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB19B1F2B22E100B7FCBA /* UIViewExtensions.swift */; };
+		D14AB19C1F2B22E100B7FCBA /* UIView+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB19B1F2B22E100B7FCBA /* UIView+Styling.swift */; };
 		D14AB1AA1F2DC76B00B7FCBA /* UIScreenExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */; };
 		D14CA51E1FDE66F600B2EC09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14CA51D1FDE66F600B2EC09 /* ViewController.swift */; };
 		D15129561FF371D300DEB96C /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15129541FF371D300DEB96C /* NanumBarunGothic.ttf */; };
@@ -82,6 +82,11 @@
 		D1891E5820981A7B00251CA3 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E5720981A7B00251CA3 /* Label.swift */; };
 		D1891E9520B25A3900251CA3 /* RosaryDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1891E9420B25A3900251CA3 /* RosaryDateCalculator.swift */; };
 		D19EB8A820F2D72E009F4026 /* HomeRosaryProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB8A720F2D72D009F4026 /* HomeRosaryProgressTableViewCell.swift */; };
+		D1BE1C0C2128EB4E0043D0EF /* RosaryPeriodInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BE1C0B2128EB4E0043D0EF /* RosaryPeriodInfoViewController.swift */; };
+		D1BE1C0E2128EB7A0043D0EF /* RosaryPeriodInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BE1C0D2128EB7A0043D0EF /* RosaryPeriodInfoViewModel.swift */; };
+		D1BE1C102128ED750043D0EF /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BE1C0F2128ED750043D0EF /* CircularButton.swift */; };
+		D1BE1C15212BDD740043D0EF /* RosaryPeriodInfoPetitionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BE1C14212BDD740043D0EF /* RosaryPeriodInfoPetitionDescriptionView.swift */; };
+		D1BE1C17212E8EF20043D0EF /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BE1C16212E8EF20043D0EF /* String+Attributed.swift */; };
 		D1CFD60F1E15BFFE00E5FE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */; };
 		D1CFD6141E15BFFE00E5FE23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD6121E15BFFE00E5FE23 /* Main.storyboard */; };
 		D1CFD61C1E15BFFE00E5FE23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CFD61A1E15BFFE00E5FE23 /* LaunchScreen.storyboard */; };
@@ -127,7 +132,7 @@
 		D138EAE22103FF4A004AADCE /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		D13B4A811E52980C00069FEB /* RosaryMystery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosaryMystery.swift; sourceTree = "<group>"; };
 		D1443FB51E492F1F00EB66DB /* PrayerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerType.swift; sourceTree = "<group>"; };
-		D14AB19B1F2B22E100B7FCBA /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Common/Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
+		D14AB19B1F2B22E100B7FCBA /* UIView+Styling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Styling.swift"; path = "Common/Extensions/UIView+Styling.swift"; sourceTree = "<group>"; };
 		D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIScreenExtensions.swift; path = Common/Extensions/UIScreenExtensions.swift; sourceTree = "<group>"; };
 		D14CA5141FDE605F00B2EC09 /* 54Days-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "54Days-Bridging-Header.h"; sourceTree = "<group>"; };
 		D14CA51D1FDE66F600B2EC09 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Common/SubClasses/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +187,11 @@
 		D1891E5720981A7B00251CA3 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		D1891E9420B25A3900251CA3 /* RosaryDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryDateCalculator.swift; sourceTree = "<group>"; };
 		D19EB8A720F2D72D009F4026 /* HomeRosaryProgressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeRosaryProgressTableViewCell.swift; path = Modules/Home/View/Cells/HomeRosaryProgressTableViewCell.swift; sourceTree = "<group>"; };
+		D1BE1C0B2128EB4E0043D0EF /* RosaryPeriodInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryPeriodInfoViewController.swift; sourceTree = "<group>"; };
+		D1BE1C0D2128EB7A0043D0EF /* RosaryPeriodInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryPeriodInfoViewModel.swift; sourceTree = "<group>"; };
+		D1BE1C0F2128ED750043D0EF /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		D1BE1C14212BDD740043D0EF /* RosaryPeriodInfoPetitionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosaryPeriodInfoPetitionDescriptionView.swift; sourceTree = "<group>"; };
+		D1BE1C16212E8EF20043D0EF /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
 		D1CFD60E1E15BFFE00E5FE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1CFD6131E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1CFD61B1E15BFFE00E5FE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -315,8 +325,9 @@
 				D1891E2C2095961000251CA3 /* UITableViewCellExtensions.swift */,
 				D1891E2D2095961000251CA3 /* UIViewControllerExtensions.swift */,
 				D14AB1A91F2DC76B00B7FCBA /* UIScreenExtensions.swift */,
-				D14AB19B1F2B22E100B7FCBA /* UIViewExtensions.swift */,
+				D14AB19B1F2B22E100B7FCBA /* UIView+Styling.swift */,
 				D138EADD20FA9013004AADCE /* UIView+TableView.swift */,
+				D1BE1C16212E8EF20043D0EF /* String+Attributed.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +335,7 @@
 		D14AB19D1F2B231C00B7FCBA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				D1BE1C0A2128E2060043D0EF /* RosaryPeriodInfo */,
 				D19EB8A920F2D764009F4026 /* RosaryForm */,
 				D12A4FAE1F6C260B00B2DEF4 /* Prayer */,
 				D14AB19E1F2B232400B7FCBA /* Home */,
@@ -358,6 +370,7 @@
 				D1891E5720981A7B00251CA3 /* Label.swift */,
 				D174295E20F741F700FD738B /* TextView.swift */,
 				D138EAD420F7490F004AADCE /* Button.swift */,
+				D1BE1C0F2128ED750043D0EF /* CircularButton.swift */,
 				D10EEB51211ABF5F00547DF6 /* ImageView.swift */,
 			);
 			name = Views;
@@ -478,6 +491,32 @@
 				D1891E47209596CA00251CA3 /* HomePrayerEntryTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		D1BE1C0A2128E2060043D0EF /* RosaryPeriodInfo */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE1C12212BDD210043D0EF /* ViewModel */,
+				D1BE1C11212BDD1E0043D0EF /* View */,
+			);
+			name = RosaryPeriodInfo;
+			sourceTree = "<group>";
+		};
+		D1BE1C11212BDD1E0043D0EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE1C14212BDD740043D0EF /* RosaryPeriodInfoPetitionDescriptionView.swift */,
+				D1BE1C0B2128EB4E0043D0EF /* RosaryPeriodInfoViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D1BE1C12212BDD210043D0EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE1C0D2128EB7A0043D0EF /* RosaryPeriodInfoViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		D1CFD6021E15BFFE00E5FE23 = {
@@ -737,15 +776,17 @@
 				D19EB8A820F2D72E009F4026 /* HomeRosaryProgressTableViewCell.swift in Sources */,
 				D1891E9520B25A3900251CA3 /* RosaryDateCalculator.swift in Sources */,
 				D138EADC20F8812A004AADCE /* Size.swift in Sources */,
+				D1BE1C0E2128EB7A0043D0EF /* RosaryPeriodInfoViewModel.swift in Sources */,
 				D1891E022095942900251CA3 /* PrayerRosarySubMysteryTableViewCell.swift in Sources */,
 				D174295B20F73EBE00FD738B /* RosaryFormViewController.swift in Sources */,
 				D1891E012095942900251CA3 /* PrayerRosaryFinishingPrayerTableViewCell.swift in Sources */,
+				D1BE1C17212E8EF20043D0EF /* String+Attributed.swift in Sources */,
 				D138EADA20F75149004AADCE /* RosaryFormDateFieldTableViewCell.swift in Sources */,
 				D10BB1A320C5234700629B90 /* CalendarMonthView.swift in Sources */,
 				D1FDDF2F1E28A469003B4189 /* OtherPrayer.swift in Sources */,
 				D1845AE120777166008CBE88 /* RosaryConstants.swift in Sources */,
 				D1891E212095959800251CA3 /* TableCellConfigurator.swift in Sources */,
-				D14AB19C1F2B22E100B7FCBA /* UIViewExtensions.swift in Sources */,
+				D14AB19C1F2B22E100B7FCBA /* UIView+Styling.swift in Sources */,
 				D1891E042095942900251CA3 /* PrayerRosaryStartingPrayerTableViewCell.swift in Sources */,
 				D1891E3A2095961000251CA3 /* UIEdgeInsetsExtensions.swift in Sources */,
 				D1891E372095961000251CA3 /* DateExtensions.swift in Sources */,
@@ -768,12 +809,14 @@
 				D1891E2A209595CD00251CA3 /* FileUtility.swift in Sources */,
 				D138EAE32103FF4A004AADCE /* Typealiases.swift in Sources */,
 				D1891E0F2095948B00251CA3 /* Font.swift in Sources */,
+				D1BE1C0C2128EB4E0043D0EF /* RosaryPeriodInfoViewController.swift in Sources */,
 				D10BB1A420C5234700629B90 /* CalendarView.swift in Sources */,
 				D1891E432095967B00251CA3 /* ProgressBar.swift in Sources */,
 				D1891E062095943400251CA3 /* PrayerViewController.swift in Sources */,
 				D1891E342095961000251CA3 /* UITableViewCellExtensions.swift in Sources */,
 				D10BB19520C5230600629B90 /* DayOfWeek.swift in Sources */,
 				D1891E0A2095945700251CA3 /* Unicode.swift in Sources */,
+				D1BE1C102128ED750043D0EF /* CircularButton.swift in Sources */,
 				D1891E332095961000251CA3 /* ArrayExtensions.swift in Sources */,
 				D1891E552098186B00251CA3 /* TextAttributes.swift in Sources */,
 				D10BB1A820C5235E00629B90 /* CalendarViewModel.swift in Sources */,
@@ -785,6 +828,7 @@
 				D1891E032095942900251CA3 /* PrayerOtherPrayerTableViewCell.swift in Sources */,
 				D1891E412095967B00251CA3 /* RoundView.swift in Sources */,
 				D1891E362095961000251CA3 /* UIColorExtensions.swift in Sources */,
+				D1BE1C15212BDD740043D0EF /* RosaryPeriodInfoPetitionDescriptionView.swift in Sources */,
 				D10BB1A520C5234700629B90 /* CalendarDayCollectionViewCell.swift in Sources */,
 				D1891E1F2095959800251CA3 /* CellConfiguratorType.swift in Sources */,
 				D13419332085ACE6002596C3 /* RosaryPeriod.swift in Sources */,

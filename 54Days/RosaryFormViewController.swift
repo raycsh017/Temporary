@@ -1,41 +1,31 @@
 import UIKit
 import SnapKit
 
+protocol RosaryFormViewControllerDelegate: class {
+	func rosaryFormViewControllerDidEditForm(_ viewController: RosaryFormViewController)
+}
+
 class RosaryFormViewController: TableViewController {
 
 	let footerView = UIView()
 
-	let footerContentView: UIStackView = {
-		let stackView = UIStackView()
-		stackView.axis = .horizontal
-		stackView.alignment = .fill
-		stackView.distribution = .fillEqually
-		stackView.spacing = CGFloat(Spacing.s12)
-		return stackView
-	}()
-
 	lazy var confirmButton: Button = {
 		let button = Button()
-		button.setTitle("확인", for: .normal)
-		button.backgroundColor = Color.Button.Confirm
-		button.layer.cornerRadius = CornerRadius.Button
+		let attributedText = "확인".attributed(withFont: Font.f16, textColor: Color.Button.Confirm)
+		button.setAttributedTitle(attributedText, for: .normal)
+		button.backgroundColor = Color.White
+		button.applyShadow()
+		button.applyCornerRadius()
 		button.addTarget(self, action: #selector(onConfirmButtonTap(_:)), for: .touchUpInside)
 		return button
 	}()
 
-	lazy var cancelButton: Button = {
-		let button = Button()
-		button.setTitle("취소", for: .normal)
-		button.setTitleColor(Color.Button.Cancel, for: .normal)
-		button.layer.cornerRadius = CornerRadius.Button
-		button.addTarget(self, action: #selector(onCancelButtonTap(_:)), for: .touchUpInside)
-		return button
-	}()
+	weak var delegate: RosaryFormViewControllerDelegate?
+	let viewModel: RosaryFormViewModel
 
-	let viewModel = RosaryFormViewModel()
-
-	override init() {
-		super.init()
+	init(viewModel: RosaryFormViewModel, presentationType: PresentationType) {
+		self.viewModel = viewModel
+		super.init(presentationType: presentationType)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -47,34 +37,28 @@ class RosaryFormViewController: TableViewController {
 
 		tableView.showsVerticalScrollIndicator = false
 
-		setupNavigationBar(withTitle: "새 묵주기도", leftButtonType: .x, rightButtonType: nil)
+		setupNavigationBar(withTitle: "묵주기도 설정", leftButtonType: .icon(iconType: .leftChevron), rightButtonType: nil)
+
 		adjustContentInsetOnKeyboardEvents = true
 		dismissKeyboardOnScroll = true
 		endEditingOnTap = true
 
 		// Do any additional setup after loading the view.
-		footerView.addSubview(footerContentView)
-		footerContentView.addArrangedSubview(cancelButton)
-		footerContentView.addArrangedSubview(confirmButton)
-
-		footerContentView.snp.makeConstraints { (make) in
-			make.top.equalToSuperview().offset(Spacing.s16)
-			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16).priority(.high)
-			make.bottom.equalToSuperview().inset(Spacing.s16).priority(.high)
-		}
-
-		cancelButton.snp.makeConstraints { (make) in
-			make.height.equalTo(Button.suggestedHeight)
-		}
+		footerView.addSubview(confirmButton)
 
 		confirmButton.snp.makeConstraints { (make) in
+			make.top.equalToSuperview().offset(Spacing.s16)
+			make.centerX.equalToSuperview()
+			make.bottom.equalToSuperview().offset(-Spacing.s16)
+			make.width.equalTo(Button.suggestedWidth)
 			make.height.equalTo(Button.suggestedHeight)
 		}
 
 		setFooterView(footerView, fixedToBottom: true)
 
-		reloadData(withCellConfigurators: viewModel.cellConfigurators())
+		viewModel.getCellConfigurators { (cellConfigurators) in
+			self.reloadData(withCellConfigurators: cellConfigurators)
+		}
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -90,14 +74,25 @@ class RosaryFormViewController: TableViewController {
 		}
 	}
 
-	@objc func onConfirmButtonTap(_ sender: Any) {
-		viewModel.saveForm {
-			self.dismiss(animated: true, completion: nil)
+	override func onLeftNavigationButtonTap(_ sender: Any) {
+		if viewModel.formDidChange {
+			let alertController = UIAlertController(title: "잠깐!", message: "묵주기도 내용이 바뀌었네요. 저장할까요?", preferredStyle: .alert)
+			alertController.addAction(UIAlertAction(title: "저장", style: .default, handler: { (action) in
+				self.viewModel.saveForm {
+					self.routeBack()
+				}
+			}))
+			alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+			present(alertController, animated: true, completion: nil)
+		} else {
+			routeBack()
 		}
 	}
 
-	@objc func onCancelButtonTap(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
+	@objc func onConfirmButtonTap(_ sender: Any) {
+		viewModel.saveForm {
+			self.dismissNavigationController()
+		}
 	}
 }
 

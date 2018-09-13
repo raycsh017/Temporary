@@ -8,5 +8,9 @@ struct CornerRadius {
 
 extension CornerRadius {
 	static let Card: CGFloat = 4.0
-	static let Button: CGFloat = 24.0
+
+	struct Button {
+		static let Oval: CGFloat = 24.0
+		static let RoundRect: CGFloat = 4.0
+	}
 }

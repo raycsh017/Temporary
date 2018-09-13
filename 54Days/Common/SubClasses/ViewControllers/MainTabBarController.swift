@@ -7,7 +7,8 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		let homeViewController = HomeViewController()
+		let homeViewModel = HomeViewModel()
+		let homeViewController = HomeViewController(viewModel: homeViewModel, presentationType: .navigation)
 		let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ic_prayer"), tag: 0)
 		homeTabBarItem.imageInsets = MainTabBarController.fixedTabBarIconInset
 		homeViewController.tabBarItem = homeTabBarItem

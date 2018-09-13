@@ -18,13 +18,21 @@ extension Date {
 }
 
 extension Date {
+	var startOfDay: Date {
+		return Calendar.current.startOfDay(for: self)
+	}
+
 	var isToday: Bool {
 		return self.isOnSameDay(as: Date())
 	}
-	
+
 	func isOnSameDay(as date: Date) -> Bool {
 		let startOfSelfDate = Calendar.current.startOfDay(for: self)
 		let startOfTargetDate = Calendar.current.startOfDay(for: date)
 		return startOfSelfDate == startOfTargetDate
+	}
+
+	func daysAway(from date: Date) -> Int? {
+		return Calendar.current.dateComponents([.day], from: self.startOfDay, to: date.startOfDay).day
 	}
 }

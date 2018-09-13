@@ -2,6 +2,8 @@ import Foundation
 import UIKit
 
 struct Color {
+	static let Clear = UIColor.clear
+
 	// Light to Dark
 	static let White = UIColor.withHex(0xFFFFFF)
 	static let BackgroundGray = UIColor.withHex(0xF3F3F3)
@@ -10,16 +12,16 @@ struct Color {
 	static let StarDust = UIColor.withHex(0x9E9E9E)
 	static let BalticSeaGray = UIColor.withHex(0x3E3E3E)
 	static let Black = UIColor.withHex(0x3E3E3E)
-	static let Clear = UIColor.clear
-	
-	static let RosaryYellow = UIColor.withHex(0xFFCE54)
-	static let RosaryGreen = UIColor.withHex(0xA0D468)
-	static let RosaryRed = UIColor.withHex(0xED5565)
-	static let RosaryPurple = UIColor.withHex(0xAC92EC)
-	
-	static let OceanBlue = UIColor.withHex(0x004085)
+
+	//Red
 	static let CrimsonRed = UIColor.withHex(0xBA002F)
-	static let Aquamarine = UIColor.withHex(0x71E7A8)
+	static let CoralRed = UIColor.withHex(0xF74042)
+
+	// Green
+	static let OceanGreen = UIColor.withHex(0x39A47C)
+
+	// Blue
+	static let OceanBlue = UIColor.withHex(0x004085)
 }
 
 extension Color {
@@ -43,11 +45,23 @@ extension Color {
 	}
 	
 	struct Button {
-		static let Confirm = Color.Aquamarine
-		static let Cancel = Color.SilverSandGray
+		static let Confirm = Color.OceanGreen
+		static let Neutral = Color.SilverSandGray
+		static let Edit = Color.CoralRed
+		
+		struct State {
+			static let Highlighted = Color.Platinum
+		}
 	}
 	
 	struct ToolBar {
 		static let Dark = Color.Black
+	}
+	
+	struct Rosary {
+		static let Yellow = UIColor.withHex(0xFFCE54)
+		static let Green = UIColor.withHex(0xA0D468)
+		static let Red = UIColor.withHex(0xED5565)
+		static let Purple = UIColor.withHex(0xAC92EC)
 	}
 }

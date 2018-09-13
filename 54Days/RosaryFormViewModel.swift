@@ -1,11 +1,3 @@
-//
-//  RosaryFormViewModel.swift
-//  54Days
-//
-//  Created by Sang Hyuk Cho on 7/12/18.
-//  Copyright © 2018 sang. All rights reserved.
-//
-
 import Foundation
 
 class RosaryFormViewModel {
@@ -15,8 +7,11 @@ class RosaryFormViewModel {
 		return formatter
 	}()
 
-	private(set) var rosaryPetitionText: String = ""
-	private(set) var rosaryStartDate: Date = Date()
+	private let initialRosaryPetitionText: String
+	private let initialRosaryStartDate: Date
+
+	private(set) var rosaryPetitionText: String
+	private(set) var rosaryStartDate: Date
 
 	var rosaryStartDateText: String {
 		return dateFormatter.string(from: rosaryStartDate)
@@ -29,14 +24,39 @@ class RosaryFormViewModel {
 			return "-"
 		}
 	}
+
+	var formDidChange: Bool {
+		return (rosaryPetitionText != initialRosaryPetitionText) || (!initialRosaryStartDate.isOnSameDay(as: rosaryStartDate))
+	}
+
+	init() {
+		if let recentRosaryRecord = RealmDataManager.shared.getFirstObject(ofType: RosaryRecord.self) {
+			rosaryPetitionText = recentRosaryRecord.petitionSummary
+			rosaryStartDate = recentRosaryRecord.startDate
+		} else {
+			rosaryPetitionText = ""
+			rosaryStartDate = Date().startOfDay
+		}
+		initialRosaryPetitionText = rosaryPetitionText
+		initialRosaryStartDate = rosaryStartDate
+	}
+
+	func setRosaryPetitionText(_ text: String) {
+		rosaryPetitionText = text
+	}
+
+	func setRosaryStartDate(_ date: Date) {
+		rosaryStartDate = date
+	}	
 }
 
+// MARK: - CellConfigurators
 extension RosaryFormViewModel {
-	func cellConfigurators() -> [CellConfiguratorType] {
+	func getCellConfigurators(completion: @escaping(([CellConfiguratorType]) -> Void)) {
 		var cellConfigurators: [CellConfiguratorType] = []
 		cellConfigurators.append(contentsOf: petitionFieldCellConfigurators())
 		cellConfigurators.append(contentsOf: dateFieldCellConfigurators())
-		return cellConfigurators
+		completion(cellConfigurators)
 	}
 
 	private func petitionFieldCellConfigurators() -> [CellConfiguratorType] {
@@ -52,17 +72,7 @@ extension RosaryFormViewModel {
 	}
 }
 
-extension RosaryFormViewModel {
-	func setRosaryPetitionText(_ text: String) {
-		rosaryPetitionText = text
-	}
-
-	func setRosaryStartDate(_ date: Date) {
-		rosaryStartDate = date
-	}
-
-}
-
+// MARK: - Realm
 extension RosaryFormViewModel {
 	func saveForm(_ completion: (() -> Void)? = nil) {
 		RealmDataManager.shared.removeAll()

@@ -36,8 +36,8 @@ class TableViewController: ViewController {
 		return tableViewUtility
 	}()
 
-	override init() {
-		super.init()
+	override init(presentationType: ViewController.PresentationType) {
+		super.init(presentationType: presentationType)
 	}
 
 	required init?(coder aDecoder: NSCoder) {

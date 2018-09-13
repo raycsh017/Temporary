@@ -31,8 +31,8 @@ extension HomeViewModel {
 	}
 
 	private func prayerInfoCellConfigurator() -> CellConfiguratorType {
-		let (startDateText, endDateText, progressDescription, numberOfDaysPassed) = currentRosaryInformation()
-		let currentRosaryInfoCellData = HomeRosaryProgressCellData(startDateText: startDateText, endDateText: endDateText, currentDateText: todayDateFormatted, progressDescription: progressDescription, numberOfDaysPassed: numberOfDaysPassed)
+		let (progressDescription, numberOfDaysPassed) = currentRosaryInformation()
+		let currentRosaryInfoCellData = HomeRosaryProgressCellData(currentDateText: todayDateFormatted, progressDescription: progressDescription, numberOfDaysPassed: numberOfDaysPassed)
 		return TableCellConfigurator<HomeRosaryProgressTableViewCell>(cellData: currentRosaryInfoCellData)
 	}
 
@@ -46,25 +46,16 @@ extension HomeViewModel {
 
 // Current prayer information
 extension HomeViewModel {
-	typealias CurrentRosaryInfo = (startDateText: String, endDateText: String, progressDescription: NSAttributedString, numberOfDaysPassed: Int)
+	typealias CurrentRosaryInfo = (progressDescription: NSAttributedString, numberOfDaysPassed: Int)
 
 	private func currentRosaryInformation() -> CurrentRosaryInfo {
 		guard let recentRosaryRecord = recentRosaryRecord else {
-			return ("-", "-", NSAttributedString(string: noRosaryInProgressText), 0)
+			return (NSAttributedString(string: noRosaryInProgressText), 0)
 		}
 
 		dateFormatter.dateFormat = "MM/dd/yyyy"
 
 		let startDate = recentRosaryRecord.startDate
-		let startDateText = dateFormatter.string(from: startDate)
-
-		let endDateText: String
-		if let endDate = RosaryDateCalculator.rosaryEndDate(fromStartDate: startDate) {
-			endDateText = dateFormatter.string(from: endDate)
-		} else {
-			endDateText = "-"
-		}
-
 		let startOfStartDate = Calendar.current.startOfDay(for: startDate)
 		let startOfCurrentDate = Calendar.current.startOfDay(for: Date())
 		let diffBetweenStartAndCurrentDates = Calendar.current.dateComponents([.day], from: startOfStartDate, to: startOfCurrentDate)
@@ -72,7 +63,7 @@ extension HomeViewModel {
 		guard let numDaysPassedSinceStart = diffBetweenStartAndCurrentDates.day,
 			0 <= numDaysPassedSinceStart &&
 			numDaysPassedSinceStart < RosaryConstants.numberOfDaysInPeriod else {
-			return ("-", "-", NSAttributedString(string: noRosaryInProgressText), 0)
+			return (NSAttributedString(string: noRosaryInProgressText), 0)
 		}
 
 		// x일
@@ -110,7 +101,7 @@ extension HomeViewModel {
 		if numDaysPassedSinceStart == 26 || numDaysPassedSinceStart == 53 {
 			additionalMysteryAttributedString = NSAttributedString(string: "영광의 신비", attributes: [
 				.font: Font.bf16,
-				.foregroundColor: Color.RosaryPurple
+				.foregroundColor: Color.Rosary.Purple
 			])
 		}
 
@@ -133,6 +124,6 @@ extension HomeViewModel {
 		paragraphStyle.lineSpacing = TextAttributes.LineSpacing.default
 		progressDescription.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, progressDescription.length))
 
-		return (startDateText, endDateText, progressDescription, numDaysPassedSinceStart)
+		return (progressDescription, numDaysPassedSinceStart)
 	}
 }

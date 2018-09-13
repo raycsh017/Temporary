@@ -6,9 +6,9 @@ class PrayerViewController: TableViewController {
 	let viewModel: PrayerViewModel
 	
 	// MARK: Overriden Methods
-	init(viewModel: PrayerViewModel) {
+	init(viewModel: PrayerViewModel, presentationType: PresentationType) {
 		self.viewModel = viewModel
-		super.init()
+		super.init(presentationType: presentationType)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
