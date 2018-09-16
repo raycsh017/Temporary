@@ -27,7 +27,7 @@ enum PrayerType {
 		case .rosary(let mystery):
 			return mystery.assignedIcon
 		case .other:
-			return UIImage(named: "ic_pray")
+			return UIImage(named: "ic_cross")
 		}
 	}
 	
@@ -36,7 +36,7 @@ enum PrayerType {
 		case .rosary(let mystery):
 			return mystery.assignedColor
 		case .other:
-			return Color.SilverSandGray
+			return Color.StarDust
 		}
 	}
 	
