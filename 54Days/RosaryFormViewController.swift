@@ -79,6 +79,7 @@ class RosaryFormViewController: TableViewController {
 			let alertController = UIAlertController(title: "잠깐!", message: "묵주기도 내용이 바뀌었네요. 저장할까요?", preferredStyle: .alert)
 			alertController.addAction(UIAlertAction(title: "저장", style: .default, handler: { (action) in
 				self.viewModel.saveForm {
+					self.delegate?.rosaryFormViewControllerDidEditForm(self)
 					self.routeBack()
 				}
 			}))
@@ -91,6 +92,7 @@ class RosaryFormViewController: TableViewController {
 
 	@objc func onConfirmButtonTap(_ sender: Any) {
 		viewModel.saveForm {
+			self.delegate?.rosaryFormViewControllerDidEditForm(self)
 			self.dismissNavigationController()
 		}
 	}
