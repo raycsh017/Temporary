@@ -73,13 +73,13 @@ class RosaryPeriodInfoPetitionDescriptionView: UIView {
 		headerLabel.snp.makeConstraints { (make) in
 			make.top.equalToSuperview()
 			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16)
+			make.right.equalToSuperview().offset(-Spacing.s16)
 		}
 
 		bodyLabel.snp.makeConstraints { (make) in
 			make.top.equalTo(headerLabel.snp.bottom).offset(Spacing.s8)
 			make.left.equalToSuperview().offset(Spacing.s16)
-			make.right.equalToSuperview().inset(Spacing.s16)
+			make.right.equalToSuperview().offset(-Spacing.s16)
 		}
 		
 		startDateLabel.snp.makeConstraints { (make) in

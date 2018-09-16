@@ -8,4 +8,5 @@ struct Spacing {
 	static let s16: Int = 16
 	static let s20: Int = 20
 	static let s24: Int = 24
+	static let s32: Int = 32
 }

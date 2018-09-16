@@ -54,9 +54,12 @@ class RosaryPeriodInfoViewController: ViewController {
 		}
 
 		petitionDescriptionView.snp.makeConstraints { (make) in
-			make.edges.equalToSuperview()
+			make.top.equalToSuperview().offset(Spacing.s32)
+			make.left.equalToSuperview()
+			make.right.equalToSuperview()
+			make.bottom.equalToSuperview().offset(-Spacing.s32)
 			make.width.equalTo(scrollView.snp.width)
-			make.height.equalTo(scrollView.snp.height)
+			make.height.greaterThanOrEqualTo(scrollView.snp.height)
 		}
 
 		editButton.snp.makeConstraints { (make) in
