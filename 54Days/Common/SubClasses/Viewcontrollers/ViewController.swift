@@ -5,6 +5,7 @@ import SnapKit
 class ViewController: UIViewController {
 
 	enum PresentationType {
+		case none
 		case modal
 		case navigation
 	}
@@ -56,10 +57,26 @@ class ViewController: UIViewController {
 			make.right.equalTo(view.safeAreaLayoutGuide.snp.right)
 			make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
 		}
+
+		setupDefaultNavigationBar()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+	}
+
+	private func setupDefaultNavigationBar() {
+		switch presentationType {
+		case .none:
+			break
+		case .modal:
+			setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .x), rightButtonType: nil)
+		case .navigation:
+			let numberOfViewControllersInNavigationStack = navigationController?.viewControllers.count ?? 0
+			if numberOfViewControllersInNavigationStack > 1 {
+				setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .leftChevron), rightButtonType: nil)
+			}
+		}
 	}
 
 	func setupNavigationBar(withTitle title: String, leftButtonType: NavigationButtonType? = nil, rightButtonType: NavigationButtonType? = nil) {
@@ -104,6 +121,12 @@ class ViewController: UIViewController {
 		}
 	}
 
+	func updateNavigationBar(title: String) {
+		let navItem: UINavigationItem? = navigationController == nil ?
+			navigationBar.topItem : navigationItem
+		navItem?.title = title
+	}
+
 	func makeNavigationBarTranslucent() {
 		let navBar = navigationController?.navigationBar ?? navigationBar
 		navBar.setBackgroundImage(UIImage(), for: .default)
@@ -112,6 +135,8 @@ class ViewController: UIViewController {
 	}
 
 	private func addNavigationBarToView() {
+		navigationBar.removeFromSuperview()
+
 		view.addSubview(navigationBar)
 
 		navigationBar.snp.makeConstraints { (make) in
@@ -153,8 +178,27 @@ class ViewController: UIViewController {
 
 // MARK: - Routing
 extension ViewController {
+	func route(to viewController: ViewController) {
+		switch viewController.presentationType {
+		case .none:
+			let presentingViewController = navigationController ?? self
+			let presentedViewController = viewController.navigationController ?? viewController
+			presentingViewController.present(presentedViewController, animated: false, completion: nil)
+		case .modal:
+			let presentingViewController = navigationController ?? self
+			let presentedViewController = viewController.navigationController ?? viewController
+			presentingViewController.present(presentedViewController, animated: true, completion: nil)
+		case .navigation:
+			let presentingViewController = navigationController
+			let presentedViewController = viewController
+			presentingViewController?.pushViewController(presentedViewController, animated: true)
+		}
+	}
+
 	func routeBack() {
 		switch presentationType {
+		case .none:
+			dismiss(animated: false, completion: nil)
 		case .modal:
 			dismiss(animated: true, completion: nil)
 		case .navigation:

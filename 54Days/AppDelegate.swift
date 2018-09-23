@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UINavigationBar.appearance().tintColor = Color.Black
 
 		let homeViewModel = HomeViewModel()
-		let homeViewController = HomeViewController(viewModel: homeViewModel, presentationType: .navigation)
+		let homeViewController = HomeViewController(viewModel: homeViewModel, presentationType: .none)
 		let homeNavigationController = NavigationController(rootViewController: homeViewController)
 		homeNavigationController.prefersLargeTitles = true
 

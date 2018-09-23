@@ -65,19 +65,25 @@ extension HomeViewController {
 	private func routeToPrayer(withType prayerType: PrayerType) {
 		let viewModel = PrayerViewModel(prayerType: prayerType)
 		let viewController = PrayerViewController(viewModel: viewModel, presentationType: .navigation)
-		navigationController?.pushViewController(viewController, animated: true)
+		route(to: viewController)
 	}
 
 	private func routeToRosaryPeriodInfo() {
 		let viewModel = RosaryPeriodInfoViewModel()
 		let viewController = RosaryPeriodInfoViewController(viewModel: viewModel, presentationType: .modal)
-		let navigationController = NavigationController(rootViewController: viewController)
-		self.navigationController?.present(navigationController, animated: true, completion: nil)
+		let _ = NavigationController(rootViewController: viewController)
+		route(to: viewController)
 	}
 
 	private func routeToRosaryForm() {
 		let viewModel = RosaryFormViewModel()
 		let viewController = RosaryFormViewController(viewModel: viewModel, presentationType: .modal)
-		self.navigationController?.present(viewController, animated: true, completion: nil)
+		route(to: viewController)
+	}
+}
+
+extension HomeViewController: RosaryFormViewControllerDelegate {
+	func rosaryFormViewControllerDidEditForm(_ viewController: RosaryFormViewController) {
+		refreshPage()
 	}
 }

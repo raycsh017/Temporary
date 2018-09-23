@@ -38,7 +38,7 @@ class RosaryPeriodInfoViewController: ViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupNavigationBar(withTitle: "진행중인 묵주기도", leftButtonType: .icon(iconType: .x), rightButtonType: nil)
+		updateNavigationBar(title: "진행중인 묵주기도")
 		makeNavigationBarTranslucent()
 
 		// Do any additional setup after loading the view.
@@ -92,7 +92,7 @@ extension RosaryPeriodInfoViewController {
 		let viewModel = RosaryFormViewModel()
 		let viewController = RosaryFormViewController(viewModel: viewModel, presentationType: .navigation)
 		viewController.delegate = self
-		navigationController?.pushViewController(viewController, animated: true)
+		route(to: viewController)
 	}
 }
 

@@ -37,7 +37,7 @@ class RosaryFormViewController: TableViewController {
 
 		tableView.showsVerticalScrollIndicator = false
 
-		setupNavigationBar(withTitle: "묵주기도 설정", leftButtonType: .icon(iconType: .leftChevron), rightButtonType: nil)
+		updateNavigationBar(title: "묵주기도 설정")
 
 		adjustContentInsetOnKeyboardEvents = true
 		dismissKeyboardOnScroll = true
@@ -93,7 +93,7 @@ class RosaryFormViewController: TableViewController {
 	@objc func onConfirmButtonTap(_ sender: Any) {
 		viewModel.saveForm {
 			self.delegate?.rosaryFormViewControllerDidEditForm(self)
-			self.dismissNavigationController()
+			self.dismiss(animated: true, completion: nil)
 		}
 	}
 }
