@@ -15,6 +15,11 @@ class HomeRosaryProgressCellData {
 	}
 }
 
+protocol HomeRosaryProgressTableViewCellDelegate: class {
+	func homeRosaryProgressTableViewCellDidTapCurrentRosaryPeriodCTA(_ cell: HomeRosaryProgressTableViewCell)
+	func HomeRosaryProgressTableViewCellDidTapSetNewRosaryPeriodCTA(_ cell: HomeRosaryProgressTableViewCell)
+}
+
 class HomeRosaryProgressTableViewCell: UITableViewCell {
 
 	let currentDateLabel: Label = {
@@ -41,11 +46,44 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 		return progressBar
 	}()
 
+	let ctaStackView: UIStackView = {
+		let stackView = UIStackView(frame: CGRect.zero)
+		stackView.axis = .horizontal
+		stackView.alignment = .fill
+		stackView.distribution = .fillEqually
+		stackView.spacing = CGFloat(Spacing.s16)
+		return stackView
+	}()
+
+	lazy var currentRosaryPeriodCTAButton: Button = {
+		let button = Button(frame: CGRect.zero)
+		let attributedText = "진행중인 묵주기도".attributed(withFont: Font.bf16, textColor: Color.Button.Dark)
+		button.setAttributedTitle(attributedText, for: .normal)
+		button.backgroundColor = Color.White
+		button.applyShadow()
+		button.applyCornerRadius()
+		button.addTarget(self, action: #selector(onCurrentRosaryPeriodCTAButtonTap(_:)), for: .touchUpInside)
+		return button
+	}()
+
+	lazy var setNewRosaryPeriodCTAButton: Button = {
+		let button = Button(frame: CGRect.zero)
+		let attributedText = "묵주기도 기간 수정".attributed(withFont: Font.bf16, textColor: Color.Button.Dark)
+		button.setAttributedTitle(attributedText, for: .normal)
+		button.backgroundColor = Color.White
+		button.applyShadow()
+		button.applyCornerRadius()
+		button.addTarget(self, action: #selector(onSetNewRosaryPeriodCTAButtonTap(_:)), for: .touchUpInside)
+		return button
+	}()
+
 	let underlineView: UIView = {
 		let view = UIView()
 		view.backgroundColor = Color.BackgroundGray
 		return view
 	}()
+
+	weak var delegate: HomeRosaryProgressTableViewCellDelegate?
 
 	var prayerInfoCellData: HomeRosaryProgressCellData?
 
@@ -58,6 +96,10 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 		contentView.addSubview(progressDescriptionLabel)
 		contentView.addSubview(progressBar)
 		contentView.addSubview(underlineView)
+		contentView.addSubview(ctaStackView)
+
+		ctaStackView.addArrangedSubview(currentRosaryPeriodCTAButton)
+		ctaStackView.addArrangedSubview(setNewRosaryPeriodCTAButton)
 
 		currentDateLabel.snp.makeConstraints { (make) in
 			make.top.equalToSuperview().offset(Spacing.s16)
@@ -78,17 +120,32 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 			make.height.equalTo(6.0).priority(.high)
 		}
 
+		ctaStackView.snp.makeConstraints { (make) in
+			make.top.equalTo(progressBar.snp.bottom).offset(Spacing.s20)
+			make.left.equalToSuperview().offset(Spacing.s16)
+			make.right.equalToSuperview().offset(-Spacing.s16)
+			make.height.equalTo(Button.suggestedHeight)
+		}
+
 		underlineView.snp.makeConstraints { (make) in
-			make.top.equalTo(progressBar.snp.bottom).offset(Spacing.s16)
+			make.top.equalTo(ctaStackView.snp.bottom).offset(Spacing.s20)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 			make.bottom.equalToSuperview()
 			make.height.equalTo(1.0)
 		}
 	}
-	
+
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	@objc func onCurrentRosaryPeriodCTAButtonTap(_ sender: Any) {
+		delegate?.homeRosaryProgressTableViewCellDidTapCurrentRosaryPeriodCTA(self)
+	}
+
+	@objc func onSetNewRosaryPeriodCTAButtonTap(_ sender: Any) {
+		delegate?.HomeRosaryProgressTableViewCellDidTapSetNewRosaryPeriodCTA(self)
 	}
 }
 

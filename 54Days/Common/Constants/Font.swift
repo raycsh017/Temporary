@@ -17,5 +17,4 @@ struct Font {
 		?? UIFont.boldSystemFont(ofSize: 20.0)
 	static let bf24 = UIFont(name: "NanumBarunGothicBold", size: 24.0)
 		?? UIFont.boldSystemFont(ofSize: 24.0)
-	
 }

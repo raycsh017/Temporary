@@ -43,17 +43,20 @@ extension Color {
 	struct Divider {
 		static let Default = Color.BackgroundGray
 	}
-	
+
 	struct Button {
+		static let Dark = Color.Black
+		static let Light = Color.White
+
 		static let Confirm = Color.OceanGreen
 		static let Neutral = Color.SilverSandGray
 		static let Edit = Color.CoralRed
-		
+
 		struct State {
 			static let Highlighted = Color.Platinum
 		}
 	}
-	
+
 	struct ToolBar {
 		static let Dark = Color.Black
 	}
