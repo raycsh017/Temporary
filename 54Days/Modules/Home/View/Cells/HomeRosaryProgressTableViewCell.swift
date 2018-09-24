@@ -131,7 +131,7 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 		}
 
 		underlineView.snp.makeConstraints { (make) in
-			make.top.equalTo(ctaStackView.snp.bottom).offset(Spacing.s20)
+			make.top.equalTo(ctaStackView.snp.bottom).offset(Spacing.s20).priority(.high)
 			make.left.equalToSuperview()
 			make.right.equalToSuperview()
 			make.bottom.equalToSuperview()
@@ -154,7 +154,7 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 
 extension HomeRosaryProgressTableViewCell: CellUpdatable {
 	typealias CellData = HomeRosaryProgressCellData
-	
+
 	func update(withCellData cellData: CellData) {
 		prayerInfoCellData = cellData
 
