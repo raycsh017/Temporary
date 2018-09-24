@@ -70,11 +70,11 @@ class ViewController: UIViewController {
 		case .none:
 			break
 		case .modal:
-			setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .x), rightButtonType: nil)
+			setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .x, iconAlignment: .center), rightButtonType: nil)
 		case .navigation:
 			let numberOfViewControllersInNavigationStack = navigationController?.viewControllers.count ?? 0
 			if numberOfViewControllersInNavigationStack > 1 {
-				setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .leftChevron), rightButtonType: nil)
+				setupNavigationBar(withTitle: "", leftButtonType: .icon(iconType: .leftChevron, iconAlignment: .left), rightButtonType: nil)
 			}
 		}
 	}
@@ -95,10 +95,11 @@ class ViewController: UIViewController {
 			switch leftButtonType {
 			case let .text(title):
 				leftBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(onLeftNavigationButtonTap(_:)))
-			case let .icon(iconType):
+			case let .icon(iconType, iconAlignment):
 				let button = Button(frame: CGRect(x: 0, y: 0, width: 36.0, height: 36.0))
 				button.layer.cornerRadius = CornerRadius.Button.RoundRect
 				button.setImage(iconType.image, for: .normal)
+				button.imageEdgeInsets = iconAlignment.imageInset
 				button.addTarget(self, action: #selector(onLeftNavigationButtonTap(_:)), for: .touchUpInside)
 				leftBarButtonItem = UIBarButtonItem(customView: button)
 			}
@@ -110,10 +111,11 @@ class ViewController: UIViewController {
 			switch rightButtonType {
 			case let .text(title):
 				rightBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(onRightNavigationButtonTap(_:)))
-			case let .icon(iconType):
+			case let .icon(iconType, iconAlignment):
 				let button = Button(frame: CGRect(x: 0, y: 0, width: 36.0, height: 36.0))
 				button.layer.cornerRadius = CornerRadius.Button.RoundRect
 				button.setImage(iconType.image, for: .normal)
+				button.imageEdgeInsets = iconAlignment.imageInset
 				button.addTarget(self, action: #selector(onRightNavigationButtonTap(_:)), for: .touchUpInside)
 				rightBarButtonItem = UIBarButtonItem(customView: button)
 			}
@@ -213,7 +215,7 @@ extension ViewController {
 
 enum NavigationButtonType {
 	case text(title: String)
-	case icon(iconType: IconType)
+	case icon(iconType: IconType, iconAlignment: IconAlignment)
 
 	enum IconType {
 		case x
@@ -225,6 +227,23 @@ enum NavigationButtonType {
 				return #imageLiteral(resourceName: "ic_x")
 			case .leftChevron:
 				return #imageLiteral(resourceName: "ic_chevron_left")
+			}
+		}
+	}
+
+	enum IconAlignment {
+		case left
+		case center
+		case right
+
+		var imageInset: UIEdgeInsets {
+			switch self {
+			case .left:
+				return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16.0)
+			case .center:
+				return UIEdgeInsets.zero
+			case .right:
+				return UIEdgeInsets(top: 0, left: 16.0, bottom: 0, right: 0)
 			}
 		}
 	}
