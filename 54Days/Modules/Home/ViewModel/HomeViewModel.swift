@@ -2,8 +2,6 @@ import UIKit
 import SwiftyJSON
 
 class HomeViewModel {
-	private let noRosaryInProgressText: String = "현재 진행중인 묵주기도가 없습니다 😕"
-
 	private let dateFormatter = DateFormatter()
 
 	private let prayerTypes = PrayerType.all
@@ -17,9 +15,9 @@ class HomeViewModel {
 		dateFormatter.dateFormat = "MMMM dd"
 		return dateFormatter.string(from: Date())
 	}
-
 }
 
+// MARK: - Assemble Cell Configurators
 extension HomeViewModel {
 	func getCellConfigurators(completion: @escaping (([CellConfiguratorType]) -> Void)) {
 		var cellConfigurators = [CellConfiguratorType]()
@@ -31,8 +29,8 @@ extension HomeViewModel {
 	}
 
 	private func prayerInfoCellConfigurator() -> CellConfiguratorType {
-		let (progressDescription, numberOfDaysPassed) = currentRosaryInformation()
-		let currentRosaryInfoCellData = HomeRosaryProgressCellData(currentDateText: todayDateFormatted, progressDescription: progressDescription, numberOfDaysPassed: numberOfDaysPassed)
+		let (progressDescription, progressBarColor, rosaryProgress) = currentRosaryProgressInfo()
+		let currentRosaryInfoCellData = HomeRosaryProgressCellData(currentDateText: todayDateFormatted, progressDescription: progressDescription, progressBarColor: progressBarColor, rosaryProgress: rosaryProgress)
 		return TableCellConfigurator<HomeRosaryProgressTableViewCell>(cellData: currentRosaryInfoCellData)
 	}
 
@@ -41,29 +39,28 @@ extension HomeViewModel {
 		let prayerEntryCellConfigurators = prayerEntryCellData.map { TableCellConfigurator<HomePrayerEntryTableViewCell>(cellData: $0) as CellConfiguratorType }
 		return prayerEntryCellConfigurators
 	}
-
 }
 
-// Current prayer information
+// MARK: - Parsing & Formatting of Data
 extension HomeViewModel {
-	typealias CurrentRosaryInfo = (progressDescription: NSAttributedString, numberOfDaysPassed: Int)
+	private func currentRosaryProgressInfo() -> (progressDescription: NSAttributedString, progressColor: UIColor, progress: Int) {
+		var progressDescription: NSAttributedString = NSAttributedString(string: "현재 진행중인 묵주기도가 없습니다 😕")
+		var progressColor: UIColor = Color.StarDust
+		var progress: Int = 0
 
-	private func currentRosaryInformation() -> CurrentRosaryInfo {
 		guard let recentRosaryRecord = recentRosaryRecord else {
-			return (NSAttributedString(string: noRosaryInProgressText), 0)
+			return (progressDescription, progressColor, progress)
 		}
-
-		dateFormatter.dateFormat = "MM/dd/yyyy"
 
 		let startDate = recentRosaryRecord.startDate
 		let startOfStartDate = Calendar.current.startOfDay(for: startDate)
 		let startOfCurrentDate = Calendar.current.startOfDay(for: Date())
-		let diffBetweenStartAndCurrentDates = Calendar.current.dateComponents([.day], from: startOfStartDate, to: startOfCurrentDate)
+		let numberOfDaysPassed = Calendar.current.dateComponents([.day], from: startOfStartDate, to: startOfCurrentDate)
 
-		guard let numDaysPassedSinceStart = diffBetweenStartAndCurrentDates.day,
-			0 <= numDaysPassedSinceStart &&
-			numDaysPassedSinceStart < RosaryConstants.numberOfDaysInPeriod else {
-			return (NSAttributedString(string: noRosaryInProgressText), 0)
+		let numDaysPassedSinceStart = numberOfDaysPassed.day ?? 0
+
+		guard 0 <= numDaysPassedSinceStart && numDaysPassedSinceStart < RosaryConstants.numberOfDaysInPeriod else {
+			return (progressDescription, progressColor, progress)
 		}
 
 		// x일
@@ -88,7 +85,9 @@ extension HomeViewModel {
 		])
 
 		// xx의 신비
-		let mysteryIndex = (numDaysPassedSinceStart < 27) ? (numDaysPassedSinceStart % 4) : ((numDaysPassedSinceStart+1) % 4)
+		let mysteryIndex = (numDaysPassedSinceStart < 27) ?
+			(numDaysPassedSinceStart % 4) :
+			((numDaysPassedSinceStart + 1) % 4)
 		let mystery = mysteryTypes[mysteryIndex]
 		let mysteryString = mystery.koreanTitle
 
@@ -106,24 +105,28 @@ extension HomeViewModel {
 		}
 
 		// Assemble
-		let progressDescription = NSMutableAttributedString()
-		progressDescription.append(NSAttributedString(string: "오늘은 묵주기도 "))
-		progressDescription.append(numDaysPassedAttributedString)
-		progressDescription.append(NSAttributedString(string: "째이며, "))
-		progressDescription.append(rosaryTypeAttributedString)
-		progressDescription.append(NSAttributedString(string: ", "))
-		progressDescription.append(mysteryAttributedString)
+		let mutableProgressDescription = NSMutableAttributedString()
+		mutableProgressDescription.append(NSAttributedString(string: "오늘은 묵주기도 "))
+		mutableProgressDescription.append(numDaysPassedAttributedString)
+		mutableProgressDescription.append(NSAttributedString(string: "째이며, "))
+		mutableProgressDescription.append(rosaryTypeAttributedString)
+		mutableProgressDescription.append(NSAttributedString(string: ", "))
+		mutableProgressDescription.append(mysteryAttributedString)
 		if let additionalMysteryString = additionalMysteryAttributedString {
-			progressDescription.append(NSAttributedString(string: ", "))
-			progressDescription.append(additionalMysteryString)
+			mutableProgressDescription.append(NSAttributedString(string: ", "))
+			mutableProgressDescription.append(additionalMysteryString)
 		}
-		progressDescription.append(NSAttributedString(string: "를 하실 차례입니다 🙂"))
+		mutableProgressDescription.append(NSAttributedString(string: "를 하실 차례입니다 🙂"))
 
 		// Apply overall style
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.lineSpacing = TextAttributes.LineSpacing.default
-		progressDescription.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, progressDescription.length))
+		mutableProgressDescription.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, progressDescription.length))
 
-		return (progressDescription, numDaysPassedSinceStart)
+		progressDescription = mutableProgressDescription
+		progressColor = mystery.assignedColor
+		progress = numDaysPassedSinceStart
+
+		return (progressDescription, progressColor, progress)
 	}
 }

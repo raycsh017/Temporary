@@ -4,14 +4,17 @@ import SnapKit
 class HomeRosaryProgressCellData {
 	let currentDateText: String
 	let progressDescription: NSAttributedString
-	let numberOfDaysPassed: Int
+	let progressBarColor: UIColor
+	let rosaryProgress: Int
 
 	init(currentDateText: String,
 		 progressDescription: NSAttributedString,
-		 numberOfDaysPassed: Int) {
+		 progressBarColor: UIColor,
+		 rosaryProgress: Int) {
 		self.currentDateText = currentDateText
 		self.progressDescription = progressDescription
-		self.numberOfDaysPassed = numberOfDaysPassed
+		self.progressBarColor = progressBarColor
+		self.rosaryProgress = rosaryProgress
 	}
 }
 
@@ -157,6 +160,7 @@ extension HomeRosaryProgressTableViewCell: CellUpdatable {
 
 		currentDateLabel.text = cellData.currentDateText
 		progressDescriptionLabel.attributedText = cellData.progressDescription
-		progressBar.setProgress(cellData.numberOfDaysPassed, animated: true)
+		progressBar.foregroundBarColor = cellData.progressBarColor
+		progressBar.setProgress(cellData.rosaryProgress, animated: true)
 	}
 }
