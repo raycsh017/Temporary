@@ -44,7 +44,7 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 
 	let progressBar: ProgressBar = {
 		let progressBar = ProgressBar(totalProgress: CGFloat(RosaryConstants.numberOfDaysInPeriod))
-		progressBar.foregroundBarColor = Color.StarDust
+		progressBar.foregroundBarColor = Color.Clear
 		progressBar.backgroundBarColor = Color.BackgroundGray
 		return progressBar
 	}()
