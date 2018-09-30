@@ -71,7 +71,7 @@ class HomeRosaryProgressTableViewCell: UITableViewCell {
 
 	lazy var setNewRosaryPeriodCTAButton: Button = {
 		let button = Button(frame: CGRect.zero)
-		let attributedText = "묵주기도 기간 수정".attributed(withFont: Font.bf16, textColor: Color.Button.Dark)
+		let attributedText = "묵주기도 설정".attributed(withFont: Font.bf16, textColor: Color.Button.Dark)
 		button.setAttributedTitle(attributedText, for: .normal)
 		button.backgroundColor = Color.White
 		button.applyShadow()

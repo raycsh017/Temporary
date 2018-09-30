@@ -2,7 +2,7 @@ import UIKit
 import SwiftyJSON
 
 class HomeViewModel {
-	private let noRosaryProgressDescription = NSAttributedString(string: "묵주기도를 시작하신 기록이 없네요 😕")
+	private let noRosaryProgressDescription = NSAttributedString(string: "진행중인 묵주기도가 없으신거 같네요 😕")
 	private let noRosaryProgressBarColor = Color.Clear
 	private let noRosaryProgress = 0
 
